@@ -1,5 +1,5 @@
 //
-//  UIStoryboard.swift
+//  AuthManager.swift
 //  GrippedAthletics
 //
 //  Created by Andrew McLean on 10/22/16.
@@ -8,6 +8,8 @@
 
 import UIKit
 
-extension UIStoryboard {
+class AuthManager: NSObject {
+    
+    static let instance = AuthManager()
     
 }

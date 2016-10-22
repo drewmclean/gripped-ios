@@ -1,5 +1,5 @@
 //
-//  UIStoryboard.swift
+//  Config.swift
 //  GrippedAthletics
 //
 //  Created by Andrew McLean on 10/22/16.
@@ -8,6 +8,7 @@
 
 import UIKit
 
-extension UIStoryboard {
-    
+struct StoryboardNames {
+    static let main = "Main"
+    static let login = "Login"
 }
