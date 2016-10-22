@@ -8,7 +8,6 @@ target 'GrippedAthletics' do
 
   pod 'AWSCore', '~> 2.4'
   pod 'AWSCognito', '~> 2.4'
-  pod 'PromiseKit', '~> 4.0'
   pod 'FacebookCore', '~> 0.2'
   pod 'FacebookLogin', '~> 0.2'
   
