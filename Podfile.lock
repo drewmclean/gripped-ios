@@ -1,4 +1,7 @@
 PODS:
+  - AWSCognito (2.4.10):
+    - AWSCore (= 2.4.10)
+  - AWSCore (2.4.10)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -30,11 +33,15 @@ PODS:
     - PromiseKit/CorePromise
 
 DEPENDENCIES:
+  - AWSCognito (~> 2.4)
+  - AWSCore (~> 2.4)
   - FacebookCore (~> 0.2)
   - FacebookLogin (~> 0.2)
   - PromiseKit (~> 4.0)
 
 SPEC CHECKSUMS:
+  AWSCognito: d9c6932091ceedac47e187ae04f0248505242cb0
+  AWSCore: c78eff928514e90075c3bd53f5ff2d9a77f8658e
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
@@ -42,6 +49,6 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: 469a56cebe2e1ed62b1621d0b155970fd6aac2d8
   PromiseKit: dfe8fcc6445674fb23378d89990838c1cbdbf05a
 
-PODFILE CHECKSUM: 647db785e046e86a40b56feb8260680def120922
+PODFILE CHECKSUM: 2e840c7d7544cd674ad226edb413d89045161369
 
 COCOAPODS: 1.0.1

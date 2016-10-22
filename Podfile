@@ -5,7 +5,9 @@ swift_version = '3.0'
 target 'GrippedAthletics' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  
+
+  pod 'AWSCore', '~> 2.4'
+  pod 'AWSCognito', '~> 2.4'
   pod 'PromiseKit', '~> 4.0'
   pod 'FacebookCore', '~> 0.2'
   pod 'FacebookLogin', '~> 0.2'
