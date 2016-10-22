@@ -1,0 +1,644 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0103A85F700EB8AB2A4F87D18AFE9D1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		0924DDA5699A3EE8BF4E9DAAFC647F84 /* Pods-GrippedAthleticsUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C7C8CA96EED5D3CF160F59FDDDBC3CFF /* Pods-GrippedAthleticsUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EEA852346A052749ABF8D96D2FDE9F6 /* Pods-GrippedAthletics-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C9DF19AE7B56B5DE636A1BFD60EA641B /* Pods-GrippedAthletics-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24BFFE6C20D0A6BF6DA59B85C0B889DE /* Pods-GrippedAthletics-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE9E59CD814F51DCDFC1B03D2CCCEFD /* Pods-GrippedAthletics-dummy.m */; };
+		255B5A4EFB3D216A4D3E28703D601046 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		9A7587EF43DD1AC92A49C64C3C16B0CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		9D7609A3AA42893A86C8C9DF5FE664DA /* Pods-GrippedAthleticsTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6662CAF958715E9710FE305FFE8DCBE1 /* Pods-GrippedAthleticsTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C02292C58BB7D49E0A9700EE40748B58 /* Pods-GrippedAthleticsTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3481F469C0C0FE39574717DE0C8BFDA9 /* Pods-GrippedAthleticsTests-dummy.m */; };
+		FF5E23C1B3D2D953DD3A81480AD95C4B /* Pods-GrippedAthleticsUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFD5101C948284FDF49B57270EAF77 /* Pods-GrippedAthleticsUITests-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0B58D71037D127EB824DB1FD376C9E33 /* Pods-GrippedAthleticsUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GrippedAthleticsUITests-resources.sh"; sourceTree = "<group>"; };
+		10D93DCC369B9252ABBDCF4C146D86BD /* Pods-GrippedAthleticsUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GrippedAthleticsUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		2CBFD5101C948284FDF49B57270EAF77 /* Pods-GrippedAthleticsUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GrippedAthleticsUITests-dummy.m"; sourceTree = "<group>"; };
+		3481F469C0C0FE39574717DE0C8BFDA9 /* Pods-GrippedAthleticsTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GrippedAthleticsTests-dummy.m"; sourceTree = "<group>"; };
+		46F6132640AD2E2E35DCAA04B5037B46 /* Pods-GrippedAthleticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GrippedAthleticsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		55A92C59D213E944C951C81AB25231D2 /* Pods_GrippedAthleticsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrippedAthleticsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B4E30E33F21E406798DE5E453BDAC76 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D4448E4CD0049B97D3F370A766A70FD /* Pods-GrippedAthletics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GrippedAthletics.release.xcconfig"; sourceTree = "<group>"; };
+		625ACD209B1247D4A40BC7BFA7EA6EA9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64392092548002B73C32C7908FB44FDB /* Pods-GrippedAthleticsTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GrippedAthleticsTests.modulemap"; sourceTree = "<group>"; };
+		64A0566304F19167247D1DC3246AE0C0 /* Pods-GrippedAthleticsTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GrippedAthleticsTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		658F758948771B4D0E34E951529B0802 /* Pods-GrippedAthletics-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GrippedAthletics-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6662CAF958715E9710FE305FFE8DCBE1 /* Pods-GrippedAthleticsTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GrippedAthleticsTests-umbrella.h"; sourceTree = "<group>"; };
+		68765676C49A60E62B8D462B8E70F6BF /* Pods-GrippedAthletics-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GrippedAthletics-resources.sh"; sourceTree = "<group>"; };
+		6AD9FD714D8F04D7EA3B679FAE9FEC83 /* Pods-GrippedAthletics-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GrippedAthletics-frameworks.sh"; sourceTree = "<group>"; };
+		6B9632034E08DE1FCFC3CDD505E418D6 /* Pods-GrippedAthletics.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GrippedAthletics.modulemap"; sourceTree = "<group>"; };
+		7D6198A0A1F46C5ADF82FA5555589AD3 /* Pods-GrippedAthleticsUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GrippedAthleticsUITests.modulemap"; sourceTree = "<group>"; };
+		8C560C6473D1A7D1EEA93BF84C73CFED /* Pods-GrippedAthletics-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GrippedAthletics-acknowledgements.plist"; sourceTree = "<group>"; };
+		8DE9E59CD814F51DCDFC1B03D2CCCEFD /* Pods-GrippedAthletics-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GrippedAthletics-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B18E5841B4FFED9DA346BFBAA6FB63E4 /* Pods-GrippedAthleticsTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GrippedAthleticsTests-resources.sh"; sourceTree = "<group>"; };
+		B8188302F6A87C97761EBA1A8C6B3CDB /* Pods-GrippedAthleticsUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GrippedAthleticsUITests-frameworks.sh"; sourceTree = "<group>"; };
+		BC7C57D3410F4A7BEC5778072C7AA605 /* Pods-GrippedAthletics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GrippedAthletics.debug.xcconfig"; sourceTree = "<group>"; };
+		C040F7DA868A0F4A509611BF11C13677 /* Pods_GrippedAthletics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrippedAthletics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C15FF6C08A98485E598F7180503EA908 /* Pods-GrippedAthleticsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GrippedAthleticsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C7C8CA96EED5D3CF160F59FDDDBC3CFF /* Pods-GrippedAthleticsUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GrippedAthleticsUITests-umbrella.h"; sourceTree = "<group>"; };
+		C9DF19AE7B56B5DE636A1BFD60EA641B /* Pods-GrippedAthletics-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GrippedAthletics-umbrella.h"; sourceTree = "<group>"; };
+		CC357975195A7C7155B498397295B204 /* Pods_GrippedAthleticsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrippedAthleticsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D407F9A1AAC7A522E6DF76CBE8B7CF88 /* Pods-GrippedAthleticsTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GrippedAthleticsTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D7AE0458B4504F169A46D2341912952A /* Pods-GrippedAthleticsTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GrippedAthleticsTests-frameworks.sh"; sourceTree = "<group>"; };
+		DB14F203E5926D2B576EE57C5E95CE88 /* Pods-GrippedAthleticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GrippedAthleticsTests.release.xcconfig"; sourceTree = "<group>"; };
+		DE4D6A9806490DC5E1A2B5BA9C1F89BC /* Pods-GrippedAthleticsUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GrippedAthleticsUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F12E56D858D682CE4CF0B92EA55E59F1 /* Pods-GrippedAthleticsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GrippedAthleticsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FE1F9699AEFD825B9C42CA1427ED09DD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		057F555DA7068231AE82AF905907E2C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A7587EF43DD1AC92A49C64C3C16B0CA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25343A3CA4E37485EC829827DE30B603 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0103A85F700EB8AB2A4F87D18AFE9D1E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4ED2248624D53ECBFC6AB4FEA87DEE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				255B5A4EFB3D216A4D3E28703D601046 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00C841AC72063D02F84733D8D25400CD /* Pods-GrippedAthleticsTests */ = {
+			isa = PBXGroup;
+			children = (
+				5B4E30E33F21E406798DE5E453BDAC76 /* Info.plist */,
+				64392092548002B73C32C7908FB44FDB /* Pods-GrippedAthleticsTests.modulemap */,
+				D407F9A1AAC7A522E6DF76CBE8B7CF88 /* Pods-GrippedAthleticsTests-acknowledgements.markdown */,
+				64A0566304F19167247D1DC3246AE0C0 /* Pods-GrippedAthleticsTests-acknowledgements.plist */,
+				3481F469C0C0FE39574717DE0C8BFDA9 /* Pods-GrippedAthleticsTests-dummy.m */,
+				D7AE0458B4504F169A46D2341912952A /* Pods-GrippedAthleticsTests-frameworks.sh */,
+				B18E5841B4FFED9DA346BFBAA6FB63E4 /* Pods-GrippedAthleticsTests-resources.sh */,
+				6662CAF958715E9710FE305FFE8DCBE1 /* Pods-GrippedAthleticsTests-umbrella.h */,
+				46F6132640AD2E2E35DCAA04B5037B46 /* Pods-GrippedAthleticsTests.debug.xcconfig */,
+				DB14F203E5926D2B576EE57C5E95CE88 /* Pods-GrippedAthleticsTests.release.xcconfig */,
+			);
+			name = "Pods-GrippedAthleticsTests";
+			path = "Target Support Files/Pods-GrippedAthleticsTests";
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		44E8CB6F89027A38E2618D18099767D8 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BBA6FB739BA30399AA3D19BCC6353F21 /* Pods-GrippedAthletics */,
+				00C841AC72063D02F84733D8D25400CD /* Pods-GrippedAthleticsTests */,
+				A52C5D788508D11C53F216FD7EE918D8 /* Pods-GrippedAthleticsUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				E7439AD2D05665BE379269B6D7489C11 /* Products */,
+				44E8CB6F89027A38E2618D18099767D8 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A52C5D788508D11C53F216FD7EE918D8 /* Pods-GrippedAthleticsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				625ACD209B1247D4A40BC7BFA7EA6EA9 /* Info.plist */,
+				7D6198A0A1F46C5ADF82FA5555589AD3 /* Pods-GrippedAthleticsUITests.modulemap */,
+				DE4D6A9806490DC5E1A2B5BA9C1F89BC /* Pods-GrippedAthleticsUITests-acknowledgements.markdown */,
+				10D93DCC369B9252ABBDCF4C146D86BD /* Pods-GrippedAthleticsUITests-acknowledgements.plist */,
+				2CBFD5101C948284FDF49B57270EAF77 /* Pods-GrippedAthleticsUITests-dummy.m */,
+				B8188302F6A87C97761EBA1A8C6B3CDB /* Pods-GrippedAthleticsUITests-frameworks.sh */,
+				0B58D71037D127EB824DB1FD376C9E33 /* Pods-GrippedAthleticsUITests-resources.sh */,
+				C7C8CA96EED5D3CF160F59FDDDBC3CFF /* Pods-GrippedAthleticsUITests-umbrella.h */,
+				F12E56D858D682CE4CF0B92EA55E59F1 /* Pods-GrippedAthleticsUITests.debug.xcconfig */,
+				C15FF6C08A98485E598F7180503EA908 /* Pods-GrippedAthleticsUITests.release.xcconfig */,
+			);
+			name = "Pods-GrippedAthleticsUITests";
+			path = "Target Support Files/Pods-GrippedAthleticsUITests";
+			sourceTree = "<group>";
+		};
+		BBA6FB739BA30399AA3D19BCC6353F21 /* Pods-GrippedAthletics */ = {
+			isa = PBXGroup;
+			children = (
+				FE1F9699AEFD825B9C42CA1427ED09DD /* Info.plist */,
+				6B9632034E08DE1FCFC3CDD505E418D6 /* Pods-GrippedAthletics.modulemap */,
+				658F758948771B4D0E34E951529B0802 /* Pods-GrippedAthletics-acknowledgements.markdown */,
+				8C560C6473D1A7D1EEA93BF84C73CFED /* Pods-GrippedAthletics-acknowledgements.plist */,
+				8DE9E59CD814F51DCDFC1B03D2CCCEFD /* Pods-GrippedAthletics-dummy.m */,
+				6AD9FD714D8F04D7EA3B679FAE9FEC83 /* Pods-GrippedAthletics-frameworks.sh */,
+				68765676C49A60E62B8D462B8E70F6BF /* Pods-GrippedAthletics-resources.sh */,
+				C9DF19AE7B56B5DE636A1BFD60EA641B /* Pods-GrippedAthletics-umbrella.h */,
+				BC7C57D3410F4A7BEC5778072C7AA605 /* Pods-GrippedAthletics.debug.xcconfig */,
+				5D4448E4CD0049B97D3F370A766A70FD /* Pods-GrippedAthletics.release.xcconfig */,
+			);
+			name = "Pods-GrippedAthletics";
+			path = "Target Support Files/Pods-GrippedAthletics";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7439AD2D05665BE379269B6D7489C11 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C040F7DA868A0F4A509611BF11C13677 /* Pods_GrippedAthletics.framework */,
+				CC357975195A7C7155B498397295B204 /* Pods_GrippedAthleticsTests.framework */,
+				55A92C59D213E944C951C81AB25231D2 /* Pods_GrippedAthleticsUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0A6DBDE9CB738652582DD3241E58D282 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D7609A3AA42893A86C8C9DF5FE664DA /* Pods-GrippedAthleticsTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4371DEFF348D38E2BC17003D64410922 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0924DDA5699A3EE8BF4E9DAAFC647F84 /* Pods-GrippedAthleticsUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B22E8909CAC1C5E5663212F02C8EDBE4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EEA852346A052749ABF8D96D2FDE9F6 /* Pods-GrippedAthletics-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		083B8F40698F074D5777AA7BB4E33E9B /* Pods-GrippedAthletics */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C02E49ED32F06E138A39B3270BF847D3 /* Build configuration list for PBXNativeTarget "Pods-GrippedAthletics" */;
+			buildPhases = (
+				55BF9A70E40BA3391DE0CDA4B4AA8935 /* Sources */,
+				057F555DA7068231AE82AF905907E2C4 /* Frameworks */,
+				B22E8909CAC1C5E5663212F02C8EDBE4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-GrippedAthletics";
+			productName = "Pods-GrippedAthletics";
+			productReference = C040F7DA868A0F4A509611BF11C13677 /* Pods_GrippedAthletics.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0EA4945B7B2277D0808E1D2478C350BD /* Pods-GrippedAthleticsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1F33420049295B4F736D571E0F8512C /* Build configuration list for PBXNativeTarget "Pods-GrippedAthleticsUITests" */;
+			buildPhases = (
+				76C8481AD9B5EE58C23D7759E4908D47 /* Sources */,
+				25343A3CA4E37485EC829827DE30B603 /* Frameworks */,
+				4371DEFF348D38E2BC17003D64410922 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-GrippedAthleticsUITests";
+			productName = "Pods-GrippedAthleticsUITests";
+			productReference = 55A92C59D213E944C951C81AB25231D2 /* Pods_GrippedAthleticsUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DF69DBC49E55F8A132BB16412493CDE3 /* Pods-GrippedAthleticsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AB92F562B8172877BE603187C7613C4 /* Build configuration list for PBXNativeTarget "Pods-GrippedAthleticsTests" */;
+			buildPhases = (
+				FF97DA47E53856DB76CD0DA0A6248C0E /* Sources */,
+				A4ED2248624D53ECBFC6AB4FEA87DEE6 /* Frameworks */,
+				0A6DBDE9CB738652582DD3241E58D282 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-GrippedAthleticsTests";
+			productName = "Pods-GrippedAthleticsTests";
+			productReference = CC357975195A7C7155B498397295B204 /* Pods_GrippedAthleticsTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = E7439AD2D05665BE379269B6D7489C11 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				083B8F40698F074D5777AA7BB4E33E9B /* Pods-GrippedAthletics */,
+				DF69DBC49E55F8A132BB16412493CDE3 /* Pods-GrippedAthleticsTests */,
+				0EA4945B7B2277D0808E1D2478C350BD /* Pods-GrippedAthleticsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		55BF9A70E40BA3391DE0CDA4B4AA8935 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24BFFE6C20D0A6BF6DA59B85C0B889DE /* Pods-GrippedAthletics-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76C8481AD9B5EE58C23D7759E4908D47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF5E23C1B3D2D953DD3A81480AD95C4B /* Pods-GrippedAthleticsUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF97DA47E53856DB76CD0DA0A6248C0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C02292C58BB7D49E0A9700EE40748B58 /* Pods-GrippedAthleticsTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		42287DDF97330524BA3EF220F0276DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		589FD3A943DECBE80EA2DE82382A5CE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB14F203E5926D2B576EE57C5E95CE88 /* Pods-GrippedAthleticsTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-GrippedAthleticsTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GrippedAthleticsTests/Pods-GrippedAthleticsTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_GrippedAthleticsTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		87148E56670AEBA2A7F34D11E58699CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C15FF6C08A98485E598F7180503EA908 /* Pods-GrippedAthleticsUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-GrippedAthleticsUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GrippedAthleticsUITests/Pods-GrippedAthleticsUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_GrippedAthleticsUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AE9439C22469D35336242DD983DB5C5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		AFE91DC8A958F620B8F3FCCCD5E10300 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F12E56D858D682CE4CF0B92EA55E59F1 /* Pods-GrippedAthleticsUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-GrippedAthleticsUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GrippedAthleticsUITests/Pods-GrippedAthleticsUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_GrippedAthleticsUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BE783CB07A1ABD9A295B18FBB2DC4D11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46F6132640AD2E2E35DCAA04B5037B46 /* Pods-GrippedAthleticsTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-GrippedAthleticsTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GrippedAthleticsTests/Pods-GrippedAthleticsTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_GrippedAthleticsTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EF9B0A3C0623CA9F0C25CC39EC8010FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D4448E4CD0049B97D3F370A766A70FD /* Pods-GrippedAthletics.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-GrippedAthletics/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GrippedAthletics/Pods-GrippedAthletics.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_GrippedAthletics;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F4D9923BFA02CF2409DE857C552BF56E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC7C57D3410F4A7BEC5778072C7AA605 /* Pods-GrippedAthletics.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-GrippedAthletics/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GrippedAthletics/Pods-GrippedAthletics.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_GrippedAthletics;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2AB92F562B8172877BE603187C7613C4 /* Build configuration list for PBXNativeTarget "Pods-GrippedAthleticsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE783CB07A1ABD9A295B18FBB2DC4D11 /* Debug */,
+				589FD3A943DECBE80EA2DE82382A5CE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE9439C22469D35336242DD983DB5C5F /* Debug */,
+				42287DDF97330524BA3EF220F0276DA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1F33420049295B4F736D571E0F8512C /* Build configuration list for PBXNativeTarget "Pods-GrippedAthleticsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFE91DC8A958F620B8F3FCCCD5E10300 /* Debug */,
+				87148E56670AEBA2A7F34D11E58699CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C02E49ED32F06E138A39B3270BF847D3 /* Build configuration list for PBXNativeTarget "Pods-GrippedAthletics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4D9923BFA02CF2409DE857C552BF56E /* Debug */,
+				EF9B0A3C0623CA9F0C25CC39EC8010FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
