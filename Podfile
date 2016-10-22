@@ -11,6 +11,7 @@ target 'GrippedAthletics' do
   pod 'FacebookCore', '~> 0.2'
   pod 'FacebookLogin', '~> 0.2'
   pod 'PKRevealController'
+  pod 'Locksmith'
   
   # Pods for GrippedAthletics
   

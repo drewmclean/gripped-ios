@@ -12,4 +12,7 @@ class AuthManager: NSObject {
     
     static let instance = AuthManager()
     
+    var isAuthenticated : Bool {
+        return false
+    }
 }
