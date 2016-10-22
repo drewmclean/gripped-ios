@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A3ABBF3ED604347F567CC19 /* Pods_GrippedAthletics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB513FD8FACE262FD8277CC6 /* Pods_GrippedAthletics.framework */; };
 		571C7F7F1DBBD09A0071DB04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7F7E1DBBD09A0071DB04 /* AppDelegate.swift */; };
 		571C7F811DBBD09A0071DB04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7F801DBBD09A0071DB04 /* ViewController.swift */; };
 		571C7F841DBBD09A0071DB04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 571C7F821DBBD09A0071DB04 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 		571C7F8C1DBBD09A0071DB04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 571C7F8A1DBBD09A0071DB04 /* LaunchScreen.storyboard */; };
 		571C7F971DBBD09A0071DB04 /* GrippedAthleticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7F961DBBD09A0071DB04 /* GrippedAthleticsTests.swift */; };
 		571C7FA21DBBD09A0071DB04 /* GrippedAthleticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7FA11DBBD09A0071DB04 /* GrippedAthleticsUITests.swift */; };
+		5F40405D26362043B8771F11 /* Pods_GrippedAthleticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A7D3F0158D13EE4C6645D8 /* Pods_GrippedAthleticsTests.framework */; };
+		62A4E8121EED1517A7228B66 /* Pods_GrippedAthleticsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F142B5A23D496C87665BE3 /* Pods_GrippedAthleticsUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22E159F69006E254A59FA459 /* Pods-GrippedAthletics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrippedAthletics.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrippedAthletics/Pods-GrippedAthletics.release.xcconfig"; sourceTree = "<group>"; };
+		241352108402B74476496D70 /* Pods-GrippedAthletics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrippedAthletics.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrippedAthletics/Pods-GrippedAthletics.debug.xcconfig"; sourceTree = "<group>"; };
 		571C7F7B1DBBD09A0071DB04 /* GrippedAthletics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrippedAthletics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		571C7F7E1DBBD09A0071DB04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		571C7F801DBBD09A0071DB04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +54,13 @@
 		571C7F9D1DBBD09A0071DB04 /* GrippedAthleticsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrippedAthleticsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		571C7FA11DBBD09A0071DB04 /* GrippedAthleticsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrippedAthleticsUITests.swift; sourceTree = "<group>"; };
 		571C7FA31DBBD09A0071DB04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78C37B8AFD3E694A44C7233B /* Pods-GrippedAthleticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrippedAthleticsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrippedAthleticsTests/Pods-GrippedAthleticsTests.release.xcconfig"; sourceTree = "<group>"; };
+		9260C71F94BF267EA2669A81 /* Pods-GrippedAthleticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrippedAthleticsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrippedAthleticsTests/Pods-GrippedAthleticsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9F95B1F2A6C91DC9B976F298 /* Pods-GrippedAthleticsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrippedAthleticsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrippedAthleticsUITests/Pods-GrippedAthleticsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AB513FD8FACE262FD8277CC6 /* Pods_GrippedAthletics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrippedAthletics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5A7D3F0158D13EE4C6645D8 /* Pods_GrippedAthleticsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrippedAthleticsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4F142B5A23D496C87665BE3 /* Pods_GrippedAthleticsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrippedAthleticsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE5728FDCA3F9FAA6E6EA44C /* Pods-GrippedAthleticsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrippedAthleticsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrippedAthleticsUITests/Pods-GrippedAthleticsUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A3ABBF3ED604347F567CC19 /* Pods_GrippedAthletics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F40405D26362043B8771F11 /* Pods_GrippedAthleticsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62A4E8121EED1517A7228B66 /* Pods_GrippedAthleticsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		000CB4808B5704CB41728396 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB513FD8FACE262FD8277CC6 /* Pods_GrippedAthletics.framework */,
+				C5A7D3F0158D13EE4C6645D8 /* Pods_GrippedAthleticsTests.framework */,
+				D4F142B5A23D496C87665BE3 /* Pods_GrippedAthleticsUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		571C7F721DBBD09A0071DB04 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +108,8 @@
 				571C7F951DBBD09A0071DB04 /* GrippedAthleticsTests */,
 				571C7FA01DBBD09A0071DB04 /* GrippedAthleticsUITests */,
 				571C7F7C1DBBD09A0071DB04 /* Products */,
+				EB5AFE7CC2E7DFCBDB5D29E8 /* Pods */,
+				000CB4808B5704CB41728396 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +155,19 @@
 			path = GrippedAthleticsUITests;
 			sourceTree = "<group>";
 		};
+		EB5AFE7CC2E7DFCBDB5D29E8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				241352108402B74476496D70 /* Pods-GrippedAthletics.debug.xcconfig */,
+				22E159F69006E254A59FA459 /* Pods-GrippedAthletics.release.xcconfig */,
+				9260C71F94BF267EA2669A81 /* Pods-GrippedAthleticsTests.debug.xcconfig */,
+				78C37B8AFD3E694A44C7233B /* Pods-GrippedAthleticsTests.release.xcconfig */,
+				9F95B1F2A6C91DC9B976F298 /* Pods-GrippedAthleticsUITests.debug.xcconfig */,
+				EE5728FDCA3F9FAA6E6EA44C /* Pods-GrippedAthleticsUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 571C7FA61DBBD09A0071DB04 /* Build configuration list for PBXNativeTarget "GrippedAthletics" */;
 			buildPhases = (
+				17739784FBC1EB8B6FB2B479 /* [CP] Check Pods Manifest.lock */,
 				571C7F771DBBD09A0071DB04 /* Sources */,
 				571C7F781DBBD09A0071DB04 /* Frameworks */,
 				571C7F791DBBD09A0071DB04 /* Resources */,
+				DC36B3DB05B5ED5D4F7887FF /* [CP] Embed Pods Frameworks */,
+				DF2CF9C2A6A53EB860E83802 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 571C7FA91DBBD09A0071DB04 /* Build configuration list for PBXNativeTarget "GrippedAthleticsTests" */;
 			buildPhases = (
+				33890F2D5384156EF1024902 /* [CP] Check Pods Manifest.lock */,
 				571C7F8E1DBBD09A0071DB04 /* Sources */,
 				571C7F8F1DBBD09A0071DB04 /* Frameworks */,
 				571C7F901DBBD09A0071DB04 /* Resources */,
+				3AD2CA6E66F0D5DEA0FF4233 /* [CP] Embed Pods Frameworks */,
+				E702A174676E5B241EB4004C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +216,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 571C7FAC1DBBD09A0071DB04 /* Build configuration list for PBXNativeTarget "GrippedAthleticsUITests" */;
 			buildPhases = (
+				E5F993361D80222315526179 /* [CP] Check Pods Manifest.lock */,
 				571C7F991DBBD09A0071DB04 /* Sources */,
 				571C7F9A1DBBD09A0071DB04 /* Frameworks */,
 				571C7F9B1DBBD09A0071DB04 /* Resources */,
+				367CBEC193282E6908E02E45 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,6 +307,129 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		17739784FBC1EB8B6FB2B479 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		33890F2D5384156EF1024902 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		367CBEC193282E6908E02E45 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrippedAthleticsUITests/Pods-GrippedAthleticsUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3AD2CA6E66F0D5DEA0FF4233 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrippedAthleticsTests/Pods-GrippedAthleticsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC36B3DB05B5ED5D4F7887FF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrippedAthletics/Pods-GrippedAthletics-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF2CF9C2A6A53EB860E83802 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrippedAthletics/Pods-GrippedAthletics-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5F993361D80222315526179 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E702A174676E5B241EB4004C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrippedAthleticsTests/Pods-GrippedAthleticsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		571C7F771DBBD09A0071DB04 /* Sources */ = {
@@ -417,6 +588,7 @@
 		};
 		571C7FA71DBBD09A0071DB04 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 241352108402B74476496D70 /* Pods-GrippedAthletics.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WNVLT95ZEN;
@@ -430,6 +602,7 @@
 		};
 		571C7FA81DBBD09A0071DB04 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22E159F69006E254A59FA459 /* Pods-GrippedAthletics.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WNVLT95ZEN;
@@ -443,6 +616,7 @@
 		};
 		571C7FAA1DBBD09A0071DB04 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9260C71F94BF267EA2669A81 /* Pods-GrippedAthleticsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -458,6 +632,7 @@
 		};
 		571C7FAB1DBBD09A0071DB04 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78C37B8AFD3E694A44C7233B /* Pods-GrippedAthleticsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -473,6 +648,7 @@
 		};
 		571C7FAD1DBBD09A0071DB04 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F95B1F2A6C91DC9B976F298 /* Pods-GrippedAthleticsUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = WNVLT95ZEN;
@@ -487,6 +663,7 @@
 		};
 		571C7FAE1DBBD09A0071DB04 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE5728FDCA3F9FAA6E6EA44C /* Pods-GrippedAthleticsUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = WNVLT95ZEN;
@@ -518,6 +695,7 @@
 				571C7FA81DBBD09A0071DB04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		571C7FA91DBBD09A0071DB04 /* Build configuration list for PBXNativeTarget "GrippedAthleticsTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +704,7 @@
 				571C7FAB1DBBD09A0071DB04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		571C7FAC1DBBD09A0071DB04 /* Build configuration list for PBXNativeTarget "GrippedAthleticsUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +713,7 @@
 				571C7FAE1DBBD09A0071DB04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
