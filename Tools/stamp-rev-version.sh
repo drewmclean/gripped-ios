@@ -1,16 +1,15 @@
 #  stamp-rev-version.sh
-#  Spex
+#  GrippedAthletics
 #
-#  Created by Spex on 11/13/14.
-#  Copyright (c) 2014 FieldTek, Inc. All rights reserved.
+#  Created by GrippedAthletics on 10/21/2016.
+#  Copyright (c) 2016 GrippedAthletics All rights reserved.
 #
 #  Update build number with number of git commits
 
-sourceDir=$SRCROOT
+cd $SOURCE_ROOT
 
-cd $sourceDir
-
-appVersion=`/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$sourceDir/Spex/Info.plist"`
+infoPlistPath="$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH"
+appVersion=`/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$infoPlistPath"`
 buildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')
 buildTag=$(echo "$appVersion.$buildNumber")
 
@@ -19,11 +18,7 @@ echo "App Version: $appVersion"
 echo "Build Number: $buildNumber"
 echo "Build Tag: $buildTag"
 
-/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $buildNumber" "$sourceDir/Spex/Info.plist"
+/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $buildNumber" $infoPlistPath
 
 git tag -a "$buildTag" -m "$buildTag"
-git commit -am "$buildTag"
 git push --tags
-git push
-
-#

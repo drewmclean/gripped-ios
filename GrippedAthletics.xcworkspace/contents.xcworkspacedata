@@ -20,6 +20,13 @@
          location = "group:Fastfile">
       </FileRef>
       <Group
+         location = "group:../Tools"
+         name = "Tools">
+         <FileRef
+            location = "group:stamp-rev-version.sh">
+         </FileRef>
+      </Group>
+      <Group
          location = "group:metadata"
          name = "metadata">
          <FileRef
