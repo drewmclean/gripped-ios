@@ -34,6 +34,7 @@
 		571C7FD41DBBD2C40071DB04 /* secondary_first_sub_category.txt in Resources */ = {isa = PBXBuildFile; fileRef = 571C7FC11DBBD2C40071DB04 /* secondary_first_sub_category.txt */; };
 		571C7FD51DBBD2C40071DB04 /* secondary_second_sub_category.txt in Resources */ = {isa = PBXBuildFile; fileRef = 571C7FC21DBBD2C40071DB04 /* secondary_second_sub_category.txt */; };
 		571C7FD61DBBD2C40071DB04 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 571C7FC41DBBD2C40071DB04 /* README.txt */; };
+		571C7FD81DBBD5800071DB04 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571C7FD71DBBD5800071DB04 /* CoreData.framework */; };
 		5F40405D26362043B8771F11 /* Pods_GrippedAthleticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A7D3F0158D13EE4C6645D8 /* Pods_GrippedAthleticsTests.framework */; };
 		62A4E8121EED1517A7228B66 /* Pods_GrippedAthleticsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F142B5A23D496C87665BE3 /* Pods_GrippedAthleticsUITests.framework */; };
 /* End PBXBuildFile section */
@@ -90,6 +91,7 @@
 		571C7FC11DBBD2C40071DB04 /* secondary_first_sub_category.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = secondary_first_sub_category.txt; sourceTree = "<group>"; };
 		571C7FC21DBBD2C40071DB04 /* secondary_second_sub_category.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = secondary_second_sub_category.txt; sourceTree = "<group>"; };
 		571C7FC41DBBD2C40071DB04 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		571C7FD71DBBD5800071DB04 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		78C37B8AFD3E694A44C7233B /* Pods-GrippedAthleticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrippedAthleticsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrippedAthleticsTests/Pods-GrippedAthleticsTests.release.xcconfig"; sourceTree = "<group>"; };
 		9260C71F94BF267EA2669A81 /* Pods-GrippedAthleticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrippedAthleticsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrippedAthleticsTests/Pods-GrippedAthleticsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F95B1F2A6C91DC9B976F298 /* Pods-GrippedAthleticsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrippedAthleticsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrippedAthleticsUITests/Pods-GrippedAthleticsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				571C7FD81DBBD5800071DB04 /* CoreData.framework in Frameworks */,
 				1A3ABBF3ED604347F567CC19 /* Pods_GrippedAthletics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,6 +133,7 @@
 		000CB4808B5704CB41728396 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				571C7FD71DBBD5800071DB04 /* CoreData.framework */,
 				AB513FD8FACE262FD8277CC6 /* Pods_GrippedAthletics.framework */,
 				C5A7D3F0158D13EE4C6645D8 /* Pods_GrippedAthleticsTests.framework */,
 				D4F142B5A23D496C87665BE3 /* Pods_GrippedAthleticsUITests.framework */,
