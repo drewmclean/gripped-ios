@@ -9,7 +9,7 @@
 import UIKit
 import PKRevealController
 
-class MainViewController: PKRevealController {
+class MainViewController: PKRevealController, MenuViewControllerDelegate {
     
     lazy var menuViewController : MenuViewController = {
         let vc = self.storyboard!.instantiateViewController(withClass: MenuViewController.self) as! MenuViewController
@@ -23,24 +23,41 @@ class MainViewController: PKRevealController {
         return vc
     }()
     
+    lazy var homeViewController : HomeViewController = {
+        let vc = self.storyboard!.instantiateViewController(withClass: HomeViewController.self) as! HomeViewController
+        let nav = UINavigationController(rootViewController: vc)
+        return vc
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = UIColor.black
+        
         setupRevealControllers()
     }
-
+    
     func setupRevealControllers() {
+        leftViewController = menuViewController
+        frontViewController = homeViewController.navigationController
+        rightViewController = profileViewController
+    }
+    
+    func setupMenu() {
+        menuViewController.delegate = self
+    }
+    
+    // MARK: MenuViewControllerDelegate
+    
+    func menuDidChange(menuOption: MenuOption) {
+        let viewController : UIViewController = homeViewController
+        changeFrontViewController(viewController: viewController)
+    }
+    
+    // MARK: Navigation
+    
+    func changeFrontViewController(viewController : UIViewController) {
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

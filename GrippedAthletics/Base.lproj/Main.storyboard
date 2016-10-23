@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A320" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A320" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6bD-5n-W6B">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -9,6 +9,7 @@
         <!--Main View Controller-->
         <scene sceneID="Snd-oQ-Ggx">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mg1-b0-9Bk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MainViewController" id="6bD-5n-W6B" customClass="MainViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iTt-P0-6xe"/>
@@ -19,8 +20,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="MJr-1b-NdC"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mg1-b0-9Bk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1620" y="148"/>
         </scene>
@@ -43,10 +44,28 @@
             </objects>
             <point key="canvasLocation" x="-900" y="148"/>
         </scene>
-        <!--View Controller-->
+        <!--Menu View Controller-->
+        <scene sceneID="Ilg-bR-AeY">
+            <objects>
+                <viewController storyboardIdentifier="MenuViewController" id="2US-eI-DYE" customClass="MenuViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VFa-ur-25X"/>
+                        <viewControllerLayoutGuide type="bottom" id="OgE-gN-hkg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4vG-4u-8HN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a15-ob-IKq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2369" y="-537"/>
+        </scene>
+        <!--Profile View Controller-->
         <scene sceneID="WrT-ih-u50">
             <objects>
-                <viewController id="eh2-ie-3mf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="eh2-ie-3mf" customClass="ProfileViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="p4H-hZ-Cc9"/>
                         <viewControllerLayoutGuide type="bottom" id="bGS-SA-Hao"/>
@@ -59,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTP-Yo-TRL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-962" y="-546"/>
+            <point key="canvasLocation" x="-900" y="-536"/>
         </scene>
     </scenes>
 </document>
