@@ -1,5 +1,6 @@
+
 //
-//  MenuViewController.swift
+//  LoginViewController.swift
 //  GrippedAthletics
 //
 //  Created by Andrew McLean on 10/22/16.
@@ -8,12 +9,13 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.yellow
+        view.backgroundColor = UIColor.blue
+        
     }
 
     override func didReceiveMemoryWarning() {

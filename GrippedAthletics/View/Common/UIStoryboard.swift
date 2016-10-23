@@ -10,4 +10,10 @@ import UIKit
 
 extension UIStoryboard {
     
+    open func instantiateViewController(withClass viewControllerClass: AnyClass) -> UIViewController {
+        let identifer = "\(viewControllerClass)"
+        let vc = instantiateViewController(withIdentifier: identifer)
+        return vc
+    }
+    
 }
