@@ -8,7 +8,3 @@
 
 import UIKit
 
-struct StoryboardNames {
-    static let main = "Main"
-    static let login = "Login"
-}

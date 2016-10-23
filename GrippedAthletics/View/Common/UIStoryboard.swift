@@ -10,6 +10,9 @@ import UIKit
 
 extension UIStoryboard {
     
+    @nonobjc static let main = UIStoryboard(name: "Main", bundle: nil)
+    @nonobjc static let login = UIStoryboard(name: "Login", bundle: nil)
+    
     open func instantiateViewController(withClass viewControllerClass: AnyClass) -> UIViewController {
         let identifer = "\(viewControllerClass)"
         let vc = instantiateViewController(withIdentifier: identifer)

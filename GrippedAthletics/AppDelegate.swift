@@ -11,13 +11,23 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    lazy var loginViewController : LoginViewController = {
+        let vc = UIStoryboard.login.instantiateInitialViewController() as! LoginViewController
+        
+        return vc
+    }()
+    
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         DataStore.instance.setupStore(name: "ReplaceMeWithUniqueUserID")
         ServiceManager.instance.initalize()
+        
+        window?.backgroundColor = UIColor.purple
+        
+        showLoginIfNeeded()
         
         return true
     }
@@ -48,3 +58,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// MARK: Login
+extension AppDelegate {
+    
+
+    func showLoginIfNeeded() {
+        if !AuthManager.instance.isAuthenticated {
+            window?.rootViewController?.present(loginViewController, animated: true, completion: nil)
+        }
+    }
+}
