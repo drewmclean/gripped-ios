@@ -7,16 +7,12 @@
 //
 
 import UIKit
-import CoreData
+import PKRevealController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    lazy var loginViewController : LoginViewController = {
-        let vc = UIStoryboard.login.instantiateInitialViewController() as! LoginViewController
-        
-        return vc
-    }()
+    var viewControllers = ViewControllers()
     
     var window: UIWindow?
 
@@ -26,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ServiceManager.instance.initalize()
         
         window?.backgroundColor = UIColor.purple
+        
+        setupRootViewController()
         
         showLoginIfNeeded()
         
@@ -41,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
-
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
@@ -58,13 +56,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-// MARK: Login
-extension AppDelegate {
-    
 
+// MARK: View Management
+extension AppDelegate : PKRevealing {
+    
+    func setupRootViewController() {
+        window = UIWindow()
+        
+        let revealController = PKRevealController(frontViewController: viewControllers.homeViewController, leftViewController: viewControllers.menuViewController)!
+        revealController.delegate = self
+        
+        window?.rootViewController = revealController
+        window?.makeKeyAndVisible()
+    }
+    
     func showLoginIfNeeded() {
         if !AuthManager.instance.isAuthenticated {
-            window?.rootViewController?.present(loginViewController, animated: true, completion: nil)
+            window?.rootViewController?.present(viewControllers.loginViewController, animated: false, completion: nil)
         }
     }
 }
+
+struct ViewControllers {
+    private let storyboard = UIStoryboard.main
+    
+    lazy var loginViewController : LoginViewController = {
+        let vc = UIStoryboard.login.instantiateInitialViewController() as! LoginViewController
+        
+        return vc
+    }()
+    
+    lazy var menuViewController : MenuViewController = {
+        let vc = self.storyboard.instantiateViewController(withClass: MenuViewController.self) as! MenuViewController
+        
+        return vc
+    }()
+    
+    lazy var profileViewController : ProfileViewController = {
+        let vc = self.storyboard.instantiateViewController(withClass: ProfileViewController.self) as! ProfileViewController
+        
+        return vc
+    }()
+    
+    lazy var homeViewController : HomeViewController = {
+        let vc = self.storyboard.instantiateViewController(withClass: HomeViewController.self) as! HomeViewController
+        let nav = UINavigationController(rootViewController: vc)
+        return vc
+    }()
+}
+

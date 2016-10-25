@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import FacebookCore
+import FacebookLogin
 
 class AuthManager: NSObject {
     
     static let instance = AuthManager()
     
     var isAuthenticated : Bool {
-        return false
+        return FBSDKAccessToken.currentAccessToken() != nil
     }
 }

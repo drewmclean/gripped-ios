@@ -16,12 +16,11 @@ class ServiceManager: NSObject {
     
     static let instance = ServiceManager()
     
+    lazy var credentialsProvider = AWSCognitoCredentialsProvider(regionType: .usWest2, identityPoolId: ServiceManager.identityPoolId)
+    
     func initalize() {
-        let credentialsProvider = AWSCognitoCredentialsProvider(regionType: .usWest2,
-                                                                identityPoolId: ServiceManager.identityPoolId)
-        
         let configuration = AWSServiceConfiguration(region: .usWest2, credentialsProvider: credentialsProvider)
-        
         AWSServiceManager.default().defaultServiceConfiguration = configuration
+        
     }
 }
