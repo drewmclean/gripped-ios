@@ -93,6 +93,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/FacebookLogin/FacebookLogin.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Locksmith/Locksmith.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PKRevealController/PKRevealController.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/PromiseKit/PromiseKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AWSCognito/AWSCognito.framework"
@@ -104,4 +105,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/FacebookLogin/FacebookLogin.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Locksmith/Locksmith.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PKRevealController/PKRevealController.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/PromiseKit/PromiseKit.framework"
 fi

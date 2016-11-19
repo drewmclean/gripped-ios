@@ -34,6 +34,7 @@
 		579DE2D81DBC25C000D71875 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2D71DBC25C000D71875 /* ProfileViewController.swift */; };
 		579DE2DA1DBC264400D71875 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2D91DBC264400D71875 /* LoginViewController.swift */; };
 		579DE2DC1DBC279800D71875 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2DB1DBC279800D71875 /* MainViewController.swift */; };
+		57D87E521DE0C2F1000435E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57D87E511DE0C2F1000435E5 /* GoogleService-Info.plist */; };
 		5F40405D26362043B8771F11 /* Pods_GrippedAthleticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A7D3F0158D13EE4C6645D8 /* Pods_GrippedAthleticsTests.framework */; };
 		62A4E8121EED1517A7228B66 /* Pods_GrippedAthleticsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F142B5A23D496C87665BE3 /* Pods_GrippedAthleticsUITests.framework */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,7 @@
 		579DE2D71DBC25C000D71875 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		579DE2D91DBC264400D71875 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		579DE2DB1DBC279800D71875 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		57D87E511DE0C2F1000435E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		78C37B8AFD3E694A44C7233B /* Pods-GrippedAthleticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrippedAthleticsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrippedAthleticsTests/Pods-GrippedAthleticsTests.release.xcconfig"; sourceTree = "<group>"; };
 		9260C71F94BF267EA2669A81 /* Pods-GrippedAthleticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrippedAthleticsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrippedAthleticsTests/Pods-GrippedAthleticsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F95B1F2A6C91DC9B976F298 /* Pods-GrippedAthleticsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrippedAthleticsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrippedAthleticsUITests/Pods-GrippedAthleticsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,9 +160,9 @@
 		571C7F7D1DBBD09A0071DB04 /* GrippedAthletics */ = {
 			isa = PBXGroup;
 			children = (
+				57D87E501DE0C2DF000435E5 /* Supporting Files */,
 				571C7F7E1DBBD09A0071DB04 /* AppDelegate.swift */,
 				571C7F881DBBD09A0071DB04 /* Assets.xcassets */,
-				571C7F8D1DBBD09A0071DB04 /* Info.plist */,
 				579DE2C21DBC1BC100D71875 /* Base.lproj */,
 				579DE2D11DBC1D9200D71875 /* Auth */,
 				571C7FD91DBBDC400071DB04 /* Model */,
@@ -303,6 +305,15 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		57D87E501DE0C2DF000435E5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				57D87E511DE0C2F1000435E5 /* GoogleService-Info.plist */,
+				571C7F8D1DBBD09A0071DB04 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		EB5AFE7CC2E7DFCBDB5D29E8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +340,7 @@
 				571C7F791DBBD09A0071DB04 /* Resources */,
 				DC36B3DB05B5ED5D4F7887FF /* [CP] Embed Pods Frameworks */,
 				DF2CF9C2A6A53EB860E83802 /* [CP] Copy Pods Resources */,
+				57D87E4F1DE0C260000435E5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -369,6 +381,7 @@
 				571C7F9A1DBBD09A0071DB04 /* Frameworks */,
 				571C7F9B1DBBD09A0071DB04 /* Resources */,
 				367CBEC193282E6908E02E45 /* [CP] Copy Pods Resources */,
+				6DBBB91795506CD340B0D738 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -436,6 +449,7 @@
 			files = (
 				579DE2CB1DBC1BE900D71875 /* Login.storyboard in Resources */,
 				579DE2C81DBC1BC100D71875 /* Main.storyboard in Resources */,
+				57D87E521DE0C2F1000435E5 /* GoogleService-Info.plist in Resources */,
 				571C7F891DBBD09A0071DB04 /* Assets.xcassets in Resources */,
 				579DE2C71DBC1BC100D71875 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -470,7 +484,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		33890F2D5384156EF1024902 /* [CP] Check Pods Manifest.lock */ = {
@@ -485,7 +499,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		367CBEC193282E6908E02E45 /* [CP] Copy Pods Resources */ = {
@@ -516,6 +530,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrippedAthleticsTests/Pods-GrippedAthleticsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57D87E4F1DE0C260000435E5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nGOOGLE_APP_ID=1:555892778353:ios:7a579a73186244a8\n\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"${SOURCE_ROOT/Spex/ServiceAccount.json\"\n";
+		};
+		6DBBB91795506CD340B0D738 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrippedAthleticsUITests/Pods-GrippedAthleticsUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DC36B3DB05B5ED5D4F7887FF /* [CP] Embed Pods Frameworks */ = {
@@ -560,7 +602,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E702A174676E5B241EB4004C /* [CP] Copy Pods Resources */ = {

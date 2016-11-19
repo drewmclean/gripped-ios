@@ -29,6 +29,8 @@
 	<string>1</string>
 	<key>FacebookAppID</key>
 	<string>1218419011557323</string>
+	<key>FacebookAppSecret</key>
+	<string>6b02624a6c58b92fd68e6144aec6c0c6</string>
 	<key>FacebookDisplayName</key>
 	<string>Gripped Athletics</string>
 	<key>LSApplicationQueriesSchemes</key>

@@ -20,16 +20,56 @@ PODS:
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.16.1):
     - FBSDKCoreKit
+  - Firebase/Core (3.7.1):
+    - FirebaseAnalytics (= 3.4.4)
+    - FirebaseCore (= 3.4.3)
+  - Firebase/Crash (3.7.1):
+    - Firebase/Core
+    - FirebaseCrash (= 1.0.7)
+  - FirebaseAnalytics (3.4.4):
+    - FirebaseCore (~> 3.4)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+  - FirebaseCore (3.4.3):
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleUtilities (~> 1.2)
+  - FirebaseCrash (1.0.7):
+    - FirebaseAnalytics (~> 3.2)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+    - GoogleUtilities (~> 1.2)
+  - FirebaseInstanceID (1.0.8)
+  - GoogleInterchangeUtilities (1.2.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleSymbolUtilities (1.1.2)
+  - GoogleUtilities (1.3.2):
+    - GoogleSymbolUtilities (~> 1.1)
   - Locksmith (3.0.0)
   - PKRevealController (2.0.6)
+  - PromiseKit (4.0.3):
+    - PromiseKit/Foundation (= 4.0.3)
+    - PromiseKit/QuartzCore (= 4.0.3)
+    - PromiseKit/UIKit (= 4.0.3)
+  - PromiseKit/CorePromise (4.0.3)
+  - PromiseKit/Foundation (4.0.3):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.0.3):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.0.3):
+    - PromiseKit/CorePromise
 
 DEPENDENCIES:
   - AWSCognito (~> 2.4)
   - AWSCore (~> 2.4)
   - FacebookCore (~> 0.2)
   - FacebookLogin (~> 0.2)
+  - Firebase/Core
+  - Firebase/Crash
   - Locksmith
   - PKRevealController
+  - PromiseKit
 
 SPEC CHECKSUMS:
   AWSCognito: d9c6932091ceedac47e187ae04f0248505242cb0
@@ -39,9 +79,18 @@ SPEC CHECKSUMS:
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FBSDKCoreKit: 7a6baaed4a2b2a244ba253346713bdbc74df135b
   FBSDKLoginKit: 469a56cebe2e1ed62b1621d0b155970fd6aac2d8
+  Firebase: be473484f0d515e72ffd04acf22f981773c23e58
+  FirebaseAnalytics: 0533a00b681e08fd0b2cd0444b7ddf0ef9fd7a1a
+  FirebaseCore: 5a885548bbc5f0c410b04f8e9ac9d73ff1221907
+  FirebaseCrash: 2efeb3715b76ac843b841529ce413efb67e5fd4d
+  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
+  GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   PKRevealController: ffb45a16f5a5032ad90a3d16e5cbb0d8e035bd58
+  PromiseKit: dfe8fcc6445674fb23378d89990838c1cbdbf05a
 
-PODFILE CHECKSUM: 6086b63b17b1e52b0887fbe336950716167b03a5
+PODFILE CHECKSUM: 2f9bf9bf10ebcd388087ef3cd69ecfa444b3a7fe
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1
