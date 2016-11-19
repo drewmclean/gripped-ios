@@ -15,6 +15,6 @@ class AuthManager: NSObject {
     static let instance = AuthManager()
     
     var isAuthenticated : Bool {
-        return FBSDKAccessToken.currentAccessToken() != nil
+        return false
     }
 }

@@ -160,7 +160,6 @@
 		571C7F7D1DBBD09A0071DB04 /* GrippedAthletics */ = {
 			isa = PBXGroup;
 			children = (
-				57D87E501DE0C2DF000435E5 /* Supporting Files */,
 				571C7F7E1DBBD09A0071DB04 /* AppDelegate.swift */,
 				571C7F881DBBD09A0071DB04 /* Assets.xcassets */,
 				579DE2C21DBC1BC100D71875 /* Base.lproj */,
@@ -169,6 +168,7 @@
 				579DE2A31DBC06DE00D71875 /* Service */,
 				571C7FDC1DBBDC400071DB04 /* Utils */,
 				571C7FDD1DBBDC400071DB04 /* View */,
+				57D87E501DE0C2DF000435E5 /* Supporting Files */,
 			);
 			path = GrippedAthletics;
 			sourceTree = "<group>";
@@ -543,7 +543,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\nGOOGLE_APP_ID=1:555892778353:ios:7a579a73186244a8\n\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"${SOURCE_ROOT/Spex/ServiceAccount.json\"\n";
+			shellScript = "\nGOOGLE_APP_ID=1:555892778353:ios:7a579a73186244a8\n\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"${SOURCE_ROOT}/GrippedAthletics/ServiceAccount.json\"";
 		};
 		6DBBB91795506CD340B0D738 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
