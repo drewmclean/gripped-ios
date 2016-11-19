@@ -31,6 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         showLoginIfNeeded()
         
+        FIRCrashMessage("Testing crash logging fron Gripped.")
+        fatalError()
+        
         return true
     }
 

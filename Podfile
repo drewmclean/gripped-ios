@@ -6,8 +6,9 @@ target 'GrippedAthletics' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   
-  pod 'PromiseKit'
+  pod 'PromiseKit', '~> 4.0'
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
   pod 'Firebase/Crash'
   pod 'AWSCore', '~> 2.4'
   pod 'AWSCognito', '~> 2.4'

@@ -26,6 +26,9 @@ PODS:
   - Firebase/Crash (3.7.1):
     - Firebase/Core
     - FirebaseCrash (= 1.0.7)
+  - Firebase/Database (3.7.1):
+    - Firebase/Core
+    - FirebaseDatabase (= 3.0.3)
   - FirebaseAnalytics (3.4.4):
     - FirebaseCore (~> 3.4)
     - FirebaseInstanceID (~> 1.0)
@@ -40,6 +43,8 @@ PODS:
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleUtilities (~> 1.2)
+  - FirebaseDatabase (3.0.3):
+    - FirebaseAnalytics (~> 3.3)
   - FirebaseInstanceID (1.0.8)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
@@ -48,16 +53,16 @@ PODS:
     - GoogleSymbolUtilities (~> 1.1)
   - Locksmith (3.0.0)
   - PKRevealController (2.0.6)
-  - PromiseKit (4.0.3):
-    - PromiseKit/Foundation (= 4.0.3)
-    - PromiseKit/QuartzCore (= 4.0.3)
-    - PromiseKit/UIKit (= 4.0.3)
-  - PromiseKit/CorePromise (4.0.3)
-  - PromiseKit/Foundation (4.0.3):
+  - PromiseKit (4.0.5):
+    - PromiseKit/Foundation (= 4.0.5)
+    - PromiseKit/QuartzCore (= 4.0.5)
+    - PromiseKit/UIKit (= 4.0.5)
+  - PromiseKit/CorePromise (4.0.5)
+  - PromiseKit/Foundation (4.0.5):
     - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.0.3):
+  - PromiseKit/QuartzCore (4.0.5):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.0.3):
+  - PromiseKit/UIKit (4.0.5):
     - PromiseKit/CorePromise
 
 DEPENDENCIES:
@@ -67,9 +72,10 @@ DEPENDENCIES:
   - FacebookLogin (~> 0.2)
   - Firebase/Core
   - Firebase/Crash
+  - Firebase/Database
   - Locksmith
   - PKRevealController
-  - PromiseKit
+  - PromiseKit (~> 4.0.5)
 
 SPEC CHECKSUMS:
   AWSCognito: d9c6932091ceedac47e187ae04f0248505242cb0
@@ -83,14 +89,15 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: 0533a00b681e08fd0b2cd0444b7ddf0ef9fd7a1a
   FirebaseCore: 5a885548bbc5f0c410b04f8e9ac9d73ff1221907
   FirebaseCrash: 2efeb3715b76ac843b841529ce413efb67e5fd4d
+  FirebaseDatabase: 750a4a0fe18ef114318876fd654b2d9c671e0992
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   PKRevealController: ffb45a16f5a5032ad90a3d16e5cbb0d8e035bd58
-  PromiseKit: dfe8fcc6445674fb23378d89990838c1cbdbf05a
+  PromiseKit: 593b5e24ded6cbb1ebc708bc2c3428a8a5632d91
 
-PODFILE CHECKSUM: 2f9bf9bf10ebcd388087ef3cd69ecfa444b3a7fe
+PODFILE CHECKSUM: 5eb53a2e2105a9f405733a7917da847dbd69a82c
 
 COCOAPODS: 1.1.1
