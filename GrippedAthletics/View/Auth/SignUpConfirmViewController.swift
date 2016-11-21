@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpConfirmViewController: EntryTextFieldViewController {
+class SignUpConfirmViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

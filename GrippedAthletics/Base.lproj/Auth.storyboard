@@ -146,7 +146,8 @@
                     <navigationItem key="navigationItem" id="H5g-yI-DdA"/>
                     <connections>
                         <outlet property="fieldLabel" destination="nKR-Bx-3tr" id="G8z-hq-S9G"/>
-                        <outlet property="textField" destination="gnB-ke-TrG" id="HVb-oU-JZS"/>
+                        <outlet property="fieldLabelCenterYConstraint" destination="cr3-0c-XHV" id="0ju-cV-T1g"/>
+                        <outlet property="textField" destination="gnB-ke-TrG" id="xd2-pc-Bhw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRa-GO-nRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -75,7 +75,7 @@ extension AppDelegate : PKRevealing {
     
     func showAuthIfNeeded() {
         if !AuthManager.instance.isAuthenticated {
-            window?.rootViewController?.present(viewControllers.loginViewController, animated: false, completion: nil)
+            window?.rootViewController?.present(viewControllers.authPromptViewController, animated: false, completion: nil)
         }
     }
 }
@@ -83,8 +83,8 @@ extension AppDelegate : PKRevealing {
 struct ViewControllers {
     private let storyboard = UIStoryboard.main
     
-    lazy var loginViewController : LoginViewController = {
-        let vc = UIStoryboard.login.instantiateInitialViewController() as! LoginViewController
+    lazy var authPromptViewController : AuthPromptViewController = {
+        let vc = UIStoryboard.auth.instantiateInitialViewController() as! AuthPromptViewController
         
         return vc
     }()
