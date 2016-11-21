@@ -73,6 +73,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.0.5):
     - PromiseKit/CorePromise
+  - SnapKit (3.0.2)
 
 DEPENDENCIES:
   - AWSCognito (~> 2.4)
@@ -86,6 +87,7 @@ DEPENDENCIES:
   - Locksmith
   - PKRevealController
   - PromiseKit (~> 4.0)
+  - SnapKit
 
 SPEC CHECKSUMS:
   AWSCognito: d9c6932091ceedac47e187ae04f0248505242cb0
@@ -109,7 +111,8 @@ SPEC CHECKSUMS:
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   PKRevealController: ffb45a16f5a5032ad90a3d16e5cbb0d8e035bd58
   PromiseKit: 593b5e24ded6cbb1ebc708bc2c3428a8a5632d91
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: ec9f8bab6ba6ece6333ab4b7b6ddb5436684715b
+PODFILE CHECKSUM: a43249fec639aa7269dc5f2dc0d11eeb1a04a1f8
 
 COCOAPODS: 1.1.1
