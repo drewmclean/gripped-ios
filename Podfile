@@ -8,6 +8,7 @@ target 'GrippedAthletics' do
   
   pod 'PromiseKit', '~> 4.0'
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Crash'
   pod 'AWSCore', '~> 2.4'

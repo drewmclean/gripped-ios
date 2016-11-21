@@ -28,11 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.purple
         
         setupRootViewController()
-        
         showLoginIfNeeded()
-        
-        FIRCrashMessage("Testing crash logging fron Gripped.")
-        fatalError()
         
         return true
     }

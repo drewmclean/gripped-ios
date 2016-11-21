@@ -140,6 +140,10 @@ Copyright 2016 Google
 
 Copyright 2016 Google
 
+## FirebaseAuth
+
+Copyright 2016 Google
+
 ## FirebaseCore
 
 Copyright 2016 Google
@@ -157,6 +161,10 @@ Copyright 2016 Google
 Copyright 2016 Google
 
 ## GoogleInterchangeUtilities
+
+Copyright 2016 Google
+
+## GoogleNetworkingUtilities
 
 Copyright 2016 Google
 
