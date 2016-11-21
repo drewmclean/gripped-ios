@@ -35,7 +35,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="7fX-Jg-hIj" kind="presentation" id="Ngt-Do-AIN"/>
+                                            <segue destination="7fX-Jg-hIj" kind="presentation" identifier="presentSignUp" id="Ngt-Do-AIN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g30-Ff-wtE">
@@ -46,6 +46,9 @@
                                         <state key="normal" title="Sign in to your account">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Hys-RG-73K" kind="presentation" identifier="presentSignIn" id="ZWc-xd-cfw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -67,6 +70,11 @@
                             <constraint firstItem="qqJ-J6-GXB" firstAttribute="centerX" secondItem="wJO-TS-LWA" secondAttribute="centerX" id="YC0-6U-0vz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="grippedLabel" destination="UvU-B1-baD" id="vYG-XL-wWn"/>
+                        <outlet property="signInButton" destination="g30-Ff-wtE" id="W0p-aX-QPy"/>
+                        <outlet property="signUpButton" destination="ebU-P7-SEx" id="E1H-qj-AQQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hLu-b9-Jl2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -80,18 +88,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="51I-Mf-NvF" kind="relationship" relationship="rootViewController" id="gyW-hf-GIt"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBa-Uz-MMs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1254" y="-468"/>
         </scene>
-        <!--Email Field View Controller-->
+        <!--Auth Text Field View Controller-->
         <scene sceneID="MW9-Az-0n5">
             <objects>
-                <viewController storyboardIdentifier="EmailFieldViewController" id="51I-Mf-NvF" customClass="EmailFieldViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthTextFieldViewController" id="51I-Mf-NvF" customClass="AuthTextFieldViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u3h-yx-MAJ"/>
                         <viewControllerLayoutGuide type="bottom" id="oSF-xS-gUr"/>
@@ -112,18 +117,20 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKR-Bx-3tr">
-                                        <rect key="frame" x="8" y="202" width="108" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKR-Bx-3tr">
+                                        <rect key="frame" x="10" y="291.5" width="355" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="nKR-Bx-3tr" firstAttribute="leading" secondItem="gnB-ke-TrG" secondAttribute="leading" id="3je-Dq-5q5"/>
                                     <constraint firstItem="gnB-ke-TrG" firstAttribute="centerY" secondItem="Btc-f4-OWt" secondAttribute="centerY" id="8ls-h5-5A9"/>
+                                    <constraint firstItem="nKR-Bx-3tr" firstAttribute="trailing" secondItem="gnB-ke-TrG" secondAttribute="trailing" id="AdH-WC-LRx"/>
                                     <constraint firstItem="gnB-ke-TrG" firstAttribute="leading" secondItem="Btc-f4-OWt" secondAttribute="leading" constant="10" id="DEv-4E-Ox8"/>
+                                    <constraint firstItem="nKR-Bx-3tr" firstAttribute="centerY" secondItem="gnB-ke-TrG" secondAttribute="centerY" id="cr3-0c-XHV"/>
                                     <constraint firstAttribute="trailing" secondItem="gnB-ke-TrG" secondAttribute="trailing" constant="10" id="uPW-Hc-tII"/>
                                 </constraints>
                             </view>
@@ -137,10 +144,27 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="H5g-yI-DdA"/>
+                    <connections>
+                        <outlet property="fieldLabel" destination="nKR-Bx-3tr" id="G8z-hq-S9G"/>
+                        <outlet property="textField" destination="gnB-ke-TrG" id="HVb-oU-JZS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRa-GO-nRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2177" y="-51"/>
+            <point key="canvasLocation" x="2042" y="-51"/>
+        </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="QlY-nb-NmH">
+            <objects>
+                <navigationController storyboardIdentifier="SignInViewController" id="Hys-RG-73K" customClass="SignInViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fCw-mO-p8N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="76F-TO-XU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1254" y="276"/>
         </scene>
     </scenes>
 </document>

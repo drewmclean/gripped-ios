@@ -10,10 +10,16 @@ import UIKit
 
 class SignUpViewController: UINavigationController {
 
+    lazy var emailViewController : AuthTextFieldViewController = {
+        let vc = self.storyboard!.instantiateViewController(withClass: AuthTextFieldViewController.self) as! AuthTextFieldViewController
+        
+        return vc
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setViewControllers([emailViewController], animated: false)
     }
 
     override func didReceiveMemoryWarning() {

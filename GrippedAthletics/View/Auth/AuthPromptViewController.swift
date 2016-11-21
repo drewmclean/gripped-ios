@@ -1,4 +1,3 @@
-
 //
 //  AuthViewController.swift
 //  GrippedAthletics
@@ -11,7 +10,9 @@ import UIKit
 
 class AuthPromptViewController: UIViewController {
 
-    
+    @IBOutlet weak var grippedLabel: UILabel!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var signInButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,5 +20,5 @@ class AuthPromptViewController: UIViewController {
         view.backgroundColor = UIColor.lightGray
         
     }
-
+    
 }

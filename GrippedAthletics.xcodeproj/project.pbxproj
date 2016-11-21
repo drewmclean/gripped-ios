@@ -36,8 +36,6 @@
 		57D87E521DE0C2F1000435E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57D87E511DE0C2F1000435E5 /* GoogleService-Info.plist */; };
 		57D87E671DE28A58000435E5 /* AuthPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D87E601DE28A58000435E5 /* AuthPromptViewController.swift */; };
 		57D87E681DE28A58000435E5 /* AuthTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D87E611DE28A58000435E5 /* AuthTextFieldViewController.swift */; };
-		57D87E691DE28A58000435E5 /* EmailFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D87E621DE28A58000435E5 /* EmailFieldViewController.swift */; };
-		57D87E6A1DE28A58000435E5 /* PasswordFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D87E631DE28A58000435E5 /* PasswordFieldViewController.swift */; };
 		57D87E6B1DE28A58000435E5 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D87E641DE28A58000435E5 /* SignInViewController.swift */; };
 		57D87E6C1DE28A58000435E5 /* SignUpConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D87E651DE28A58000435E5 /* SignUpConfirmViewController.swift */; };
 		57D87E6D1DE28A58000435E5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D87E661DE28A58000435E5 /* SignUpViewController.swift */; };
@@ -93,8 +91,6 @@
 		57D87E511DE0C2F1000435E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		57D87E601DE28A58000435E5 /* AuthPromptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthPromptViewController.swift; sourceTree = "<group>"; };
 		57D87E611DE28A58000435E5 /* AuthTextFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthTextFieldViewController.swift; sourceTree = "<group>"; };
-		57D87E621DE28A58000435E5 /* EmailFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailFieldViewController.swift; sourceTree = "<group>"; };
-		57D87E631DE28A58000435E5 /* PasswordFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordFieldViewController.swift; sourceTree = "<group>"; };
 		57D87E641DE28A58000435E5 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		57D87E651DE28A58000435E5 /* SignUpConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpConfirmViewController.swift; sourceTree = "<group>"; };
 		57D87E661DE28A58000435E5 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -323,8 +319,6 @@
 			children = (
 				57D87E601DE28A58000435E5 /* AuthPromptViewController.swift */,
 				57D87E611DE28A58000435E5 /* AuthTextFieldViewController.swift */,
-				57D87E621DE28A58000435E5 /* EmailFieldViewController.swift */,
-				57D87E631DE28A58000435E5 /* PasswordFieldViewController.swift */,
 				57D87E641DE28A58000435E5 /* SignInViewController.swift */,
 				57D87E651DE28A58000435E5 /* SignUpConfirmViewController.swift */,
 				57D87E661DE28A58000435E5 /* SignUpViewController.swift */,
@@ -651,7 +645,6 @@
 				579DE2D61DBC259E00D71875 /* MenuViewController.swift in Sources */,
 				579DE2D31DBC1DDD00D71875 /* AuthManager.swift in Sources */,
 				571C7FDF1DBBDC400071DB04 /* GrippedAthletics.xcdatamodeld in Sources */,
-				57D87E6A1DE28A58000435E5 /* PasswordFieldViewController.swift in Sources */,
 				57D87E6D1DE28A58000435E5 /* SignUpViewController.swift in Sources */,
 				57D87E6B1DE28A58000435E5 /* SignInViewController.swift in Sources */,
 				579DE2BB1DBC114A00D71875 /* UIViewController.swift in Sources */,
@@ -662,7 +655,6 @@
 				57D87E671DE28A58000435E5 /* AuthPromptViewController.swift in Sources */,
 				579DE2D01DBC1D3300D71875 /* Config.swift in Sources */,
 				579DE2A51DBC072500D71875 /* ServiceManager.swift in Sources */,
-				57D87E691DE28A58000435E5 /* EmailFieldViewController.swift in Sources */,
 				579DE2BF1DBC11AF00D71875 /* UIStoryboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
