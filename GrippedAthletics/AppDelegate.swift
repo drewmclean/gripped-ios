@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.purple
         
         setupRootViewController()
-        showLoginIfNeeded()
+        showAuthIfNeeded()
         
         return true
     }
@@ -73,7 +73,7 @@ extension AppDelegate : PKRevealing {
         window?.makeKeyAndVisible()
     }
     
-    func showLoginIfNeeded() {
+    func showAuthIfNeeded() {
         if !AuthManager.instance.isAuthenticated {
             window?.rootViewController?.present(viewControllers.loginViewController, animated: false, completion: nil)
         }

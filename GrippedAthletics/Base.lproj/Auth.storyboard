@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wTf-Ek-9VM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Auth Prompt View Controller-->
+        <scene sceneID="6xO-0s-8Cb">
+            <objects>
+                <viewController storyboardIdentifier="AuthPromptViewController" id="wTf-Ek-9VM" customClass="AuthPromptViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="je5-Mz-nZI"/>
+                        <viewControllerLayoutGuide type="bottom" id="ji6-2E-ecb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wJO-TS-LWA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qqJ-J6-GXB">
+                                <rect key="frame" x="77" y="557" width="220" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebU-P7-SEx">
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="30"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Pl6-Ch-trH"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Create a new account">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="7fX-Jg-hIj" kind="presentation" id="Ngt-Do-AIN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g30-Ff-wtE">
+                                        <rect key="frame" x="0.0" y="40" width="220" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Ym2-k5-v1a"/>
+                                        </constraints>
+                                        <state key="normal" title="Sign in to your account">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="BWk-D3-T1h"/>
+                                    <constraint firstAttribute="height" constant="70" id="jxQ-Th-Qu1"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gripped Athletics" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvU-B1-baD">
+                                <rect key="frame" x="96" y="294" width="182" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ji6-2E-ecb" firstAttribute="top" secondItem="qqJ-J6-GXB" secondAttribute="bottom" constant="40" id="KGk-EK-WLc"/>
+                            <constraint firstItem="qqJ-J6-GXB" firstAttribute="centerX" secondItem="wJO-TS-LWA" secondAttribute="centerX" id="YC0-6U-0vz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hLu-b9-Jl2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="384.80000000000001" y="-50.824587706146929"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="8X7-dd-Srx">
+            <objects>
+                <navigationController storyboardIdentifier="SignUpViewController" id="7fX-Jg-hIj" customClass="SignUpViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NIH-Be-ZR5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="51I-Mf-NvF" kind="relationship" relationship="rootViewController" id="gyW-hf-GIt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xBa-Uz-MMs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1254" y="-468"/>
+        </scene>
+        <!--Email Field View Controller-->
+        <scene sceneID="MW9-Az-0n5">
+            <objects>
+                <viewController storyboardIdentifier="EmailFieldViewController" id="51I-Mf-NvF" customClass="EmailFieldViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u3h-yx-MAJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="oSF-xS-gUr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ayJ-Ib-gGA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Btc-f4-OWt">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="drew@grippedathletics.com" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gnB-ke-TrG">
+                                        <rect key="frame" x="10" y="279" width="355" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="dUQ-CL-PDF"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKR-Bx-3tr">
+                                        <rect key="frame" x="8" y="202" width="108" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="gnB-ke-TrG" firstAttribute="centerY" secondItem="Btc-f4-OWt" secondAttribute="centerY" id="8ls-h5-5A9"/>
+                                    <constraint firstItem="gnB-ke-TrG" firstAttribute="leading" secondItem="Btc-f4-OWt" secondAttribute="leading" constant="10" id="DEv-4E-Ox8"/>
+                                    <constraint firstAttribute="trailing" secondItem="gnB-ke-TrG" secondAttribute="trailing" constant="10" id="uPW-Hc-tII"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Btc-f4-OWt" firstAttribute="top" secondItem="u3h-yx-MAJ" secondAttribute="bottom" id="43v-ab-Udf"/>
+                            <constraint firstItem="Btc-f4-OWt" firstAttribute="leading" secondItem="ayJ-Ib-gGA" secondAttribute="leading" id="4tv-G2-rH0"/>
+                            <constraint firstItem="oSF-xS-gUr" firstAttribute="top" secondItem="Btc-f4-OWt" secondAttribute="bottom" id="elr-VC-Uje"/>
+                            <constraint firstAttribute="trailing" secondItem="Btc-f4-OWt" secondAttribute="trailing" id="lK8-ua-Cjh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="H5g-yI-DdA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eRa-GO-nRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2177" y="-51"/>
+        </scene>
+    </scenes>
+</document>

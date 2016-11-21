@@ -1,6 +1,6 @@
 
 //
-//  LoginViewController.swift
+//  AuthViewController.swift
 //  GrippedAthletics
 //
 //  Created by Andrew McLean on 10/22/16.
@@ -9,8 +9,10 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class AuthPromptViewController: UIViewController {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
