@@ -24,8 +24,16 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
         
         fieldLabel.isHidden = true
         textField.text = ""
-        NotificationCenter.default.addObserver(textField, selector: #selector(AuthTextFieldViewController.textValueDidChange(n:)), name: NSNotification.Name.UITextFieldTextDidChange, object: nil )
+        NotificationCenter.default.addObserver(self, selector: #selector(AuthTextFieldViewController.textDidChange(notification:)), name: NSNotification.Name.UITextFieldTextDidChange, object: textField)
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        textField.becomeFirstResponder()
+    }
+    
     
     // MARK: Animation
     
@@ -53,7 +61,7 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Notifications
     
-    func textValueDidChange(n:Notification) {
+    func textDidChange(notification:Notification) {
         if textField.text!.isEmpty {
             self.hideFieldLabel()
         } else {
