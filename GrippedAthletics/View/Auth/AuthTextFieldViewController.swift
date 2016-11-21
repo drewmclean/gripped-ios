@@ -24,34 +24,43 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
         
         fieldLabel.isHidden = true
         textField.text = ""
-        textField.observe(keyPath: "text").then { (value: String?) -> Void in
-            if value!.isEmpty {
-                self.hideFieldLabel()
-            } else {
-                self.showFieldLabel()
-            }
-        }
+        NotificationCenter.default.addObserver(textField, selector: #selector(AuthTextFieldViewController.textValueDidChange(n:)), name: NSNotification.Name.UITextFieldTextDidChange, object: nil )
     }
     
     // MARK: Animation
     
     func showFieldLabel() {
-        labelIsShown = true
-        fieldLabel.alpha = 0
-        fieldLabel.isHidden = false
-        UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut], animations: {
-            self.fieldLabel.alpha = 1.0
-            self.fieldLabelCenterYConstraint.constant = -20.0
-            self.fieldContainerView.layoutIfNeeded()
-        }, completion: { (Bool) -> Void in
-            
-        })
+        if !labelIsShown {
+            labelIsShown = true
+            fieldLabel.alpha = 0
+            fieldLabel.isHidden = false
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut], animations: {
+                self.fieldLabel.alpha = 1.0
+                self.fieldLabelCenterYConstraint.constant = -20.0
+                self.fieldContainerView.layoutIfNeeded()
+            }, completion: { (Bool) -> Void in
+                
+            })
+        }
     }
     
     func hideFieldLabel() {
-        labelIsShown = false
+        if labelIsShown {
+            labelIsShown = false
+            
+        }
     }
-
+    
+    // MARK: Notifications
+    
+    func textValueDidChange(n:Notification) {
+        if textField.text!.isEmpty {
+            self.hideFieldLabel()
+        } else {
+            self.showFieldLabel()
+        }
+    }
+    
     // MARK: UITextFieldDelegate
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
