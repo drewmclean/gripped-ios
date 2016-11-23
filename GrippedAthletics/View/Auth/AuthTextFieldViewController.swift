@@ -55,7 +55,13 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     func hideFieldLabel() {
         if labelIsShown {
             labelIsShown = false
-            
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut], animations: {
+                self.fieldLabel.alpha = 0
+                self.fieldLabelCenterYConstraint.constant = 0.0
+                self.fieldContainerView.layoutIfNeeded()
+            }, completion: { (Bool) -> Void in
+                self.fieldLabel.isHidden = true
+            })
         }
     }
     
@@ -72,9 +78,6 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     // MARK: UITextFieldDelegate
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        
-        
         return true
     }
     
