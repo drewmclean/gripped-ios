@@ -97,7 +97,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Locksmith
   - PKRevealController
-  - PromiseKit (~> 4.0)
+  - PromiseKit (~> 4.0.5)
   - SnapKit
 
 SPEC CHECKSUMS:
@@ -124,6 +124,6 @@ SPEC CHECKSUMS:
   PromiseKit: 593b5e24ded6cbb1ebc708bc2c3428a8a5632d91
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: a43249fec639aa7269dc5f2dc0d11eeb1a04a1f8
+PODFILE CHECKSUM: eee39dbd98b9a9507a72f069bcb9839e642bc758
 
 COCOAPODS: 1.1.1
