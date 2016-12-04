@@ -41,7 +41,7 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
             labelIsShown = true
             fieldLabel.alpha = 0
             fieldLabel.isHidden = false
-            UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut], animations: {
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .curveEaseOut], animations: {
                 self.fieldLabel.alpha = 1.0
                 self.fieldLabelCenterYConstraint.constant = -20.0
                 self.fieldContainerView.layoutIfNeeded()
@@ -54,7 +54,7 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     func hideFieldLabel() {
         if labelIsShown {
             labelIsShown = false
-            UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut], animations: {
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .curveEaseOut], animations: {
                 self.fieldLabel.alpha = 0
                 self.fieldLabelCenterYConstraint.constant = 0.0
                 self.fieldContainerView.layoutIfNeeded()
