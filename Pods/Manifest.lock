@@ -1,7 +1,7 @@
 PODS:
-  - AWSCognito (2.4.12):
-    - AWSCore (= 2.4.12)
-  - AWSCore (2.4.12)
+  - AWSCognito (2.4.14):
+    - AWSCore (= 2.4.14)
+  - AWSCore (2.4.14)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -16,9 +16,9 @@ PODS:
     - FacebookCore (~> 0.2)
     - FBSDKCoreKit (~> 4.15)
     - FBSDKLoginKit (~> 4.15)
-  - FBSDKCoreKit (4.17.0):
+  - FBSDKCoreKit (4.18.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.17.0):
+  - FBSDKLoginKit (4.18.0):
     - FBSDKCoreKit
   - Firebase/Auth (3.10.0):
     - Firebase/Core
@@ -73,17 +73,6 @@ PODS:
   - GTMSessionFetcher/Core (1.1.7)
   - Locksmith (3.0.0)
   - PKRevealController (2.0.6)
-  - PromiseKit (4.0.5):
-    - PromiseKit/Foundation (= 4.0.5)
-    - PromiseKit/QuartzCore (= 4.0.5)
-    - PromiseKit/UIKit (= 4.0.5)
-  - PromiseKit/CorePromise (4.0.5)
-  - PromiseKit/Foundation (4.0.5):
-    - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.0.5):
-    - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.0.5):
-    - PromiseKit/CorePromise
   - SnapKit (3.0.2)
 
 DEPENDENCIES:
@@ -97,17 +86,16 @@ DEPENDENCIES:
   - Firebase/Database
   - Locksmith
   - PKRevealController
-  - PromiseKit (~> 4.0.5)
   - SnapKit
 
 SPEC CHECKSUMS:
-  AWSCognito: 3c897210f6bfbb04585332388dff2036a3f39540
-  AWSCore: 8ee5b1dc06a0fd562429fe7120113ca93cbfbca6
+  AWSCognito: d77561939518929ae526b792970637a36e15abe4
+  AWSCore: 9eb19b80ceb8cee6b2a2b2639f4f34349df387ed
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
-  FBSDKCoreKit: 30a21d2d7b92984b3d80497113433c00824c35e9
-  FBSDKLoginKit: 42b7129ac0373ca99eaf4cbebf4d07bd42371f59
+  FBSDKCoreKit: 15fef8804a4629f98c6f4e55e81a76c9d725d85e
+  FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
   Firebase: 387f37c7dca894a02708da9ff35ba147040eae9e
   FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
   FirebaseAuth: 96e9674ff31d6e1f826d53e26aa003a57cab0295
@@ -121,9 +109,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   PKRevealController: ffb45a16f5a5032ad90a3d16e5cbb0d8e035bd58
-  PromiseKit: 593b5e24ded6cbb1ebc708bc2c3428a8a5632d91
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: eee39dbd98b9a9507a72f069bcb9839e642bc758
+PODFILE CHECKSUM: 152c39a9f4b62f4fec18fc21c54688cacaafa209
 
 COCOAPODS: 1.1.1

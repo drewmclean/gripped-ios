@@ -6,18 +6,17 @@ target 'GrippedAthletics' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   
-  pod 'PromiseKit', '~> 4.0.5'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Crash'
   pod 'AWSCore', '~> 2.4'
   pod 'AWSCognito', '~> 2.4'
-  pod 'FacebookCore', '~> 0.2'g
+  pod 'FacebookCore', '~> 0.2'
   pod 'FacebookLogin', '~> 0.2'
   pod 'PKRevealController'
   pod 'Locksmith'
-  pod 'SnapKit'`
+  pod 'SnapKit'
   
   # Pods for GrippedAthletics
   

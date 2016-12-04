@@ -412,7 +412,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = GrippedAthletics;
 				TargetAttributes = {
 					571C7F7A1DBBD09A0071DB04 = {
@@ -823,7 +823,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 241352108402B74476496D70 /* Pods-GrippedAthletics.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WNVLT95ZEN;
 				INFOPLIST_FILE = GrippedAthletics/Info.plist;
@@ -838,7 +838,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 22E159F69006E254A59FA459 /* Pods-GrippedAthletics.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WNVLT95ZEN;
 				INFOPLIST_FILE = GrippedAthletics/Info.plist;
@@ -853,7 +853,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9260C71F94BF267EA2669A81 /* Pods-GrippedAthleticsTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = WNVLT95ZEN;
 				INFOPLIST_FILE = GrippedAthleticsTests/Info.plist;
@@ -869,7 +869,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 78C37B8AFD3E694A44C7233B /* Pods-GrippedAthleticsTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = WNVLT95ZEN;
 				INFOPLIST_FILE = GrippedAthleticsTests/Info.plist;
@@ -885,7 +885,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9F95B1F2A6C91DC9B976F298 /* Pods-GrippedAthleticsUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = WNVLT95ZEN;
 				INFOPLIST_FILE = GrippedAthleticsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -900,7 +900,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EE5728FDCA3F9FAA6E6EA44C /* Pods-GrippedAthleticsUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = WNVLT95ZEN;
 				INFOPLIST_FILE = GrippedAthleticsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
