@@ -18,9 +18,9 @@ extension UIViewController {
 
 protocol KeyboardAnimator {
     func keyboardShowAnimation(keyboardFrame : CGRect)
-    func keyboardShowAnimationComplete()
+//    func keyboardShowAnimationComplete()
     func keyboardHideAnimation(keyboardFrane : CGRect)
-    func keyboardHideAnimationComplete()
+//    func keyboardHideAnimationComplete()
 }
 
 extension UIViewController {
@@ -46,7 +46,7 @@ extension UIViewController {
                 UIView.animate(withDuration: duration, delay: 0, options: [curveOption], animations: { 
                     keyboardAnimator.keyboardShowAnimation(keyboardFrame: keyboardFrame)
                 }, completion: { (finished: Bool) in
-                    keyboardAnimator.keyboardShowAnimationComplete()
+//                    keyboardAnimator.keyboardShowAnimationComplete()
                 })
             }
         }
@@ -63,7 +63,7 @@ extension UIViewController {
                 UIView.animate(withDuration: duration, delay: 0, options: [curveOption], animations: {
                     keyboardAnimator.keyboardHideAnimation(keyboardFrane: keyboardFrame)
                 }, completion: { (finished: Bool) in
-                    keyboardAnimator.keyboardHideAnimationComplete()
+//                    keyboardAnimator.keyboardHideAnimationComplete()
                 })
             }
         }

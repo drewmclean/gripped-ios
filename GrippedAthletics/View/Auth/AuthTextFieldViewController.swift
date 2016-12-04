@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
+class AuthTextFieldViewController: UIViewController, UITextFieldDelegate, KeyboardAnimator {
     
     @IBOutlet weak var fieldContainerView: UIView!
     @IBOutlet weak var fieldContainerViewBottomConstraint: NSLayoutConstraint!
@@ -25,6 +25,7 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
         textField.text = ""
         NotificationCenter.default.addObserver(self, selector: #selector(AuthTextFieldViewController.textDidChange(notification:)), name: NSNotification.Name.UITextFieldTextDidChange, object: textField)
         
+        addKeyboardHandlers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,6 +80,17 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return true
     }
+    
+    // MARK: KeyboardAnimator 
+    func keyboardShowAnimation(keyboardFrame: CGRect) {
+        fieldContainerViewBottomConstraint.constant = keyboardFrame.size.height
+    }
+    
+    func keyboardHideAnimation(keyboardFrane: CGRect) {
+        fieldContainerViewBottomConstraint.constant = 0
+    }
+    
+    // MARK: Deinit
     
     deinit {
         
