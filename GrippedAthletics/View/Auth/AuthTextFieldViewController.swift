@@ -32,6 +32,7 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     lazy var textBorder : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.lightGray
+        self.fieldContainerView.addSubview(view)
         return view
     }()
     
@@ -65,8 +66,9 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
             make.left.equalTo(fieldContainerView)
             make.right.equalTo(fieldContainerView)
             make.bottom.equalTo(textField.snp.bottom)
-            make.height.equalTo(1.0)
+            make.height.equalTo(0.5)
         }
+        super.updateViewConstraints()
     }
     
     // MARK: Animation
