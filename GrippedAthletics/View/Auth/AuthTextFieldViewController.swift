@@ -8,21 +8,28 @@
 
 import UIKit
 
+protocol AuthTextFieldViewControllerDelegate {
+    func didFinishTextEntry(controller : AuthTextFieldViewController)
+}
+
 class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var fieldContainerView: UIView!
     @IBOutlet weak var fieldLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var fieldLabelCenterYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var invalidMessageLabel: UILabel!
     
+    var delegate : AuthTextFieldViewControllerDelegate?
     var placeholder : String?
     var keyboardType : UIKeyboardType = .default
     var returnKeyType : UIReturnKeyType = .default
     var isSecureTextEntry : Bool = false
     var autocapitalizationType : UITextAutocapitalizationType = .none
     var fieldTitle : String?
-    var doneClosure : ((String) -> Void)!
-    var validationClosure : ((String?) -> Bool)!
+    var fieldValue : String? {
+        return textField.text
+    }
     
     private var labelIsShown : Bool = false
     
@@ -49,11 +56,15 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
         textField.returnKeyType = returnKeyType
         textField.isSecureTextEntry = isSecureTextEntry
         textField.autocapitalizationType = autocapitalizationType
+        textField.text = ""
+        textField.delegate = self
         
         fieldLabel.text = fieldTitle
         fieldLabel.textColor = UIColor.lightGray
         fieldLabel.isHidden = true
-        textField.text = ""
+        
+        invalidMessageLabel.textColor = UIColor.red
+        invalidMessageLabel.isHidden = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(AuthTextFieldViewController.textDidChange(notification:)), name: NSNotification.Name.UITextFieldTextDidChange, object: textField)
     }
@@ -73,7 +84,23 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: Animation
-    
+    func updateValidLabel(isValid : Bool, message : String?) {
+        if isValid {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.invalidMessageLabel.text = nil
+                self.invalidMessageLabel.alpha = 0
+                self.textBorder.backgroundColor = UIColor.lightGray
+            })
+        } else {
+            invalidMessageLabel.alpha = 0
+            invalidMessageLabel.isHidden = false
+            UIView.animate(withDuration: 0.2, animations: { 
+                self.invalidMessageLabel.text = message
+                self.invalidMessageLabel.alpha = 1.0
+                self.textBorder.backgroundColor = UIColor.red
+            })
+        }
+    }
     func showFieldLabel() {
         if !labelIsShown {
             labelIsShown = true
@@ -112,28 +139,11 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // MARK: Validation 
-    
-    func validateText() -> Bool {
-        return validationClosure(textField.text)
-    }
-    
     // MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if validateText() {
-            doneClosure(textField.text!)
-            return true
-        }
-        return false
-    }
-    
-    // MARK: Action
-    
-    func rightItemTapped(sender: UIBarButtonItem) {
-        if validateText() {
-            doneClosure(textField.text!)
-        }
+        delegate?.didFinishTextEntry(controller: self)
+        return true
     }
     
     // MARK: Deinit

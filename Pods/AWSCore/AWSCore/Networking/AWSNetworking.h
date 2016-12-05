@@ -27,8 +27,7 @@ typedef NS_ENUM(NSInteger, AWSNetworkingRetryType) {
     AWSNetworkingRetryTypeShouldNotRetry,
     AWSNetworkingRetryTypeShouldRetry,
     AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry,
-    AWSNetworkingRetryTypeShouldCorrectClockSkewAndRetry,
-    AWSNetworkingRetryTypeResetStreamAndRetry
+    AWSNetworkingRetryTypeShouldCorrectClockSkewAndRetry
 };
 
 @class AWSNetworkingConfiguration;
@@ -118,19 +117,14 @@ typedef NS_ENUM(NSInteger, AWSHTTPMethod) {
 @property (nonatomic, assign) uint32_t maxRetryCount;
 
 - (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
-                      originalRequest:(AWSNetworkingRequest *)originalRequest
-                             response:(NSHTTPURLResponse *)response
-                                 data:(NSData *)data
-                                error:(NSError *)error;
+                            response:(NSHTTPURLResponse *)response
+                                data:(NSData *)data
+                               error:(NSError *)error;
 
 - (NSTimeInterval)timeIntervalForRetry:(uint32_t)currentRetryCount
                               response:(NSHTTPURLResponse *)response
                                   data:(NSData *)data
                                  error:(NSError *)error;
-
-@optional
-
-- (NSDictionary *)resetParameters:(NSDictionary *)parameters;
 
 @end
 

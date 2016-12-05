@@ -17,6 +17,7 @@ target 'GrippedAthletics' do
   pod 'PKRevealController'
   pod 'Locksmith'
   pod 'SnapKit'
+  pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :branch => 'master'
   
   # Pods for GrippedAthletics
   

@@ -51,7 +51,6 @@
 }
 
 - (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
-                      originalRequest:(AWSNetworkingRequest *)originalRequest
                              response:(NSHTTPURLResponse *)response
                                  data:(NSData *)data
                                 error:(NSError *)error {

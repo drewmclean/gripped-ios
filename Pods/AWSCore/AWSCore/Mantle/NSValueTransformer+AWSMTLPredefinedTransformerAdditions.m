@@ -141,12 +141,4 @@ NSString * const AWSMTLBooleanValueTransformerName = @"AWSMTLBooleanValueTransfo
 	}];
 }
 
-+ (NSValueTransformer *)awsmtl_NSInputStreamValueTransformerWithData:(NSData *)data{
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^(NSData *data) {
-         return [[NSInputStream alloc]initWithData:data];
-    } reverseBlock:^(NSInputStream *object) {
-        return object;
-    }];
-}
-
 @end

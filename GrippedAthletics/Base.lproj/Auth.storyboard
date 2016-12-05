@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wTf-Ek-9VM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wTf-Ek-9VM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11755"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -140,9 +140,18 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKR-Bx-3tr">
-                                        <rect key="frame" x="10" y="313.5" width="355" height="19.5"/>
+                                        <rect key="frame" x="10" y="313" width="355" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keR-yR-0ne">
+                                        <rect key="frame" x="10" y="343" width="355" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14" id="5uX-be-niz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.029831843470767616" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -152,8 +161,11 @@
                                     <constraint firstItem="gnB-ke-TrG" firstAttribute="centerY" secondItem="Btc-f4-OWt" secondAttribute="centerY" id="8ls-h5-5A9"/>
                                     <constraint firstItem="nKR-Bx-3tr" firstAttribute="trailing" secondItem="gnB-ke-TrG" secondAttribute="trailing" id="AdH-WC-LRx"/>
                                     <constraint firstItem="gnB-ke-TrG" firstAttribute="leading" secondItem="Btc-f4-OWt" secondAttribute="leading" constant="10" id="DEv-4E-Ox8"/>
+                                    <constraint firstItem="keR-yR-0ne" firstAttribute="leading" secondItem="nKR-Bx-3tr" secondAttribute="leading" id="YFN-p3-hwt"/>
                                     <constraint firstItem="nKR-Bx-3tr" firstAttribute="centerY" secondItem="gnB-ke-TrG" secondAttribute="centerY" id="cr3-0c-XHV"/>
                                     <constraint firstAttribute="trailing" secondItem="gnB-ke-TrG" secondAttribute="trailing" constant="10" id="uPW-Hc-tII"/>
+                                    <constraint firstItem="keR-yR-0ne" firstAttribute="top" secondItem="nKR-Bx-3tr" secondAttribute="bottom" constant="10" id="yor-sK-8Ca"/>
+                                    <constraint firstItem="keR-yR-0ne" firstAttribute="trailing" secondItem="gnB-ke-TrG" secondAttribute="trailing" id="zWJ-iL-4K2"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -170,12 +182,13 @@
                         <outlet property="fieldContainerView" destination="Btc-f4-OWt" id="ipx-US-VPv"/>
                         <outlet property="fieldLabel" destination="nKR-Bx-3tr" id="G8z-hq-S9G"/>
                         <outlet property="fieldLabelCenterYConstraint" destination="cr3-0c-XHV" id="0ju-cV-T1g"/>
+                        <outlet property="invalidMessageLabel" destination="keR-yR-0ne" id="1HO-cO-Xor"/>
                         <outlet property="textField" destination="gnB-ke-TrG" id="xd2-pc-Bhw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRa-GO-nRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3039" y="-130"/>
+            <point key="canvasLocation" x="3037.5999999999999" y="-130.88455772113943"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QlY-nb-NmH">
