@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wTf-Ek-9VM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wTf-Ek-9VM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -80,18 +80,40 @@
             </objects>
             <point key="canvasLocation" x="384.80000000000001" y="-50.824587706146929"/>
         </scene>
-        <!--Sign Up View Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="8X7-dd-Srx">
             <objects>
-                <navigationController storyboardIdentifier="SignUpViewController" id="7fX-Jg-hIj" customClass="SignUpViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="7fX-Jg-hIj" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NIH-Be-ZR5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="h2U-iN-egU" kind="relationship" relationship="rootViewController" id="TNT-iO-ami"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBa-Uz-MMs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1254" y="-468"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="HdW-dV-JCZ">
+            <objects>
+                <viewController storyboardIdentifier="SignUpViewController" id="h2U-iN-egU" customClass="SignUpViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Naa-aP-AVl"/>
+                        <viewControllerLayoutGuide type="bottom" id="ygZ-MI-JfY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ARK-f4-P6q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="61f-LC-qoh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N2v-Xn-VLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2072.8000000000002" y="-468.21589205397305"/>
         </scene>
         <!--Auth Text Field View Controller-->
         <scene sceneID="MW9-Az-0n5">
@@ -106,10 +128,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Btc-f4-OWt">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="drew@grippedathletics.com" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gnB-ke-TrG">
-                                        <rect key="frame" x="10" y="279" width="355" height="44"/>
+                                        <rect key="frame" x="10" y="301" width="355" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="dUQ-CL-PDF"/>
                                         </constraints>
@@ -118,7 +140,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKR-Bx-3tr">
-                                        <rect key="frame" x="10" y="291.5" width="355" height="19.5"/>
+                                        <rect key="frame" x="10" y="313.5" width="355" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -154,20 +176,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRa-GO-nRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988" y="-114"/>
+            <point key="canvasLocation" x="3039" y="-130"/>
         </scene>
-        <!--Sign In View Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="QlY-nb-NmH">
             <objects>
-                <navigationController storyboardIdentifier="SignInViewController" id="Hys-RG-73K" customClass="SignInViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="Hys-RG-73K" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fCw-mO-p8N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="pWU-iI-HAJ" kind="relationship" relationship="rootViewController" id="vgd-GR-ol0"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76F-TO-XU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1254" y="276"/>
+        </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="q1I-pr-TFn">
+            <objects>
+                <viewController storyboardIdentifier="SignInViewController" id="pWU-iI-HAJ" customClass="SignInViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ygY-C5-7vn"/>
+                        <viewControllerLayoutGuide type="bottom" id="A6z-5S-Xwh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zMo-CH-HJI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nbP-Vp-p82"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uYo-BG-EeX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2073" y="276"/>
         </scene>
     </scenes>
 </document>

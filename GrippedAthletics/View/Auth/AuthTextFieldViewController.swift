@@ -8,10 +8,9 @@
 
 import UIKit
 
-class AuthTextFieldViewController: UIViewController, UITextFieldDelegate, KeyboardAnimator {
+class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var fieldContainerView: UIView!
-    @IBOutlet weak var fieldContainerViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var fieldLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var fieldLabelCenterYConstraint: NSLayoutConstraint!
@@ -19,47 +18,38 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate, Keyboa
     var placeholder : String?
     var keyboardType : UIKeyboardType = .default
     var returnKeyType : UIReturnKeyType = .default
+    var isSecureTextEntry : Bool = false
+    var autocapitalizationType : UITextAutocapitalizationType = .none
     var fieldTitle : String?
-    var numberOfSteps : Int = 1
-    var currentStep : Int = 1
     var doneClosure : ((String) -> Void)!
+    var validationClosure : ((String?) -> Bool)!
     
     private var labelIsShown : Bool = false
     
     var backBarLabel : String?
     var rightBarTitle : String?
-
-    lazy var stepIndicator : UIPageControl = {
-        let pageControl = UIPageControl(frame: CGRect(x: 0, y: 0, width: 40, height: 30))
-        pageControl.tintColor = UIColor.black
-        return pageControl
-    }()
+    
+    override func becomeFirstResponder() -> Bool {
+        return textField.becomeFirstResponder()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.titleView = stepIndicator
-        if let rightTitle = rightBarTitle {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: rightTitle, style: .plain, target: self, action: #selector(AuthTextFieldViewController.rightItemTapped(sender:)))
-        }
         textField.placeholder = placeholder
         textField.keyboardType = keyboardType
         textField.returnKeyType = returnKeyType
+        textField.isSecureTextEntry = isSecureTextEntry
+        textField.autocapitalizationType = autocapitalizationType
         fieldLabel.text = fieldTitle
-        stepIndicator.numberOfPages = numberOfSteps
-        stepIndicator.currentPage = currentStep
-        
         fieldLabel.isHidden = true
         textField.text = ""
-        NotificationCenter.default.addObserver(self, selector: #selector(AuthTextFieldViewController.textDidChange(notification:)), name: NSNotification.Name.UITextFieldTextDidChange, object: textField)
         
-        addKeyboardHandlers()
+        NotificationCenter.default.addObserver(self, selector: #selector(AuthTextFieldViewController.textDidChange(notification:)), name: NSNotification.Name.UITextFieldTextDidChange, object: textField)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        textField.becomeFirstResponder()
     }
     
     
@@ -106,7 +96,7 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate, Keyboa
     // MARK: Validation 
     
     func validateText() -> Bool {
-        return true
+        return validationClosure(textField.text)
     }
     
     // MARK: UITextFieldDelegate
@@ -125,15 +115,6 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate, Keyboa
         if validateText() {
             doneClosure(textField.text!)
         }
-    }
-    
-    // MARK: KeyboardAnimator 
-    func keyboardShowAnimation(keyboardFrame: CGRect) {
-        fieldContainerViewBottomConstraint.constant = keyboardFrame.size.height
-    }
-    
-    func keyboardHideAnimation(keyboardFrane: CGRect) {
-        fieldContainerViewBottomConstraint.constant = 0
     }
     
     // MARK: Deinit

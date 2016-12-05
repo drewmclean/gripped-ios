@@ -7,19 +7,45 @@
 //
 
 import UIKit
+import SnapKit
 
-class SignUpViewController: UINavigationController {
+class SignUpViewController: UIViewController, KeyboardAnimator {
+    
+    var stackViewBottomConstraint : Constraint!
+    var stackViewLeftConstraint : Constraint!
+    
+    lazy var stackView : UIStackView = {
+        let sv = UIStackView()
+        sv.axis = .horizontal
+        sv.distribution = .fill
+        sv.alignment = .fill
+        self.view.addSubview(sv)
+        return sv
+    }()
 
+    lazy var nameViewController : AuthTextFieldViewController = {
+        let vc = self.storyboard!.instantiateViewController(withClass: AuthTextFieldViewController.self) as! AuthTextFieldViewController
+        vc.placeholder = "Name"
+        vc.keyboardType = .default
+        vc.autocapitalizationType = .words
+        vc.returnKeyType = .next
+        vc.fieldTitle = "Email"
+        vc.rightBarTitle = "Next"
+        vc.doneClosure = { (Void) -> Void in
+            self.showNextView()
+        }
+        return vc
+    }()
+    
     lazy var emailViewController : AuthTextFieldViewController = {
         let vc = self.storyboard!.instantiateViewController(withClass: AuthTextFieldViewController.self) as! AuthTextFieldViewController
         vc.placeholder = "Email Address"
         vc.keyboardType = .emailAddress
         vc.returnKeyType = .next
         vc.fieldTitle = "Email"
-        vc.numberOfSteps = 2
-        vc.currentStep = 1
-        vc.doneClosure = { (value : String) -> Void in
-            self.showPassword()
+        vc.rightBarTitle = "Next"
+        vc.doneClosure = { (Void) -> Void in
+            self.showNextView()
         }
         return vc
     }()
@@ -29,19 +55,30 @@ class SignUpViewController: UINavigationController {
         vc.placeholder = "Password"
         vc.keyboardType = .default
         vc.returnKeyType = .done
+        vc.isSecureTextEntry = true
+        vc.rightBarTitle = "Done"
         vc.fieldTitle = "Password"
-        vc.numberOfSteps = 2
-        vc.currentStep = 2
-        vc.doneClosure = { (value : String) -> Void in
-            self.createAccount()
+        vc.doneClosure = { (Void) -> Void in
+            self.showNextView()
         }
         return vc
+    }()
+
+    lazy var stepIndicator : UIPageControl = {
+        let pageControl = UIPageControl(frame: CGRect(x: 0, y: 0, width: 40, height: 30))
+        pageControl.tintColor = UIColor.black
+        return pageControl
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setViewControllers([emailViewController], animated: false)
+        navigationItem.titleView = stepIndicator
+//        if let rightTitle = rightBarTitle {
+//            navigationItem.rightBarButtonItem = UIBarButtonItem(title: rightTitle, style: .plain, target: self, action: #selector(SignUpViewController.rightItemTapped(sender:)))
+//        }
+        
+        addKeyboardHandlers()
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,13 +86,23 @@ class SignUpViewController: UINavigationController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    func showPassword() {
-        pushViewController(passwordViewController, animated: true)
+    // MARK: Show
+    
+    func showNextView() {
+        
     }
     
-    func createAccount() {
+    func showPreviousView() {
         
+    }
+    
+    // MARK: KeyboardAnimator
+    func keyboardShowAnimation(keyboardFrame: CGRect) {
+        stackViewBottomConstraint.update(offset: keyboardFrame.size.height)
+    }
+    
+    func keyboardHideAnimation(keyboardFrane: CGRect) {
+        stackViewBottomConstraint.update(offset: 0)
     }
 
 }
