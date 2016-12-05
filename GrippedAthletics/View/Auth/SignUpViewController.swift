@@ -17,17 +17,11 @@ class SignUpViewController: UIViewController, KeyboardAnimator {
     lazy var stackView : UIStackView = {
         let sv = UIStackView()
         sv.axis = .horizontal
-        sv.distribution = .fill
+        sv.distribution = .fillEqually
         sv.alignment = .fill
         sv.layoutMargins = .zero
         sv.spacing = 0
         self.view.addSubview(sv)
-        sv.snp.makeConstraints { (make) in
-            make.width.equalTo(self.view.snp.width).multipliedBy(self.fieldViewControllers.count)
-            make.top.equalTo(self.view.snp.top)
-            self.stackViewBottomConstraint = make.bottom.equalTo(self.view.snp.bottom).constraint
-            self.stackViewLeftConstraint = make.left.equalTo(self.view.snp.left).constraint
-        }
         return sv
     }()
 
@@ -86,18 +80,11 @@ class SignUpViewController: UIViewController, KeyboardAnimator {
         super.viewDidLoad()
         
         navigationItem.titleView = stepIndicator
-//        if let rightTitle = rightBarTitle {
-//            navigationItem.rightBarButtonItem = UIBarButtonItem(title: rightTitle, style: .plain, target: self, action: #selector(SignUpViewController.rightItemTapped(sender:)))
-//        }
         
         fieldViewControllers.forEach { (vc: AuthTextFieldViewController) in
             vc.willMove(toParentViewController: self)
             addChildViewController(vc)
             stackView.addArrangedSubview(vc.view)
-            vc.view.snp.makeConstraints({ (make: ConstraintMaker) in
-                make.width.equalTo(self.view.snp.width)
-                make.height.equalTo(self.view.snp.height)
-            })
             vc.didMove(toParentViewController: self)
         }
         
@@ -105,9 +92,33 @@ class SignUpViewController: UIViewController, KeyboardAnimator {
         
         stepIndicator.numberOfPages = fieldViewControllers.count
         
+        updateViewConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         showFieldViewController(atIndex: 0, animated: false)
     }
     
+    override func updateViewConstraints() {
+        
+        stackView.snp.updateConstraints { (make) in
+            make.width.equalTo(self.view.snp.width).multipliedBy(self.fieldViewControllers.count)
+            make.top.equalTo(self.view.snp.top)
+            self.stackViewBottomConstraint = make.bottom.equalTo(self.view.snp.bottom).constraint
+            self.stackViewLeftConstraint = make.left.equalTo(self.view.snp.left).constraint
+        }
+        
+        fieldViewControllers.forEach { (vc: AuthTextFieldViewController) in
+            vc.view.snp.makeConstraints({ (make: ConstraintMaker) in
+//                make.width.equalTo(self.view.snp.width)
+//                make.height.equalTo(self.view.snp.height)
+            })
+        }
+        
+        super.updateViewConstraints()
+    }
     // MARK: Show
     
     func showFieldViewController(atIndex index: Int, animated: Bool) {
@@ -115,9 +126,10 @@ class SignUpViewController: UIViewController, KeyboardAnimator {
         let vc = fieldViewControllers[index]
         
         navigationItem.rightBarButtonItem?.title = vc.rightBarTitle
+        stepIndicator.currentPage = index
+//        vc.becomeFirstResponder()
         
         if animated {
-            stepIndicator.currentPage = index
             
         } else {
             
@@ -134,7 +146,8 @@ class SignUpViewController: UIViewController, KeyboardAnimator {
     
     // MARK: KeyboardAnimator
     func keyboardShowAnimation(keyboardFrame: CGRect) {
-        stackViewBottomConstraint.update(offset: keyboardFrame.size.height)
+        stackViewBottomConstraint.update(offset: -keyboardFrame.size.height)
+        view.layoutIfNeeded()
     }
     
     func keyboardHideAnimation(keyboardFrane: CGRect) {

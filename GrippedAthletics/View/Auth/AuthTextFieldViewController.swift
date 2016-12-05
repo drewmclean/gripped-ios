@@ -29,6 +29,12 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     var backBarLabel : String?
     var rightBarTitle : String?
     
+    lazy var textBorder : UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.lightGray
+        return view
+    }()
+    
     override func becomeFirstResponder() -> Bool {
         return textField.becomeFirstResponder()
     }
@@ -36,11 +42,13 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        textField.backgroundColor = UIColor.clear
         textField.placeholder = placeholder
         textField.keyboardType = keyboardType
         textField.returnKeyType = returnKeyType
         textField.isSecureTextEntry = isSecureTextEntry
         textField.autocapitalizationType = autocapitalizationType
+        
         fieldLabel.text = fieldTitle
         fieldLabel.isHidden = true
         textField.text = ""
@@ -52,6 +60,14 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
     }
     
+    override func updateViewConstraints() {
+        textBorder.snp.updateConstraints { (make) in
+            make.left.equalTo(fieldContainerView)
+            make.right.equalTo(fieldContainerView)
+            make.bottom.equalTo(textField.snp.bottom)
+            make.height.equalTo(1.0)
+        }
+    }
     
     // MARK: Animation
     
@@ -62,7 +78,7 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
             fieldLabel.isHidden = false
             UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .curveEaseOut], animations: {
                 self.fieldLabel.alpha = 1.0
-                self.fieldLabelCenterYConstraint.constant = -20.0
+                self.fieldLabelCenterYConstraint.constant = -24.0
                 self.fieldContainerView.layoutIfNeeded()
             }, completion: { (Bool) -> Void in
                 
