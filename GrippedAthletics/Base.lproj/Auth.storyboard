@@ -146,7 +146,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keR-yR-0ne">
-                                        <rect key="frame" x="10" y="343" width="355" height="14"/>
+                                        <rect key="frame" x="10" y="347" width="355" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="5uX-be-niz"/>
                                         </constraints>
@@ -157,14 +157,14 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="keR-yR-0ne" firstAttribute="leading" secondItem="gnB-ke-TrG" secondAttribute="leading" id="1bF-Ie-3zQ"/>
                                     <constraint firstItem="nKR-Bx-3tr" firstAttribute="leading" secondItem="gnB-ke-TrG" secondAttribute="leading" id="3je-Dq-5q5"/>
                                     <constraint firstItem="gnB-ke-TrG" firstAttribute="centerY" secondItem="Btc-f4-OWt" secondAttribute="centerY" id="8ls-h5-5A9"/>
                                     <constraint firstItem="nKR-Bx-3tr" firstAttribute="trailing" secondItem="gnB-ke-TrG" secondAttribute="trailing" id="AdH-WC-LRx"/>
                                     <constraint firstItem="gnB-ke-TrG" firstAttribute="leading" secondItem="Btc-f4-OWt" secondAttribute="leading" constant="10" id="DEv-4E-Ox8"/>
-                                    <constraint firstItem="keR-yR-0ne" firstAttribute="leading" secondItem="nKR-Bx-3tr" secondAttribute="leading" id="YFN-p3-hwt"/>
+                                    <constraint firstItem="keR-yR-0ne" firstAttribute="top" secondItem="gnB-ke-TrG" secondAttribute="bottom" constant="2" id="SEI-7u-Phu"/>
                                     <constraint firstItem="nKR-Bx-3tr" firstAttribute="centerY" secondItem="gnB-ke-TrG" secondAttribute="centerY" id="cr3-0c-XHV"/>
                                     <constraint firstAttribute="trailing" secondItem="gnB-ke-TrG" secondAttribute="trailing" constant="10" id="uPW-Hc-tII"/>
-                                    <constraint firstItem="keR-yR-0ne" firstAttribute="top" secondItem="nKR-Bx-3tr" secondAttribute="bottom" constant="10" id="yor-sK-8Ca"/>
                                     <constraint firstItem="keR-yR-0ne" firstAttribute="trailing" secondItem="gnB-ke-TrG" secondAttribute="trailing" id="zWJ-iL-4K2"/>
                                 </constraints>
                             </view>

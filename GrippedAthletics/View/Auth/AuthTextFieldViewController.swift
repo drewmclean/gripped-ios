@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftValidator
 
 protocol AuthTextFieldViewControllerDelegate {
     func didFinishTextEntry(controller : AuthTextFieldViewController)
@@ -21,6 +22,8 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var invalidMessageLabel: UILabel!
     
     var delegate : AuthTextFieldViewControllerDelegate?
+    var validator : Validator!
+    var validatorRules : [Rule]!
     var placeholder : String?
     var keyboardType : UIKeyboardType = .default
     var returnKeyType : UIReturnKeyType = .default
@@ -49,6 +52,8 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        validator.registerField(textField, errorLabel: invalidMessageLabel, rules: validatorRules)
         
         textField.backgroundColor = UIColor.clear
         textField.placeholder = placeholder

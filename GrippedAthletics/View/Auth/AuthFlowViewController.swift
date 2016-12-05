@@ -12,7 +12,10 @@ import SnapKit
 
 class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldViewControllerDelegate {
     
-    lazy var validator : Validator = Validator()
+    lazy var validator : Validator = {
+        let v = Validator()
+        return v
+    }()
     
     var fieldViewControllers : [AuthTextFieldViewController]! {
         return [AuthTextFieldViewController]()
@@ -48,7 +51,7 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navigationItem.titleView = stepIndicator
         
         fieldViewControllers.forEach { (vc: AuthTextFieldViewController) in
@@ -148,11 +151,7 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
     // MARK: Actions
     
     func rightItemTapped(sender:UIBarButtonItem) {
-        if currentViewController == lastViewController {
-            submitForm()
-        } else {
-            showNextView()
-        }
+        didFinishTextEntry(controller: currentViewController)
     }
     
     func backItemTapped(sender:UIBarButtonItem) {
@@ -174,7 +173,19 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
     }
     
     func didFinishTextEntry(controller: AuthTextFieldViewController) {
-        
+        validator.validateField(controller.textField) { (error: ValidationError?) -> Void in
+            if let e = error {
+                controller.updateValidLabel(isValid: false, message: e.errorMessage)
+                return
+            }
+            controller.updateValidLabel(isValid: true, message: nil)
+            
+            if currentViewController == lastViewController {
+                submitForm()
+            } else {
+                showNextView()
+            }
+        }
     }
 
 }

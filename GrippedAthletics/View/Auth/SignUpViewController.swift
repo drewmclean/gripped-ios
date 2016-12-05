@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import SwiftValidator
+import FirebaseAuth
 
 class SignUpViewController: AuthFlowViewController {
     
@@ -21,6 +22,8 @@ class SignUpViewController: AuthFlowViewController {
         vc.fieldTitle = "Name"
         vc.rightBarTitle = "Next"
         vc.delegate = self
+        vc.validator = self.validator
+        vc.validatorRules = [RequiredRule()]
         return vc
     }()
     
@@ -32,6 +35,8 @@ class SignUpViewController: AuthFlowViewController {
         vc.fieldTitle = "Email"
         vc.rightBarTitle = "Next"
         vc.delegate = self
+        vc.validator = self.validator
+        vc.validatorRules = [RequiredRule(), EmailRule()]
         return vc
     }()
     
@@ -44,6 +49,8 @@ class SignUpViewController: AuthFlowViewController {
         vc.rightBarTitle = "Done"
         vc.fieldTitle = "Password"
         vc.delegate = self
+        vc.validator = self.validator
+        vc.validatorRules = [RequiredRule(), PasswordRule()]
         return vc
     }()
     
@@ -60,7 +67,15 @@ class SignUpViewController: AuthFlowViewController {
     // MARK: API
 
     override public func submitForm() {
+        let email = emailViewController.fieldValue!
+        let password = passwordViewController.fieldValue!
         
+        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
+            
+            
+            
+            
+        })
     }
 
 }
