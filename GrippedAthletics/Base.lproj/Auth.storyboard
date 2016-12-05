@@ -168,7 +168,6 @@
                     <navigationItem key="navigationItem" id="H5g-yI-DdA"/>
                     <connections>
                         <outlet property="fieldContainerView" destination="Btc-f4-OWt" id="ipx-US-VPv"/>
-                        <outlet property="fieldContainerViewBottomConstraint" destination="elr-VC-Uje" id="4Dd-t9-R5m"/>
                         <outlet property="fieldLabel" destination="nKR-Bx-3tr" id="G8z-hq-S9G"/>
                         <outlet property="fieldLabelCenterYConstraint" destination="cr3-0c-XHV" id="0ju-cV-T1g"/>
                         <outlet property="textField" destination="gnB-ke-TrG" id="xd2-pc-Bhw"/>

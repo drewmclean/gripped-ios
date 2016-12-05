@@ -19,7 +19,15 @@ class SignUpViewController: UIViewController, KeyboardAnimator {
         sv.axis = .horizontal
         sv.distribution = .fill
         sv.alignment = .fill
+        sv.layoutMargins = .zero
+        sv.spacing = 0
         self.view.addSubview(sv)
+        sv.snp.makeConstraints { (make) in
+            make.width.equalTo(self.view.snp.width).multipliedBy(self.fieldViewControllers.count)
+            make.top.equalTo(self.view.snp.top)
+            self.stackViewBottomConstraint = make.bottom.equalTo(self.view.snp.bottom).constraint
+            self.stackViewLeftConstraint = make.left.equalTo(self.view.snp.left).constraint
+        }
         return sv
     }()
 
@@ -29,7 +37,7 @@ class SignUpViewController: UIViewController, KeyboardAnimator {
         vc.keyboardType = .default
         vc.autocapitalizationType = .words
         vc.returnKeyType = .next
-        vc.fieldTitle = "Email"
+        vc.fieldTitle = "Name"
         vc.rightBarTitle = "Next"
         vc.doneClosure = { (Void) -> Void in
             self.showNextView()
@@ -63,7 +71,11 @@ class SignUpViewController: UIViewController, KeyboardAnimator {
         }
         return vc
     }()
-
+    
+    lazy var fieldViewControllers : [AuthTextFieldViewController] = {
+        return [self.nameViewController, self.emailViewController, self.passwordViewController]
+    }()
+    
     lazy var stepIndicator : UIPageControl = {
         let pageControl = UIPageControl(frame: CGRect(x: 0, y: 0, width: 40, height: 30))
         pageControl.tintColor = UIColor.black
@@ -78,15 +90,39 @@ class SignUpViewController: UIViewController, KeyboardAnimator {
 //            navigationItem.rightBarButtonItem = UIBarButtonItem(title: rightTitle, style: .plain, target: self, action: #selector(SignUpViewController.rightItemTapped(sender:)))
 //        }
         
+        fieldViewControllers.forEach { (vc: AuthTextFieldViewController) in
+            vc.willMove(toParentViewController: self)
+            addChildViewController(vc)
+            stackView.addArrangedSubview(vc.view)
+            vc.view.snp.makeConstraints({ (make: ConstraintMaker) in
+                make.width.equalTo(self.view.snp.width)
+                make.height.equalTo(self.view.snp.height)
+            })
+            vc.didMove(toParentViewController: self)
+        }
+        
         addKeyboardHandlers()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        stepIndicator.numberOfPages = fieldViewControllers.count
+        
+        showFieldViewController(atIndex: 0, animated: false)
     }
     
     // MARK: Show
+    
+    func showFieldViewController(atIndex index: Int, animated: Bool) {
+        
+        let vc = fieldViewControllers[index]
+        
+        navigationItem.rightBarButtonItem?.title = vc.rightBarTitle
+        
+        if animated {
+            stepIndicator.currentPage = index
+            
+        } else {
+            
+        }
+    }
     
     func showNextView() {
         
