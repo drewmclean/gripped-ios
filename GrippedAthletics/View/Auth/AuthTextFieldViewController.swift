@@ -16,10 +16,38 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate, Keyboa
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var fieldLabelCenterYConstraint: NSLayoutConstraint!
     
+    var placeholder : String?
+    var keyboardType : UIKeyboardType = .default
+    var returnKeyType : UIReturnKeyType = .default
+    var fieldTitle : String?
+    var numberOfSteps : Int = 1
+    var currentStep : Int = 1
+    var doneClosure : ((String) -> Void)!
+    
     private var labelIsShown : Bool = false
+    
+    var backBarLabel : String?
+    var rightBarTitle : String?
+
+    lazy var stepIndicator : UIPageControl = {
+        let pageControl = UIPageControl(frame: CGRect(x: 0, y: 0, width: 40, height: 30))
+        pageControl.tintColor = UIColor.black
+        return pageControl
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.titleView = stepIndicator
+        if let rightTitle = rightBarTitle {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: rightTitle, style: .plain, target: self, action: #selector(AuthTextFieldViewController.rightItemTapped(sender:)))
+        }
+        textField.placeholder = placeholder
+        textField.keyboardType = keyboardType
+        textField.returnKeyType = returnKeyType
+        fieldLabel.text = fieldTitle
+        stepIndicator.numberOfPages = numberOfSteps
+        stepIndicator.currentPage = currentStep
         
         fieldLabel.isHidden = true
         textField.text = ""
@@ -75,10 +103,28 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate, Keyboa
         }
     }
     
+    // MARK: Validation 
+    
+    func validateText() -> Bool {
+        return true
+    }
+    
     // MARK: UITextFieldDelegate
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return true
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if validateText() {
+            doneClosure(textField.text!)
+            return true
+        }
+        return false
+    }
+    
+    // MARK: Action
+    
+    func rightItemTapped(sender: UIBarButtonItem) {
+        if validateText() {
+            doneClosure(textField.text!)
+        }
     }
     
     // MARK: KeyboardAnimator 
