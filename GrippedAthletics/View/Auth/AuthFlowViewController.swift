@@ -17,8 +17,49 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
         return v
     }()
     
+    lazy var nameViewController : AuthTextFieldViewController = {
+        let vc = self.storyboard!.instantiateViewController(withClass: AuthTextFieldViewController.self) as! AuthTextFieldViewController
+        vc.placeholder = "Name"
+        vc.keyboardType = .default
+        vc.autocapitalizationType = .words
+        vc.returnKeyType = .next
+        vc.fieldTitle = "Name"
+        vc.rightBarTitle = "Next"
+        vc.delegate = self
+        vc.validator = self.validator
+        vc.validatorRules = [RequiredRule()]
+        return vc
+    }()
+    
+    lazy var emailViewController : AuthTextFieldViewController = {
+        let vc = self.storyboard!.instantiateViewController(withClass: AuthTextFieldViewController.self) as! AuthTextFieldViewController
+        vc.placeholder = "Email Address"
+        vc.keyboardType = .emailAddress
+        vc.returnKeyType = .next
+        vc.fieldTitle = "Email"
+        vc.rightBarTitle = "Next"
+        vc.delegate = self
+        vc.validator = self.validator
+        vc.validatorRules = [RequiredRule(), EmailRule()]
+        return vc
+    }()
+    
+    lazy var passwordViewController : AuthTextFieldViewController = {
+        let vc = self.storyboard!.instantiateViewController(withClass: AuthTextFieldViewController.self) as! AuthTextFieldViewController
+        vc.placeholder = "Password"
+        vc.keyboardType = .default
+        vc.returnKeyType = .done
+        vc.isSecureTextEntry = true
+        vc.rightBarTitle = "Done"
+        vc.fieldTitle = "Password"
+        vc.delegate = self
+        vc.validator = self.validator
+        vc.validatorRules = [RequiredRule(), PasswordRule()]
+        return vc
+    }()
+    
     var fieldViewControllers : [AuthTextFieldViewController]! {
-        return [AuthTextFieldViewController]()
+        return []
     }
     
     lazy var stepIndicator : UIPageControl = {
@@ -156,6 +197,7 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
     
     func backItemTapped(sender:UIBarButtonItem) {
         if currentViewControllerIndex == 0 {
+            currentViewController.view.endEditing(true)
             dismiss(animated: true, completion: nil)
         } else {
             showPreviousView()

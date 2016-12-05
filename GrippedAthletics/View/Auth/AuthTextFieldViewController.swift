@@ -13,6 +13,7 @@ protocol AuthTextFieldViewControllerDelegate {
     func didFinishTextEntry(controller : AuthTextFieldViewController)
 }
 
+
 class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var fieldContainerView: UIView!

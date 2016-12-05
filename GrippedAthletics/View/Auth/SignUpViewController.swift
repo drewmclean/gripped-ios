@@ -13,47 +13,6 @@ import FirebaseAuth
 
 class SignUpViewController: AuthFlowViewController {
     
-    lazy var nameViewController : AuthTextFieldViewController = {
-        let vc = self.storyboard!.instantiateViewController(withClass: AuthTextFieldViewController.self) as! AuthTextFieldViewController
-        vc.placeholder = "Name"
-        vc.keyboardType = .default
-        vc.autocapitalizationType = .words
-        vc.returnKeyType = .next
-        vc.fieldTitle = "Name"
-        vc.rightBarTitle = "Next"
-        vc.delegate = self
-        vc.validator = self.validator
-        vc.validatorRules = [RequiredRule()]
-        return vc
-    }()
-    
-    lazy var emailViewController : AuthTextFieldViewController = {
-        let vc = self.storyboard!.instantiateViewController(withClass: AuthTextFieldViewController.self) as! AuthTextFieldViewController
-        vc.placeholder = "Email Address"
-        vc.keyboardType = .emailAddress
-        vc.returnKeyType = .next
-        vc.fieldTitle = "Email"
-        vc.rightBarTitle = "Next"
-        vc.delegate = self
-        vc.validator = self.validator
-        vc.validatorRules = [RequiredRule(), EmailRule()]
-        return vc
-    }()
-    
-    lazy var passwordViewController : AuthTextFieldViewController = {
-        let vc = self.storyboard!.instantiateViewController(withClass: AuthTextFieldViewController.self) as! AuthTextFieldViewController
-        vc.placeholder = "Password"
-        vc.keyboardType = .default
-        vc.returnKeyType = .done
-        vc.isSecureTextEntry = true
-        vc.rightBarTitle = "Done"
-        vc.fieldTitle = "Password"
-        vc.delegate = self
-        vc.validator = self.validator
-        vc.validatorRules = [RequiredRule(), PasswordRule()]
-        return vc
-    }()
-    
     override var fieldViewControllers : [AuthTextFieldViewController] {
         return [self.nameViewController, self.emailViewController, self.passwordViewController]
     }
@@ -72,8 +31,13 @@ class SignUpViewController: AuthFlowViewController {
         
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
             
+            if let e = error {
+                print("Error creating user: \(e)")
+                self.showErrorAlert(title: "We're Sorry", message: e.localizedDescription)
+                return
+            }
             
-            
+            print("User created: \(user)")
             
         })
     }

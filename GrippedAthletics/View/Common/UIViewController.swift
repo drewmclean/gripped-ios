@@ -76,5 +76,15 @@ extension UIViewController {
     func keyboardDidHide(notification : NSNotification) {
         
     }
+}
 
+extension UIViewController {
+    func showErrorAlert(title: String, message: String) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction) in
+            
+        }))
+        present(alertController, animated: true, completion: nil)
+    }
 }
