@@ -51,6 +51,7 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
         textField.autocapitalizationType = autocapitalizationType
         
         fieldLabel.text = fieldTitle
+        fieldLabel.textColor = UIColor.lightGray
         fieldLabel.isHidden = true
         textField.text = ""
         
@@ -80,7 +81,7 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
             fieldLabel.isHidden = false
             UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .curveEaseOut], animations: {
                 self.fieldLabel.alpha = 1.0
-                self.fieldLabelCenterYConstraint.constant = -24.0
+                self.fieldLabelCenterYConstraint.constant = -30.0
                 self.fieldContainerView.layoutIfNeeded()
             }, completion: { (Bool) -> Void in
                 

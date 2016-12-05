@@ -17,7 +17,7 @@ class AuthPromptViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.lightGray
+        view.backgroundColor = UIColor.black
         
     }
     

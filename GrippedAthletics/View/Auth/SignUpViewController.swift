@@ -12,7 +12,6 @@ import SnapKit
 class SignUpViewController: UIViewController, KeyboardAnimator {
     
     var stackViewBottomConstraint : Constraint!
-    var stackViewLeftConstraint : Constraint!
     
     lazy var stackView : UIStackView = {
         let sv = UIStackView()
@@ -61,7 +60,7 @@ class SignUpViewController: UIViewController, KeyboardAnimator {
         vc.rightBarTitle = "Done"
         vc.fieldTitle = "Password"
         vc.doneClosure = { (Void) -> Void in
-            self.showNextView()
+            self.createAccount()
         }
         return vc
     }()
@@ -75,7 +74,12 @@ class SignUpViewController: UIViewController, KeyboardAnimator {
         pageControl.tintColor = UIColor.black
         return pageControl
     }()
-
+    
+    var currentViewControllerIndex : Int!
+    var currentViewController : AuthTextFieldViewController {
+        return fieldViewControllers[currentViewControllerIndex]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -98,7 +102,7 @@ class SignUpViewController: UIViewController, KeyboardAnimator {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        showFieldViewController(atIndex: 0, animated: false)
+        showFieldViewController(atIndex: 0, animated: true)
     }
     
     override func updateViewConstraints() {
@@ -107,41 +111,81 @@ class SignUpViewController: UIViewController, KeyboardAnimator {
             make.width.equalTo(self.view.snp.width).multipliedBy(self.fieldViewControllers.count)
             make.top.equalTo(self.view.snp.top)
             self.stackViewBottomConstraint = make.bottom.equalTo(self.view.snp.bottom).constraint
-            self.stackViewLeftConstraint = make.left.equalTo(self.view.snp.left).constraint
-        }
-        
-        fieldViewControllers.forEach { (vc: AuthTextFieldViewController) in
-            vc.view.snp.makeConstraints({ (make: ConstraintMaker) in
-//                make.width.equalTo(self.view.snp.width)
-//                make.height.equalTo(self.view.snp.height)
-            })
+            make.left.equalTo(self.view.snp.left)
         }
         
         super.updateViewConstraints()
     }
+    
     // MARK: Show
     
     func showFieldViewController(atIndex index: Int, animated: Bool) {
+        currentViewControllerIndex = index
         
         let vc = fieldViewControllers[index]
         
-        navigationItem.rightBarButtonItem?.title = vc.rightBarTitle
+        if let rightTitle = vc.rightBarTitle {
+            let rightItem = UIBarButtonItem(title: rightTitle, style: .plain, target: self, action: #selector(SignUpViewController.rightItemTapped(sender:)))
+            navigationItem.setRightBarButton(rightItem, animated: animated)
+        } else {
+            navigationItem.setRightBarButton(nil, animated: animated)
+        }
+        
+        if index == 0 {
+            let leftItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(SignUpViewController.backItemTapped(sender:)))
+            navigationItem.setLeftBarButton(leftItem, animated: animated)
+        } else {
+            navigationItem.hidesBackButton = false
+            let leftItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(SignUpViewController.backItemTapped(sender:)))
+            navigationItem.setLeftBarButton(leftItem, animated: animated)
+        }
+        
         stepIndicator.currentPage = index
-//        vc.becomeFirstResponder()
+        
+        stackView.snp.updateConstraints { (make: ConstraintMaker) in
+            let width = self.view.frame.size.width
+            let offset = width * CGFloat(index)
+            make.left.equalTo(-offset)
+        }
         
         if animated {
-            
+            UIView.animate(withDuration: 0.25, delay: 0, options: [UIViewAnimationOptions.curveEaseOut], animations: {
+                self.view.layoutIfNeeded()
+            }, completion: { (finished: Bool) in
+                vc.becomeFirstResponder()
+            })
         } else {
-            
+            view.layoutIfNeeded()
+            vc.becomeFirstResponder()
         }
     }
     
     func showNextView() {
-        
+        let nextIndex = currentViewControllerIndex + 1
+        showFieldViewController(atIndex: nextIndex, animated: true)
     }
     
     func showPreviousView() {
-        
+        let previousIndex = currentViewControllerIndex - 1
+        showFieldViewController(atIndex: previousIndex, animated: true)
+    }
+    
+    // MARK: Actions
+    
+    func rightItemTapped(sender:UIBarButtonItem) {
+        if currentViewController == passwordViewController {
+            createAccount()
+        } else {
+            showNextView()
+        }
+    }
+    
+    func backItemTapped(sender:UIBarButtonItem) {
+        if currentViewControllerIndex == 0 {
+            dismiss(animated: true, completion: nil)
+        } else {
+            showPreviousView()
+        }
     }
     
     // MARK: KeyboardAnimator
@@ -152,6 +196,12 @@ class SignUpViewController: UIViewController, KeyboardAnimator {
     
     func keyboardHideAnimation(keyboardFrane: CGRect) {
         stackViewBottomConstraint.update(offset: 0)
+    }
+    
+    // MARK: API
+    
+    func createAccount() {
+        
     }
 
 }
