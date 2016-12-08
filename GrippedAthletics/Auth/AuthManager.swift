@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FacebookCore
 import FacebookLogin
+import BoltsSwift
 
 class AuthManager: NSObject {
     
