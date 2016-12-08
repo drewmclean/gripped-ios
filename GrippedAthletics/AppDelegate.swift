@@ -9,6 +9,7 @@
 import UIKit
 import PKRevealController
 import Firebase
+import CocoaLumberjack
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

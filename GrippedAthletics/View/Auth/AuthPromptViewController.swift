@@ -34,7 +34,9 @@ extension AuthPromptViewController : FBSDKLoginButtonDelegate {
             showErrorAlert(title: "Facebook Error", message: e.localizedDescription)
             return
         }
-        AuthManager.instance.sign
+        if let tokenString = FBSDKAccessToken.current().tokenString {
+            auth.signIn(withFacebookAccessToken: tokenString)
+        }
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {

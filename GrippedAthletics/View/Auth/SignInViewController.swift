@@ -27,16 +27,6 @@ class SignInViewController: AuthFlowViewController {
         let email = emailViewController.fieldValue!
         let password = passwordViewController.fieldValue!
         
-        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
-            
-            if let e = error {
-                print("Error signing in user: \(e)")
-                self.showErrorAlert(title: "We're Sorry", message: e.localizedDescription)
-                return
-            }
-            
-            print("User signed in: \(user)")
-            self.enterMainApplication()
-        })
+        
     }
 }

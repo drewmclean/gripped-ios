@@ -16,6 +16,7 @@
 		571C7FD81DBBD5800071DB04 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571C7FD71DBBD5800071DB04 /* CoreData.framework */; };
 		571C7FDF1DBBDC400071DB04 /* GrippedAthletics.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 571C7FDA1DBBDC400071DB04 /* GrippedAthletics.xcdatamodeld */; };
 		571C7FE31DBBFBB20071DB04 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7FE21DBBFBB20071DB04 /* DataStore.swift */; };
+		5758E57E1DF9C95500121110 /* KeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5758E57D1DF9C95500121110 /* KeyStore.swift */; };
 		579DE2A51DBC072500D71875 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2A41DBC072500D71875 /* ServiceManager.swift */; };
 		579DE2B71DBC112C00D71875 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2B31DBC112C00D71875 /* HomeViewController.swift */; };
 		579DE2B81DBC112C00D71875 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2B31DBC112C00D71875 /* HomeViewController.swift */; };
@@ -30,7 +31,7 @@
 		579DE2C81DBC1BC100D71875 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 579DE2C51DBC1BC100D71875 /* Main.storyboard */; };
 		579DE2CB1DBC1BE900D71875 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 579DE2C91DBC1BE900D71875 /* Auth.storyboard */; };
 		579DE2D01DBC1D3300D71875 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2CF1DBC1D3300D71875 /* Config.swift */; };
-		579DE2D31DBC1DDD00D71875 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2D21DBC1DDD00D71875 /* AuthManager.swift */; };
+		579DE2D31DBC1DDD00D71875 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2D21DBC1DDD00D71875 /* Auth.swift */; };
 		579DE2D61DBC259E00D71875 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2D51DBC259E00D71875 /* MenuViewController.swift */; };
 		579DE2D81DBC25C000D71875 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2D71DBC25C000D71875 /* ProfileViewController.swift */; };
 		579DE2DC1DBC279800D71875 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2DB1DBC279800D71875 /* MainViewController.swift */; };
@@ -78,6 +79,7 @@
 		571C7FD71DBBD5800071DB04 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		571C7FDB1DBBDC400071DB04 /* GrippedAthletics.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GrippedAthletics.xcdatamodel; sourceTree = "<group>"; };
 		571C7FE21DBBFBB20071DB04 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		5758E57D1DF9C95500121110 /* KeyStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyStore.swift; sourceTree = "<group>"; };
 		579DE2A41DBC072500D71875 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		579DE2B31DBC112C00D71875 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		579DE2BA1DBC114A00D71875 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +88,7 @@
 		579DE2C61DBC1BC100D71875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		579DE2CA1DBC1BE900D71875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Auth.storyboard; sourceTree = "<group>"; };
 		579DE2CF1DBC1D3300D71875 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		579DE2D21DBC1DDD00D71875 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		579DE2D21DBC1DDD00D71875 /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		579DE2D51DBC259E00D71875 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		579DE2D71DBC25C000D71875 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		579DE2DB1DBC279800D71875 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -302,7 +304,8 @@
 		579DE2D11DBC1D9200D71875 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				579DE2D21DBC1DDD00D71875 /* AuthManager.swift */,
+				579DE2D21DBC1DDD00D71875 /* Auth.swift */,
+				5758E57D1DF9C95500121110 /* KeyStore.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -646,10 +649,11 @@
 				579DE2B71DBC112C00D71875 /* HomeViewController.swift in Sources */,
 				57D87E681DE28A58000435E5 /* AuthTextFieldViewController.swift in Sources */,
 				579DE2D61DBC259E00D71875 /* MenuViewController.swift in Sources */,
-				579DE2D31DBC1DDD00D71875 /* AuthManager.swift in Sources */,
+				579DE2D31DBC1DDD00D71875 /* Auth.swift in Sources */,
 				571C7FDF1DBBDC400071DB04 /* GrippedAthletics.xcdatamodeld in Sources */,
 				5713E3311DF5F17700D06A8A /* AuthFlowViewController.swift in Sources */,
 				57D87E6D1DE28A58000435E5 /* SignUpViewController.swift in Sources */,
+				5758E57E1DF9C95500121110 /* KeyStore.swift in Sources */,
 				57D87E6B1DE28A58000435E5 /* SignInViewController.swift in Sources */,
 				579DE2BB1DBC114A00D71875 /* UIViewController.swift in Sources */,
 				57D87E6C1DE28A58000435E5 /* SignUpConfirmViewController.swift in Sources */,

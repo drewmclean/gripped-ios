@@ -79,6 +79,11 @@ extension UIViewController {
 }
 
 extension UIViewController {
+    
+    var auth : Auth {
+        return Auth.instance
+    }
+    
     func showErrorAlert(title: String, message: String) {
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

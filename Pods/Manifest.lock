@@ -10,6 +10,13 @@ PODS:
   - Bolts/Tasks (1.8.4)
   - BrightFutures (5.1.0):
     - Result (~> 3.0)
+  - CocoaLumberjack/Core (3.0.0)
+  - CocoaLumberjack/Default (3.0.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (3.0.0):
+    - CocoaLumberjack/Default
+  - CocoaLumberjack/Swift (3.0.0):
+    - CocoaLumberjack/Extensions
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -83,6 +90,7 @@ DEPENDENCIES:
   - AWSCognito (~> 2.4)
   - AWSCore (~> 2.4)
   - BrightFutures
+  - CocoaLumberjack/Swift
   - FacebookCore (~> 0.2)
   - FacebookLogin (~> 0.2)
   - Firebase/Auth
@@ -109,6 +117,7 @@ SPEC CHECKSUMS:
   AWSCore: 8ee5b1dc06a0fd562429fe7120113ca93cbfbca6
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BrightFutures: 62aafb1a63520eda91c9286bf4be33e58e043938
+  CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FBSDKCoreKit: 30a21d2d7b92984b3d80497113433c00824c35e9
@@ -130,6 +139,6 @@ SPEC CHECKSUMS:
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
 
-PODFILE CHECKSUM: ae76fb75fe4812a7a5bc6bee89345d2ac378154c
+PODFILE CHECKSUM: 3c56e7e1df14b57eb16c457affe58547fb6a28d9
 
 COCOAPODS: 1.2.0.beta.1
