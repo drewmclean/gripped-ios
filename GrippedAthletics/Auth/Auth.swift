@@ -15,23 +15,6 @@ import FirebaseAuth
 import FacebookCore
 import FacebookLogin
 
-public struct AnyError: Error {
-    public let cause: Error
-    
-    public init(cause: Error) {
-        self.cause = cause
-    }
-}
-
-extension AnyError: ErrorProtocolConvertible {
-    
-    public static func error(from error: Swift.Error) -> AnyError {
-        return AnyError(cause: error)
-    }
-}
-
-
-
 class Auth: NSObject {
     
     static let instance = Auth()
@@ -44,34 +27,56 @@ class Auth: NSObject {
         return false
     }
     
-    var currentUser : FIRUser?
+    var currentUser : FIRUser? {
+        return firAuth.currentUser
+    }
+    
+    func signUp(withEmail email : String, andPassword password : String) -> Future<FIRUser, AnyError> {
+        return Future { complete in
+            self.firAuth.createUser(withEmail: email, password: password) { (user: FIRUser?, error: Error?) in
+                if let e = error {
+                    DDLogError("Error creating user: \(e)")
+                    complete(.failure(AnyError(cause: e)))
+                    return
+                }
+                
+                DDLogInfo("User created: \(user!)")
+                complete(.success(user!))
+            }
+        }
+    }
     
     func signIn(withEmail email:String, andPassword password: String) -> Future<FIRUser, AnyError> {
-        
         return Future { complete in
-            firAuth.signIn(withEmail: email, password: password) { (user, error) in
+            self.firAuth.signIn(withEmail: email, password: password) { (user, error) in
                 if let e = error {
                     DDLogError("Error signing in user: \(e)")
                     complete(.failure(AnyError(cause: e)))
                     return
                 }
                 
-                print("User signed in: \(user!)")
+                DDLogInfo("User signed in: \(user!)")
                 complete(.success(user!))
             }
-            
         }
     }
     
-    func signIn(withFacebookAccessToken facebookAccessToken: String) -> Void {
-        let credential = FIRFacebookAuthProvider.credential(withAccessToken: facebookAccessToken)
-        firAuth.signIn(with: credential) { (user, error) in
-    
-            if let e = error {
+    func signIn(withFacebookAccessToken facebookAccessToken: String) -> Future<FIRUser, AnyError> {
+        return Future { complete in
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: facebookAccessToken)
+            self.firAuth.signIn(with: credential) { (user, error) in
+            
+                if let e = error {
+                    DDLogError("Error signing in user: \(e)")
+                    complete(.failure(AnyError(cause: e)))
+                    return
+                }
                 
-                return
+                // TODO:    Check to see if there an existing credential that matches their FB email address.  If so then ask them to enter password for that email, and then authenticate them via email/password.  If that succeeds then authenticate them via Facebook.
+                
+                DDLogInfo("User signed in: \(user!)")
+                complete(.success(user!))
             }
         }
-    
     }
 }

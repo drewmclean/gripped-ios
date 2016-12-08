@@ -29,17 +29,8 @@ class SignUpViewController: AuthFlowViewController {
         let email = emailViewController.fieldValue!
         let password = passwordViewController.fieldValue!
         
-        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
-            
-            if let e = error {
-                print("Error creating user: \(e)")
-                self.showErrorAlert(title: "We're Sorry", message: e.localizedDescription)
-                return
-            }
-            
-            print("User created: \(user)")
-            
-        })
+        
+       
     }
 
 }
