@@ -27,9 +27,6 @@ class SignInViewController: AuthFlowViewController {
         let email = emailViewController.fieldValue!
         let password = passwordViewController.fieldValue!
         
-        
-        presentingViewController?.dismiss(animated: true, completion: nil)
-        
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user: FIRUser?, error: Error?) in
             
             if let e = error {
@@ -39,7 +36,7 @@ class SignInViewController: AuthFlowViewController {
             }
             
             print("User signed in: \(user)")
-            
+            self.enterMainApplication()
         })
     }
 }

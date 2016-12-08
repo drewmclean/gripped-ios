@@ -5,6 +5,7 @@ PODS:
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
+  - Bolts-Swift (1.3.0)
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
@@ -79,6 +80,7 @@ PODS:
 DEPENDENCIES:
   - AWSCognito (~> 2.4)
   - AWSCore (~> 2.4)
+  - Bolts-Swift
   - FacebookCore (~> 0.2)
   - FacebookLogin (~> 0.2)
   - Firebase/Auth
@@ -104,6 +106,7 @@ SPEC CHECKSUMS:
   AWSCognito: 3c897210f6bfbb04585332388dff2036a3f39540
   AWSCore: 8ee5b1dc06a0fd562429fe7120113ca93cbfbca6
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Bolts-Swift: fa98d1b59fc1acea9b21a21306dcdca1c85e3737
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FBSDKCoreKit: 30a21d2d7b92984b3d80497113433c00824c35e9
@@ -124,6 +127,6 @@ SPEC CHECKSUMS:
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
 
-PODFILE CHECKSUM: 62b10328b6cf0fdde6db123d33a79ba57f58ff8b
+PODFILE CHECKSUM: 45055b415ac4cb492cf450e66eda9b16907c3af1
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.1.1

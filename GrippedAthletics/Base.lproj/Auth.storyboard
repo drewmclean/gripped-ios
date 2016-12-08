@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wTf-Ek-9VM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wTf-Ek-9VM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11755"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qqJ-J6-GXB">
-                                <rect key="frame" x="77" y="557" width="220" height="70"/>
+                                <rect key="frame" x="77" y="517" width="220" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebU-P7-SEx">
                                         <rect key="frame" x="0.0" y="0.0" width="220" height="30"/>
@@ -38,8 +38,19 @@
                                             <segue destination="7fX-Jg-hIj" kind="presentation" identifier="presentSignUp" id="Ngt-Do-AIN"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g30-Ff-wtE">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEh-Sy-jZ8" customClass="FBSDKLoginButton">
                                         <rect key="frame" x="0.0" y="40" width="220" height="30"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="AZL-LE-acu"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Sign In with Facebook">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g30-Ff-wtE">
+                                        <rect key="frame" x="0.0" y="80" width="220" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Ym2-k5-v1a"/>
                                         </constraints>
@@ -53,7 +64,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="BWk-D3-T1h"/>
-                                    <constraint firstAttribute="height" constant="70" id="jxQ-Th-Qu1"/>
+                                    <constraint firstAttribute="height" constant="110" id="jxQ-Th-Qu1"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gripped Athletics" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvU-B1-baD">
@@ -71,6 +82,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="facebookLoginButton" destination="WEh-Sy-jZ8" id="JS9-o2-iBf"/>
                         <outlet property="grippedLabel" destination="UvU-B1-baD" id="vYG-XL-wWn"/>
                         <outlet property="signInButton" destination="g30-Ff-wtE" id="W0p-aX-QPy"/>
                         <outlet property="signUpButton" destination="ebU-P7-SEx" id="E1H-qj-AQQ"/>

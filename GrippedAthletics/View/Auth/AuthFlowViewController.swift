@@ -189,6 +189,10 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
         
     }
     
+    func enterMainApplication() {
+        presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: Actions
     
     func rightItemTapped(sender:UIBarButtonItem) {

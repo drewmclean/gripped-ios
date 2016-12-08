@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import FirebaseAuth
 import FacebookCore
 import FacebookLogin
+import BoltsSwift
 
 class AuthManager: NSObject {
     
@@ -16,5 +18,21 @@ class AuthManager: NSObject {
     
     var isAuthenticated : Bool {
         return false
+    }
+    
+    var currentUser : FIRUser?
+    
+    func signIn(withEmail email:String, andPassword password: String) -> Void {
+        
+    }
+    
+    func signIn(withFacebookAccessToken facebookAccessToken: String) -> Void {
+        let credential = FIRFacebookAuthProvider.credential(withAccessToken: facebookAccessToken)
+        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+    
+        if let e = error {
+            return
+        }
+    
     }
 }
