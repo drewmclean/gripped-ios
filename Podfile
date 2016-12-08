@@ -14,6 +14,7 @@ target 'GrippedAthletics' do
   pod 'AWSCognito', '~> 2.4'
   pod 'FacebookCore', '~> 0.2'
   pod 'FacebookLogin', '~> 0.2'
+  pod 'Bolts-Swift'
   pod 'PKRevealController'
   pod 'Locksmith'
   pod 'SnapKit'

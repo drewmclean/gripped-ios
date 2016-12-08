@@ -20,7 +20,7 @@ class AuthManager: NSObject {
     }
     
     var currentUser : FIRUser?
-             
+    
     func signIn(withEmail email:String, andPassword password: String) -> Void {
         
     }
@@ -30,7 +30,6 @@ class AuthManager: NSObject {
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
     
         if let e = error {
-            self.showErrorAlert(title: "Sign In Error", message: e.localizedDescription)
             return
         }
     
