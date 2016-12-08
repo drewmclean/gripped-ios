@@ -9,9 +9,28 @@
 import CocoaLumberjack
 import UIKit
 import BrightFutures
+import FutureProofing
+import Result
 import FirebaseAuth
 import FacebookCore
 import FacebookLogin
+
+public struct AnyError: Error {
+    public let cause: Error
+    
+    public init(cause: Error) {
+        self.cause = cause
+    }
+}
+
+extension AnyError: ErrorProtocolConvertible {
+    
+    public static func error(from error: Swift.Error) -> AnyError {
+        return AnyError(cause: error)
+    }
+}
+
+
 
 class Auth: NSObject {
     
@@ -27,18 +46,18 @@ class Auth: NSObject {
     
     var currentUser : FIRUser?
     
-    func signIn(withEmail email:String, andPassword password: String) -> Future<FIRUser, NoError> {
+    func signIn(withEmail email:String, andPassword password: String) -> Future<FIRUser, AnyError> {
+        
         return Future { complete in
-            
             firAuth.signIn(withEmail: email, password: password) { (user, error) in
-                
                 if let e = error {
                     DDLogError("Error signing in user: \(e)")
-                    complete(.error(e))
+                    complete(.failure(AnyError(cause: e)))
+                    return
                 }
                 
-                print("User signed in: \(user)")
-                complete(.success(user))
+                print("User signed in: \(user!)")
+                complete(.success(user!))
             }
             
         }

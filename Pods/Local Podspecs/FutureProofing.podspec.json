@@ -1,0 +1,212 @@
+{
+  "name": "FutureProofing",
+  "version": "0.3.0",
+  "summary": "Provide a Future based interface to asynchronous API.",
+  "description": "A companion library to BrightFutures with extensions that\nprovide a Future based interface to asynchronous API's",
+  "homepage": "https://github.com/Thomvis/FutureProofing",
+  "license": "MIT",
+  "authors": {
+    "Thomas Visser": "thomas.visser@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "tvos": "9.2",
+    "watchos": "2.2"
+  },
+  "source": {
+    "git": "https://github.com/Thomvis/FutureProofing.git",
+    "tag": "v0.3.0"
+  },
+  "dependencies": {
+    "BrightFutures": [
+      "~> 5.0"
+    ]
+  },
+  "default_subspecs": [
+    "Core",
+    "Foundation"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "FutureProofing/*.swift"
+    },
+    {
+      "name": "Accounts",
+      "ios": {
+        "source_files": "FutureProofing/Accounts/*",
+        "frameworks": "Accounts"
+      },
+      "dependencies": {
+        "FutureProofing/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AVFoundation",
+      "ios": {
+        "source_files": "FutureProofing/AVFoundation/*",
+        "frameworks": "AVFoundation"
+      },
+      "dependencies": {
+        "FutureProofing/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "CloudKit",
+      "ios": {
+        "source_files": "FutureProofing/CloudKit/*"
+      },
+      "osx": {
+        "source_files": "FutureProofing/CloudKit/*"
+      },
+      "tvos": {
+        "source_files": "FutureProofing/CloudKit/*"
+      },
+      "frameworks": "CloudKit",
+      "dependencies": {
+        "FutureProofing/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "CoreData",
+      "ios": {
+        "source_files": "FutureProofing/CoreData/*"
+      },
+      "osx": {
+        "source_files": "FutureProofing/CoreData/*"
+      },
+      "tvos": {
+        "source_files": "FutureProofing/CoreData/*"
+      },
+      "frameworks": "CoreData",
+      "dependencies": {
+        "FutureProofing/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "CoreLocation",
+      "ios": {
+        "source_files": "FutureProofing/CoreLocation/*"
+      },
+      "osx": {
+        "source_files": "FutureProofing/CoreLocation/*"
+      },
+      "tvos": {
+        "source_files": "FutureProofing/CoreLocation/*"
+      },
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "FutureProofing/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Foundation",
+      "source_files": "FutureProofing/Foundation/*",
+      "frameworks": "Foundation",
+      "dependencies": {
+        "FutureProofing/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "HomeKit",
+      "ios": {
+        "source_files": "FutureProofing/HomeKit/*",
+        "frameworks": "HomeKit"
+      },
+      "dependencies": {
+        "FutureProofing/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "MapKit",
+      "ios": {
+        "source_files": "FutureProofing/MapKit/*"
+      },
+      "osx": {
+        "source_files": "FutureProofing/MapKit/*"
+      },
+      "tvos": {
+        "source_files": "FutureProofing/MapKit/*"
+      },
+      "frameworks": "MapKit",
+      "dependencies": {
+        "FutureProofing/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Photos",
+      "ios": {
+        "source_files": "FutureProofing/Photos/*",
+        "frameworks": "Photos"
+      },
+      "dependencies": {
+        "FutureProofing/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "StoreKit",
+      "ios": {
+        "source_files": "FutureProofing/StoreKit/*"
+      },
+      "osx": {
+        "source_files": "FutureProofing/StoreKit/*"
+      },
+      "tvos": {
+        "source_files": "FutureProofing/StoreKit/*"
+      },
+      "frameworks": "StoreKit",
+      "dependencies": {
+        "FutureProofing/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIKit",
+      "ios": {
+        "source_files": "FutureProofing/UIKit/*",
+        "frameworks": "UIKit"
+      },
+      "tvos": {
+        "source_files": "FutureProofing/MapKit/*",
+        "frameworks": "UIKit"
+      },
+      "dependencies": {
+        "FutureProofing/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppKit",
+      "osx": {
+        "source_files": "FutureProofing/AppKit/*",
+        "frameworks": "AppKit"
+      },
+      "dependencies": {
+        "FutureProofing/Core": [
+
+        ]
+      }
+    }
+  ]
+}

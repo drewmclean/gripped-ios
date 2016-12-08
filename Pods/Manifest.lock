@@ -1,7 +1,4 @@
 PODS:
-  - AWSCognito (2.4.12):
-    - AWSCore (= 2.4.12)
-  - AWSCore (2.4.12)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -25,9 +22,9 @@ PODS:
     - FacebookCore (~> 0.2)
     - FBSDKCoreKit (~> 4.15)
     - FBSDKLoginKit (~> 4.15)
-  - FBSDKCoreKit (4.17.0):
+  - FBSDKCoreKit (4.18.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.17.0):
+  - FBSDKLoginKit (4.18.0):
     - FBSDKCoreKit
   - Firebase/Auth (3.10.0):
     - Firebase/Core
@@ -64,6 +61,15 @@ PODS:
   - FirebaseDatabase (3.1.1):
     - FirebaseAnalytics (~> 3.5)
   - FirebaseInstanceID (1.0.8)
+  - FutureProofing (0.3.0):
+    - BrightFutures (~> 5.0)
+    - FutureProofing/Core (= 0.3.0)
+    - FutureProofing/Foundation (= 0.3.0)
+  - FutureProofing/Core (0.3.0):
+    - BrightFutures (~> 5.0)
+  - FutureProofing/Foundation (0.3.0):
+    - BrightFutures (~> 5.0)
+    - FutureProofing/Core
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
   - GoogleSymbolUtilities (1.1.2)
@@ -82,14 +88,12 @@ PODS:
   - GTMSessionFetcher/Core (1.1.7)
   - Locksmith (3.0.0)
   - PKRevealController (2.0.6)
-  - Result (3.0.0)
+  - Result (3.1.0)
   - SnapKit (3.0.2)
   - SwiftValidator (4.0.0)
 
 DEPENDENCIES:
-  - AWSCognito (~> 2.4)
-  - AWSCore (~> 2.4)
-  - BrightFutures
+  - BrightFutures (~> 5.0)
   - CocoaLumberjack/Swift
   - FacebookCore (~> 0.2)
   - FacebookLogin (~> 0.2)
@@ -97,31 +101,35 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Crash
   - Firebase/Database
+  - FutureProofing (from `git@github.com:Thomvis/FutureProofing.git`)
   - Locksmith
   - PKRevealController
   - SnapKit
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
 
 EXTERNAL SOURCES:
+  FutureProofing:
+    :git: git@github.com:Thomvis/FutureProofing.git
   SwiftValidator:
     :branch: master
     :git: https://github.com/jpotts18/SwiftValidator.git
 
 CHECKOUT OPTIONS:
+  FutureProofing:
+    :commit: 00ee6fc8e6da751437b9efabc1f0c6a9c3df4a50
+    :git: git@github.com:Thomvis/FutureProofing.git
   SwiftValidator:
     :commit: 2a6c23ad9efd76127f6109445515cb9780e5ad92
     :git: https://github.com/jpotts18/SwiftValidator.git
 
 SPEC CHECKSUMS:
-  AWSCognito: 3c897210f6bfbb04585332388dff2036a3f39540
-  AWSCore: 8ee5b1dc06a0fd562429fe7120113ca93cbfbca6
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BrightFutures: 62aafb1a63520eda91c9286bf4be33e58e043938
   CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
-  FBSDKCoreKit: 30a21d2d7b92984b3d80497113433c00824c35e9
-  FBSDKLoginKit: 42b7129ac0373ca99eaf4cbebf4d07bd42371f59
+  FBSDKCoreKit: 15fef8804a4629f98c6f4e55e81a76c9d725d85e
+  FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
   Firebase: 387f37c7dca894a02708da9ff35ba147040eae9e
   FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
   FirebaseAuth: 96e9674ff31d6e1f826d53e26aa003a57cab0295
@@ -129,16 +137,17 @@ SPEC CHECKSUMS:
   FirebaseCrash: 34f0349908ec87945a5ae96c402e7201a3f3aede
   FirebaseDatabase: 6de92187481ff0e8e124064f21742e95ee883b02
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  FutureProofing: 1a0a47fdf63a22a3fe11c6b6737dcc9cb14b1c0a
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   PKRevealController: ffb45a16f5a5032ad90a3d16e5cbb0d8e035bd58
-  Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
+  Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
 
-PODFILE CHECKSUM: 3c56e7e1df14b57eb16c457affe58547fb6a28d9
+PODFILE CHECKSUM: b3d39eeb80a454b0b5d9813cceff9e86838b1e00
 
 COCOAPODS: 1.2.0.beta.1

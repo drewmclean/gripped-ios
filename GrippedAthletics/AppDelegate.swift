@@ -22,10 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FIRApp.configure()
         
-        DataStore.instance.setupStore(name: "ReplaceMeWithUniqueUserID")
-        
-        ServiceManager.instance.initalize()
-        
         window?.backgroundColor = UIColor.purple
         
         setupRootViewController()
@@ -75,7 +71,7 @@ extension AppDelegate : PKRevealing {
     }
     
     func showAuthIfNeeded() {
-        if !AuthManager.instance.isAuthenticated {
+        if !Auth.instance.isAuthenticated {
             window?.rootViewController?.present(viewControllers.authPromptViewController, animated: false, completion: nil)
         }
     }

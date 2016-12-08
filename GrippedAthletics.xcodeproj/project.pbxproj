@@ -17,7 +17,6 @@
 		571C7FDF1DBBDC400071DB04 /* GrippedAthletics.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 571C7FDA1DBBDC400071DB04 /* GrippedAthletics.xcdatamodeld */; };
 		571C7FE31DBBFBB20071DB04 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7FE21DBBFBB20071DB04 /* DataStore.swift */; };
 		5758E57E1DF9C95500121110 /* KeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5758E57D1DF9C95500121110 /* KeyStore.swift */; };
-		579DE2A51DBC072500D71875 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2A41DBC072500D71875 /* ServiceManager.swift */; };
 		579DE2B71DBC112C00D71875 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2B31DBC112C00D71875 /* HomeViewController.swift */; };
 		579DE2B81DBC112C00D71875 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2B31DBC112C00D71875 /* HomeViewController.swift */; };
 		579DE2B91DBC112C00D71875 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2B31DBC112C00D71875 /* HomeViewController.swift */; };
@@ -80,7 +79,6 @@
 		571C7FDB1DBBDC400071DB04 /* GrippedAthletics.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GrippedAthletics.xcdatamodel; sourceTree = "<group>"; };
 		571C7FE21DBBFBB20071DB04 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		5758E57D1DF9C95500121110 /* KeyStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyStore.swift; sourceTree = "<group>"; };
-		579DE2A41DBC072500D71875 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		579DE2B31DBC112C00D71875 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		579DE2BA1DBC114A00D71875 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		579DE2BE1DBC11AF00D71875 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				579DE2C21DBC1BC100D71875 /* Base.lproj */,
 				579DE2D11DBC1D9200D71875 /* Auth */,
 				571C7FD91DBBDC400071DB04 /* Model */,
-				579DE2A31DBC06DE00D71875 /* Service */,
 				571C7FDC1DBBDC400071DB04 /* Utils */,
 				571C7FDD1DBBDC400071DB04 /* View */,
 				57D87E501DE0C2DF000435E5 /* Supporting Files */,
@@ -232,14 +229,6 @@
 				579DE2B61DBC112C00D71875 /* Profile */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		579DE2A31DBC06DE00D71875 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				579DE2A41DBC072500D71875 /* ServiceManager.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		579DE2B01DBC112C00D71875 /* Activity */ = {
@@ -662,7 +651,6 @@
 				571C7F7F1DBBD09A0071DB04 /* AppDelegate.swift in Sources */,
 				57D87E671DE28A58000435E5 /* AuthPromptViewController.swift in Sources */,
 				579DE2D01DBC1D3300D71875 /* Config.swift in Sources */,
-				579DE2A51DBC072500D71875 /* ServiceManager.swift in Sources */,
 				579DE2BF1DBC11AF00D71875 /* UIStoryboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
