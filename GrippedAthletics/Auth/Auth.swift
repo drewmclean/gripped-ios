@@ -24,6 +24,9 @@ class Auth: NSObject {
     }
     
     var isAuthenticated : Bool {
+        if let user = currentUser {
+            return true
+        }
         return false
     }
     
