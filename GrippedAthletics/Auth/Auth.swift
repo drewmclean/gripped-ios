@@ -24,6 +24,12 @@ class Auth: NSObject {
     }
     
     var isAuthenticated : Bool {
+        if let accessToken = AccessToken.current {
+            DDLogInfo("Facebook token exists: \(accessToken)")
+        }else{
+            print("Not logged In.")
+        }
+        
         if let user = currentUser {
             return true
         }

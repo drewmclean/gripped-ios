@@ -8,38 +8,52 @@
 
 import UIKit
 import FirebaseAuth
-import FBSDKLoginKit
+import FacebookLogin
+import CocoaLumberjack
 
 class AuthPromptViewController: UIViewController {
 
+    @IBOutlet weak var buttonStackView: UIStackView!
     @IBOutlet weak var grippedLabel: UILabel!
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
     @IBOutlet weak var signInButton: UIButton!
+    
+    lazy var facebookLoginButton : LoginButton = {
+       let button = LoginButton(readPermissions: [.email, .publicProfile])
+        button.delegate = self
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.black
-        facebookLoginButton.delegate = self
+        
+        buttonStackView.insertArrangedSubview(facebookLoginButton, at: 0)
     }
     
 }
 
-extension AuthPromptViewController : FBSDKLoginButtonDelegate {
+extension AuthPromptViewController : LoginButtonDelegate {
     
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if let e = error {
-            print(e.localizedDescription)
-            showErrorAlert(title: "Facebook Error", message: e.localizedDescription)
-            return
-        }
-        if let tokenString = FBSDKAccessToken.current().tokenString {
-            auth.signIn(withFacebookAccessToken: tokenString)
+    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
+        switch result {
+        case .failed(let error):
+            DDLogError(error.localizedDescription)
+            showErrorAlert(title: "Facebook Error", message: error.localizedDescription)
+        case .cancelled:
+            DDLogInfo("Facebook login was cancelled.")
+        case .success(let grantedPermissions, let declinedPermissions, let token):
+            DDLogInfo("Facebook login succeeded with token\(token), granted: \(grantedPermissions) declined: \(declinedPermissions)")
+            auth.signIn(withFacebookAccessToken: token.authenticationToken).onSuccess(callback: { (user: FIRUser) in
+                self.dismiss(animated: true, completion: nil)
+            }).onFailure(callback: { (e: AnyError) in
+                self.showErrorAlert(title: "Login Error", message: e.localizedDescription)
+            })
         }
     }
     
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+    func loginButtonDidLogOut(_ loginButton: LoginButton) {
         
     }
 }

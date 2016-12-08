@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wTf-Ek-9VM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wTf-Ek-9VM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11755"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,19 +38,8 @@
                                             <segue destination="7fX-Jg-hIj" kind="presentation" identifier="presentSignUp" id="Ngt-Do-AIN"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEh-Sy-jZ8" customClass="FBSDKLoginButton">
-                                        <rect key="frame" x="0.0" y="40" width="220" height="30"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="AZL-LE-acu"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Sign In with Facebook">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g30-Ff-wtE">
-                                        <rect key="frame" x="0.0" y="80" width="220" height="30"/>
+                                        <rect key="frame" x="0.0" y="40" width="220" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Ym2-k5-v1a"/>
                                         </constraints>
@@ -82,7 +71,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="facebookLoginButton" destination="WEh-Sy-jZ8" id="JS9-o2-iBf"/>
+                        <outlet property="buttonStackView" destination="qqJ-J6-GXB" id="9rH-Vn-t22"/>
                         <outlet property="grippedLabel" destination="UvU-B1-baD" id="vYG-XL-wWn"/>
                         <outlet property="signInButton" destination="g30-Ff-wtE" id="W0p-aX-QPy"/>
                         <outlet property="signUpButton" destination="ebU-P7-SEx" id="E1H-qj-AQQ"/>
@@ -90,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hLu-b9-Jl2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="384.80000000000001" y="-50.824587706146929"/>
+            <point key="canvasLocation" x="442" y="-90"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8X7-dd-Srx">
