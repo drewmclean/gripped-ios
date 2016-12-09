@@ -47,15 +47,17 @@ extension AuthPromptViewController : LoginButtonDelegate {
         case .success(let grantedPermissions, let declinedPermissions, let token):
             DDLogInfo("Facebook login succeeded with token\(token), granted: \(grantedPermissions) declined: \(declinedPermissions)")
             
-            auth.verifyFBProviderExists().andThen(callback: { (result: Result<Bool, AnyError>) in
-                
-            })
-            
-//            auth.signIn(withFBAccessToken: token.authenticationToken).onSuccess(callback: { (user: FIRUser) in
-//                self.dismiss(animated: true, completion: nil)
-//            }).onFailure(callback: { (e: AnyError) in
-//                self.showErrorAlert(title: "Login Error", message: e.localizedDescription)
-//            })
+            auth.verifyFBProviderExists().onSuccess { (providerExists: Bool) in
+                if providerExists {
+                    
+                } else {
+                    auth.signIn(withFBAccessToken: token.authenticationToken).onSuccess { (user: FIRUser) in
+                        self.dismiss(animated: true, completion: nil)
+                    }.onFailure { (e: AnyError) in
+                        self.showErrorAlert(title: "Login Error", message: e.localizedDescription)
+                    }
+                }
+            }
         }
     }
     
