@@ -12,6 +12,7 @@ import FirebaseAuth
 class PasswordOnlyViewController: AuthFlowViewController {
     
     var email : String!
+    var promptText : String?
     
     override var fieldViewControllers : [AuthTextFieldViewController] {
         return [passwordViewController]
@@ -19,6 +20,8 @@ class PasswordOnlyViewController: AuthFlowViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        passwordViewController.promptText = promptText
     }
     
     // MARK: API

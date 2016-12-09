@@ -13,16 +13,24 @@ protocol AuthTextFieldViewControllerDelegate {
     func didFinishTextEntry(controller : AuthTextFieldViewController)
 }
 
-
 class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var fieldContainerView: UIView!
+    @IBOutlet weak var promptLabelContainer: UIView!
+    @IBOutlet weak var promptLabel: UILabel!
+    @IBOutlet weak var promptLabelHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var fieldLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var fieldLabelCenterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var invalidMessageLabel: UILabel!
     
     var delegate : AuthTextFieldViewControllerDelegate?
+    var promptText : String? {
+        didSet {
+            promptLabel?.text = promptText
+            updateViewConstraints()
+        }
+    }
     var validator : Validator!
     var validatorRules : [Rule]!
     var placeholder : String?
@@ -56,6 +64,8 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
         
         validator.registerField(textField, errorLabel: invalidMessageLabel, rules: validatorRules)
         
+        promptLabel.text = promptText
+        
         textField.backgroundColor = UIColor.clear
         textField.placeholder = placeholder
         textField.keyboardType = keyboardType
@@ -80,6 +90,13 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func updateViewConstraints() {
+        
+        if let prompt = promptText {
+            let initialSize = CGSize(width: promptLabel.frame.size.width, height: 10000)
+            let desiredSize = NSString(string: prompt).boundingRect(with: initialSize, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [NSFontAttributeName: promptLabel.font!], context: nil)
+            promptLabelHeightConstraint.constant = desiredSize.height
+        }
+        
         textBorder.snp.updateConstraints { (make) in
             make.left.equalTo(fieldContainerView)
             make.right.equalTo(fieldContainerView)

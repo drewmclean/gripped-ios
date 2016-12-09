@@ -62,10 +62,17 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
         return []
     }
     
-    lazy var stepIndicator : UIPageControl = {
-        let pageControl = UIPageControl(frame: CGRect(x: 0, y: 0, width: 40, height: 30))
-        pageControl.tintColor = UIColor.black
-        return pageControl
+    lazy var pageControl : UIPageControl = {
+        let pc = UIPageControl()
+        pc.currentPageIndicatorTintColor = UIColor.black
+        pc.pageIndicatorTintColor = UIColor.lightGray
+        return pc
+    }()
+    
+    lazy var pageControlContainer : UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 20))
+        view.addSubview(self.pageControl)
+        return view
     }()
     
     var currentViewControllerIndex : Int!
@@ -93,7 +100,9 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.titleView = stepIndicator
+        navigationItem.titleView = pageControlContainer
+        
+        pageControl.isHidden = fieldViewControllers.count <= 1
         
         fieldViewControllers.forEach { (vc: AuthTextFieldViewController) in
             vc.willMove(toParentViewController: self)
@@ -104,7 +113,7 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
         
         addKeyboardHandlers()
         
-        stepIndicator.numberOfPages = fieldViewControllers.count
+        pageControl.numberOfPages = fieldViewControllers.count
         
         updateViewConstraints()
     }
@@ -121,6 +130,10 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
     }
     
     override func updateViewConstraints() {
+        
+        pageControl.snp.updateConstraints { (make) in
+            make.center.equalTo(pageControlContainer.center)
+        }
         
         stackView.snp.updateConstraints { (make) in
             make.width.equalTo(self.view.snp.width).multipliedBy(self.fieldViewControllers.count)
@@ -155,7 +168,7 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
             navigationItem.setLeftBarButton(leftItem, animated: animated)
         }
         
-        stepIndicator.currentPage = index
+        pageControl.currentPage = index
         
         stackView.snp.updateConstraints { (make: ConstraintMaker) in
             let width = self.view.frame.size.width
