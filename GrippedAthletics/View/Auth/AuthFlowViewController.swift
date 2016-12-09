@@ -10,7 +10,13 @@ import UIKit
 import SwiftValidator
 import SnapKit
 
+protocol AuthFlowViewControllerDelegate {
+    func didSubmitForm(controller : AuthFlowViewController)
+}
+
 class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldViewControllerDelegate {
+    
+    var delegate : AuthFlowViewControllerDelegate?
     
     lazy var validator : Validator = {
         let v = Validator()

@@ -138,4 +138,22 @@ class Auth: NSObject {
             }
         }
     }
+    
+    func linkFBCredential(withEmail email:String, andPassword password:String, andFBAccessToken fbAccessToken:String) -> Future<FIRUser, AnyError> {
+        return Future { complete in
+            let fbCredential = FIRFacebookAuthProvider.credential(withAccessToken: fbAccessToken)
+            signIn(withEmail: email, andPassword: password).onSuccess { (user: FIRUser) in
+                user.link(with: fbCredential) { (linkedUser: FIRUser?, error: Error?) in
+                    if let e = error {
+                        DDLogError("Error signing in user: \(e)")
+                        complete(.failure(AnyError(cause: e)))
+                        return
+                    }
+                    DDLogInfo("Facebook credential successfully linked for \(email)")
+                    complete(.success(linkedUser!))
+                }
+            }
+        }
+    }
+    
 }

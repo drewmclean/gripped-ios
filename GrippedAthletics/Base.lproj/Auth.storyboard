@@ -250,10 +250,10 @@
             </objects>
             <point key="canvasLocation" x="2073" y="276"/>
         </scene>
-        <!--Password Only View Controller-->
+        <!--Facebook Link Password Entry View Controller-->
         <scene sceneID="hFT-yw-vRb">
             <objects>
-                <viewController id="8Lb-gR-fs1" customClass="PasswordOnlyViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FacebookLinkPasswordEntryViewController" id="8Lb-gR-fs1" customClass="FacebookLinkPasswordEntryViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ybv-Fb-kde"/>
                         <viewControllerLayoutGuide type="bottom" id="zaC-w3-An8"/>

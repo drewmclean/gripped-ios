@@ -9,9 +9,11 @@
 import UIKit
 import FirebaseAuth
 
-class PasswordOnlyViewController: AuthFlowViewController {
+class FacebookLinkPasswordEntryViewController: AuthFlowViewController {
     
     var email : String!
+    var fbAccessToken : String!
+
     var promptText : String?
     
     override var fieldViewControllers : [AuthTextFieldViewController] {
@@ -20,7 +22,6 @@ class PasswordOnlyViewController: AuthFlowViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         passwordViewController.promptText = promptText
     }
     
@@ -28,11 +29,10 @@ class PasswordOnlyViewController: AuthFlowViewController {
     
     override public func submitForm() {
         let password = passwordViewController.fieldValue!
-        
-        auth.signIn(withEmail: email, andPassword: password).onSuccess { (user: FIRUser) in
+        auth.linkFBCredential(withEmail: email, andPassword: password, andFBAccessToken: fbAccessToken).onSuccess { (user: FIRUser) in
             self.enterMainApplication()
-            }.onFailure { (error: AnyError) in
-                self.showErrorAlert(title: "Login Failed", message: error.localizedDescription)
+        }.onFailure { (error: AnyError) in
+            self.showErrorAlert(title: "Login Failed", message: error.localizedDescription)
         }
     }
 }

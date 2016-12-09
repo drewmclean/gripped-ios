@@ -19,7 +19,8 @@ class AuthPromptViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
     
-    var tempEmail : String?
+    var facebookEmail : String?
+    var facebookAccessToken : String?
     
     lazy var facebookLoginButton : LoginButton = {
        let button = LoginButton(readPermissions: [.email, .publicProfile])
@@ -44,9 +45,10 @@ class AuthPromptViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "presentPasswordOnly" {
             if let nav = segue.destination as? UINavigationController {
-                if let vc = nav.childViewControllers.first as? PasswordOnlyViewController {
-                    vc.email = self.tempEmail
-                    vc.promptText = "A GrippedAthletics account already exists for your facebook email '\(self.tempEmail!)'.  Please enter your password to link your facebook to this account."
+                if let vc = nav.childViewControllers.first as? FacebookLinkPasswordEntryViewController {
+                    vc.email = self.facebookEmail
+                    vc.fbAccessToken = self.facebookAccessToken
+                    vc.promptText = "A GrippedAthletics account already exists for your facebook email '\(self.facebookEmail!)'.  Please enter your password to link your facebook to this account."
                 }
             }
         }
@@ -68,7 +70,8 @@ extension AuthPromptViewController : LoginButtonDelegate {
             auth.verifyFBProviderExists().onSuccess { (result:(String, Bool )) in
                 let providerExists = result.1
                 if providerExists == true {
-                    self.tempEmail = result.0
+                    self.facebookEmail = result.0
+                    self.facebookAccessToken = token.authenticationToken
                     self.presentPasswordOnlyViewController()
                 } else {
                     self.auth.signIn(withFBAccessToken: token.authenticationToken).onSuccess { (user: FIRUser) in
