@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FacebookLogin
 import CocoaLumberjack
+import Result
 
 class AuthPromptViewController: UIViewController {
 
@@ -45,11 +46,16 @@ extension AuthPromptViewController : LoginButtonDelegate {
             DDLogInfo("Facebook login was cancelled.")
         case .success(let grantedPermissions, let declinedPermissions, let token):
             DDLogInfo("Facebook login succeeded with token\(token), granted: \(grantedPermissions) declined: \(declinedPermissions)")
-            auth.signIn(withFacebookAccessToken: token.authenticationToken).onSuccess(callback: { (user: FIRUser) in
-                self.dismiss(animated: true, completion: nil)
-            }).onFailure(callback: { (e: AnyError) in
-                self.showErrorAlert(title: "Login Error", message: e.localizedDescription)
+            
+            auth.verifyFBProviderExists().andThen(callback: { (result: Result<Bool, AnyError>) in
+                
             })
+            
+//            auth.signIn(withFBAccessToken: token.authenticationToken).onSuccess(callback: { (user: FIRUser) in
+//                self.dismiss(animated: true, completion: nil)
+//            }).onFailure(callback: { (e: AnyError) in
+//                self.showErrorAlert(title: "Login Error", message: e.localizedDescription)
+//            })
         }
     }
     

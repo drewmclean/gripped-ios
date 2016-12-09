@@ -70,7 +70,42 @@ class Auth: NSObject {
         }
     }
     
-    func signIn(withFacebookAccessToken facebookAccessToken: String) -> Future<FIRUser, AnyError> {
+    // Returns a Boolean (True if FIRAuth found an email/password account that matches their FB email
+    func verifyFBProviderExists() -> Future<Bool, AnyError> {
+        return Future { complete in
+            // Check for an account that matches their facebook email
+            let request:GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields":"email"])
+            request.start { (response: HTTPURLResponse?, result: GraphRequestResult<GraphRequest>) in
+                switch result {
+                case .success(let value):
+                    if let dict = value.dictionaryValue {
+                        DDLogVerbose("FB User Graph: \(dict)")
+                        if let fbEmail : String = dict["email"] as? String {
+                            self.firAuth.fetchProviders(forEmail: fbEmail) { (providers: [String]?, error: Error?) in
+                                if let e = error {
+                                    DDLogError(e.localizedDescription)
+                                    complete(.failure(AnyError(cause: e)))
+                                    return
+                                } else {
+                                    DDLogInfo("FIR Providers for email: \(fbEmail) \n\(providers)")
+                                    if let p = providers {
+                                        let accountExists = p.contains("password")
+                                        complete(.success(accountExists))
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                case .failed(let error):
+                    DDLogError(error.localizedDescription)
+                    complete(.failure(AnyError(cause: error)))
+                }
+            }
+        }
+    }
+    
+    func signIn(withFBAccessToken fbAccessToken: String) -> Future<FIRUser, AnyError> {
         return Future { complete in
             
             // Check for an account that matches their facebook email
@@ -80,11 +115,7 @@ class Auth: NSObject {
                 case .success(let value):
                     if let dict = value.dictionaryValue {
                         DDLogVerbose("FB User Graph: \(dict)")
-                        if let email : String = dict["email"] as? String {
-                            self.firAuth.fetchProviders(forEmail: email) { (providers: [String]?, error: Error?) in
-                                
-                            }
-                        }
+                        
                     }
                 case .failed(let error):
                     DDLogError(error.localizedDescription)
@@ -92,7 +123,7 @@ class Auth: NSObject {
                 }
             }
             
-            let credential = FIRFacebookAuthProvider.credential(withAccessToken: facebookAccessToken)
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: fbAccessToken)
             self.firAuth.signIn(with: credential) { (user, error) in
                 if let e = error {
                     DDLogError("Error signing in user: \(e)")
