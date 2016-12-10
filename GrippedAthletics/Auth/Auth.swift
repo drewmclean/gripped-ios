@@ -15,6 +15,10 @@ import FirebaseAuth
 import FacebookCore
 import FacebookLogin
 
+enum AuthError : Error {
+    case NoCredentialsStored
+}
+
 class Auth: NSObject {
     
     static let instance = Auth()
@@ -23,23 +27,44 @@ class Auth: NSObject {
         return FIRAuth.auth()!
     }
     
-    var isAuthenticated : Bool {
-        if let accessToken = AccessToken.current {
-            DDLogInfo("Facebook token exists: \(accessToken)")
-        }else{
-            print("Not logged In.")
-        }
-        
-        if let user = currentUser {
-            return true
-        }
-        return false
-    }
-    
     var currentUser : FIRUser? {
         return firAuth.currentUser
     }
     
+    var lastLoggedInEmail : String? {
+        get {
+            return UserDefaults.standard.lastLoggedInEmail
+        }
+        set {
+            UserDefaults.standard.lastLoggedInEmail = newValue
+        }
+    }
+    
+    func attemptToAuthenticate() -> Future<FIRUser, AnyError> {
+        return Future { complete in
+            if let facebookAccessToken = AccessToken.current {
+                DDLogInfo("Facebook token exists: \(facebookAccessToken)")
+                // Autheticate via FB
+                signIn(withFBAccessToken: facebookAccessToken.authenticationToken).onSuccess { (user: FIRUser) in
+                    complete(.success(user))
+                }.onFailure { (error: AnyError) in
+                    complete(.failure(error))
+                }
+            } else if let storedEmail = lastLoggedInEmail {
+                DDLogInfo("Not logged In.")
+                if let storedPassword = KeyStore.instance.password(forEmail: storedEmail) {
+                    signIn(withEmail: storedEmail, andPassword: storedPassword).onSuccess{ (user: FIRUser) in
+                        complete(.success(user))
+                    }.onFailure { (error: AnyError) in
+                        complete(.failure(error))
+                    }
+                }
+            } else {
+                complete(.failure(AnyError(cause: AuthError.NoCredentialsStored)))
+            }
+        }
+    }
+
     func signUp(withEmail email : String, andPassword password : String) -> Future<FIRUser, AnyError> {
         return Future { complete in
             self.firAuth.createUser(withEmail: email, password: password) { (user: FIRUser?, error: Error?) in
@@ -70,6 +95,10 @@ class Auth: NSObject {
         }
     }
     
+    internal func storeCredentials(email: String, password: String) {
+        lastLoggedInEmail = email
+        KeyStore.instance.savePassword(password: password, forEmail: email)
+    }
     // Returns a Boolean (True if FIRAuth found an email/password account that matches their FB email
     func verifyFBProviderExists() -> Future<(String, Bool), AnyError> {
         return Future { complete in

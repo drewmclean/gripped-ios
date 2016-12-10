@@ -23,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        
-        
         FIRApp.configure()
         
         window?.backgroundColor = UIColor.purple
@@ -82,8 +80,11 @@ extension AppDelegate : PKRevealing {
     }
     
     func showAuthIfNeeded() {
-        if !Auth.instance.isAuthenticated {
-            window?.rootViewController?.present(viewControllers.authPromptViewController, animated: false, completion: nil)
+        Auth.instance.attemptToAuthenticate().onSuccess { (user: FIRUser) in
+            print("Authentication successful")
+        }.onFailure { (error: AnyError) in
+            print("Authentication failed.  Showing login view")
+            self.window?.rootViewController?.present(self.viewControllers.authPromptViewController, animated: true, completion: nil)
         }
     }
 }
