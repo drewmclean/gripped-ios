@@ -99,22 +99,61 @@ extension UIViewController {
 // MARK: Navigation Items
 
 enum NavItemType : Int {
-    case mainMenu, profile, standardText
+    case back, close, next, done, mainMenu, profile, standardText
 }
 
 extension UIViewController {
     
-    internal func barItemForNavType(withType: NavItemType) -> UIBarButtonItem{
-        UIImage(named: "main-menu")
+    func barItemWithTitle(title: String?, target: Any?, action: Selector?) -> UIBarButtonItem {
+        return barItemForNavType(withType: .standardText, title: title, target: target, action: action)
     }
     
-    func updateLeftNavItem(withType type: NavItemType) {
-        navigationItem.leftBarButtonItem = 
+    func barItemForNavType(withType type: NavItemType) -> UIBarButtonItem {
+        return barItemForNavType(withType: type, title: nil, target: nil, action: nil)
     }
     
-    func updateRightNavItem(withType: NavItemType) {
+    func barItemForNavType(withType type: NavItemType, title: String?, target: Any?, action: Selector?) -> UIBarButtonItem {
+        var item : UIBarButtonItem!
+        switch type {
+        case .back:
+            item = UIBarButtonItem(image: UIImage.back, style: .plain, target: self, action: #selector(UIViewController.backButtonTapped(sender:)))
+            break
+        case .next:
+            item = UIBarButtonItem(image: UIImage.forward, style: .plain, target: target, action:action)
+            break
+        case .done:
+            item = UIBarButtonItem(image: UIImage.checkmark, style: .plain, target: target, action:action)
+            break
+        case .close:
+            item = UIBarButtonItem(image: UIImage.close, style: .plain, target: self, action: #selector(UIViewController.backButtonTapped(sender:)))
+            break
+        case .mainMenu:
+            item = UIBarButtonItem(image: UIImage.menu, style: .plain, target: self, action: #selector(UIViewController.menuButtonTapped(sender:)))
+            break
+        case .profile:
+            
+            break
+        case .standardText:
+            item = UIBarButtonItem(title: title, style: .plain, target: target, action: action)
+            break
+        }
+        return item
+    }
+    
+    // MARK: Default Nav Item Actions
+    
+    internal func backButtonTapped(sender: UIBarButtonItem) {
+        if let _ = presentingViewController {
+            dismiss(animated: true, completion: nil)
+        } else if let nav = navigationController {
+            nav.popViewController(animated: true)
+        }
+    }
+    
+    internal func menuButtonTapped(sender: UIBarButtonItem) {
         
     }
+    
 }
 
 

@@ -47,7 +47,7 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     private var labelIsShown : Bool = false
     
     var backBarLabel : String?
-    var rightBarTitle : String?
+    var rightBarType : NavItemType?
     
     lazy var textBorder : UIView = {
         let view = UIView()

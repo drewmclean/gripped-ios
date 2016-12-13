@@ -30,7 +30,6 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
         vc.autocapitalizationType = .words
         vc.returnKeyType = .next
         vc.fieldTitle = "Name"
-        vc.rightBarTitle = "Next"
         vc.delegate = self
         vc.validator = self.validator
         vc.validatorRules = [RequiredRule()]
@@ -43,7 +42,6 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
         vc.keyboardType = .emailAddress
         vc.returnKeyType = .next
         vc.fieldTitle = "Email"
-        vc.rightBarTitle = "Next"
         vc.delegate = self
         vc.validator = self.validator
         vc.validatorRules = [RequiredRule(), EmailRule()]
@@ -56,7 +54,6 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
         vc.keyboardType = .default
         vc.returnKeyType = .done
         vc.isSecureTextEntry = true
-        vc.rightBarTitle = "Done"
         vc.fieldTitle = "Password"
         vc.delegate = self
         vc.validator = self.validator
@@ -156,22 +153,17 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
     func showFieldViewController(atIndex index: Int, animated: Bool) {
         currentViewControllerIndex = index
         
-        let vc = fieldViewControllers[index]
-        
-        if let rightTitle = vc.rightBarTitle {
-            let rightItem = UIBarButtonItem(title: rightTitle, style: .plain, target: self, action: #selector(SignUpViewController.rightItemTapped(sender:)))
-            navigationItem.setRightBarButton(rightItem, animated: animated)
-        } else {
-            navigationItem.setRightBarButton(nil, animated: animated)
-        }
+        let vc = currentViewController
         
         if index == 0 {
-            let leftItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(SignUpViewController.backItemTapped(sender:)))
-            navigationItem.setLeftBarButton(leftItem, animated: animated)
+            navigationItem.setLeftBarButton(barItemForNavType(withType: .close, title: "Cancel", target: self, action: #selector(AuthFlowViewController.backItemTapped(sender:))), animated: true)
+            navigationItem.setRightBarButton(barItemForNavType(withType: .next, title: "Next", target: self, action: #selector(AuthFlowViewController.rightItemTapped(sender:))), animated: true)
+        } else if index == fieldViewControllers.count - 1 {
+            navigationItem.setLeftBarButton(barItemForNavType(withType: .back, title: "Back", target: self, action: #selector(AuthFlowViewController.backItemTapped(sender:))), animated: true)
+            navigationItem.setRightBarButton(barItemForNavType(withType: .next, title: "Next", target: self, action: #selector(AuthFlowViewController.rightItemTapped(sender:))), animated: true)
         } else {
-            navigationItem.hidesBackButton = false
-            let leftItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(SignUpViewController.backItemTapped(sender:)))
-            navigationItem.setLeftBarButton(leftItem, animated: animated)
+            navigationItem.setLeftBarButton(barItemForNavType(withType: .back, title: "Back", target: self, action: #selector(AuthFlowViewController.backItemTapped(sender:))), animated: true)
+            navigationItem.setRightBarButton(barItemForNavType(withType: .done, title: "Done", target: self, action: #selector(AuthFlowViewController.rightItemTapped(sender:))), animated: true)
         }
         
         pageControl.currentPage = index
@@ -214,10 +206,6 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
     
     // MARK: Actions
     
-    func rightItemTapped(sender:UIBarButtonItem) {
-        didFinishTextEntry(controller: currentViewController)
-    }
-    
     func backItemTapped(sender:UIBarButtonItem) {
         if currentViewControllerIndex == 0 {
             currentViewController.view.endEditing(true)
@@ -225,6 +213,10 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
         } else {
             showPreviousView()
         }
+    }
+    
+    func rightItemTapped(sender:UIBarButtonItem) {
+        didFinishTextEntry(controller: currentViewController)
     }
     
     // MARK: KeyboardAnimator
