@@ -76,7 +76,7 @@ extension AppDelegate : PKRevealing {
     func setupRootViewController() {
         window = UIWindow()
         
-        let revealController = PKRevealController(frontViewController: viewControllers.homeViewController, leftViewController: viewControllers.menuViewController)!
+        let revealController = PKRevealController(frontViewController: viewControllers.homeNavController, leftViewController: viewControllers.menuViewController)!
         revealController.delegate = self
         
         window?.rootViewController = revealController
@@ -114,10 +114,10 @@ struct ViewControllers {
         return vc
     }()
     
-    lazy var homeViewController : HomeViewController = {
+    lazy var homeNavController : UINavigationController = {
         let vc = self.storyboard.instantiateViewController(withClass: HomeViewController.self) as! HomeViewController
         let nav = UINavigationController(rootViewController: vc)
-        return vc
+        return nav
     }()
 }
 

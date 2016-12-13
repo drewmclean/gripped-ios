@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKRevealController
 
 // MARK: Storyboard
 
@@ -151,7 +152,7 @@ extension UIViewController {
     }
     
     internal func menuButtonTapped(sender: UIBarButtonItem) {
-        
+        revealController.show(revealController.leftViewController)
     }
     
 }

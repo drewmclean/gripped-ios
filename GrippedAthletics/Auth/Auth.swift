@@ -75,6 +75,8 @@ class Auth: NSObject {
                 }
                 
                 DDLogInfo("User created: \(user!)")
+                self.storeCredentials(email: email, password: password)
+                
                 complete(.success(user!))
             }
         }
@@ -90,6 +92,7 @@ class Auth: NSObject {
                 }
                 
                 DDLogInfo("User signed in: \(user!)")
+                self.storeCredentials(email: email, password: password)
                 complete(.success(user!))
             }
         }
@@ -99,6 +102,7 @@ class Auth: NSObject {
         lastLoggedInEmail = email
         KeyStore.instance.savePassword(password: password, forEmail: email)
     }
+    
     // Returns a Boolean (True if FIRAuth found an email/password account that matches their FB email
     func verifyFBProviderExists() -> Future<(String, Bool), AnyError> {
         return Future { complete in

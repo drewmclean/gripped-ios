@@ -13,6 +13,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.darkGray
+        view.backgroundColor = UIColor.white
+        
+        navigationItem.leftBarButtonItem = barItemForNavType(withType: .mainMenu)
+        
     }
 }

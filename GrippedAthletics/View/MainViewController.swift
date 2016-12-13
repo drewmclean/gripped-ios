@@ -13,7 +13,6 @@ class MainViewController: PKRevealController, MenuViewControllerDelegate {
     
     lazy var menuViewController : MenuViewController = {
         let vc = self.storyboard!.instantiateViewController(withClass: MenuViewController.self) as! MenuViewController
-        
         return vc
     }()
     
