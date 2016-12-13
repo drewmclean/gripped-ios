@@ -20,6 +20,13 @@ class MenuViewController: UIViewController {
     
     var delegate : MenuViewControllerDelegate?
     
+    @IBOutlet weak var headerStackView: UIStackView!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileLabelsStackView: UIStackView!
+    @IBOutlet weak var menuTableView: UITableView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
