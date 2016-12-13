@@ -78,6 +78,8 @@ extension UIViewController {
     }
 }
 
+// MARK: Alerts
+
 extension UIViewController {
     
     var auth : Auth {
@@ -93,3 +95,27 @@ extension UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 }
+
+// MARK: Navigation Items
+
+enum NavItemType : Int {
+    case mainMenu, profile, standardText
+}
+
+extension UIViewController {
+    
+    internal func barItemForNavType(withType: NavItemType) -> UIBarButtonItem{
+        UIImage(named: "main-menu")
+    }
+    
+    func updateLeftNavItem(withType type: NavItemType) {
+        navigationItem.leftBarButtonItem = 
+    }
+    
+    func updateRightNavItem(withType: NavItemType) {
+        
+    }
+}
+
+
+

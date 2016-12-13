@@ -38,6 +38,7 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
     var returnKeyType : UIReturnKeyType = .default
     var isSecureTextEntry : Bool = false
     var autocapitalizationType : UITextAutocapitalizationType = .none
+    var autocorrectionType : UITextAutocorrectionType = .no
     var fieldTitle : String?
     var fieldValue : String? {
         return textField.text
@@ -71,6 +72,7 @@ class AuthTextFieldViewController: UIViewController, UITextFieldDelegate {
         textField.keyboardType = keyboardType
         textField.returnKeyType = returnKeyType
         textField.isSecureTextEntry = isSecureTextEntry
+        textField.autocorrectionType = autocorrectionType
         textField.autocapitalizationType = autocapitalizationType
         textField.text = ""
         textField.delegate = self

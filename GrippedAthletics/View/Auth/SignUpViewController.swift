@@ -29,8 +29,11 @@ class SignUpViewController: AuthFlowViewController {
         let email = emailViewController.fieldValue!
         let password = passwordViewController.fieldValue!
         
-        
-       
+        auth.signUp(withEmail: email, andPassword: password).onSuccess { (user: FIRUser) in
+            self.enterMainApplication()
+        }.onFailure { (error: AnyError) in
+            self.showErrorAlert(title: "Sign up Failed", message: error.localizedDescription)
+        }
     }
 
 }

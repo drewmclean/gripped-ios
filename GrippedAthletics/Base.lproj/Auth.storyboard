@@ -165,7 +165,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="6Mi-6b-FrQ" firstAttribute="leading" secondItem="JMU-2K-Cib" secondAttribute="leading" id="G7O-aX-MAX"/>
                                             <constraint firstAttribute="trailing" secondItem="6Mi-6b-FrQ" secondAttribute="trailing" id="YlX-hK-irC"/>
@@ -213,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRa-GO-nRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3037.5999999999999" y="-130.88455772113943"/>
+            <point key="canvasLocation" x="2850" y="-34"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QlY-nb-NmH">
