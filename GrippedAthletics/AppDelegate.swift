@@ -21,9 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         FIRApp.configure()
+        
+        applyAppearance()
         
         window?.backgroundColor = UIColor.purple
         
@@ -67,6 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 // MARK: View Management
+
 extension AppDelegate : PKRevealing {
     
     func setupRootViewController() {
@@ -115,5 +119,16 @@ struct ViewControllers {
         let nav = UINavigationController(rootViewController: vc)
         return vc
     }()
+}
+
+extension AppDelegate {
+    
+    func applyAppearance() {
+        UINavigationBar.appearance().isTranslucent = true
+        UINavigationBar.appearance().barTintColor = UIColor.white
+        UINavigationBar.appearance().tintColor = UIColor.black
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
+    }
+    
 }
 
