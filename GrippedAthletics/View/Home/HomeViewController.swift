@@ -9,7 +9,13 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
+    @IBOutlet weak var buttonStackView: UIStackView!
+    
+    @IBOutlet weak var recordClimbButton: UIButton!
+    @IBOutlet weak var updateBiometricsButton: UIButton!
+    @IBOutlet weak var updateProfileButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
