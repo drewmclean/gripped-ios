@@ -65,7 +65,7 @@ class Auth: NSObject {
         }
     }
 
-    func signUp(withEmail email : String, andPassword password : String) -> Future<FIRUser, AnyError> {
+    func signUp(withName name: String, withEmail email : String, andPassword password : String) -> Future<FIRUser, AnyError> {
         return Future { complete in
             self.firAuth.createUser(withEmail: email, password: password) { (user: FIRUser?, error: Error?) in
                 if let e = error {
@@ -104,10 +104,10 @@ class Auth: NSObject {
     }
     
     // Returns a Boolean (True if FIRAuth found an email/password account that matches their FB email
-    func verifyFBProviderExists() -> Future<(String, Bool), AnyError> {
+    func passwordProviderMatchesFBEmail() -> Future<(String, Bool), AnyError> {
         return Future { complete in
             // Check for an account that matches their facebook email
-            let request:GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields":"email"])
+            let request:GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields": "email,birthday,gender,name,picture(type=large)"])
             request.start { (response: HTTPURLResponse?, result: GraphRequestResult<GraphRequest>) in
                 switch result {
                 case .success(let value):
@@ -140,34 +140,35 @@ class Auth: NSObject {
     
     func signIn(withFBAccessToken fbAccessToken: String) -> Future<FIRUser, AnyError> {
         return Future { complete in
-            
-            // Check for an account that matches their facebook email
-            let request:GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields":"email"])
+            let fbCredential = FIRFacebookAuthProvider.credential(withAccessToken: fbAccessToken)
+            self.firAuth.signIn(with: fbCredential) { (user: FIRUser?, error: Error?) in
+                if let e = error {
+                    DDLogError(e.localizedDescription)
+                    complete(.failure(AnyError(cause: e)))
+                    return
+                }
+                complete(.success(user!))
+            }
+        }.andThen { (result: Result<FIRUser, AnyError>) in
+            let request:GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields": "email,birthday,gender,name,picture.type(large)"])
             request.start { (response: HTTPURLResponse?, result: GraphRequestResult<GraphRequest>) in
                 switch result {
                 case .success(let value):
                     if let dict = value.dictionaryValue {
                         DDLogVerbose("FB User Graph: \(dict)")
+                        let email : String = dict["email"] as! String
+                        let birthday : String = dict["birthday"] as! String
+                        let gender : String = dict["gender"] as! String
+                        let name : String = dict["name"] as! String
+                        let picture : Any = dict["picture"]!
+                        
+                        
                         
                     }
                 case .failed(let error):
                     DDLogError(error.localizedDescription)
-                    complete(.failure(AnyError(cause: error)))
+                    
                 }
-            }
-            
-            let credential = FIRFacebookAuthProvider.credential(withAccessToken: fbAccessToken)
-            self.firAuth.signIn(with: credential) { (user, error) in
-                if let e = error {
-                    DDLogError("Error signing in user: \(e)")
-                    complete(.failure(AnyError(cause: e)))
-                    return
-                }
-                
-                // TODO:    Check to see if there an existing credential that matches their FB email address.  If so then ask them to enter password for that email, and then authenticate them via email/password.  If that succeeds then authenticate them via Facebook.
-                
-                DDLogInfo("User signed in: \(user!)")
-                complete(.success(user!))
             }
         }
     }
@@ -194,4 +195,13 @@ class Auth: NSObject {
         }
     }
     
+    func signOut() {
+        do {
+            try firAuth.signOut()
+            let loginManager = LoginManager()
+            loginManager.logOut()
+        } catch {
+            DDLogError("Error signing out user")
+        }
+    }
 }

@@ -26,10 +26,11 @@ class SignUpViewController: AuthFlowViewController {
     // MARK: API
 
     override public func submitForm() {
+        let name = nameViewController.fieldValue!
         let email = emailViewController.fieldValue!
         let password = passwordViewController.fieldValue!
         
-        auth.signUp(withEmail: email, andPassword: password).onSuccess { (user: FIRUser) in
+        auth.signUp(withName: name, withEmail: email, andPassword: password).onSuccess { (user: FIRUser) in
             self.enterMainApplication()
         }.onFailure { (error: AnyError) in
             self.showErrorAlert(title: "Sign up Failed", message: error.localizedDescription)

@@ -35,6 +35,7 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var menuTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var signOutButton: UIButton!
     
     var selectedIndex : IndexPath = IndexPath(row: 0, section: 0)
     
@@ -68,9 +69,16 @@ class MenuViewController: UIViewController {
         menuTableView.dataSource = self
         menuTableView.delegate = self
         menuTableViewHeightConstraint.constant = CGFloat(menuItems.count) * menuTableView.rowHeight
-        
         menuTableView.selectRow(at: selectedIndex, animated: false, scrollPosition: .none)
     }
+    
+    // MARK: Actions
+    
+    @IBAction func signOutButtonTapped(_ sender: Any) {
+        auth.signOut()
+        (UIApplication.shared.delegate as! AppDelegate).showAuthIfNeeded()
+    }
+    
 }
 
 extension MenuViewController : UITableViewDataSource {

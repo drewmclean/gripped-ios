@@ -177,11 +177,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYS-Tx-A2T">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Z10-l3-0hN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOutButtonTapped:" destination="2US-eI-DYE" eventType="touchUpInside" id="waF-d6-O6A"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BYS-Tx-A2T" secondAttribute="trailing" id="5MA-pE-E1p"/>
+                            <constraint firstItem="BYS-Tx-A2T" firstAttribute="leading" secondItem="4vG-4u-8HN" secondAttribute="leading" id="Oyo-MJ-8df"/>
                             <constraint firstItem="H0i-vn-FUF" firstAttribute="leading" secondItem="4vG-4u-8HN" secondAttribute="leading" id="WBc-dF-EbX"/>
                             <constraint firstItem="jmu-hF-YBr" firstAttribute="leading" secondItem="4vG-4u-8HN" secondAttribute="leading" id="lCK-OF-wpI"/>
+                            <constraint firstItem="OgE-gN-hkg" firstAttribute="top" secondItem="BYS-Tx-A2T" secondAttribute="bottom" id="n45-dT-pCR"/>
                             <constraint firstItem="H0i-vn-FUF" firstAttribute="top" secondItem="4vG-4u-8HN" secondAttribute="top" id="oCz-Dz-mH5"/>
                             <constraint firstItem="jmu-hF-YBr" firstAttribute="top" secondItem="H0i-vn-FUF" secondAttribute="bottom" constant="24" id="qX0-i1-yMJ"/>
                             <constraint firstAttribute="trailing" secondItem="jmu-hF-YBr" secondAttribute="trailing" id="u4E-DV-Bli"/>
@@ -196,6 +210,7 @@
                         <outlet property="nameLabel" destination="zyZ-Uj-cWE" id="L7W-6M-1a3"/>
                         <outlet property="profileImageView" destination="9Gl-ae-xi9" id="yQF-YS-R1l"/>
                         <outlet property="profileLabelsStackView" destination="TnQ-2g-0vK" id="XpV-Uk-i4f"/>
+                        <outlet property="signOutButton" destination="BYS-Tx-A2T" id="2BO-cE-ylP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a15-ob-IKq" userLabel="First Responder" sceneMemberID="firstResponder"/>
