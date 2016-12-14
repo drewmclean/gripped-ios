@@ -14,6 +14,10 @@ class MenuTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        contentView.backgroundColor = UIColor.clear
+        
+        textLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+        textLabel?.textColor = UIColor.lightGray
         
     }
 

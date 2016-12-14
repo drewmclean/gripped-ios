@@ -8,33 +8,25 @@
 
 import UIKit
 
-enum MenuOption {
-    case dashboard, viewActivities, createActivity
-}
-
-protocol MenuViewControllerDelegate {
-    func menuDidChange(menuOption : MenuOption)
-}
-
 enum MenuItemTyoe : Int {
-    case profile, biometrics, climbs
+    case home, profile, biometrics, climbingActivity
 }
 
 struct MenuItem {
-    var itemType : MenuItemTyoe
-    var label : String
-    var icon : UIImage
+    var type : MenuItemTyoe
+    var title : String
+    var image : UIImage
+    var viewController : UIViewController
     
-    init(type:MenuItemTyoe, label:String, icon:UIImage) {
-        self.itemType = type
-        self.label = label
-        self.icon = icon
+    init(type:MenuItemTyoe, title:String, image:UIImage, viewController:UIViewController) {
+        self.type = type
+        self.title = title
+        self.image = image
+        self.viewController = viewController
     }
 }
 
 class MenuViewController: UIViewController {
-    
-    var delegate : MenuViewControllerDelegate?
     
     @IBOutlet weak var headerStackView: UIStackView!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -44,8 +36,14 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     
     lazy var menuItems : [MenuItem] = {
-        let items = [MenuItem]()
-        items.append(MenuItem(type: .profile, label: "Profile", icon: UIImage.profile)
+        var items = [MenuItem]()
+        var vcs = (UIApplication.shared.delegate as! AppDelegate).viewControllers
+        var profileVC = vcs.profileViewController
+        
+//        var biometrics = vcs.
+        items.append(MenuItem(type: .profile, title: "Profile", image: UIImage.contacts, viewController: profileVC))
+//        items.append(MenuItem(type: .biometrics, title: "Biometrics", image: UIImage.healthBook, viewController: self.viewC
+//        items.append(MenuItem(type: .climbs, title: "Climbing Activity", image: UIImage.climbing))
         return items
     }()
     
@@ -62,12 +60,28 @@ class MenuViewController: UIViewController {
 }
 
 extension MenuViewController : UITableViewDataSource {
+    
+    func  tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return menuItems.count
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let menuItem = menuItems[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.reuseIdentifier) as! MenuTableViewCell
+        cell.imageView?.image = menuItem.image
+        cell.textLabel?.text = menuItem.title
+        return cell
     }
 }
 
 extension MenuViewController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let menuItem = menuItems[indexPath.row]
+        revealController.show(menuItem.viewController, animated: true) { (finished : Bool) -> Void in
+            
+        }
+    }
     
 }
 

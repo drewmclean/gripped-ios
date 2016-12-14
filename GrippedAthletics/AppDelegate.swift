@@ -110,7 +110,6 @@ struct ViewControllers {
     
     lazy var profileViewController : ProfileViewController = {
         let vc = self.storyboard.instantiateViewController(withClass: ProfileViewController.self) as! ProfileViewController
-        
         return vc
     }()
     
