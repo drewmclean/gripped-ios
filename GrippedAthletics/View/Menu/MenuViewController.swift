@@ -36,12 +36,20 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
+    var selectedIndex : IndexPath = IndexPath(row: 0, section: 0)
+    
+    var selectedMenuItem : MenuItem {
+        return menuItems[selectedIndex.row]
+    }
+    
     lazy var menuItems : [MenuItem] = {
         var items = [MenuItem]()
         var vcs = (UIApplication.shared.delegate as! AppDelegate).viewControllers
+        var homeVC = vcs.homeNavController
         var profileVC = vcs.profileNavController
         var activityVC = vcs.activityNavController
         
+        items.append(MenuItem(type: .home, title: "Home", image: UIImage.home, viewController: homeVC))
         items.append(MenuItem(type: .profile, title: "Profile", image: UIImage.contacts, viewController: profileVC))
 //        items.append(MenuItem(type: .biometrics, title: "Biometrics", image: UIImage.healthBook, viewController: self.viewC
         items.append(MenuItem(type: .climbingActivity, title: "Activity", image: UIImage.climbing, viewController: activityVC))
@@ -52,6 +60,7 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.black
+        
         menuTableView.backgroundColor = UIColor.black
         menuTableView.separatorColor = UIColor.gray
         menuTableView.estimatedRowHeight = 60
@@ -59,19 +68,21 @@ class MenuViewController: UIViewController {
         menuTableView.dataSource = self
         menuTableView.delegate = self
         menuTableViewHeightConstraint.constant = CGFloat(menuItems.count) * menuTableView.rowHeight
+        
+        menuTableView.selectRow(at: selectedIndex, animated: false, scrollPosition: .none)
     }
 }
 
 extension MenuViewController : UITableViewDataSource {
     
-    func  tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let menuItem = menuItems[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.reuseIdentifier) as! MenuTableViewCell
-        cell.imageView?.image = menuItem.image
+        cell.iconImage = menuItem.image
         cell.textLabel?.text = menuItem.title
         return cell
     }
@@ -80,9 +91,38 @@ extension MenuViewController : UITableViewDataSource {
 extension MenuViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath
         let menuItem = menuItems[indexPath.row]
         revealController.show(menuItem.viewController, animated: true) { (finished : Bool) -> Void in
             
+        }
+    }
+    
+}
+
+class MenuTableViewCell: UITableViewCell {
+    
+    static let reuseIdentifier = "MenuTableViewCellID"
+    
+    var iconImage : UIImage?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        contentView.backgroundColor = UIColor.clear
+        backgroundColor = UIColor.clear
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        if selected {
+            imageView?.image = iconImage?.maskWithColor(color: UIColor.black)
+            textLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+            textLabel?.textColor = UIColor.black
+        } else {
+            imageView?.image = iconImage?.maskWithColor(color: UIColor.lightGray)
+            textLabel?.font = UIFont.systemFont(ofSize: 24)
+            textLabel?.textColor = UIColor.lightGray
         }
     }
     

@@ -45,7 +45,6 @@
 		57D87E6B1DE28A58000435E5 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D87E641DE28A58000435E5 /* SignInViewController.swift */; };
 		57D87E6C1DE28A58000435E5 /* SignUpConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D87E651DE28A58000435E5 /* SignUpConfirmViewController.swift */; };
 		57D87E6D1DE28A58000435E5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D87E661DE28A58000435E5 /* SignUpViewController.swift */; };
-		57DA8B7D1E00A2B200C74B10 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DA8B7C1E00A2B200C74B10 /* MenuTableViewCell.swift */; };
 		5F40405D26362043B8771F11 /* Pods_GrippedAthleticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A7D3F0158D13EE4C6645D8 /* Pods_GrippedAthleticsTests.framework */; };
 		62A4E8121EED1517A7228B66 /* Pods_GrippedAthleticsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F142B5A23D496C87665BE3 /* Pods_GrippedAthleticsUITests.framework */; };
 /* End PBXBuildFile section */
@@ -109,7 +108,6 @@
 		57D87E641DE28A58000435E5 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		57D87E651DE28A58000435E5 /* SignUpConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpConfirmViewController.swift; sourceTree = "<group>"; };
 		57D87E661DE28A58000435E5 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		57DA8B7C1E00A2B200C74B10 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		78C37B8AFD3E694A44C7233B /* Pods-GrippedAthleticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrippedAthleticsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrippedAthleticsTests/Pods-GrippedAthleticsTests.release.xcconfig"; sourceTree = "<group>"; };
 		9260C71F94BF267EA2669A81 /* Pods-GrippedAthleticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrippedAthleticsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrippedAthleticsTests/Pods-GrippedAthleticsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F95B1F2A6C91DC9B976F298 /* Pods-GrippedAthleticsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrippedAthleticsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrippedAthleticsUITests/Pods-GrippedAthleticsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -287,7 +285,6 @@
 			isa = PBXGroup;
 			children = (
 				579DE2D51DBC259E00D71875 /* MenuViewController.swift */,
-				57DA8B7C1E00A2B200C74B10 /* MenuTableViewCell.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -667,7 +664,6 @@
 			files = (
 				579DE2DC1DBC279800D71875 /* MainViewController.swift in Sources */,
 				570974B51DFB58B300D355B9 /* NSError.swift in Sources */,
-				57DA8B7D1E00A2B200C74B10 /* MenuTableViewCell.swift in Sources */,
 				579DE2B71DBC112C00D71875 /* HomeViewController.swift in Sources */,
 				57D87E681DE28A58000435E5 /* AuthTextFieldViewController.swift in Sources */,
 				579DE2D61DBC259E00D71875 /* MenuViewController.swift in Sources */,
