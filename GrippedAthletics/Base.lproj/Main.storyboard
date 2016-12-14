@@ -107,16 +107,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="TnQ-2g-0vK">
-                                        <rect key="frame" x="92" y="16" width="263" height="48"/>
+                                        <rect key="frame" x="92" y="16.5" width="263" height="47.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyZ-Uj-cWE">
-                                                <rect key="frame" x="0.0" y="0.0" width="263" height="28"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="263" height="27.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCK-Ec-ML9">
-                                                <rect key="frame" x="0.0" y="30" width="263" height="18"/>
+                                                <rect key="frame" x="0.0" y="29.5" width="263" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -129,27 +129,29 @@
                                     <constraint firstAttribute="height" constant="80" id="Mc0-Yh-DJz"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jmu-hF-YBr">
-                                <rect key="frame" x="0.0" y="104" width="375" height="563"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jmu-hF-YBr">
+                                <rect key="frame" x="0.0" y="104" width="375" height="180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="uMW-yG-Ltf"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuTableViewCellID" textLabel="Nip-2o-dfs" imageView="0Ak-H3-Vxw" style="IBUITableViewCellStyleDefault" id="Dkb-hk-JcQ" customClass="MenuTableViewCellID">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuTableViewCellID" textLabel="Nip-2o-dfs" imageView="0Ak-H3-Vxw" style="IBUITableViewCellStyleDefault" id="Dkb-hk-JcQ" customClass="MenuTableViewCell" customModule="GrippedAthletics" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dkb-hk-JcQ" id="xEV-nb-s59">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nip-2o-dfs">
-                                                    <rect key="frame" x="55" y="0.0" width="305" height="43"/>
+                                                    <rect key="frame" x="55" y="0.0" width="305" height="59"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Contacts" id="0Ak-H3-Vxw">
-                                                    <rect key="frame" x="15" y="9" width="25" height="25"/>
+                                                    <rect key="frame" x="15" y="17" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -161,7 +163,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="H0i-vn-FUF" firstAttribute="leading" secondItem="4vG-4u-8HN" secondAttribute="leading" id="WBc-dF-EbX"/>
+                            <constraint firstItem="jmu-hF-YBr" firstAttribute="leading" secondItem="4vG-4u-8HN" secondAttribute="leading" id="lCK-OF-wpI"/>
                             <constraint firstItem="H0i-vn-FUF" firstAttribute="top" secondItem="4vG-4u-8HN" secondAttribute="top" id="oCz-Dz-mH5"/>
+                            <constraint firstItem="jmu-hF-YBr" firstAttribute="top" secondItem="H0i-vn-FUF" secondAttribute="bottom" constant="24" id="qX0-i1-yMJ"/>
+                            <constraint firstAttribute="trailing" secondItem="jmu-hF-YBr" secondAttribute="trailing" id="u4E-DV-Bli"/>
                             <constraint firstAttribute="trailing" secondItem="H0i-vn-FUF" secondAttribute="trailing" constant="20" symbolic="YES" id="wu6-LD-GLq"/>
                         </constraints>
                     </view>
@@ -169,6 +174,7 @@
                         <outlet property="emailLabel" destination="VCK-Ec-ML9" id="oCO-bN-RZe"/>
                         <outlet property="headerStackView" destination="H0i-vn-FUF" id="3t4-A6-ZkY"/>
                         <outlet property="menuTableView" destination="jmu-hF-YBr" id="29z-XL-TWc"/>
+                        <outlet property="menuTableViewHeightConstraint" destination="uMW-yG-Ltf" id="q8c-8N-aha"/>
                         <outlet property="nameLabel" destination="zyZ-Uj-cWE" id="L7W-6M-1a3"/>
                         <outlet property="profileImageView" destination="9Gl-ae-xi9" id="yQF-YS-R1l"/>
                         <outlet property="profileLabelsStackView" destination="TnQ-2g-0vK" id="XpV-Uk-i4f"/>

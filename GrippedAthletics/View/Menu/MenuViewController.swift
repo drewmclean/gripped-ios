@@ -32,6 +32,7 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileLabelsStackView: UIStackView!
     @IBOutlet weak var menuTableView: UITableView!
+    @IBOutlet weak var menuTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
@@ -50,12 +51,17 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.yellow
-        menuTableView.estimatedRowHeight = 44
-        menuTableView.rowHeight = 44
+        view.backgroundColor = UIColor.black
+        
+        menuTableView.estimatedRowHeight = 60
+        menuTableView.rowHeight = 60
         menuTableView.dataSource = self
         menuTableView.delegate = self
+        menuTableViewHeightConstraint.constant = CGFloat(menuItems.count) * menuTableView.rowHeight
+
     }
+    
+    
     
 }
 

@@ -48,7 +48,7 @@ class AuthPromptViewController: UIViewController {
                 if let vc = nav.childViewControllers.first as? FacebookLinkPasswordEntryViewController {
                     vc.email = self.facebookEmail
                     vc.fbAccessToken = self.facebookAccessToken
-                    vc.promptText = "A GrippedAthletics account already exists for your facebook email '\(self.facebookEmail!)'.  Please enter your password to link your facebook to this account."
+                    vc.promptText = "A GrippedAthletics account exists with the same email as facebook email '\(self.facebookEmail!)'.  Please enter your GrippedAthletics password."
                 }
             }
         }

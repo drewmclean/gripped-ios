@@ -177,6 +177,11 @@ class Auth: NSObject {
             let fbCredential = FIRFacebookAuthProvider.credential(withAccessToken: fbAccessToken)
             signIn(withEmail: email, andPassword: password).onSuccess { (user: FIRUser) in
                 user.link(with: fbCredential) { (linkedUser: FIRUser?, error: Error?) in
+                    if let e = error as? NSError {
+                        if e.code == FIRAuthErrorCode.errorCodeProviderAlreadyLinked.rawValue {
+                            complete(.success(user))
+                        }
+                    }
                     if let e = error {
                         DDLogError("Error signing in user: \(e)")
                         complete(.failure(AnyError(cause: e)))
