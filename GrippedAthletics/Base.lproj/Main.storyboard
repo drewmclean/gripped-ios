@@ -88,6 +88,24 @@
             </objects>
             <point key="canvasLocation" x="-900" y="147.97601199400302"/>
         </scene>
+        <!--Activity View Controller-->
+        <scene sceneID="LMo-0h-XtF">
+            <objects>
+                <viewController storyboardIdentifier="ActivityViewController" id="hmI-U4-Qup" customClass="ActivityViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HzP-BH-68q"/>
+                        <viewControllerLayoutGuide type="bottom" id="NV8-kd-Ou6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4It-EY-OdH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sLo-bE-fAs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-900" y="860"/>
+        </scene>
         <!--Menu View Controller-->
         <scene sceneID="Ilg-bR-AeY">
             <objects>

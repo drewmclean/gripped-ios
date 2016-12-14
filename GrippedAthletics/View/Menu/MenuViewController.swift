@@ -39,12 +39,12 @@ class MenuViewController: UIViewController {
     lazy var menuItems : [MenuItem] = {
         var items = [MenuItem]()
         var vcs = (UIApplication.shared.delegate as! AppDelegate).viewControllers
-        var profileVC = vcs.profileViewController
+        var profileVC = vcs.profileNavController
+        var activityVC = vcs.activityNavController
         
-//        var biometrics = vcs.
         items.append(MenuItem(type: .profile, title: "Profile", image: UIImage.contacts, viewController: profileVC))
 //        items.append(MenuItem(type: .biometrics, title: "Biometrics", image: UIImage.healthBook, viewController: self.viewC
-//        items.append(MenuItem(type: .climbs, title: "Climbing Activity", image: UIImage.climbing))
+        items.append(MenuItem(type: .climbingActivity, title: "Activity", image: UIImage.climbing, viewController: activityVC))
         return items
     }()
     
@@ -52,17 +52,14 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.black
-        
+        menuTableView.backgroundColor = UIColor.black
+        menuTableView.separatorColor = UIColor.gray
         menuTableView.estimatedRowHeight = 60
         menuTableView.rowHeight = 60
         menuTableView.dataSource = self
         menuTableView.delegate = self
         menuTableViewHeightConstraint.constant = CGFloat(menuItems.count) * menuTableView.rowHeight
-
     }
-    
-    
-    
 }
 
 extension MenuViewController : UITableViewDataSource {
