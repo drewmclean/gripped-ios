@@ -9,6 +9,7 @@
 import Foundation
 
 struct Grades {
+    
     enum Australian : String {
         case One = "1"
         case Two = "2"
@@ -40,6 +41,7 @@ struct Grades {
     }
     
     enum Yosemite : String {
+        
         case Five0     = "5.0"
         case Five1     = "5.1"
         case Five2     = "5.2"
@@ -167,20 +169,26 @@ struct Grades {
     }
     
     static var matrix : [Grade] {
-        return grades
+        var m = [Grade]()
+        
+        m.append(Grade(a: .One, y: .Five0, f: .FourA, v: .VB))
+        
+        return m
     }
+    
+    struct Grade {
+        var australian: Australian
+        var yosemite: Yosemite
+        var french: French
+        var v: VGrade
+        
+        init(a:Australian, y:Yosemite, f: French, v:VGrade) {
+            self.australian = a
+            self.yosemite = y
+            self.french = f
+            self.v = v
+        }
+    }
+
 }
 
-struct Grade {
-    var australianGrade: UInt
-    var yosemiteGrade: Yosemite
-    var frenchGrade: French
-    var vGrade: VGrade
-    
-    init(australian:UInt, yosemite:String, french: String, v:String) {
-        self.australianGrade = australian
-        self.yosemiteGrade = yosemite
-        self.frenchGrade = french
-        self.vGrade = v
-    }
-}
