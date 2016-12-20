@@ -104,19 +104,22 @@ struct ViewControllers {
     
     lazy var menuViewController : MenuViewController = {
         let vc = self.storyboard.instantiateViewController(withClass: MenuViewController.self) as! MenuViewController
-        
-        return vc
-    }()
-    
-    lazy var profileViewController : ProfileViewController = {
-        let vc = self.storyboard.instantiateViewController(withClass: ProfileViewController.self) as! ProfileViewController
         return vc
     }()
     
     lazy var homeNavController : UINavigationController = {
-        let vc = self.storyboard.instantiateViewController(withClass: HomeViewController.self) as! HomeViewController
-        let nav = UINavigationController(rootViewController: vc)
-        return nav
+        let vc = self.storyboard.instantiateViewController(withClass: HomeViewController.self)
+        return UINavigationController(rootViewController: vc)
+    }()
+    
+    lazy var profileNavController : UINavigationController = {
+        let vc = self.storyboard.instantiateViewController(withClass: ProfileViewController.self)
+        return UINavigationController(rootViewController: vc)
+    }()
+    
+    lazy var activityNavController : UINavigationController = {
+        let vc = self.storyboard.instantiateViewController(withClass: ActivityViewController.self)
+        return UINavigationController(rootViewController: vc)
     }()
 }
 

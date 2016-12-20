@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6bD-5n-W6B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6bD-5n-W6B">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,28 +41,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yay you're logged in!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEk-EG-7RD">
-                                <rect key="frame" x="108" y="323" width="159" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="159" id="M8z-xa-VFX"/>
-                                    <constraint firstAttribute="height" constant="21" id="yy1-hb-2LU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="x16-do-nTo">
+                                <rect key="frame" x="36" y="247" width="303" height="173"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRB-Ge-VnZ">
+                                        <rect key="frame" x="58.5" y="0.0" width="186" height="51"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                                        <state key="normal" title="Record Climb">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5a-R1-WRK">
+                                        <rect key="frame" x="41" y="61" width="221" height="51"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                                        <state key="normal" title="View Biometrics">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZS-xh-XAY">
+                                        <rect key="frame" x="71" y="122" width="161" height="51"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                                        <state key="normal" title="View Profile">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="GEk-EG-7RD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1tE-ii-VZa"/>
-                            <constraint firstItem="GEk-EG-7RD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gds-SP-oob"/>
+                            <constraint firstItem="x16-do-nTo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cbv-pA-QAB"/>
+                            <constraint firstItem="x16-do-nTo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="hwb-on-gYH"/>
+                            <constraint firstItem="x16-do-nTo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lzV-VF-cbi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="x16-do-nTo" secondAttribute="trailing" constant="20" id="vCj-U0-Us4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8kz-ni-a7v"/>
+                    <connections>
+                        <outlet property="buttonStackView" destination="x16-do-nTo" id="h3y-79-P8y"/>
+                        <outlet property="recordClimbButton" destination="mRB-Ge-VnZ" id="wyG-eV-lBw"/>
+                        <outlet property="updateBiometricsButton" destination="Y5a-R1-WRK" id="R1B-sN-10c"/>
+                        <outlet property="updateProfileButton" destination="oZS-xh-XAY" id="5Dh-Hg-zGR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-900" y="148"/>
+            <point key="canvasLocation" x="-900" y="147.97601199400302"/>
+        </scene>
+        <!--Activity View Controller-->
+        <scene sceneID="LMo-0h-XtF">
+            <objects>
+                <viewController storyboardIdentifier="ActivityViewController" id="hmI-U4-Qup" customClass="ActivityViewController" customModule="GrippedAthletics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HzP-BH-68q"/>
+                        <viewControllerLayoutGuide type="bottom" id="NV8-kd-Ou6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4It-EY-OdH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sLo-bE-fAs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-900" y="860"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="Ilg-bR-AeY">
@@ -104,27 +147,29 @@
                                     <constraint firstAttribute="height" constant="80" id="Mc0-Yh-DJz"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jmu-hF-YBr">
-                                <rect key="frame" x="0.0" y="104" width="375" height="563"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jmu-hF-YBr">
+                                <rect key="frame" x="0.0" y="104" width="375" height="180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="uMW-yG-Ltf"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuTableViewCellID" textLabel="Nip-2o-dfs" imageView="0Ak-H3-Vxw" style="IBUITableViewCellStyleDefault" id="Dkb-hk-JcQ" customClass="MenuTableViewCellID">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuTableViewCellID" textLabel="Nip-2o-dfs" imageView="0Ak-H3-Vxw" style="IBUITableViewCellStyleDefault" id="Dkb-hk-JcQ" customClass="MenuTableViewCell" customModule="GrippedAthletics" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dkb-hk-JcQ" id="xEV-nb-s59">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nip-2o-dfs">
-                                                    <rect key="frame" x="55" y="0.0" width="305" height="43.5"/>
+                                                    <rect key="frame" x="55" y="0.0" width="305" height="59"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Contacts" id="0Ak-H3-Vxw">
-                                                    <rect key="frame" x="15" y="9" width="25" height="25"/>
+                                                    <rect key="frame" x="15" y="17" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -132,11 +177,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYS-Tx-A2T">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Z10-l3-0hN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOutButtonTapped:" destination="2US-eI-DYE" eventType="touchUpInside" id="waF-d6-O6A"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BYS-Tx-A2T" secondAttribute="trailing" id="5MA-pE-E1p"/>
+                            <constraint firstItem="BYS-Tx-A2T" firstAttribute="leading" secondItem="4vG-4u-8HN" secondAttribute="leading" id="Oyo-MJ-8df"/>
                             <constraint firstItem="H0i-vn-FUF" firstAttribute="leading" secondItem="4vG-4u-8HN" secondAttribute="leading" id="WBc-dF-EbX"/>
+                            <constraint firstItem="jmu-hF-YBr" firstAttribute="leading" secondItem="4vG-4u-8HN" secondAttribute="leading" id="lCK-OF-wpI"/>
+                            <constraint firstItem="OgE-gN-hkg" firstAttribute="top" secondItem="BYS-Tx-A2T" secondAttribute="bottom" id="n45-dT-pCR"/>
                             <constraint firstItem="H0i-vn-FUF" firstAttribute="top" secondItem="4vG-4u-8HN" secondAttribute="top" id="oCz-Dz-mH5"/>
+                            <constraint firstItem="jmu-hF-YBr" firstAttribute="top" secondItem="H0i-vn-FUF" secondAttribute="bottom" constant="24" id="qX0-i1-yMJ"/>
+                            <constraint firstAttribute="trailing" secondItem="jmu-hF-YBr" secondAttribute="trailing" id="u4E-DV-Bli"/>
                             <constraint firstAttribute="trailing" secondItem="H0i-vn-FUF" secondAttribute="trailing" constant="20" symbolic="YES" id="wu6-LD-GLq"/>
                         </constraints>
                     </view>
@@ -144,9 +206,11 @@
                         <outlet property="emailLabel" destination="VCK-Ec-ML9" id="oCO-bN-RZe"/>
                         <outlet property="headerStackView" destination="H0i-vn-FUF" id="3t4-A6-ZkY"/>
                         <outlet property="menuTableView" destination="jmu-hF-YBr" id="29z-XL-TWc"/>
+                        <outlet property="menuTableViewHeightConstraint" destination="uMW-yG-Ltf" id="q8c-8N-aha"/>
                         <outlet property="nameLabel" destination="zyZ-Uj-cWE" id="L7W-6M-1a3"/>
                         <outlet property="profileImageView" destination="9Gl-ae-xi9" id="yQF-YS-R1l"/>
                         <outlet property="profileLabelsStackView" destination="TnQ-2g-0vK" id="XpV-Uk-i4f"/>
+                        <outlet property="signOutButton" destination="BYS-Tx-A2T" id="2BO-cE-ylP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a15-ob-IKq" userLabel="First Responder" sceneMemberID="firstResponder"/>

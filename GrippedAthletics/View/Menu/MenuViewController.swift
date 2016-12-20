@@ -32,43 +32,65 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileLabelsStackView: UIStackView!
     @IBOutlet weak var menuTableView: UITableView!
+    @IBOutlet weak var menuTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var signOutButton: UIButton!
+    
+    var selectedIndex : IndexPath = IndexPath(row: 0, section: 0)
+    
+    var selectedMenuItem : MenuItem {
+        return menuItems[selectedIndex.row]
+    }
     
     lazy var menuItems : [MenuItem] = {
         var items = [MenuItem]()
         var vcs = (UIApplication.shared.delegate as! AppDelegate).viewControllers
-        var profileVC = vcs.profileViewController
+        var homeVC = vcs.homeNavController
+        var profileVC = vcs.profileNavController
+        var activityVC = vcs.activityNavController
         
-//        var biometrics = vcs.
+        items.append(MenuItem(type: .home, title: "Home", image: UIImage.home, viewController: homeVC))
         items.append(MenuItem(type: .profile, title: "Profile", image: UIImage.contacts, viewController: profileVC))
 //        items.append(MenuItem(type: .biometrics, title: "Biometrics", image: UIImage.healthBook, viewController: self.viewC
-//        items.append(MenuItem(type: .climbs, title: "Climbing Activity", image: UIImage.climbing))
+        items.append(MenuItem(type: .climbingActivity, title: "Activity", image: UIImage.climbing, viewController: activityVC))
         return items
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.yellow
-        menuTableView.estimatedRowHeight = 44
-        menuTableView.rowHeight = 44
+        view.backgroundColor = UIColor.black
+        
+        menuTableView.backgroundColor = UIColor.black
+        menuTableView.separatorColor = UIColor.gray
+        menuTableView.estimatedRowHeight = 60
+        menuTableView.rowHeight = 60
         menuTableView.dataSource = self
         menuTableView.delegate = self
+        menuTableViewHeightConstraint.constant = CGFloat(menuItems.count) * menuTableView.rowHeight
+        menuTableView.selectRow(at: selectedIndex, animated: false, scrollPosition: .none)
+    }
+    
+    // MARK: Actions
+    
+    @IBAction func signOutButtonTapped(_ sender: Any) {
+        auth.signOut()
+        (UIApplication.shared.delegate as! AppDelegate).showAuthIfNeeded()
     }
     
 }
 
 extension MenuViewController : UITableViewDataSource {
     
-    func  tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let menuItem = menuItems[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.reuseIdentifier) as! MenuTableViewCell
-        cell.imageView?.image = menuItem.image
+        cell.iconImage = menuItem.image
         cell.textLabel?.text = menuItem.title
         return cell
     }
@@ -77,9 +99,38 @@ extension MenuViewController : UITableViewDataSource {
 extension MenuViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath
         let menuItem = menuItems[indexPath.row]
         revealController.show(menuItem.viewController, animated: true) { (finished : Bool) -> Void in
             
+        }
+    }
+    
+}
+
+class MenuTableViewCell: UITableViewCell {
+    
+    static let reuseIdentifier = "MenuTableViewCellID"
+    
+    var iconImage : UIImage?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        contentView.backgroundColor = UIColor.clear
+        backgroundColor = UIColor.clear
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        if selected {
+            imageView?.image = iconImage?.maskWithColor(color: UIColor.black)
+            textLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+            textLabel?.textColor = UIColor.black
+        } else {
+            imageView?.image = iconImage?.maskWithColor(color: UIColor.lightGray)
+            textLabel?.font = UIFont.systemFont(ofSize: 24)
+            textLabel?.textColor = UIColor.lightGray
         }
     }
     

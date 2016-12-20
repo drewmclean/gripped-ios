@@ -48,7 +48,7 @@ class AuthPromptViewController: UIViewController {
                 if let vc = nav.childViewControllers.first as? FacebookLinkPasswordEntryViewController {
                     vc.email = self.facebookEmail
                     vc.fbAccessToken = self.facebookAccessToken
-                    vc.promptText = "A GrippedAthletics account already exists for your facebook email '\(self.facebookEmail!)'.  Please enter your password to link your facebook to this account."
+                    vc.promptText = "A GrippedAthletics account exists with the same email as facebook email '\(self.facebookEmail!)'.  Please enter your GrippedAthletics password."
                 }
             }
         }
@@ -67,19 +67,10 @@ extension AuthPromptViewController : LoginButtonDelegate {
         case .success(let grantedPermissions, let declinedPermissions, let token):
             DDLogInfo("Facebook login succeeded with token\(token), granted: \(grantedPermissions) declined: \(declinedPermissions)")
             
-            auth.verifyFBProviderExists().onSuccess { (result:(String, Bool )) in
-                let providerExists = result.1
-                if providerExists == true {
-                    self.facebookEmail = result.0
-                    self.facebookAccessToken = token.authenticationToken
-                    self.presentPasswordOnlyViewController()
-                } else {
-                    self.auth.signIn(withFBAccessToken: token.authenticationToken).onSuccess { (user: FIRUser) in
-                        self.dismiss(animated: true, completion: nil)
-                    }.onFailure { (e: AnyError) in
-                        self.showErrorAlert(title: "Login Error", message: e.localizedDescription)
-                    }
-                }
+            self.auth.signIn(withFBAccessToken: token.authenticationToken).onSuccess { (user: FIRUser) in
+                self.dismiss(animated: true, completion: nil)
+            }.onFailure { (e: AnyError) in
+                    self.showErrorAlert(title: "Login Error", message: e.localizedDescription)
             }
         }
     }

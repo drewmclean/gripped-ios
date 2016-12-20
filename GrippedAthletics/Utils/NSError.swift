@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+extension NSError {
+    
+    var errorName : String? {
+        return userInfo["error_name"] as? String
+    }
+}
