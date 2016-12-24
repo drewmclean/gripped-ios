@@ -11,8 +11,6 @@ import Foundation
 struct Grades {
     
     enum Australian : String {
-        case One = "1"
-        case Two = "2"
         case Three = "3"
         case Four = "4"
         case Five = "5"
@@ -40,7 +38,38 @@ struct Grades {
         case TwentySeven = "27"
     }
     
-    enum Yosemite : String {
+    enum UIAA : String {
+        case I = "I"
+        case II = "II"
+        case III = "III"
+        case IVm = "IV-"
+        case IV = "IV"
+        case IVp = "IV+"
+        case Vm = "V-"
+        case V = "V"
+        case Vp = "V+"
+        case VIm = "VI-"
+        case VI = "VI"
+        case VIp = "VI+"
+        case VIIm = "VII-"
+        case VII = "VII"
+        case VIIp = "VII+"
+        case VIIIm = "VIII-"
+        case VIII = "VIII"
+        case VIIIp = "VIII+"
+        case IXm = "IX-"
+        case IX = "IX"
+        case IXp = "IX+"
+        case Xm = "X-"
+        case X = "X"
+        case Xp = "X+"
+        case XIm = "XI-"
+        case XI = "XI"
+        case XIp = "XI+"
+        case XIIm = "XII-"
+    }
+    
+    enum NorthAmerica : String {
         
         case Five0     = "5.0"
         case Five1     = "5.1"
@@ -147,7 +176,7 @@ struct Grades {
         case NineD = "9d"
     }
     
-    enum VGrade : String {
+    enum Hueco : String {
         case VB = "VB"
         case V0 = "V0"
         case V1 = "V1"
@@ -171,22 +200,22 @@ struct Grades {
     static var matrix : [Grade] {
         var m = [Grade]()
         
-        m.append(Grade(a: .One, y: .Five0, f: .FourA, v: .VB))
+        m.append(Grade(a: .Three, na: .Five0, f: .FourA, h: .VB))
         
         return m
     }
     
     struct Grade {
         var australian: Australian
-        var yosemite: Yosemite
+        var northAmerican: NorthAmerica
         var french: French
-        var v: VGrade
+        var hueco: Hueco
         
-        init(a:Australian, y:Yosemite, f: French, v:VGrade) {
+        init(a:Australian, na:NorthAmerica, f: French, h:Hueco) {
             self.australian = a
-            self.yosemite = y
+            self.northAmerican = na
             self.french = f
-            self.v = v
+            self.hueco = h
         }
     }
 
