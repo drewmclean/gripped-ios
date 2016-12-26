@@ -680,6 +680,7 @@
 				5752A7AA1E00E33E0092F000 /* ActivityViewController.swift in Sources */,
 				5752A7A61DFFAD5F0092F000 /* UIImage.swift in Sources */,
 				5713E3311DF5F17700D06A8A /* AuthFlowViewController.swift in Sources */,
+				574BF0631E09E29E00AF3803 /* Grades.swift in Sources */,
 				57D87E6D1DE28A58000435E5 /* SignUpViewController.swift in Sources */,
 				5758E57E1DF9C95500121110 /* KeyStore.swift in Sources */,
 				57D87E6B1DE28A58000435E5 /* SignInViewController.swift in Sources */,
