@@ -11,14 +11,14 @@ import FirebaseDatabase
 
 struct UserProfile : FIRObject {
     
-    var birthday: String
+    let key : String
     let userId: String
+    var birthday: String
+    var name : String = ""
     
-    init(userId: String, birthday: String, key: String = "") {
+    init(userId: String, name : String, birthday: String, key: String = "") {
         self.key = key
         self.name = name
-        self.addedByUser = addedByUser
-        self.completed = completed
         self.ref = nil
     }
     

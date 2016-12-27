@@ -9,7 +9,7 @@
 import FirebaseDatabase
 import FirebaseCore
 
-class AppSession: FIRModel {
+class AppSession {
     
     static let session = AppSession()
     

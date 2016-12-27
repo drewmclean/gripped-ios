@@ -40,6 +40,8 @@
 		579DE2D61DBC259E00D71875 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2D51DBC259E00D71875 /* MenuViewController.swift */; };
 		579DE2D81DBC25C000D71875 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2D71DBC25C000D71875 /* ProfileViewController.swift */; };
 		579DE2DC1DBC279800D71875 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2DB1DBC279800D71875 /* MainViewController.swift */; };
+		57C5D3841E11C340009649F9 /* Grades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5D3811E11C340009649F9 /* Grades.swift */; };
+		57C5D3871E11C4BE009649F9 /* FIRObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5D3861E11C4BE009649F9 /* FIRObject.swift */; };
 		57CF08F71DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CF08F61DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift */; };
 		57D87E521DE0C2F1000435E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57D87E511DE0C2F1000435E5 /* GoogleService-Info.plist */; };
 		57D87E671DE28A58000435E5 /* AuthPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D87E601DE28A58000435E5 /* AuthPromptViewController.swift */; };
@@ -105,6 +107,8 @@
 		579DE2D51DBC259E00D71875 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		579DE2D71DBC25C000D71875 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		579DE2DB1DBC279800D71875 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		57C5D3811E11C340009649F9 /* Grades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grades.swift; sourceTree = "<group>"; };
+		57C5D3861E11C4BE009649F9 /* FIRObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRObject.swift; sourceTree = "<group>"; };
 		57CF08F61DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLinkPasswordEntryViewController.swift; sourceTree = "<group>"; };
 		57D87E511DE0C2F1000435E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		57D87E601DE28A58000435E5 /* AuthPromptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthPromptViewController.swift; sourceTree = "<group>"; };
@@ -219,9 +223,11 @@
 		571C7FD91DBBDC400071DB04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				57C5D3811E11C340009649F9 /* Grades.swift */,
 				571A313E1E01CBEB002F9223 /* AppSession.swift */,
 				571A31401E01CFB8002F9223 /* User.swift */,
 				571A313C1E01CAAE002F9223 /* UserProfile.swift */,
+				57C5D3861E11C4BE009649F9 /* FIRObject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -680,7 +686,6 @@
 				5752A7AA1E00E33E0092F000 /* ActivityViewController.swift in Sources */,
 				5752A7A61DFFAD5F0092F000 /* UIImage.swift in Sources */,
 				5713E3311DF5F17700D06A8A /* AuthFlowViewController.swift in Sources */,
-				574BF0631E09E29E00AF3803 /* Grades.swift in Sources */,
 				57D87E6D1DE28A58000435E5 /* SignUpViewController.swift in Sources */,
 				5758E57E1DF9C95500121110 /* KeyStore.swift in Sources */,
 				57D87E6B1DE28A58000435E5 /* SignInViewController.swift in Sources */,
@@ -688,8 +693,10 @@
 				576265B41E007D62008F8346 /* UIViewController.swift in Sources */,
 				571A313D1E01CAAE002F9223 /* UserProfile.swift in Sources */,
 				57D87E6C1DE28A58000435E5 /* SignUpConfirmViewController.swift in Sources */,
+				57C5D3841E11C340009649F9 /* Grades.swift in Sources */,
 				579DE2D81DBC25C000D71875 /* ProfileViewController.swift in Sources */,
 				571C7F7F1DBBD09A0071DB04 /* AppDelegate.swift in Sources */,
+				57C5D3871E11C4BE009649F9 /* FIRObject.swift in Sources */,
 				57D87E671DE28A58000435E5 /* AuthPromptViewController.swift in Sources */,
 				579DE2D01DBC1D3300D71875 /* Config.swift in Sources */,
 				57CF08F71DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift in Sources */,
