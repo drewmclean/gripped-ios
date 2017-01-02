@@ -43,18 +43,17 @@ class UserProfile : FIRObject, FIRObjectRef {
     var age : Int?
     var birthDate : NSDate?
     
-    var anyObjectValue: Any {
-        return [Keys.facebookId: facebookId,
-                Keys.name: name,
-                Keys.email: email,
-                Keys.birthday: birthday,
-                Keys.gender: gender,
-                Keys.photoPathLarge: photoPathLarge,
-                Keys.photoPathSmall: photoPathSmall]
+    var hashableValue: [AnyHashable:Any] {
+        return [Keys.facebookId: facebookId!,
+                Keys.name: name!,
+                Keys.email: email!,
+                Keys.birthday: birthday!,
+                Keys.gender: gender!,
+                Keys.photoPathLarge: photoPathLarge!]
     }
     
     func importFacebookGraph(facebookGraph: UserGraph) {
-        self.facebookId = 
+        self.facebookId = facebookGraph.id
         self.email = facebookGraph.email
         self.birthday = facebookGraph.birthday
         self.name = facebookGraph.name
@@ -74,11 +73,12 @@ class UserProfile : FIRObject, FIRObjectRef {
     required init(snapshot: FIRDataSnapshot) {
         let snapshotValue = snapshot.value as! [String: AnyObject]
         self.uid = snapshot.key
-        self.name = snapshotValue[Keys.name] as! String
-        self.email = snapshotValue[Keys.email] as! String
-        self.birthday = snapshotValue[Keys.birthday] as! String
-        self.photoPathSmall = snapshotValue[Keys.photoPathSmall] as! String
-        self.photoPathLarge = snapshotValue[Keys.photoPathLarge] as! String
+        self.facebookId = snapshotValue[Keys.facebookId] as? String
+        self.name = snapshotValue[Keys.name] as? String
+        self.email = snapshotValue[Keys.email] as? String
+        self.birthday = snapshotValue[Keys.birthday] as? String
+        self.photoPathSmall = snapshotValue[Keys.photoPathSmall] as? String
+        self.photoPathLarge = snapshotValue[Keys.photoPathLarge] as? String
     }
     
 }

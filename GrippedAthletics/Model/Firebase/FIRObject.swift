@@ -10,7 +10,7 @@ import FirebaseDatabase
 
 protocol FIRObjectRef {
     static var ref : FIRDatabaseReference { get }
-    var anyObjectValue : Any { get }
+    var hashableValue : [AnyHashable: Any] { get }
     init (snapshot: FIRDataSnapshot)
 }
 

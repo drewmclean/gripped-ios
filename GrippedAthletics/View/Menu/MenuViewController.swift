@@ -75,7 +75,9 @@ class MenuViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func signOutButtonTapped(_ sender: Any) {
-        auth.signOut()
+        revealController.show(revealController.leftViewController, animated: true) { (done: Bool) in
+//            self.auth.signOut()
+        }
     }
     
 }

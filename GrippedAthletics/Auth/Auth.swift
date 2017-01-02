@@ -113,7 +113,7 @@ class Auth: NSObject {
     func passwordProviderMatchesFBEmail() -> Future<(String, Bool), AnyError> {
         return Future { complete in
             // Check for an account that matches their facebook email
-            let request:GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields": "email,birthday,gender,name,picture(type=large)"])
+            let request:GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields": "email"])
             request.start { (response: HTTPURLResponse?, result: GraphRequestResult<GraphRequest>) in
                 switch result {
                 case .success(let value):

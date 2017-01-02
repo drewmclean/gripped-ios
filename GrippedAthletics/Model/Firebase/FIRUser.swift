@@ -66,8 +66,9 @@ extension FIRUser {
                     profile = UserProfile(uid: self.uid, facebookGraph: userGraph)
                 }
                 
-                let updateValue = profile.anyObjectValue
-                currentProfileRef.setValue(updateValue) { (error: Error?, ref: FIRDatabaseReference) in
+                let childValues = profile.hashableValue
+                
+                currentProfileRef.updateChildValues(childValues) { (error: Error?, ref: FIRDatabaseReference) in
                     guard error == nil else {
                         DDLogError(error!.localizedDescription)
                         return

@@ -41,7 +41,10 @@ struct UserGraph {
     }
     
     var picturePath : String? {
-        return picture?["url"] as? String
+        guard let data = picture?["data"] as? [String:Any] else {
+            return nil
+        }
+        return data["url"] as? String
     }
     
     // MARK: Initializers
