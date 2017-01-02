@@ -24,7 +24,6 @@ class AuthPromptViewController: UIViewController {
     
     lazy var facebookLoginButton : LoginButton = {
        let button = LoginButton(readPermissions: [.email, .publicProfile, .custom("user_birthday")])
-        
         button.delegate = self
         return button
     }()

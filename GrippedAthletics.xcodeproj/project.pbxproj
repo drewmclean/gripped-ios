@@ -15,17 +15,15 @@
 		571C7F971DBBD09A0071DB04 /* GrippedAthleticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7F961DBBD09A0071DB04 /* GrippedAthleticsTests.swift */; };
 		571C7FA21DBBD09A0071DB04 /* GrippedAthleticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7FA11DBBD09A0071DB04 /* GrippedAthleticsUITests.swift */; };
 		571C7FD81DBBD5800071DB04 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571C7FD71DBBD5800071DB04 /* CoreData.framework */; };
-		571C7FDF1DBBDC400071DB04 /* GrippedAthletics.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 571C7FDA1DBBDC400071DB04 /* GrippedAthletics.xcdatamodeld */; };
-		571C7FE31DBBFBB20071DB04 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7FE21DBBFBB20071DB04 /* DataStore.swift */; };
 		574BF0631E09E29E00AF3803 /* Grades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574BF0621E09E29E00AF3803 /* Grades.swift */; };
 		5752A7A61DFFAD5F0092F000 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5752A7A51DFFAD5F0092F000 /* UIImage.swift */; };
 		5752A7AA1E00E33E0092F000 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5752A7A91E00E33E0092F000 /* ActivityViewController.swift */; };
-		5752A7AC1E00FBD20092F000 /* FIRUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5752A7AB1E00FBD20092F000 /* FIRUser.swift */; };
 		5758E57E1DF9C95500121110 /* KeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5758E57D1DF9C95500121110 /* KeyStore.swift */; };
 		5758E5801DF9E9DC00121110 /* Futures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5758E57F1DF9E9DC00121110 /* Futures.swift */; };
 		576265AC1E0069CA008F8346 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 576265AB1E0069CA008F8346 /* Assets.xcassets */; };
 		576265B01E006B3B008F8346 /* AllIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 576265AF1E006B3B008F8346 /* AllIcons.xcassets */; };
 		576265B41E007D62008F8346 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576265B31E007D62008F8346 /* UIViewController.swift */; };
+		5788E4901E1AAD90003C60E9 /* FIRUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E48F1E1AAD90003C60E9 /* FIRUser.swift */; };
 		579DE2B71DBC112C00D71875 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2B31DBC112C00D71875 /* HomeViewController.swift */; };
 		579DE2B81DBC112C00D71875 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2B31DBC112C00D71875 /* HomeViewController.swift */; };
 		579DE2B91DBC112C00D71875 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2B31DBC112C00D71875 /* HomeViewController.swift */; };
@@ -84,17 +82,15 @@
 		571C7FA11DBBD09A0071DB04 /* GrippedAthleticsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrippedAthleticsUITests.swift; sourceTree = "<group>"; };
 		571C7FA31DBBD09A0071DB04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		571C7FD71DBBD5800071DB04 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		571C7FDB1DBBDC400071DB04 /* GrippedAthletics.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GrippedAthletics.xcdatamodel; sourceTree = "<group>"; };
-		571C7FE21DBBFBB20071DB04 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		574BF0621E09E29E00AF3803 /* Grades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grades.swift; sourceTree = "<group>"; };
 		5752A7A51DFFAD5F0092F000 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		5752A7A91E00E33E0092F000 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
-		5752A7AB1E00FBD20092F000 /* FIRUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRUser.swift; sourceTree = "<group>"; };
 		5758E57D1DF9C95500121110 /* KeyStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyStore.swift; sourceTree = "<group>"; };
 		5758E57F1DF9E9DC00121110 /* Futures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Futures.swift; path = GrippedAthletics/Auth/Futures.swift; sourceTree = SOURCE_ROOT; };
 		576265AB1E0069CA008F8346 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		576265AF1E006B3B008F8346 /* AllIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AllIcons.xcassets; sourceTree = "<group>"; };
 		576265B31E007D62008F8346 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		5788E48F1E1AAD90003C60E9 /* FIRUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRUser.swift; sourceTree = "<group>"; };
 		579DE2B31DBC112C00D71875 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		579DE2BE1DBC11AF00D71875 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		579DE2C41DBC1BC100D71875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -219,10 +215,8 @@
 		571C7FD91DBBDC400071DB04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5788E48E1E1AAD90003C60E9 /* Firebase */,
 				574BF0621E09E29E00AF3803 /* Grades.swift */,
-				571C7FE21DBBFBB20071DB04 /* DataStore.swift */,
-				5752A7AB1E00FBD20092F000 /* FIRUser.swift */,
-				571C7FDA1DBBDC400071DB04 /* GrippedAthletics.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -259,6 +253,14 @@
 				576265AF1E006B3B008F8346 /* AllIcons.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		5788E48E1E1AAD90003C60E9 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				5788E48F1E1AAD90003C60E9 /* FIRUser.swift */,
+			);
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		579DE2B01DBC112C00D71875 /* Activity */ = {
@@ -674,10 +676,9 @@
 				57D87E681DE28A58000435E5 /* AuthTextFieldViewController.swift in Sources */,
 				579DE2D61DBC259E00D71875 /* MenuViewController.swift in Sources */,
 				579DE2D31DBC1DDD00D71875 /* Auth.swift in Sources */,
-				5752A7AC1E00FBD20092F000 /* FIRUser.swift in Sources */,
 				570974B31DFB54CC00D355B9 /* UserDefaults.swift in Sources */,
 				5752A7AA1E00E33E0092F000 /* ActivityViewController.swift in Sources */,
-				571C7FDF1DBBDC400071DB04 /* GrippedAthletics.xcdatamodeld in Sources */,
+				5788E4901E1AAD90003C60E9 /* FIRUser.swift in Sources */,
 				5752A7A61DFFAD5F0092F000 /* UIImage.swift in Sources */,
 				5713E3311DF5F17700D06A8A /* AuthFlowViewController.swift in Sources */,
 				574BF0631E09E29E00AF3803 /* Grades.swift in Sources */,
@@ -687,7 +688,6 @@
 				5758E5801DF9E9DC00121110 /* Futures.swift in Sources */,
 				576265B41E007D62008F8346 /* UIViewController.swift in Sources */,
 				57D87E6C1DE28A58000435E5 /* SignUpConfirmViewController.swift in Sources */,
-				571C7FE31DBBFBB20071DB04 /* DataStore.swift in Sources */,
 				579DE2D81DBC25C000D71875 /* ProfileViewController.swift in Sources */,
 				571C7F7F1DBBD09A0071DB04 /* AppDelegate.swift in Sources */,
 				57D87E671DE28A58000435E5 /* AuthPromptViewController.swift in Sources */,
@@ -991,19 +991,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		571C7FDA1DBBDC400071DB04 /* GrippedAthletics.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				571C7FDB1DBBDC400071DB04 /* GrippedAthletics.xcdatamodel */,
-			);
-			currentVersion = 571C7FDB1DBBDC400071DB04 /* GrippedAthletics.xcdatamodel */;
-			path = GrippedAthletics.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 571C7F731DBBD09A0071DB04 /* Project object */;
 }
