@@ -7,6 +7,7 @@
 //
 
 import FirebaseAuth
+import FirebaseDatabase
 import BrightFutures
 import Result
 import CocoaLumberjack
@@ -28,19 +29,13 @@ extension FIRUser {
         }
     }
     
-    func changeProfile(toFacebookUserGraph userGraph: [String:Any]) -> Future<FIRUserProfileChangeRequest, AnyError> {
-        
-        let email : String = userGraph["email"] as! String
-        let birthday : String = userGraph["birthday"] as! String
-        let gender : String = userGraph["gender"] as! String
-        let name : String = userGraph["name"] as! String
-        let picture : [String:Any] = userGraph["picture"] as! [String:Any]
+    func changeProfile(withFacebookUserGraph userGraph: UserGraph) -> Future<FIRUserProfileChangeRequest, AnyError> {
         
         return Future { complete in
             
             let change = profileChangeRequest()
-            change.displayName = name
-            if let path = picture["url"] as? String {
+            change.displayName = userGraph.name
+            if let path = userGraph.picturePath {
                 change.photoURL = URL(string: path)
             }
             change.commitChanges(completion: { (error:Error?) in
@@ -52,14 +47,33 @@ extension FIRUser {
                 complete(.success(change))
             })
         }.andThen { (result: Result<FIRUserProfileChangeRequest, AnyError>) in
-            self.updateEmail(email) { (error: Error?) in
+            self.updateEmail(userGraph.email!) { (error: Error?) in
                 guard error == nil else {
                     DDLogError(error!.localizedDescription)
                     return
                 }
-                
             }
         }.andThen { (result: Result<FIRUserProfileChangeRequest, AnyError>) in
+            let currentProfileRef = UserProfile.ref.child(self.uid)
+            currentProfileRef.observeSingleEvent(of: .value) { (snapshot: FIRDataSnapshot) in
+                print("Post FB Graph Profile Observe: \(snapshot)")
+                
+                var profile : UserProfile!
+                if snapshot.exists() {
+                    profile = UserProfile(snapshot: snapshot)
+                    profile.importFacebookGraph(facebookGraph: userGraph)
+                } else {
+                    profile = UserProfile(uid: self.uid, facebookGraph: userGraph)
+                }
+                
+                let updateValue = profile.anyObjectValue
+                currentProfileRef.setValue(updateValue) { (error: Error?, ref: FIRDatabaseReference) in
+                    guard error == nil else {
+                        DDLogError(error!.localizedDescription)
+                        return
+                    }
+                }
+            }
             
         }
     }

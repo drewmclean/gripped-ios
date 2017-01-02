@@ -25,6 +25,7 @@
 		5786B1451E1AB30B00C7EA36 /* AppSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5786B1401E1AB30B00C7EA36 /* AppSession.swift */; };
 		5786B1491E1AB30B00C7EA36 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5786B1441E1AB30B00C7EA36 /* UserProfile.swift */; };
 		5786B14B1E1AB36700C7EA36 /* FIRObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5786B14A1E1AB36700C7EA36 /* FIRObject.swift */; };
+		5786B1501E1AEB4A00C7EA36 /* UserGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5786B14F1E1AEB4A00C7EA36 /* UserGraph.swift */; };
 		5788E4901E1AAD90003C60E9 /* FIRUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E48F1E1AAD90003C60E9 /* FIRUser.swift */; };
 		579DE2B71DBC112C00D71875 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2B31DBC112C00D71875 /* HomeViewController.swift */; };
 		579DE2B81DBC112C00D71875 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2B31DBC112C00D71875 /* HomeViewController.swift */; };
@@ -95,6 +96,7 @@
 		5786B1401E1AB30B00C7EA36 /* AppSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSession.swift; sourceTree = "<group>"; };
 		5786B1441E1AB30B00C7EA36 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		5786B14A1E1AB36700C7EA36 /* FIRObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRObject.swift; sourceTree = "<group>"; };
+		5786B14F1E1AEB4A00C7EA36 /* UserGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserGraph.swift; sourceTree = "<group>"; };
 		5788E48F1E1AAD90003C60E9 /* FIRUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRUser.swift; sourceTree = "<group>"; };
 		579DE2B31DBC112C00D71875 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		579DE2BE1DBC11AF00D71875 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 		571C7FD91DBBDC400071DB04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5786B14E1E1AEB3E00C7EA36 /* Facebook */,
 				5788E48E1E1AAD90003C60E9 /* Firebase */,
 				5786B1401E1AB30B00C7EA36 /* AppSession.swift */,
 				574BF0621E09E29E00AF3803 /* Grades.swift */,
@@ -259,6 +262,14 @@
 				576265AF1E006B3B008F8346 /* AllIcons.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		5786B14E1E1AEB3E00C7EA36 /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				5786B14F1E1AEB4A00C7EA36 /* UserGraph.swift */,
+			);
+			path = Facebook;
 			sourceTree = "<group>";
 		};
 		5788E48E1E1AAD90003C60E9 /* Firebase */ = {
@@ -688,6 +699,7 @@
 				570974B31DFB54CC00D355B9 /* UserDefaults.swift in Sources */,
 				5752A7AA1E00E33E0092F000 /* ActivityViewController.swift in Sources */,
 				5788E4901E1AAD90003C60E9 /* FIRUser.swift in Sources */,
+				5786B1501E1AEB4A00C7EA36 /* UserGraph.swift in Sources */,
 				5752A7A61DFFAD5F0092F000 /* UIImage.swift in Sources */,
 				5713E3311DF5F17700D06A8A /* AuthFlowViewController.swift in Sources */,
 				574BF0631E09E29E00AF3803 /* Grades.swift in Sources */,

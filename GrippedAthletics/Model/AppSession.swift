@@ -18,15 +18,12 @@ class AppSession {
     
     var firUser : FIRUser? {
         didSet {
-            if let user = firUser {
-                let currentProfileRef = UserProfile.ref.child(user.uid)
-                currentProfileRef.observeSingleEvent(of: .value) { (snapshot: FIRDataSnapshot) in
-                    print("Profile observed: \(snapshot)")
-                    
-                }
-            }
+            
         }
     }
     
-    
+    init () {
+        
+        
+    }
 }

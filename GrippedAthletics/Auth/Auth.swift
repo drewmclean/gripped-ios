@@ -40,6 +40,8 @@ class Auth: NSObject {
         }
     }
     
+    // MARK: Auto Sign In
+    
     func attemptToAuthenticate() -> Future<FIRUser, AnyError> {
         return Future { complete in
             if let facebookAccessToken = AccessToken.current {
@@ -65,6 +67,8 @@ class Auth: NSObject {
         }
     }
 
+    // MARK: Sign Up
+    
     func signUp(withName name: String, withEmail email : String, andPassword password : String) -> Future<FIRUser, AnyError> {
         return Future { complete in
             self.firAuth.createUser(withEmail: email, password: password) { (user: FIRUser?, error: Error?) in
@@ -81,6 +85,8 @@ class Auth: NSObject {
             }
         }
     }
+    
+    // MARK: Sign In
     
     func signIn(withEmail email:String, andPassword password: String) -> Future<FIRUser, AnyError> {
         return Future { complete in
@@ -156,18 +162,10 @@ class Auth: NSObject {
                 switch result {
                 case .success(let value):
                     
-                    
-                    
                     if let dict = value.dictionaryValue {
                         DDLogVerbose("FB User Graph: \(dict)")
-                        let email : String = dict["email"] as! String
-                        let birthday : String = dict["birthday"] as! String
-                        let gender : String = dict["gender"] as! String
-                        let name : String = dict["name"] as! String
-                        let picture : Any = dict["picture"]!
-                        
-                        self.firAuth.currentUser!.changeProfile(toFacebookUserGraph: dict)
-                        
+                        let userGraph = UserGraph(userGraph: dict)
+                        self.firAuth.currentUser!.changeProfile(withFacebookUserGraph:  userGraph)
                     }
                 case .failed(let error):
                     DDLogError(error.localizedDescription)
