@@ -14,7 +14,6 @@
 		571C7F7F1DBBD09A0071DB04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7F7E1DBBD09A0071DB04 /* AppDelegate.swift */; };
 		571C7F971DBBD09A0071DB04 /* GrippedAthleticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7F961DBBD09A0071DB04 /* GrippedAthleticsTests.swift */; };
 		571C7FA21DBBD09A0071DB04 /* GrippedAthleticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7FA11DBBD09A0071DB04 /* GrippedAthleticsUITests.swift */; };
-		571C7FD81DBBD5800071DB04 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571C7FD71DBBD5800071DB04 /* CoreData.framework */; };
 		574BF0631E09E29E00AF3803 /* Grades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574BF0621E09E29E00AF3803 /* Grades.swift */; };
 		5752A7A61DFFAD5F0092F000 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5752A7A51DFFAD5F0092F000 /* UIImage.swift */; };
 		5752A7AA1E00E33E0092F000 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5752A7A91E00E33E0092F000 /* ActivityViewController.swift */; };
@@ -23,6 +22,9 @@
 		576265AC1E0069CA008F8346 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 576265AB1E0069CA008F8346 /* Assets.xcassets */; };
 		576265B01E006B3B008F8346 /* AllIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 576265AF1E006B3B008F8346 /* AllIcons.xcassets */; };
 		576265B41E007D62008F8346 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576265B31E007D62008F8346 /* UIViewController.swift */; };
+		5786B1451E1AB30B00C7EA36 /* AppSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5786B1401E1AB30B00C7EA36 /* AppSession.swift */; };
+		5786B1491E1AB30B00C7EA36 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5786B1441E1AB30B00C7EA36 /* UserProfile.swift */; };
+		5786B14B1E1AB36700C7EA36 /* FIRObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5786B14A1E1AB36700C7EA36 /* FIRObject.swift */; };
 		5788E4901E1AAD90003C60E9 /* FIRUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E48F1E1AAD90003C60E9 /* FIRUser.swift */; };
 		579DE2B71DBC112C00D71875 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2B31DBC112C00D71875 /* HomeViewController.swift */; };
 		579DE2B81DBC112C00D71875 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2B31DBC112C00D71875 /* HomeViewController.swift */; };
@@ -90,6 +92,9 @@
 		576265AB1E0069CA008F8346 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		576265AF1E006B3B008F8346 /* AllIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AllIcons.xcassets; sourceTree = "<group>"; };
 		576265B31E007D62008F8346 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		5786B1401E1AB30B00C7EA36 /* AppSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSession.swift; sourceTree = "<group>"; };
+		5786B1441E1AB30B00C7EA36 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		5786B14A1E1AB36700C7EA36 /* FIRObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRObject.swift; sourceTree = "<group>"; };
 		5788E48F1E1AAD90003C60E9 /* FIRUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRUser.swift; sourceTree = "<group>"; };
 		579DE2B31DBC112C00D71875 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		579DE2BE1DBC11AF00D71875 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
@@ -122,7 +127,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				571C7FD81DBBD5800071DB04 /* CoreData.framework in Frameworks */,
 				1A3ABBF3ED604347F567CC19 /* Pods_GrippedAthletics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,7 +220,9 @@
 			isa = PBXGroup;
 			children = (
 				5788E48E1E1AAD90003C60E9 /* Firebase */,
+				5786B1401E1AB30B00C7EA36 /* AppSession.swift */,
 				574BF0621E09E29E00AF3803 /* Grades.swift */,
+				5786B1441E1AB30B00C7EA36 /* UserProfile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,6 +264,7 @@
 		5788E48E1E1AAD90003C60E9 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				5786B14A1E1AB36700C7EA36 /* FIRObject.swift */,
 				5788E48F1E1AAD90003C60E9 /* FIRUser.swift */,
 			);
 			path = Firebase;
@@ -675,7 +682,9 @@
 				579DE2B71DBC112C00D71875 /* HomeViewController.swift in Sources */,
 				57D87E681DE28A58000435E5 /* AuthTextFieldViewController.swift in Sources */,
 				579DE2D61DBC259E00D71875 /* MenuViewController.swift in Sources */,
+				5786B1451E1AB30B00C7EA36 /* AppSession.swift in Sources */,
 				579DE2D31DBC1DDD00D71875 /* Auth.swift in Sources */,
+				5786B1491E1AB30B00C7EA36 /* UserProfile.swift in Sources */,
 				570974B31DFB54CC00D355B9 /* UserDefaults.swift in Sources */,
 				5752A7AA1E00E33E0092F000 /* ActivityViewController.swift in Sources */,
 				5788E4901E1AAD90003C60E9 /* FIRUser.swift in Sources */,
@@ -689,6 +698,7 @@
 				576265B41E007D62008F8346 /* UIViewController.swift in Sources */,
 				57D87E6C1DE28A58000435E5 /* SignUpConfirmViewController.swift in Sources */,
 				579DE2D81DBC25C000D71875 /* ProfileViewController.swift in Sources */,
+				5786B14B1E1AB36700C7EA36 /* FIRObject.swift in Sources */,
 				571C7F7F1DBBD09A0071DB04 /* AppDelegate.swift in Sources */,
 				57D87E671DE28A58000435E5 /* AuthPromptViewController.swift in Sources */,
 				579DE2D01DBC1D3300D71875 /* Config.swift in Sources */,

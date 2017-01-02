@@ -15,9 +15,9 @@ import FacebookCore.Swift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var viewControllers = ViewControllers()
-    
     var window: UIWindow?
+    var viewControllers = ViewControllers()
+    var auth : Auth!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -25,13 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         FIRApp.configure()
+        auth = Auth.instance
         
         applyAppearance()
         
         window?.backgroundColor = UIColor.purple
         
         setupRootViewController()
-        showAuthIfNeeded()
         
         return true
     }
@@ -83,10 +83,8 @@ extension AppDelegate : PKRevealing {
     }
     
     func showAuthIfNeeded() {
-        Auth.instance.attemptToAuthenticate().onSuccess { (user: FIRUser) in
-            print("Authentication successful")
-        }.onFailure { (error: AnyError) in
-            print("Authentication failed.  Showing login view")
+        if FIRAuth.auth()?.currentUser == nil {
+            print("Authenticated FIRUser not found.  Presenting Login View.")
             self.window?.rootViewController?.present(self.viewControllers.authPromptViewController, animated: true, completion: nil)
         }
     }

@@ -76,7 +76,6 @@ class MenuViewController: UIViewController {
     
     @IBAction func signOutButtonTapped(_ sender: Any) {
         auth.signOut()
-        (UIApplication.shared.delegate as! AppDelegate).showAuthIfNeeded()
     }
     
 }

@@ -147,6 +147,7 @@ class Auth: NSObject {
                     complete(.failure(AnyError(cause: e)))
                     return
                 }
+                
                 complete(.success(user!))
             }
         }.andThen { (result: Result<FIRUser, AnyError>) in
@@ -154,6 +155,9 @@ class Auth: NSObject {
             request.start { (response: HTTPURLResponse?, result: GraphRequestResult<GraphRequest>) in
                 switch result {
                 case .success(let value):
+                    
+                    
+                    
                     if let dict = value.dictionaryValue {
                         DDLogVerbose("FB User Graph: \(dict)")
                         let email : String = dict["email"] as! String
@@ -202,6 +206,30 @@ class Auth: NSObject {
             loginManager.logOut()
         } catch {
             DDLogError("Error signing out user")
+        }
+    }
+    
+    // MARK: Auth State Change Listener
+    
+    func authStateChanged(auth: FIRAuth, user: FIRUser?) {
+        guard let user = user else {
+            AppSession.session.firUser = nil
+            if let delegate = UIApplication.shared.delegate as? AppDelegate {
+                delegate.showAuthIfNeeded()
+            }
+            return
+        }
+        
+        AppSession.session.firUser = user
+    }
+    
+    // MARK: Init
+    
+    override init () {
+        super.init()
+        
+        self.firAuth.addStateDidChangeListener { auth, user in
+            self.authStateChanged(auth: auth, user: user)
         }
     }
 }
