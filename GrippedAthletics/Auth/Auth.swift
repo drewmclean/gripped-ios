@@ -162,7 +162,7 @@ class Auth: NSObject {
                         let name : String = dict["name"] as! String
                         let picture : Any = dict["picture"]!
                         
-                        
+                        self.firAuth.currentUser!.changeProfile(toFacebookUserGraph: dict)
                         
                     }
                 case .failed(let error):

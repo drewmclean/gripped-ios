@@ -1,6 +1,0 @@
-framework module FutureProofing {
-  umbrella header "FutureProofing-umbrella.h"
-
-  export *
-  module * { export * }
-}

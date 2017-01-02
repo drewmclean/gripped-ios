@@ -53,8 +53,14 @@ extension FIRUser {
             })
         }.andThen { (result: Result<FIRUserProfileChangeRequest, AnyError>) in
             self.updateEmail(email) { (error: Error?) in
+                guard error == nil else {
+                    DDLogError(error!.localizedDescription)
+                    return
+                }
                 
             }
+        }.andThen { (result: Result<FIRUserProfileChangeRequest, AnyError>) in
+            
         }
     }
 }
