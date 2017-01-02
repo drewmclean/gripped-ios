@@ -13,6 +13,7 @@ import FirebaseDatabase
 class UserProfile : FIRObject, FIRObjectRef {
     
     struct Keys {
+        static let facebookId = "facebook_id"
         static let name = "name"
         static let email = "email"
         static let gender = "gender"
@@ -26,6 +27,7 @@ class UserProfile : FIRObject, FIRObjectRef {
     }
     
     var uid: String
+    var facebookId : String?
     var name : String?
     var email : String?
     var gender : String?
@@ -42,7 +44,8 @@ class UserProfile : FIRObject, FIRObjectRef {
     var birthDate : NSDate?
     
     var anyObjectValue: Any {
-        return [Keys.name: name,
+        return [Keys.facebookId: facebookId,
+                Keys.name: name,
                 Keys.email: email,
                 Keys.birthday: birthday,
                 Keys.gender: gender,
@@ -51,6 +54,7 @@ class UserProfile : FIRObject, FIRObjectRef {
     }
     
     func importFacebookGraph(facebookGraph: UserGraph) {
+        self.facebookId = 
         self.email = facebookGraph.email
         self.birthday = facebookGraph.birthday
         self.name = facebookGraph.name

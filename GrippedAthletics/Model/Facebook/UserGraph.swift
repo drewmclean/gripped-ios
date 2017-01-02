@@ -14,7 +14,11 @@ struct UserGraph {
     
     internal var userGraph : [String : Any]
     
-    // MARK: Properties 
+    // MARK: Properties
+    
+    var id : String? {
+        return userGraph["id"] as? String
+    }
     
     var email : String? {
         return userGraph["email"] as? String
