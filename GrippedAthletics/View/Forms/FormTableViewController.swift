@@ -31,7 +31,7 @@ class FormTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         
         if let firstCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormFieldTableViewCell {
-            firstCell.textField.becomeFirstResponder() 
+            firstCell.textField.becomeFirstResponder()
         }
         
     }

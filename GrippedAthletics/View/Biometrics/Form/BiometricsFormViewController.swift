@@ -19,16 +19,16 @@ class BiometricsFormViewController: FormTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let existingId = biometricId {
+            fetchBiometric(key: existingId)
+            title = "Edit Biometrics"
+        } else {
+            title = "New Biometrics"
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
-        
-        if let existingId = biometricId {
-            fetchBiometric(key: existingId)
-        }
         
     }
     
