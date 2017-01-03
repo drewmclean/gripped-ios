@@ -105,8 +105,6 @@ class MenuViewController: UIViewController {
             if snapshot.exists() {
                 self.profile = UserProfile(snapshot: snapshot)
                 self.updateProfileUI()
-            } else {
-                
             }
         }
     }
@@ -117,7 +115,7 @@ class MenuViewController: UIViewController {
             profileImageView.sd_setImage(with: URL(string: photoPath))
         }
         nameLabel.text = profile.name
-        ageGenderLabel.text = profile.ageAndGender
+        ageGenderLabel.text = profile.ageAndGender?.capitalized
         emailLabel.text = profile.email
     }
     

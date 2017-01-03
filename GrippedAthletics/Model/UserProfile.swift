@@ -54,7 +54,7 @@ class UserProfile : FIRObject, FIRObjectRef {
         guard let _ = age else { return nil }
         guard let _ = gender else { return nil }
         
-        return "\(age!) - \(gender!)"
+        return "\(age!) \(gender!.characters.first!)"
     }
 
     var hashableValue: [AnyHashable:Any] {
