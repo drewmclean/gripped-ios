@@ -8,12 +8,13 @@
 
 import UIKit
 
-class BiometricsFormViewController: UITableViewController {
+class BiometricsFormViewController: FormTableViewController {
     
     var biometricId : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
     }
     

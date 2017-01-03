@@ -42,7 +42,6 @@
 		579DE2D81DBC25C000D71875 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2D71DBC25C000D71875 /* ProfileViewController.swift */; };
 		579DE2DC1DBC279800D71875 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2DB1DBC279800D71875 /* MainViewController.swift */; };
 		57BB62D81E1BFA5D00D62CAB /* BiometricsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BB62D71E1BFA5D00D62CAB /* BiometricsListViewController.swift */; };
-		57BB62E01E1BFC4B00D62CAB /* BiometricsFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BB62DE1E1BFC4B00D62CAB /* BiometricsFieldTableViewCell.swift */; };
 		57BB62E11E1BFC4B00D62CAB /* BiometricsFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BB62DF1E1BFC4B00D62CAB /* BiometricsFormViewController.swift */; };
 		57BB62E31E1BFD5400D62CAB /* BiometricsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BB62E21E1BFD5400D62CAB /* BiometricsListTableViewCell.swift */; };
 		57BB62E61E1C11DB00D62CAB /* FormFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BB62E51E1C11DB00D62CAB /* FormFieldTableViewCell.swift */; };
@@ -116,7 +115,6 @@
 		579DE2D71DBC25C000D71875 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		579DE2DB1DBC279800D71875 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		57BB62D71E1BFA5D00D62CAB /* BiometricsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricsListViewController.swift; sourceTree = "<group>"; };
-		57BB62DE1E1BFC4B00D62CAB /* BiometricsFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricsFieldTableViewCell.swift; sourceTree = "<group>"; };
 		57BB62DF1E1BFC4B00D62CAB /* BiometricsFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricsFormViewController.swift; sourceTree = "<group>"; };
 		57BB62E21E1BFD5400D62CAB /* BiometricsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricsListTableViewCell.swift; sourceTree = "<group>"; };
 		57BB62E51E1C11DB00D62CAB /* FormFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormFieldTableViewCell.swift; sourceTree = "<group>"; };
@@ -381,7 +379,6 @@
 		57BB62DD1E1BFC4B00D62CAB /* Form */ = {
 			isa = PBXGroup;
 			children = (
-				57BB62DE1E1BFC4B00D62CAB /* BiometricsFieldTableViewCell.swift */,
 				57BB62DF1E1BFC4B00D62CAB /* BiometricsFormViewController.swift */,
 			);
 			path = Form;
@@ -757,7 +754,6 @@
 				57D87E6B1DE28A58000435E5 /* SignInViewController.swift in Sources */,
 				5758E5801DF9E9DC00121110 /* Futures.swift in Sources */,
 				57BB62E31E1BFD5400D62CAB /* BiometricsListTableViewCell.swift in Sources */,
-				57BB62E01E1BFC4B00D62CAB /* BiometricsFieldTableViewCell.swift in Sources */,
 				576265B41E007D62008F8346 /* UIViewController.swift in Sources */,
 				57D87E6C1DE28A58000435E5 /* SignUpConfirmViewController.swift in Sources */,
 				57BB62D81E1BFA5D00D62CAB /* BiometricsListViewController.swift in Sources */,
