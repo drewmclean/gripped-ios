@@ -24,6 +24,7 @@ class BiometricsFormViewController: FormTableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        
         if let existingId = biometricId {
             fetchBiometric(key: existingId)
         }
@@ -32,8 +33,35 @@ class BiometricsFormViewController: FormTableViewController {
     
     override func createFields() -> [FormField] {
         var fields = [FormField]()
-        fields.append(FormField(title: "Height", unit: "cm", propertyKey: "height") { (textField: UITextField) in
-            
+        fields.append(FormField(title: "Height", unit: "cm", propertyKey: Biometrics.Keys.height) { (textField: UITextField) in
+            textField.autocorrectionType = .no
+            textField.autocapitalizationType = .none
+            textField.keyboardType = .numberPad
+        })
+        fields.append(FormField(title: "Weight", unit: "kg", propertyKey: Biometrics.Keys.weight) { (textField: UITextField) in
+            textField.autocorrectionType = .no
+            textField.autocapitalizationType = .none
+            textField.keyboardType = .numberPad
+        })
+        fields.append(FormField(title: "Body Composition", unit: "fat %", propertyKey: Biometrics.Keys.bodyComposition) { (textField: UITextField) in
+            textField.autocorrectionType = .no
+            textField.autocapitalizationType = .none
+            textField.keyboardType = .numberPad
+        })
+        fields.append(FormField(title: "Ape Index", unit: "+/- cm", propertyKey: Biometrics.Keys.apeIndex) { (textField: UITextField) in
+            textField.autocorrectionType = .no
+            textField.autocapitalizationType = .none
+            textField.keyboardType = .asciiCapableNumberPad
+        })
+        fields.append(FormField(title: "Forearm Length", unit: "cm", propertyKey: Biometrics.Keys.forearmLength) { (textField: UITextField) in
+            textField.autocorrectionType = .no
+            textField.autocapitalizationType = .none
+            textField.keyboardType = .numberPad
+        })
+        fields.append(FormField(title: "Forearm Circumference", unit: "cm", propertyKey: Biometrics.Keys.forearmCircumference) { (textField: UITextField) in
+            textField.autocorrectionType = .no
+            textField.autocapitalizationType = .none
+            textField.keyboardType = .numberPad
         })
         return fields
     }

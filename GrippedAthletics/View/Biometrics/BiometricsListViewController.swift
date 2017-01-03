@@ -10,7 +10,6 @@ import UIKit
 
 class BiometricsListViewController: UITableViewController {
     
-    override
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,6 +18,7 @@ class BiometricsListViewController: UITableViewController {
         navigationItem.leftBarButtonItem = barItemForNavType(withType: .mainMenu)
         navigationItem.rightBarButtonItem = barItemForNavType(withType: .add, title: nil, target: self, action: #selector(BiometricsListViewController.didTapAdd(sender:)))
     }
+    
 }
 
 // MARK: - UITableViewDataSource
