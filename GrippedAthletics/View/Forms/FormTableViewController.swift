@@ -24,6 +24,16 @@ class FormTableViewController: UITableViewController {
         
         navigationItem.leftBarButtonItem = barItemForNavType(withType: .close)
         navigationItem.rightBarButtonItem = barItemForNavType(withType: .done, title: "Save", target: self, action: #selector(FormTableViewController.didTapSave(sender:)))
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let firstCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormFieldTableViewCell {
+            firstCell.textField.becomeFirstResponder() 
+        }
+        
     }
     
     func createFields() -> [FormField] {
