@@ -31,18 +31,29 @@ class UserProfile : FIRObject, FIRObjectRef {
     var name : String?
     var email : String?
     var gender : String?
-    var birthday: String? {
-        didSet {
-            // set birthDate and age
-            
-        }
-    }
+    var birthday: String?
     var photoPathLarge : String?
     var photoPathSmall : String?
     
-    var age : Int?
-    var birthDate : NSDate?
+    lazy var dateFormatter : DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "MM/DD/yyyy"
+        return df
+    }()
     
+    var age : Int? {
+        return birthDate?.sinceNowInYears()
+    }
+    
+    var birthDate : Date? {
+        guard let _ = birthday else { return nil }
+        return dateFormatter.date(from: birthday!)
+    }
+    
+    var ageAndGender : String {
+        return "\(age) - \(gender)"
+    }
+
     var hashableValue: [AnyHashable:Any] {
         return [Keys.facebookId: facebookId!,
                 Keys.name: name!,

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import SDWebImage
 
 enum MenuItemTyoe : Int {
     case home, profile, biometrics, climbingActivity
@@ -35,6 +36,7 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var menuTableView: UITableView!
     @IBOutlet weak var menuTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var ageGenderLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var signOutButton: UIButton!
     
@@ -91,7 +93,12 @@ class MenuViewController: UIViewController {
     }
     
     func updateProfileUI() {
-        
+        if let photoPath = profile.photoPathLarge {
+            profileImageView.sd_setImage(with: URL(string: photoPath))
+        }
+        nameLabel.text = profile.name
+        ageGenderLabel.text = profile.ageAndGender
+        emailLabel.text = profile.email
     }
     
     // MARK: Actions

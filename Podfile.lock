@@ -89,6 +89,9 @@ PODS:
   - Locksmith (3.0.0)
   - PKRevealController (2.0.6)
   - Result (3.1.0)
+  - SDWebImage (4.0.0-beta):
+    - SDWebImage/Core (= 4.0.0-beta)
+  - SDWebImage/Core (4.0.0-beta)
   - SnapKit (3.0.2)
   - SwiftValidator (4.0.0)
 
@@ -104,12 +107,16 @@ DEPENDENCIES:
   - FutureProofing (from `git@github.com:Thomvis/FutureProofing.git`)
   - Locksmith
   - PKRevealController
+  - SDWebImage (from `git@github.com:rs/SDWebImage.git`, branch `4.x`)
   - SnapKit
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
 
 EXTERNAL SOURCES:
   FutureProofing:
     :git: git@github.com:Thomvis/FutureProofing.git
+  SDWebImage:
+    :branch: 4.x
+    :git: git@github.com:rs/SDWebImage.git
   SwiftValidator:
     :branch: master
     :git: https://github.com/jpotts18/SwiftValidator.git
@@ -118,6 +125,9 @@ CHECKOUT OPTIONS:
   FutureProofing:
     :commit: 00ee6fc8e6da751437b9efabc1f0c6a9c3df4a50
     :git: git@github.com:Thomvis/FutureProofing.git
+  SDWebImage:
+    :commit: d6fa29c88a9d4febc2c9d8fa49ce23c68334d0aa
+    :git: git@github.com:rs/SDWebImage.git
   SwiftValidator:
     :commit: 2a6c23ad9efd76127f6109445515cb9780e5ad92
     :git: https://github.com/jpotts18/SwiftValidator.git
@@ -145,9 +155,10 @@ SPEC CHECKSUMS:
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   PKRevealController: ffb45a16f5a5032ad90a3d16e5cbb0d8e035bd58
   Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
+  SDWebImage: 835b541a1946d371dea2ab41da591dd8d1f93865
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
 
-PODFILE CHECKSUM: 63d412af4e00476fb6ae9194485f425ae661989f
+PODFILE CHECKSUM: a85feff3f8b13ca1d2097a22686127553c2ac924
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.1.1
