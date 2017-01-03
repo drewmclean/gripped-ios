@@ -50,8 +50,11 @@ class UserProfile : FIRObject, FIRObjectRef {
         return dateFormatter.date(from: birthday!)
     }
     
-    var ageAndGender : String {
-        return "\(age) - \(gender)"
+    var ageAndGender : String? {
+        guard let _ = age else { return nil }
+        guard let _ = gender else { return nil }
+        
+        return "\(age!) - \(gender!)"
     }
 
     var hashableValue: [AnyHashable:Any] {

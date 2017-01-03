@@ -67,6 +67,20 @@ class MenuViewController: UIViewController {
 
         view.backgroundColor = UIColor.black
         
+        headerStackView.spacing = 8
+        headerStackView.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        headerStackView.isLayoutMarginsRelativeArrangement = true
+        
+        profileImageView.clipsToBounds = true
+        profileImageView.contentMode = .scaleToFill
+        profileImageView.layer.cornerRadius = 40
+        profileImageView.layer.borderColor = UIColor.white.cgColor
+        profileImageView.layer.borderWidth = 1.0
+        
+        nameLabel.textColor = UIColor.lightGray
+        ageGenderLabel.textColor = UIColor.lightGray
+        emailLabel.textColor = UIColor.lightGray
+        
         menuTableView.backgroundColor = UIColor.black
         menuTableView.separatorColor = UIColor.gray
         menuTableView.estimatedRowHeight = 60
@@ -87,6 +101,7 @@ class MenuViewController: UIViewController {
     func loadProfile() {
         let profileRef = UserProfile.objectRef.child(auth.currentUser!.uid)
         profileRef.observeSingleEvent(of: .value) { (snapshot: FIRDataSnapshot) in
+            
             self.profile = UserProfile(snapshot: snapshot)
             self.updateProfileUI()
         }
