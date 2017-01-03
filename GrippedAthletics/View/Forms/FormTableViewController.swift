@@ -15,12 +15,34 @@ class FormTableViewController: UITableViewController {
         return self.createFields()
     }()
     
+    var cellReuseId : String {
+        return ""
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(FormFieldTableViewCell.self, forCellReuseIdentifier: FormFieldTableViewCell.cellId)
+        
     }
     
     func createFields() -> [FormField] {
         return [FormField]()
     }
+    
+}
+
+// MARK: UITableViewDataSource
+
+extension FormTableViewController {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fields.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let field = fields[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as! FormFieldTableViewCell
+        cell.formField = field
+        return cell
+    }
+    
 }

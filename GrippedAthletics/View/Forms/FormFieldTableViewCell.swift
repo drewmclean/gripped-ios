@@ -10,8 +10,6 @@ import UIKit
 
 class FormFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
     
-    static let cellId = "FormFieldTableViewCellID"
-    
     @IBOutlet weak var stackView : UIStackView!
     @IBOutlet weak var titleStackView : UIStackView!
     @IBOutlet weak var titleLabel : UILabel!

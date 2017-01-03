@@ -12,9 +12,12 @@ class BiometricsFormViewController: FormTableViewController {
     
     var biometricId : String?
     
+    override var cellReuseId: String {
+        return "BiometricsFormCellID"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
     }
     
@@ -39,7 +42,7 @@ class BiometricsFormViewController: FormTableViewController {
 
 extension BiometricsFormViewController {
     
-
+    
 }
 
 // MARK: API 

@@ -10,6 +10,7 @@ import UIKit
 
 class BiometricsListViewController: UITableViewController {
     
+    override
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,7 +58,7 @@ extension BiometricsListViewController {
 extension BiometricsListViewController {
     
     func didTapAdd(sender:UIBarButtonItem) {
-        
+        presentAddViewController()
     }
     
     func presentAddViewController() {
