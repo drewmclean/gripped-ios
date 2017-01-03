@@ -54,11 +54,12 @@ class MenuViewController: UIViewController {
         var homeVC = vcs.homeNavController
         var profileVC = vcs.profileNavController
         var activityVC = vcs.activityNavController
+        var biometricsVC = vcs.biometricsNavController
         
-        items.append(MenuItem(type: .home, title: "Home", image: UIImage.home, viewController: homeVC))
-        items.append(MenuItem(type: .profile, title: "Profile", image: UIImage.contacts, viewController: profileVC))
-//        items.append(MenuItem(type: .biometrics, title: "Biometrics", image: UIImage.healthBook, viewController: self.viewC
-        items.append(MenuItem(type: .climbingActivity, title: "Activity", image: UIImage.climbing, viewController: activityVC))
+//        items.append(MenuItem(type: .home, title: "Home", image: UIImage.home, viewController: homeVC))
+//        items.append(MenuItem(type: .profile, title: "Profile", image: UIImage.contacts, viewController: profileVC))
+        items.append(MenuItem(type: .biometrics, title: "Biometrics", image: UIImage.healthBook, viewController: biometricsVC))
+//        items.append(MenuItem(type: .climbingActivity, title: "Activity", image: UIImage.climbing, viewController: activityVC))
         return items
     }()
     
@@ -78,9 +79,9 @@ class MenuViewController: UIViewController {
         profileImageView.layer.borderWidth = 1.0
         profileImageView.isHidden = true
         
-        nameLabel.textColor = UIColor.lightGray
-        ageGenderLabel.textColor = UIColor.lightGray
-        emailLabel.textColor = UIColor.lightGray
+        nameLabel.textColor = UIColor.white
+        ageGenderLabel.textColor = UIColor.white
+        emailLabel.textColor = UIColor.white
         
         menuTableView.backgroundColor = UIColor.black
         menuTableView.separatorColor = UIColor.gray
@@ -149,9 +150,7 @@ extension MenuViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath
         let menuItem = menuItems[indexPath.row]
-        revealController.show(menuItem.viewController, animated: true) { (finished : Bool) -> Void in
-            
-        }
+        revealController.show(menuItem.viewController)
     }
     
 }

@@ -9,7 +9,9 @@
 import UIKit
 
 class BiometricsListTableViewCell: UITableViewCell {
-
+    
+    static let cellId = "BiometricsListTableViewCellID"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -152,10 +152,10 @@ extension UIViewController {
             item = UIBarButtonItem(title: title, style: .plain, target: target, action: action)
             break
         case .add:
-            item = UIBarButtonItem(image: UIImage.checkmark, style: .plain, target: target, action:action)
+            item = UIBarButtonItem(image: UIImage.add, style: .plain, target: target, action:action)
             break
         case .remove:
-            item = UIBarButtonItem(image: UIImage.checkmark, style: .plain, target: target, action:action)
+            item = UIBarButtonItem(image: UIImage.delete, style: .plain, target: target, action:action)
             break
         }
         return item

@@ -74,7 +74,7 @@ extension AppDelegate : PKRevealing {
     func setupRootViewController() {
         window = UIWindow()
         
-        let revealController = PKRevealController(frontViewController: viewControllers.homeNavController, leftViewController: viewControllers.menuViewController)!
+        let revealController = PKRevealController(frontViewController: viewControllers.biometricsNavController, leftViewController: viewControllers.menuViewController)!
         revealController.delegate = self
         
         window?.rootViewController = revealController
@@ -117,6 +117,11 @@ struct ViewControllers {
     
     lazy var activityNavController : UINavigationController = {
         let vc = self.storyboard.instantiateViewController(withClass: ActivityViewController.self)
+        return UINavigationController(rootViewController: vc)
+    }()
+    
+    lazy var biometricsNavController : UINavigationController = {
+        let vc = self.storyboard.instantiateViewController(withClass: BiometricsListViewController.self)
         return UINavigationController(rootViewController: vc)
     }()
 }
