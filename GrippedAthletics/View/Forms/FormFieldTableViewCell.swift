@@ -18,8 +18,10 @@ class FormFieldTableViewCell: UITableViewCell {
     @IBOutlet weak var unitLabel : UILabel!
     @IBOutlet weak var textField : UITextField!
     
-    override var reuseIdentifier: String? {
-        return FormFieldTableViewCell.cellId
+    var formField : FormField! {
+        didSet {
+            updateFieldUI()
+        }
     }
     
     override func awakeFromNib() {
@@ -31,6 +33,11 @@ class FormFieldTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+ 
+    }
+    
+    func updateFieldUI() {
+        
     }
 
 }

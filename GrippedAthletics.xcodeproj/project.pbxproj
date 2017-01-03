@@ -46,6 +46,7 @@
 		57BB62E31E1BFD5400D62CAB /* BiometricsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BB62E21E1BFD5400D62CAB /* BiometricsListTableViewCell.swift */; };
 		57BB62E61E1C11DB00D62CAB /* FormFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BB62E51E1C11DB00D62CAB /* FormFieldTableViewCell.swift */; };
 		57BB62E81E1C11F000D62CAB /* FormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BB62E71E1C11F000D62CAB /* FormTableViewController.swift */; };
+		57BB62EA1E1C212100D62CAB /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BB62E91E1C212100D62CAB /* FormField.swift */; };
 		57C9CCE21E1B3D480073E19F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C9CCE11E1B3D480073E19F /* Date.swift */; };
 		57CF08F71DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CF08F61DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift */; };
 		57D87E521DE0C2F1000435E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57D87E511DE0C2F1000435E5 /* GoogleService-Info.plist */; };
@@ -119,6 +120,7 @@
 		57BB62E21E1BFD5400D62CAB /* BiometricsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricsListTableViewCell.swift; sourceTree = "<group>"; };
 		57BB62E51E1C11DB00D62CAB /* FormFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormFieldTableViewCell.swift; sourceTree = "<group>"; };
 		57BB62E71E1C11F000D62CAB /* FormTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTableViewController.swift; sourceTree = "<group>"; };
+		57BB62E91E1C212100D62CAB /* FormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		57C9CCE11E1B3D480073E19F /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		57CF08F61DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLinkPasswordEntryViewController.swift; sourceTree = "<group>"; };
 		57D87E511DE0C2F1000435E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 			children = (
 				57BB62E51E1C11DB00D62CAB /* FormFieldTableViewCell.swift */,
 				57BB62E71E1C11F000D62CAB /* FormTableViewController.swift */,
+				57BB62E91E1C212100D62CAB /* FormField.swift */,
 			);
 			path = Forms;
 			sourceTree = "<group>";
@@ -730,6 +733,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57BB62EA1E1C212100D62CAB /* FormField.swift in Sources */,
 				579DE2DC1DBC279800D71875 /* MainViewController.swift in Sources */,
 				570974B51DFB58B300D355B9 /* NSError.swift in Sources */,
 				579DE2B71DBC112C00D71875 /* HomeViewController.swift in Sources */,
