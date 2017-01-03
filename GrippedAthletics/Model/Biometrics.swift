@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class Biometrics: FIRObject, FIRObjectRef {
+class Biometrics: FIRObject, FIRObjectRef, FIRTimeStampable {
     
     struct Keys {
         static let height = "height"
@@ -30,6 +30,8 @@ class Biometrics: FIRObject, FIRObjectRef {
     var apeIndex : String?
     var forearmLength : String?
     var forearmCircumference : String?
+    var createdAt : String?
+    var createdDate : Date?
     
     var hashableValue : [AnyHashable: Any] {
         return [Keys.height: height!,
@@ -37,7 +39,8 @@ class Biometrics: FIRObject, FIRObjectRef {
                 Keys.bodyComposition: bodyComposition!,
                 Keys.apeIndex: apeIndex!,
                 Keys.forearmLength: forearmLength!,
-                Keys.forearmCircumference: forearmCircumference!]
+                Keys.forearmCircumference: forearmCircumference!,
+                FIRObject.Keys.createdAt : createdAt!]
     }
 
     required init (snapshot: FIRDataSnapshot) {
