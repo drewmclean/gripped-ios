@@ -114,7 +114,7 @@ extension UIViewController {
 // MARK: Navigation Items
 
 enum NavItemType : Int {
-    case back, close, next, done, mainMenu, profile, standardText
+    case back, close, next, done, mainMenu, profile, standardText, add, remove
 }
 
 extension UIViewController {
@@ -150,6 +150,12 @@ extension UIViewController {
             break
         case .standardText:
             item = UIBarButtonItem(title: title, style: .plain, target: target, action: action)
+            break
+        case .add:
+            item = UIBarButtonItem(image: UIImage.checkmark, style: .plain, target: target, action:action)
+            break
+        case .remove:
+            item = UIBarButtonItem(image: UIImage.checkmark, style: .plain, target: target, action:action)
             break
         }
         return item

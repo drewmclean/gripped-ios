@@ -19,6 +19,8 @@ extension UIImage {
     static let contacts = UIImage(named: "Contacts")!
     static let healthBook = UIImage(named: "Health Book")!
     static let climbing = UIImage(named: "Climbing")!
+    static let add = UIImage(named: "Add")
+    static let delete = UIImage(named: "Delete")
     
 }
 
