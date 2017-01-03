@@ -56,7 +56,7 @@ class MenuViewController: UIViewController {
         var activityVC = vcs.activityNavController
         var biometricsVC = vcs.biometricsNavController
         
-//        items.append(MenuItem(type: .home, title: "Home", image: UIImage.home, viewController: homeVC))
+        items.append(MenuItem(type: .home, title: "Home", image: UIImage.home, viewController: homeVC))
 //        items.append(MenuItem(type: .profile, title: "Profile", image: UIImage.contacts, viewController: profileVC))
         items.append(MenuItem(type: .biometrics, title: "Biometrics", image: UIImage.healthBook, viewController: biometricsVC))
 //        items.append(MenuItem(type: .climbingActivity, title: "Activity", image: UIImage.climbing, viewController: activityVC))
@@ -150,7 +150,9 @@ extension MenuViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath
         let menuItem = menuItems[indexPath.row]
-        revealController.show(menuItem.viewController)
+        
+        revealController.frontViewController = menuItem.viewController
+        revealController.show(revealController.frontViewController)
     }
     
 }

@@ -15,6 +15,7 @@ class BiometricsListViewController: UITableViewController {
         
         title = "Biometrics"
         
+        navigationItem.leftBarButtonItem = barItemForNavType(withType: .mainMenu)
         navigationItem.rightBarButtonItem = barItemForNavType(withType: .add, title: nil, target: self, action: #selector(BiometricsListViewController.didTapAdd(sender:)))
     }
 }
@@ -60,7 +61,9 @@ extension BiometricsListViewController {
     }
     
     func presentAddViewController() {
-        
+        let biometricsFormVC = storyboard?.instantiateViewController(withClass: BiometricsFormViewController.self) as! BiometricsFormViewController
+        let nav = UINavigationController(rootViewController: biometricsFormVC)
+        present(nav, animated: true, completion: nil)
     }
     
 }
