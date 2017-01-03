@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,47 +40,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="x16-do-nTo">
-                                <rect key="frame" x="36" y="247" width="303" height="173"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jXU-5s-qD8">
+                                <rect key="frame" x="110" y="0.0" width="161" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRB-Ge-VnZ">
-                                        <rect key="frame" x="58.5" y="0.0" width="186" height="51"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
-                                        <state key="normal" title="Record Climb">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5a-R1-WRK">
-                                        <rect key="frame" x="41" y="61" width="221" height="51"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
-                                        <state key="normal" title="View Biometrics">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZS-xh-XAY">
-                                        <rect key="frame" x="71" y="122" width="161" height="51"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
-                                        <state key="normal" title="View Profile">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalCentering" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="x16-do-nTo" userLabel="Top Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="161" height="51"/>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="x16-do-nTo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cbv-pA-QAB"/>
-                            <constraint firstItem="x16-do-nTo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="hwb-on-gYH"/>
-                            <constraint firstItem="x16-do-nTo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lzV-VF-cbi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="x16-do-nTo" secondAttribute="trailing" constant="20" id="vCj-U0-Us4"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8kz-ni-a7v"/>
                     <connections>
-                        <outlet property="buttonStackView" destination="x16-do-nTo" id="h3y-79-P8y"/>
-                        <outlet property="recordClimbButton" destination="mRB-Ge-VnZ" id="wyG-eV-lBw"/>
-                        <outlet property="updateBiometricsButton" destination="Y5a-R1-WRK" id="R1B-sN-10c"/>
-                        <outlet property="updateProfileButton" destination="oZS-xh-XAY" id="5Dh-Hg-zGR"/>
+                        <outlet property="topStackView" destination="x16-do-nTo" id="UVR-VZ-pcT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
