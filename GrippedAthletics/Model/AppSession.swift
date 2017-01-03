@@ -12,18 +12,5 @@ import FirebaseCore
 
 class AppSession {
     
-    static let session = AppSession()
-    
-    var profile : UserProfile?
-    
-    var firUser : FIRUser? {
-        didSet {
-            
-        }
-    }
-    
-    init () {
-        
-        
-    }
+
 }

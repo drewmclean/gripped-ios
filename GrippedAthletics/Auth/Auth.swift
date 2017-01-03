@@ -161,7 +161,6 @@ class Auth: NSObject {
             request.start { (response: HTTPURLResponse?, result: GraphRequestResult<GraphRequest>) in
                 switch result {
                 case .success(let value):
-                    
                     if let dict = value.dictionaryValue {
                         DDLogVerbose("FB User Graph: \(dict)")
                         let userGraph = UserGraph(userGraph: dict)
@@ -211,14 +210,12 @@ class Auth: NSObject {
     
     func authStateChanged(auth: FIRAuth, user: FIRUser?) {
         guard let user = user else {
-            AppSession.session.firUser = nil
             if let delegate = UIApplication.shared.delegate as? AppDelegate {
                 delegate.showAuthIfNeeded()
             }
             return
         }
-        
-        AppSession.session.firUser = user
+
     }
     
     // MARK: Init

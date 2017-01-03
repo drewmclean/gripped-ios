@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 enum MenuItemTyoe : Int {
     case home, profile, biometrics, climbingActivity
@@ -36,6 +37,8 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var signOutButton: UIButton!
+    
+    var profile : UserProfile!
     
     var selectedIndex : IndexPath = IndexPath(row: 0, section: 0)
     
@@ -70,13 +73,32 @@ class MenuViewController: UIViewController {
         menuTableView.delegate = self
         menuTableViewHeightConstraint.constant = CGFloat(menuItems.count) * menuTableView.rowHeight
         menuTableView.selectRow(at: selectedIndex, animated: false, scrollPosition: .none)
+        
+        signOutButton.setTitleColor(UIColor.gray, for: .normal)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadProfile()
+    }
+    
+    func loadProfile() {
+        let profileRef = UserProfile.objectRef.child(auth.currentUser!.uid)
+        profileRef.observeSingleEvent(of: .value) { (snapshot: FIRDataSnapshot) in
+            self.profile = UserProfile(snapshot: snapshot)
+            self.updateProfileUI()
+        }
+    }
+    
+    func updateProfileUI() {
+        
     }
     
     // MARK: Actions
     
     @IBAction func signOutButtonTapped(_ sender: Any) {
-        revealController.show(revealController.leftViewController, animated: true) { (done: Bool) in
-//            self.auth.signOut()
+        revealController.resignPresentationModeEntirely(true, animated: true) { (done:Bool) in
+            self.auth.signOut()
         }
     }
     

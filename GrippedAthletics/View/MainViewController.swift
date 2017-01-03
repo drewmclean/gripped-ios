@@ -15,6 +15,7 @@ class MainViewController: PKRevealController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.black
+        disablesFrontViewInteraction = false
     }
 
 }

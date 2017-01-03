@@ -79,13 +79,27 @@ extension UIViewController {
     }
 }
 
-// MARK: Alerts
+// MARK: Globals
 
 extension UIViewController {
     
     var auth : Auth {
         return Auth.instance
     }
+    
+}
+
+// MARK: Data
+
+extension UIViewController {
+    
+    
+    
+}
+
+// MARK: Alerts
+
+extension UIViewController {
     
     func showErrorAlert(title: String, message: String) {
         

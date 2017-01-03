@@ -22,7 +22,7 @@ class UserProfile : FIRObject, FIRObjectRef {
         static let photoPathSmall = "photo_path_small"
     }
     
-    static var ref: FIRDatabaseReference {
+    static var objectRef: FIRDatabaseReference {
         return db.reference(withPath: "profiles")
     }
     
@@ -61,10 +61,15 @@ class UserProfile : FIRObject, FIRObjectRef {
         self.photoPathLarge = facebookGraph.picturePath
     }
     
+    // MARK: Fetch
+    
     // MARK: Initializers
+    init(uid: String) {
+        self.uid = uid
+        super.init()
+    }
     
     init(uid: String, facebookGraph : UserGraph) {
-        
         self.uid = uid
         super.init()
         importFacebookGraph(facebookGraph: facebookGraph)

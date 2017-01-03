@@ -54,7 +54,7 @@ extension FIRUser {
                 }
             }
         }.andThen { (result: Result<FIRUserProfileChangeRequest, AnyError>) in
-            let currentProfileRef = UserProfile.ref.child(self.uid)
+            let currentProfileRef = UserProfile.objectRef.child(self.uid)
             currentProfileRef.observeSingleEvent(of: .value) { (snapshot: FIRDataSnapshot) in
                 print("Post FB Graph Profile Observe: \(snapshot)")
                 

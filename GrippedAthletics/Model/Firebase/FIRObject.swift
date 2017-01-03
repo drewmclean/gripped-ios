@@ -9,7 +9,7 @@
 import FirebaseDatabase
 
 protocol FIRObjectRef {
-    static var ref : FIRDatabaseReference { get }
+    static var objectRef: FIRDatabaseReference { get }
     var hashableValue : [AnyHashable: Any] { get }
     init (snapshot: FIRDataSnapshot)
 }
@@ -19,4 +19,5 @@ class FIRObject {
     static let db : FIRDatabase = FIRDatabase.database()
     
     var identifier : String = ""
+    
 }
