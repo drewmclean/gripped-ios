@@ -119,33 +119,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="H0i-vn-FUF">
-                                <rect key="frame" x="0.0" y="20" width="355" height="67.5"/>
+                                <rect key="frame" x="0.0" y="20" width="355" height="60"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="9Gl-ae-xi9">
-                                        <rect key="frame" x="0.0" y="4" width="60" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="YCd-fM-gHH"/>
                                             <constraint firstAttribute="width" constant="60" id="aGr-Rd-NrJ"/>
                                         </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="TnQ-2g-0vK">
-                                        <rect key="frame" x="72" y="0.0" width="283" height="67.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TnQ-2g-0vK">
+                                        <rect key="frame" x="72" y="1" width="283" height="58"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyZ-Uj-cWE">
-                                                <rect key="frame" x="0.0" y="0.0" width="283" height="27.5"/>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="283" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age / Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rc-4R-E4c">
-                                                <rect key="frame" x="0.0" y="29.5" width="283" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <rect key="frame" x="0.0" y="24" width="283" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCK-Ec-ML9">
-                                                <rect key="frame" x="0.0" y="49.5" width="283" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <rect key="frame" x="0.0" y="41" width="283" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -155,7 +155,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jmu-hF-YBr">
-                                <rect key="frame" x="0.0" y="111.5" width="375" height="180"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="uMW-yG-Ltf"/>
@@ -190,7 +190,7 @@
                                     <constraint firstAttribute="height" constant="44" id="Z10-l3-0hN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
                                     <action selector="signOutButtonTapped:" destination="2US-eI-DYE" eventType="touchUpInside" id="waF-d6-O6A"/>
@@ -211,7 +211,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ageGenderLabel" destination="7rc-4R-E4c" id="Kss-bt-Yby"/>
+                        <outlet property="ageGenderLabel" destination="7rc-4R-E4c" id="v1h-4B-Z6v"/>
                         <outlet property="emailLabel" destination="VCK-Ec-ML9" id="oCO-bN-RZe"/>
                         <outlet property="headerStackView" destination="H0i-vn-FUF" id="3t4-A6-ZkY"/>
                         <outlet property="menuTableView" destination="jmu-hF-YBr" id="29z-XL-TWc"/>

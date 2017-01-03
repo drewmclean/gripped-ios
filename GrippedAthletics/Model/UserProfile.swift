@@ -96,6 +96,7 @@ class UserProfile : FIRObject, FIRObjectRef {
         self.name = snapshotValue[Keys.name] as? String
         self.email = snapshotValue[Keys.email] as? String
         self.birthday = snapshotValue[Keys.birthday] as? String
+        self.gender = snapshotValue[Keys.gender] as? String
         self.photoPathSmall = snapshotValue[Keys.photoPathSmall] as? String
         self.photoPathLarge = snapshotValue[Keys.photoPathLarge] as? String
     }

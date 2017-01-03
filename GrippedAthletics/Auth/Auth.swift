@@ -209,13 +209,12 @@ class Auth: NSObject {
     // MARK: Auth State Change Listener
     
     func authStateChanged(auth: FIRAuth, user: FIRUser?) {
-        guard let user = user else {
+        guard let _ = user else {
             if let delegate = UIApplication.shared.delegate as? AppDelegate {
                 delegate.showAuthIfNeeded()
             }
             return
         }
-
     }
     
     // MARK: Init

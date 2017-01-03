@@ -73,9 +73,10 @@ class MenuViewController: UIViewController {
         
         profileImageView.clipsToBounds = true
         profileImageView.contentMode = .scaleToFill
-        profileImageView.layer.cornerRadius = 40
+        profileImageView.layer.cornerRadius = 30
         profileImageView.layer.borderColor = UIColor.white.cgColor
         profileImageView.layer.borderWidth = 1.0
+        profileImageView.isHidden = true
         
         nameLabel.textColor = UIColor.lightGray
         ageGenderLabel.textColor = UIColor.lightGray
@@ -100,15 +101,19 @@ class MenuViewController: UIViewController {
     
     func loadProfile() {
         let profileRef = UserProfile.objectRef.child(auth.currentUser!.uid)
-        profileRef.observeSingleEvent(of: .value) { (snapshot: FIRDataSnapshot) in
-            
-            self.profile = UserProfile(snapshot: snapshot)
-            self.updateProfileUI()
+        profileRef.observe(.value) { (snapshot: FIRDataSnapshot) in
+            if snapshot.exists() {
+                self.profile = UserProfile(snapshot: snapshot)
+                self.updateProfileUI()
+            } else {
+                
+            }
         }
     }
     
     func updateProfileUI() {
         if let photoPath = profile.photoPathLarge {
+            profileImageView.isHidden = false
             profileImageView.sd_setImage(with: URL(string: photoPath))
         }
         nameLabel.text = profile.name

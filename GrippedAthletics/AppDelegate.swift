@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         FIRApp.configure()
@@ -86,6 +85,8 @@ extension AppDelegate : PKRevealing {
         if FIRAuth.auth()?.currentUser == nil {
             print("Authenticated FIRUser not found.  Presenting Login View.")
             self.window?.rootViewController?.present(self.viewControllers.authPromptViewController, animated: true, completion: nil)
+        } else {
+            
         }
     }
 }
