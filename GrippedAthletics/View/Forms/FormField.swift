@@ -21,4 +21,5 @@ struct FormField {
         self.propertyKey = propertyKey
         self.textFieldConfiguration = textFieldConfiguration
     }
+    
 }

@@ -90,15 +90,15 @@ class UserProfile : FIRObject, FIRObjectRef {
     }
     
     required init(snapshot: FIRDataSnapshot) {
-        let snapshotValue = snapshot.value as! [String: AnyObject]
-        self.uid = snapshot.key
-        self.facebookId = snapshotValue[Keys.facebookId] as? String
-        self.name = snapshotValue[Keys.name] as? String
-        self.email = snapshotValue[Keys.email] as? String
-        self.birthday = snapshotValue[Keys.birthday] as? String
-        self.gender = snapshotValue[Keys.gender] as? String
-        self.photoPathSmall = snapshotValue[Keys.photoPathSmall] as? String
-        self.photoPathLarge = snapshotValue[Keys.photoPathLarge] as? String
+        let value = snapshot.value as! [String: Any]
+        uid = snapshot.key
+        facebookId = value[Keys.facebookId] as? String
+        name = value[Keys.name] as? String
+        email = value[Keys.email] as? String
+        birthday = value[Keys.birthday] as? String
+        gender = value[Keys.gender] as? String
+        photoPathSmall = value[Keys.photoPathSmall] as? String
+        photoPathLarge = value[Keys.photoPathLarge] as? String
     }
     
 }

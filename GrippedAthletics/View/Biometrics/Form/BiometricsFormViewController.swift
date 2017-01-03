@@ -26,6 +26,20 @@ class BiometricsFormViewController: FormTableViewController {
         }
         
     }
+    
+    override func createFields() -> [FormField] {
+        var fields = [FormField]()
+        fields.append(FormField(title: "Height", unit: "cm", propertyKey: "height") { (textField: UITextField) in
+            
+        })
+        return fields
+    }
+    
+}
+
+extension BiometricsFormViewController {
+    
+
 }
 
 // MARK: API 

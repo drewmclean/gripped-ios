@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FormFieldTableViewCell: UITableViewCell {
+class FormFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     static let cellId = "FormFieldTableViewCellID"
     
@@ -26,18 +26,18 @@ class FormFieldTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
- 
+        
+        titleLabel.text = nil
+        unitLabel.text = nil
+        textField.text = nil
+        textField.delegate = self
     }
     
     func updateFieldUI() {
+        titleLabel.text = formField.title
+        unitLabel.text = formField.unit
         
+        formField.textFieldConfiguration(textField)
     }
 
 }
