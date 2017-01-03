@@ -9,6 +9,13 @@
 import UIKit
 import FirebaseDatabase
 
+enum SignValue : String {
+    case plus = "+"
+    case minus = "-"
+    
+    static let allValues = [plus, minus]
+}
+
 class Biometrics: FIRObject, FIRObjectRef, FIRTimeStampable {
     
     struct Keys {

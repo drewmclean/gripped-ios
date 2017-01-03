@@ -69,6 +69,8 @@ class BiometricsFormViewController: FormTableViewController {
     
 }
 
+// MARK: API 
+
 extension BiometricsFormViewController {
     
     
@@ -87,3 +89,38 @@ extension BiometricsFormViewController {
     }
     
 }
+
+
+// MARK: Ape Index
+
+class ApeIndexPickerViewDataSource : NSObject, UIPickerViewDataSource {
+    
+    enum ApeIndexPickerViewComponent : Int {
+        case sign, length
+        static let allValues = [sign, length]
+    }
+    
+    static let apeIndexRange : Int = 10
+    
+    lazy var apeIndexValues : [String] = {
+        var values = [String]()
+        for i in 0...ApeIndexPickerViewDataSource.apeIndexRange {
+            values.append("\(i)")
+        }
+        return values
+    }()
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return SignValue.allValues.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return ApeIndexPickerViewComponent.allValues.count
+    }
+}
+
+class ApeIndexPickerViewDelegate : NSObject, UIPickerViewDelegate {
+    
+}
+
+
