@@ -25,6 +25,7 @@ class BiometricsFormViewController: FormTableViewController {
         super.viewDidAppear(animated)
         
         
+        
         if let existingId = biometricId {
             fetchBiometric(key: existingId)
         }

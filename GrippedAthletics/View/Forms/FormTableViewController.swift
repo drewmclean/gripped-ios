@@ -22,10 +22,26 @@ class FormTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = barItemForNavType(withType: .close)
+        navigationItem.rightBarButtonItem = barItemForNavType(withType: .done, title: "Save", target: self, action: #selector(FormTableViewController.didTapSave(sender:)))
     }
     
     func createFields() -> [FormField] {
         return [FormField]()
+    }
+    
+    func didTapSave(sender:UIBarButtonItem) {
+        if validateFields() {
+            saveFields()
+        }
+    }
+    
+    func validateFields() -> Bool {
+        return true
+    }
+    
+    func saveFields() {
+        
     }
     
 }
