@@ -18,6 +18,7 @@ extension UIViewController {
 // MARK: Keyboard
 
 protocol KeyboardAnimator {
+    func keyboardShowHandler(keyboardFrame : CGRect)
     func keyboardShowAnimation(keyboardFrame : CGRect)
 //    func keyboardShowAnimationComplete()
     func keyboardHideAnimation(keyboardFrane : CGRect)
@@ -44,6 +45,7 @@ extension UIViewController {
                 let curve = info[UIKeyboardAnimationCurveUserInfoKey] as! UInt
                 let curveOption = UIViewAnimationOptions(rawValue: curve)
                 
+                keyboardAnimator.keyboardShowHandler(keyboardFrame: keyboardFrame)
                 UIView.animate(withDuration: duration, delay: 0, options: [curveOption], animations: { 
                     keyboardAnimator.keyboardShowAnimation(keyboardFrame: keyboardFrame)
                 }, completion: { (finished: Bool) in

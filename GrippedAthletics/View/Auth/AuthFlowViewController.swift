@@ -15,6 +15,10 @@ protocol AuthFlowViewControllerDelegate {
 }
 
 class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldViewControllerDelegate {
+    internal func keyboardShowHandler(keyboardFrame: CGRect) {
+        
+    }
+
     
     var delegate : AuthFlowViewControllerDelegate?
     

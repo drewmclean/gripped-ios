@@ -12,6 +12,15 @@ class BiometricsFormViewController: FormTableViewController {
     
     var biometricId : String?
     
+    lazy var apeIndexPicker : UIPickerView = {
+        let picker = UIPickerView()
+        var delegate = ApeIndexPickerViewDataSourceDelegate(pickerView: picker)
+        picker.dataSource = delegate
+        picker.delegate = delegate
+        picker.reloadAllComponents()
+        return picker
+    }()
+    
     override var cellReuseId: String {
         return "BiometricsFormCellID"
     }
@@ -19,8 +28,10 @@ class BiometricsFormViewController: FormTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let existingId = biometricId {
-            fetchBiometric(key: existingId)
+        addKeyboardHandlers()
+        
+        if let existing = biometricId {
+            fetchBiometric(key: existing)
             title = "Edit Biometrics"
         } else {
             title = "New Biometrics"
@@ -50,9 +61,7 @@ class BiometricsFormViewController: FormTableViewController {
             textField.keyboardType = .numberPad
         })
         fields.append(FormField(title: "Ape Index", unit: "+/- cm", propertyKey: Biometrics.Keys.apeIndex) { (textField: UITextField) in
-            textField.autocorrectionType = .no
-            textField.autocapitalizationType = .none
-            textField.keyboardType = .asciiCapableNumberPad
+            textField.inputView = self.apeIndexPicker
         })
         fields.append(FormField(title: "Forearm Length", unit: "cm", propertyKey: Biometrics.Keys.forearmLength) { (textField: UITextField) in
             textField.autocorrectionType = .no
@@ -71,9 +80,17 @@ class BiometricsFormViewController: FormTableViewController {
 
 // MARK: API 
 
-extension BiometricsFormViewController {
+extension BiometricsFormViewController : KeyboardAnimator {
+    internal func keyboardShowHandler(keyboardFrame: CGRect) {
+        apeIndexPicker.reloadAllComponents()
+    }
+    internal func keyboardShowAnimation(keyboardFrame: CGRect) {
+        
+    }
     
-    
+    internal func keyboardHideAnimation(keyboardFrane: CGRect) {
+        
+    }
 }
 
 // MARK: API 
@@ -90,37 +107,64 @@ extension BiometricsFormViewController {
     
 }
 
-
 // MARK: Ape Index
 
-class ApeIndexPickerViewDataSource : NSObject, UIPickerViewDataSource {
-    
-    enum ApeIndexPickerViewComponent : Int {
-        case sign, length
-        static let allValues = [sign, length]
-    }
+enum ApeIndexPickerViewComponent : Int {
+    case sign, length
+    static let allValues = [sign, length]
+}
+
+class ApeIndexPickerViewDataSourceDelegate : NSObject, UIPickerViewDataSource, UIPickerViewDelegate {
     
     static let apeIndexRange : Int = 10
+        
+    var pickerView : UIPickerView
+    
+    var selectedApeIndex : String? {
+        
+        return nil
+    }
     
     lazy var apeIndexValues : [String] = {
         var values = [String]()
-        for i in 0...ApeIndexPickerViewDataSource.apeIndexRange {
+        for i in 0...ApeIndexPickerViewDataSourceDelegate.apeIndexRange {
             values.append("\(i)")
         }
         return values
     }()
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return SignValue.allValues.count
+        return ApeIndexPickerViewComponent.allValues.count
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return ApeIndexPickerViewComponent.allValues.count
+        if component == ApeIndexPickerViewComponent.sign.rawValue {
+            return SignValue.allValues.count
+        } else {
+            return apeIndexValues.count
+        }
     }
-}
-
-class ApeIndexPickerViewDelegate : NSObject, UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 44
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == ApeIndexPickerViewComponent.sign.rawValue {
+            return SignValue.allValues[component].rawValue
+        } else {
+            return apeIndexValues[row]
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+    }
+    
+    // MARK: Initializers
+    
+    required init (pickerView : UIPickerView) {
+        self.pickerView = pickerView
+    }
     
 }
-
-
