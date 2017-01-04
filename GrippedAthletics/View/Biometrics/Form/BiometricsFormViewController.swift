@@ -7,18 +7,32 @@
 //
 
 import UIKit
+import SnapKit
 
 class BiometricsFormViewController: FormTableViewController {
     
     var biometricId : String?
     
+    lazy var apeDelegate = ApeIndexPickerViewDataSourceDelegate()
+    
     lazy var apeIndexPicker : UIPickerView = {
         let picker = UIPickerView()
-        var delegate = ApeIndexPickerViewDataSourceDelegate(pickerView: picker)
-        picker.dataSource = delegate
-        picker.delegate = delegate
+        picker.dataSource = self.apeDelegate
+        picker.delegate = self.apeDelegate
         picker.reloadAllComponents()
         return picker
+    }()
+    
+    lazy var apeIndexInputView : UIView = {
+        let view = UIView()
+        view.addSubview(self.apeIndexPicker)
+        view.snp.updateConstraints({ (make:ConstraintMaker) in
+            make.left.equalTo(50)
+            make.right.equalTo(50)
+            make.top.equalTo(0)
+            make.bottom.equalTo(0)
+        })
+        return view
     }()
     
     override var cellReuseId: String {
@@ -48,30 +62,30 @@ class BiometricsFormViewController: FormTableViewController {
         fields.append(FormField(title: "Height", unit: "cm", propertyKey: Biometrics.Keys.height) { (textField: UITextField) in
             textField.autocorrectionType = .no
             textField.autocapitalizationType = .none
-            textField.keyboardType = .numberPad
+            textField.keyboardType = .decimalPad
         })
         fields.append(FormField(title: "Weight", unit: "kg", propertyKey: Biometrics.Keys.weight) { (textField: UITextField) in
             textField.autocorrectionType = .no
             textField.autocapitalizationType = .none
-            textField.keyboardType = .numberPad
+            textField.keyboardType = .decimalPad
         })
         fields.append(FormField(title: "Body Composition", unit: "fat %", propertyKey: Biometrics.Keys.bodyComposition) { (textField: UITextField) in
             textField.autocorrectionType = .no
             textField.autocapitalizationType = .none
-            textField.keyboardType = .numberPad
+            textField.keyboardType = .decimalPad
         })
         fields.append(FormField(title: "Ape Index", unit: "+/- cm", propertyKey: Biometrics.Keys.apeIndex) { (textField: UITextField) in
-            textField.inputView = self.apeIndexPicker
+            textField.inputView = self.apeIndexInputView
         })
         fields.append(FormField(title: "Forearm Length", unit: "cm", propertyKey: Biometrics.Keys.forearmLength) { (textField: UITextField) in
             textField.autocorrectionType = .no
             textField.autocapitalizationType = .none
-            textField.keyboardType = .numberPad
+            textField.keyboardType = .decimalPad
         })
         fields.append(FormField(title: "Forearm Circumference", unit: "cm", propertyKey: Biometrics.Keys.forearmCircumference) { (textField: UITextField) in
             textField.autocorrectionType = .no
             textField.autocapitalizationType = .none
-            textField.keyboardType = .numberPad
+            textField.keyboardType = .decimalPad
         })
         return fields
     }
@@ -118,7 +132,7 @@ class ApeIndexPickerViewDataSourceDelegate : NSObject, UIPickerViewDataSource, U
     
     static let apeIndexRange : Int = 10
         
-    var pickerView : UIPickerView
+    var pickerView : UIPickerView!
     
     var selectedApeIndex : String? {
         
@@ -151,7 +165,7 @@ class ApeIndexPickerViewDataSourceDelegate : NSObject, UIPickerViewDataSource, U
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if component == ApeIndexPickerViewComponent.sign.rawValue {
-            return SignValue.allValues[component].rawValue
+            return SignValue.allValues[row].rawValue
         } else {
             return apeIndexValues[row]
         }
@@ -159,12 +173,6 @@ class ApeIndexPickerViewDataSourceDelegate : NSObject, UIPickerViewDataSource, U
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-    }
-    
-    // MARK: Initializers
-    
-    required init (pickerView : UIPickerView) {
-        self.pickerView = pickerView
     }
     
 }

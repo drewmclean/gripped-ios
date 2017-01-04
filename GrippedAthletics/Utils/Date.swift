@@ -28,8 +28,8 @@ extension Date {
     }
     
     func shortString() -> String {
-        let dateFormatter: DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = DateFormat.short.rawValue
-        return ""
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = DateFormat.short.rawValue
+        return formatter.string(from: self)
     }
 }
