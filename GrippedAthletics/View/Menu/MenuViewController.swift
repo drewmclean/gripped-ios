@@ -97,6 +97,7 @@ class MenuViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         loadProfile()
     }
     
@@ -104,7 +105,8 @@ class MenuViewController: UIViewController {
         let profileRef = UserProfile.objectRef.child(auth.currentUser!.uid)
         profileRef.observe(.value) { (snapshot: FIRDataSnapshot) in
             if snapshot.exists() {
-                self.profile = UserProfile(snapshot: snapshot)
+                self.profile = UserProfile(userId: snapshot.key)
+                self.profile.importSnapshot(snapshot: snapshot)
                 self.updateProfileUI()
             }
         }

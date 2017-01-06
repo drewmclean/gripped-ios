@@ -60,15 +60,12 @@ extension FIRUser {
                 
                 var profile : UserProfile!
                 if snapshot.exists() {
-                    profile = UserProfile(snapshot: snapshot)
+                    profile.importSnapshot(snapshot: snapshot)
                     profile.importFacebookGraph(facebookGraph: userGraph)
                 } else {
-                    profile = UserProfile(uid: self.uid, facebookGraph: userGraph)
+                    profile = UserProfile(userId: self.uid, facebookGraph: userGraph)
                 }
-                
-                let childValues = profile.hashableValue
-                
-                currentProfileRef.updateChildValues(childValues) { (error: Error?, ref: FIRDatabaseReference) in
+                currentProfileRef.updateChildValues(profile.hashableValue) { (error: Error?, ref: FIRDatabaseReference) in
                     guard error == nil else {
                         DDLogError(error!.localizedDescription)
                         return

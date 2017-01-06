@@ -48,6 +48,7 @@
 		57BB62E81E1C11F000D62CAB /* FormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BB62E71E1C11F000D62CAB /* FormTableViewController.swift */; };
 		57BB62EA1E1C212100D62CAB /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BB62E91E1C212100D62CAB /* FormField.swift */; };
 		57BB62EE1E1C275400D62CAB /* Biometrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BB62ED1E1C275400D62CAB /* Biometrics.swift */; };
+		57BB62F91E1DEBD000D62CAB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BB62F81E1DEBD000D62CAB /* User.swift */; };
 		57C9CCE21E1B3D480073E19F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C9CCE11E1B3D480073E19F /* Date.swift */; };
 		57CF08F71DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CF08F61DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift */; };
 		57D87E521DE0C2F1000435E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57D87E511DE0C2F1000435E5 /* GoogleService-Info.plist */; };
@@ -123,6 +124,7 @@
 		57BB62E71E1C11F000D62CAB /* FormTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTableViewController.swift; sourceTree = "<group>"; };
 		57BB62E91E1C212100D62CAB /* FormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		57BB62ED1E1C275400D62CAB /* Biometrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Biometrics.swift; sourceTree = "<group>"; };
+		57BB62F81E1DEBD000D62CAB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		57C9CCE11E1B3D480073E19F /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		57CF08F61DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLinkPasswordEntryViewController.swift; sourceTree = "<group>"; };
 		57D87E511DE0C2F1000435E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				574BF0621E09E29E00AF3803 /* Grades.swift */,
 				5786B1441E1AB30B00C7EA36 /* UserProfile.swift */,
 				57BB62ED1E1C275400D62CAB /* Biometrics.swift */,
+				57BB62F81E1DEBD000D62CAB /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				57D87E6D1DE28A58000435E5 /* SignUpViewController.swift in Sources */,
 				57C9CCE21E1B3D480073E19F /* Date.swift in Sources */,
 				5758E57E1DF9C95500121110 /* KeyStore.swift in Sources */,
+				57BB62F91E1DEBD000D62CAB /* User.swift in Sources */,
 				57D87E6B1DE28A58000435E5 /* SignInViewController.swift in Sources */,
 				5758E5801DF9E9DC00121110 /* Futures.swift in Sources */,
 				57BB62E31E1BFD5400D62CAB /* BiometricsListTableViewCell.swift in Sources */,

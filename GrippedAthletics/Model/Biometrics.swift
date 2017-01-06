@@ -19,6 +19,7 @@ enum SignValue : String {
 class Biometrics: FIRObject, FIRObjectRef, FIRTimeStampable {
     
     struct Keys {
+        static let userId = "user_id"
         static let height = "height"
         static let weight = "weight"
         static let bodyComposition = "body_composition"
@@ -27,10 +28,15 @@ class Biometrics: FIRObject, FIRObjectRef, FIRTimeStampable {
         static let forearmCircumference = "forearm_circumference"
     }
     
-    static var objectRef: FIRDatabaseReference {
-        return db.reference(withPath: "biometrics")
+    static var objectName: String {
+        return "biometrics"
     }
     
+    static var objectRef: FIRDatabaseReference {
+        return db.reference(withPath: Biometrics.objectName)
+    }
+    
+    var userId : String
     var height : String?
     var weight : String?
     var bodyComposition : String?
@@ -40,23 +46,32 @@ class Biometrics: FIRObject, FIRObjectRef, FIRTimeStampable {
     var createdAt : String?
     var createdDate : Date?
     
-    var hashableValue : [AnyHashable: Any] {
-        return [Keys.height: height!,
-                Keys.weight: weight!,
-                Keys.bodyComposition: bodyComposition!,
-                Keys.apeIndex: apeIndex!,
-                Keys.forearmLength: forearmLength!,
-                Keys.forearmCircumference: forearmCircumference!,
-                FIRObject.Keys.createdAt : createdAt!]
+    var fieldValues: [AnyHashable : Any] {
+        get {
+            return [Keys.userId: userId,
+                    Keys.height: height!,
+                    Keys.weight: weight!,
+                    Keys.bodyComposition: bodyComposition!,
+                    Keys.apeIndex: apeIndex!,
+                    Keys.forearmLength: forearmLength!,
+                    Keys.forearmCircumference: forearmCircumference!,
+                    FIRObject.Keys.createdAt : createdAt!]
+        }
+        set {
+            userId = newValue[Keys.userId] as! String
+            height = newValue[Keys.height] as? String
+            weight = newValue[Keys.weight] as? String
+            bodyComposition = newValue[Keys.bodyComposition] as? String
+            apeIndex = newValue[Keys.apeIndex] as? String
+            forearmLength = newValue[Keys.forearmLength] as? String
+            forearmCircumference = newValue[Keys.forearmCircumference] as? String
+        }
     }
 
-    required init (snapshot: FIRDataSnapshot) {
-        let value = snapshot.value as! [String : Any]
-        height = value[Keys.height] as? String
-        weight = value[Keys.weight] as? String
-        bodyComposition = value[Keys.bodyComposition] as? String
-        apeIndex = value[Keys.apeIndex] as? String
-        forearmLength = value[Keys.forearmLength] as? String
-        forearmCircumference = value[Keys.forearmCircumference] as? String
+    required init(userId : String) {
+        self.userId = userId
+        super.init()
+        self.identifier = Biometrics.objectRef.childByAutoId().key
     }
+    
 }

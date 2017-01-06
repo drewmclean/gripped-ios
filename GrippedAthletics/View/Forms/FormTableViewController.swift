@@ -25,6 +25,7 @@ class FormTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = barItemForNavType(withType: .close)
         navigationItem.rightBarButtonItem = barItemForNavType(withType: .done, title: "Save", target: self, action: #selector(FormTableViewController.didTapSave(sender:)))
         
+        fetchFields()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,14 +37,20 @@ class FormTableViewController: UITableViewController {
         
     }
     
-    func createFields() -> [FormField] {
-        return [FormField]()
-    }
-    
+    /// MARK: Actions
     func didTapSave(sender:UIBarButtonItem) {
         if validateFields() {
             saveFields()
         }
+    }
+    
+    // MARK: Abstract
+    func createFields() -> [FormField] {
+        return [FormField]()
+    }
+    
+    func fetchFields() {
+        
     }
     
     func validateFields() -> Bool {
@@ -53,9 +60,12 @@ class FormTableViewController: UITableViewController {
     func saveFields() {
         
     }
-    
 }
 
+// MARK: 
+extension FormTableViewController {
+
+}
 // MARK: UITableViewDataSource
 
 extension FormTableViewController {

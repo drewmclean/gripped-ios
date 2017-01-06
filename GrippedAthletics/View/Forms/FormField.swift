@@ -13,6 +13,7 @@ struct FormField {
     var title : String
     var unit : String
     var propertyKey : String
+    var value : String?
     var textFieldConfiguration : (UITextField) -> Void?
     
     init (title:String, unit:String, propertyKey:String, textFieldConfiguration: @escaping (UITextField) -> Void) {

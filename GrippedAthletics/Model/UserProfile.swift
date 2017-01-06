@@ -12,6 +12,8 @@ import FirebaseDatabase
 
 class UserProfile : FIRObject, FIRObjectRef {
     
+    static var objectName: String = "profiles"
+    
     struct Keys {
         static let facebookId = "facebook_id"
         static let name = "name"
@@ -26,7 +28,30 @@ class UserProfile : FIRObject, FIRObjectRef {
         return db.reference(withPath: "profiles")
     }
     
-    var uid: String
+    var fieldValues: [AnyHashable : Any] {
+        get {
+            return [Keys.facebookId: facebookId!,
+                    Keys.name: name!,
+                    Keys.email: email!,
+                    Keys.birthday: birthday!,
+                    Keys.gender: gender!,
+                    Keys.photoPathLarge: photoPathLarge!]
+        }
+        
+        set {
+            facebookId = newValue[Keys.facebookId] as? String
+            name = newValue[Keys.name] as? String
+            email = newValue[Keys.email] as? String
+            birthday = newValue[Keys.birthday] as? String
+            gender = newValue[Keys.gender] as? String
+            photoPathLarge = newValue[Keys.photoPathLarge] as? String
+        }
+    }
+
+    var userId : String {
+        return identifier
+    }
+    
     var facebookId : String?
     var name : String?
     var email : String?
@@ -57,48 +82,27 @@ class UserProfile : FIRObject, FIRObjectRef {
         return "\(age!) \(gender!.characters.first!)"
     }
 
-    var hashableValue: [AnyHashable:Any] {
-        return [Keys.facebookId: facebookId!,
-                Keys.name: name!,
-                Keys.email: email!,
-                Keys.birthday: birthday!,
-                Keys.gender: gender!,
-                Keys.photoPathLarge: photoPathLarge!]
-    }
     
     func importFacebookGraph(facebookGraph: UserGraph) {
+        self.name = facebookGraph.name
         self.facebookId = facebookGraph.id
         self.email = facebookGraph.email
         self.birthday = facebookGraph.birthday
-        self.name = facebookGraph.name
         self.gender = facebookGraph.gender
         self.photoPathLarge = facebookGraph.picturePath
     }
     
-    // MARK: Fetch
-    
     // MARK: Initializers
-    init(uid: String) {
-        self.uid = uid
-        super.init()
+
+    convenience init(userId: String) {
+        self.init()
+        self.identifier = userId
     }
     
-    init(uid: String, facebookGraph : UserGraph) {
-        self.uid = uid
-        super.init()
+    convenience init(userId: String, facebookGraph : UserGraph) {
+        self.init()
+        self.identifier = userId
         importFacebookGraph(facebookGraph: facebookGraph)
-    }
-    
-    required init(snapshot: FIRDataSnapshot) {
-        let value = snapshot.value as! [String: Any]
-        uid = snapshot.key
-        facebookId = value[Keys.facebookId] as? String
-        name = value[Keys.name] as? String
-        email = value[Keys.email] as? String
-        birthday = value[Keys.birthday] as? String
-        gender = value[Keys.gender] as? String
-        photoPathSmall = value[Keys.photoPathSmall] as? String
-        photoPathLarge = value[Keys.photoPathLarge] as? String
     }
     
 }
