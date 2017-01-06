@@ -15,8 +15,22 @@ class FormTableViewController: UITableViewController {
         return self.createFields()
     }()
     
+    var fieldValues : [AnyHashable : Any] {
+        var values = [AnyHashable : Any]()
+        fields.forEach { (field : FormField) in
+            values[field.propertyKey] = field.value
+        }
+        return values
+    }
+    
     var cellReuseId : String {
         return ""
+    }
+    
+    func field(forKey key : String) -> FormField? {
+        return fields.filter { (field: FormField) -> Bool in
+            return field.propertyKey == key
+        }.first
     }
     
     override func viewDidLoad() {
@@ -75,7 +89,8 @@ extension FormTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let field = fields[indexPath.row]
+        var field = fields[indexPath.row]
+        field.indexPath = indexPath
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as! FormFieldTableViewCell
         cell.formField = field
         return cell

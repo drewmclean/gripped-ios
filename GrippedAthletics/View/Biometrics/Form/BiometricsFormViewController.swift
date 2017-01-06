@@ -101,6 +101,8 @@ class BiometricsFormViewController: FormTableViewController {
     override func saveFields() {
         if let bio = biometrics {
             
+        } else {
+            
         }
         dismiss(animated: true, completion: nil)
     }
@@ -166,6 +168,7 @@ class ApeIndexPickerViewDataSourceDelegate : NSObject, UIPickerViewDataSource, U
             return apeIndexValues.count
         }
     }
+    
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         if component == ApeIndexPickerViewComponent.sign.rawValue {
             return 44
@@ -194,7 +197,9 @@ class ApeIndexPickerViewDataSourceDelegate : NSObject, UIPickerViewDataSource, U
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        let apeField = field(forKey: Biometrics.Keys.apeIndex)
+        let signValue = SignValue.allValues[pickerView.selectedRow(inComponent: ApeIndexPickerViewComponent.sign.rawValue))
+        apeField.value = ""
     }
     
 }

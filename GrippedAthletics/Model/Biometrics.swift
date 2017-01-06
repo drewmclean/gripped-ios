@@ -16,7 +16,7 @@ enum SignValue : String {
     static let allValues = [plus, minus]
 }
 
-class Biometrics: FIRObject, FIRObjectRef, FIRTimeStampable {
+class Biometrics: FIRObject, FIRObjectRef, FIRTimestampable {
     
     struct Keys {
         static let userId = "user_id"

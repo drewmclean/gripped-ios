@@ -65,7 +65,7 @@ extension FIRUser {
                 } else {
                     profile = UserProfile(userId: self.uid, facebookGraph: userGraph)
                 }
-                currentProfileRef.updateChildValues(profile.hashableValue) { (error: Error?, ref: FIRDatabaseReference) in
+                currentProfileRef.updateChildValues(profile.fieldValues) { (error: Error?, ref: FIRDatabaseReference) in
                     guard error == nil else {
                         DDLogError(error!.localizedDescription)
                         return

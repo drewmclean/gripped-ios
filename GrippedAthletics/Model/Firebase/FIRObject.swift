@@ -9,7 +9,7 @@
 import CocoaLumberjack
 import FirebaseDatabase
 
-protocol FIRTimeStampable {
+protocol FIRTimestampable {
     var createdAt : String? { get set }
     var createdDate : Date? { get set }
 }
@@ -52,7 +52,6 @@ class FIRObject {
         
         db.reference().updateChildValues(childUpdates) { (error: Error?, ref: FIRDatabaseReference) in
             ref.observeSingleEvent(of: .value, with: { (snapshot: FIRDataSnapshot) in
-                
 //                new.importSnapshot(snapshot: snapshot)
 //                completion(error, new)
             })
@@ -70,9 +69,8 @@ class FIRObject {
 //    }
     
     func importSnapshot(snapshot: FIRDataSnapshot) {
-        
-        (self as! FIRObjectRef).fieldValues = snapshot.value!
-        
+        var r = self as! FIRObjectRef
+        r.fieldValues = snapshot.value as! [AnyHashable : Any]
     }
     
 }

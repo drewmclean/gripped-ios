@@ -37,5 +37,11 @@ class FormFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
         
         formField.textFieldConfiguration(textField)
     }
+    
+    // MARK: UITextFieldDelegate 
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        formField.value = textField.text
+    }
 
 }
