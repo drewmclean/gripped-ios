@@ -14,13 +14,21 @@ class BiometricsFormViewController: FormTableViewController {
     var biometricId : String?
     var biometrics : Biometrics?
     
-    lazy var apeDelegate = ApeIndexPickerViewDataSourceDelegate()
+    static let apeIndexRange : Int = 10
+    
+    static var apeIndexValues : [String] {
+        var values = [String]()
+        for i in 0...BiometricsFormViewController.apeIndexRange {
+            values.append("\(i)")
+        }
+        return values
+    }
     
     lazy var apeIndexPicker : UIPickerView = {
         let picker = UIPickerView()
         picker.backgroundColor = UIColor.white
-        picker.dataSource = self.apeDelegate
-        picker.delegate = self.apeDelegate
+        picker.dataSource = self
+        picker.delegate = self
         picker.reloadAllComponents()
         return picker
     }()
@@ -112,8 +120,14 @@ class BiometricsFormViewController: FormTableViewController {
 
 extension BiometricsFormViewController : KeyboardAnimator {
     internal func keyboardShowHandler(keyboardFrame: CGRect) {
+        
+        
+        selectApeSign(sign: biometrics?.apeSign)
+        selectApeLength(length: biometrics?.apeLength)
         apeIndexPicker.reloadAllComponents()
+        
     }
+    
     internal func keyboardShowAnimation(keyboardFrame: CGRect) {
         
     }
@@ -127,7 +141,7 @@ extension BiometricsFormViewController : KeyboardAnimator {
 
 extension BiometricsFormViewController {
     
-
+    
     
 }
 
@@ -138,24 +152,46 @@ enum ApeIndexPickerViewComponent : Int {
     static let allValues = [sign, length]
 }
 
-class ApeIndexPickerViewDataSourceDelegate : NSObject, UIPickerViewDataSource, UIPickerViewDelegate {
+extension BiometricsFormViewController : UIPickerViewDataSource, UIPickerViewDelegate {
     
-    static let apeIndexRange : Int = 10
+    func selectApeSign(sign : String?) {
         
-    var pickerView : UIPickerView!
-    
-    var selectedApeIndex : String? {
+        func selectPlusSign() {
+            apeIndexPicker.selectRow(0, inComponent: ApeIndexPickerViewComponent.sign.rawValue, animated: false)
+        }
         
-        return nil
+        guard let s = sign else {
+            selectPlusSign()
+            return
+        }
+        
+        guard let signRow = SignValue.allValues.index(of: SignValue.valueFromRaw(raw: s)!) else {
+            selectPlusSign()
+            return
+        }
+        
+        apeIndexPicker.selectRow(signRow, inComponent: ApeIndexPickerViewComponent.sign.rawValue, animated: false)
+
     }
     
-    lazy var apeIndexValues : [String] = {
-        var values = [String]()
-        for i in 0...ApeIndexPickerViewDataSourceDelegate.apeIndexRange {
-            values.append("\(i)")
+    func selectApeLength(length : String?) {
+        
+        func selectZero() {
+            apeIndexPicker.selectRow(0, inComponent: ApeIndexPickerViewComponent.length.rawValue, animated: false)
         }
-        return values
-    }()
+        
+        guard let l = length else {
+            selectZero()
+            return
+        }
+        
+        guard let lengthRow = BiometricsFormViewController.apeIndexValues.index(of: l) else {
+            selectZero()
+            return
+        }
+        
+        apeIndexPicker.selectRow(lengthRow, inComponent: ApeIndexPickerViewComponent.length.rawValue, animated: false)
+    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return ApeIndexPickerViewComponent.allValues.count
@@ -165,7 +201,7 @@ class ApeIndexPickerViewDataSourceDelegate : NSObject, UIPickerViewDataSource, U
         if component == ApeIndexPickerViewComponent.sign.rawValue {
             return SignValue.allValues.count
         } else {
-            return apeIndexValues.count
+            return BiometricsFormViewController.apeIndexValues.count
         }
     }
     
@@ -191,15 +227,17 @@ class ApeIndexPickerViewDataSourceDelegate : NSObject, UIPickerViewDataSource, U
         } else {
             attributes = [NSForegroundColorAttributeName: UIColor.black,
                           NSFontAttributeName: UIFont.boldSystemFont(ofSize: 48)]
-            title = apeIndexValues[row]
+            title = BiometricsFormViewController.apeIndexValues[row]
         }
         return NSMutableAttributedString(string: title, attributes: attributes)
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let apeField = field(forKey: Biometrics.Keys.apeIndex)
-        let signValue = SignValue.allValues[pickerView.selectedRow(inComponent: ApeIndexPickerViewComponent.sign.rawValue))
-        apeField.value = ""
+        var apeField = field(forKey: Biometrics.Keys.apeIndex)!
+        let signValue = SignValue.allValues[pickerView.selectedRow(inComponent: ApeIndexPickerViewComponent.sign.rawValue)].rawValue
+        let lengthValue = BiometricsFormViewController.apeIndexValues[pickerView.selectedRow(inComponent: ApeIndexPickerViewComponent.length.rawValue)]
+        apeField.value = "\(signValue)\(lengthValue)"
+        tableView.reloadRows(at: [apeField.indexPath], with: .automatic)
     }
     
 }

@@ -49,6 +49,7 @@
 		57BB62EA1E1C212100D62CAB /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BB62E91E1C212100D62CAB /* FormField.swift */; };
 		57BB62EE1E1C275400D62CAB /* Biometrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BB62ED1E1C275400D62CAB /* Biometrics.swift */; };
 		57BB62F91E1DEBD000D62CAB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BB62F81E1DEBD000D62CAB /* User.swift */; };
+		57BEF3DF1E205F2F008CBAFE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BEF3DE1E205F2F008CBAFE /* String.swift */; };
 		57C9CCE21E1B3D480073E19F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C9CCE11E1B3D480073E19F /* Date.swift */; };
 		57CF08F71DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CF08F61DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift */; };
 		57D87E521DE0C2F1000435E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57D87E511DE0C2F1000435E5 /* GoogleService-Info.plist */; };
@@ -125,6 +126,7 @@
 		57BB62E91E1C212100D62CAB /* FormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		57BB62ED1E1C275400D62CAB /* Biometrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Biometrics.swift; sourceTree = "<group>"; };
 		57BB62F81E1DEBD000D62CAB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		57BEF3DE1E205F2F008CBAFE /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		57C9CCE11E1B3D480073E19F /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		57CF08F61DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLinkPasswordEntryViewController.swift; sourceTree = "<group>"; };
 		57D87E511DE0C2F1000435E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				570974B21DFB54CC00D355B9 /* UserDefaults.swift */,
 				570974B41DFB58B300D355B9 /* NSError.swift */,
 				57C9CCE11E1B3D480073E19F /* Date.swift */,
+				57BEF3DE1E205F2F008CBAFE /* String.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -739,6 +742,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57BEF3DF1E205F2F008CBAFE /* String.swift in Sources */,
 				57BB62EE1E1C275400D62CAB /* Biometrics.swift in Sources */,
 				57BB62EA1E1C212100D62CAB /* FormField.swift in Sources */,
 				579DE2DC1DBC279800D71875 /* MainViewController.swift in Sources */,

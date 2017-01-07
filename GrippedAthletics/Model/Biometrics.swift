@@ -13,6 +13,13 @@ enum SignValue : String {
     case plus = "+"
     case minus = "-"
     
+    static func valueFromRaw(raw:String) -> SignValue? {
+        return SignValue.allValues.filter { (signValue : SignValue) -> Bool in
+            return signValue.rawValue == raw
+        }.first
+        return nil
+    }
+    
     static let allValues = [plus, minus]
 }
 
@@ -45,6 +52,15 @@ class Biometrics: FIRObject, FIRObjectRef, FIRTimestampable {
     var forearmCircumference : String?
     var createdAt : String?
     var createdDate : Date?
+    
+    var apeSign : String? {
+        guard let ape = apeIndex else { return nil }
+        return ape.substring(to: 0)
+    }
+    
+    var apeLength : String? {
+        return apeIndex?.trimmingCharacters(in: CharacterSet(charactersIn: "+-"))
+    }
     
     var fieldValues: [AnyHashable : Any] {
         get {
