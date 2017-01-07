@@ -80,6 +80,7 @@ class FormTableViewController: UITableViewController {
 extension FormTableViewController {
 
 }
+
 // MARK: UITableViewDataSource
 
 extension FormTableViewController {
@@ -90,7 +91,7 @@ extension FormTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var field = fields[indexPath.row]
-        field.indexPath = indexPath
+        field.index = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as! FormFieldTableViewCell
         cell.formField = field
         return cell

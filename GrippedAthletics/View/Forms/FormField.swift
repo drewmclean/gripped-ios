@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 struct FormField {
-    var indexPath : IndexPath!
+    var index : Int!
     var title : String
     var unit : String
     var propertyKey : String

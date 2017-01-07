@@ -74,7 +74,7 @@ class BiometricsFormViewController: FormTableViewController {
             textField.autocapitalizationType = .none
             textField.keyboardType = .decimalPad
         })
-        fields.append(FormField(title: "Ape Index", unit: "+/- cm", propertyKey: Biometrics.Keys.apeIndex) { (textField: UITextField) in
+        fields.append(FormField(title: "Ape Index", unit: "cm", propertyKey: Biometrics.Keys.apeIndex) { (textField: UITextField) in
             textField.inputView = self.apeIndexPicker
         })
         fields.append(FormField(title: "Forearm Length", unit: "cm", propertyKey: Biometrics.Keys.forearmLength) { (textField: UITextField) in
@@ -237,7 +237,13 @@ extension BiometricsFormViewController : UIPickerViewDataSource, UIPickerViewDel
         let signValue = SignValue.allValues[pickerView.selectedRow(inComponent: ApeIndexPickerViewComponent.sign.rawValue)].rawValue
         let lengthValue = BiometricsFormViewController.apeIndexValues[pickerView.selectedRow(inComponent: ApeIndexPickerViewComponent.length.rawValue)]
         apeField.value = "\(signValue)\(lengthValue)"
-        tableView.reloadRows(at: [apeField.indexPath], with: .automatic)
+        let index = fields.index { (field: FormField) -> Bool in
+            return field.propertyKey == apeField.propertyKey
+        }!
+        let indexPath = IndexPath(row:index, section:0)
+        if let apeCell = tableView.cellForRow(at: indexPath) as? FormFieldTableViewCell {
+            apeCell.textField.text = apeField.value
+        }
     }
     
 }
