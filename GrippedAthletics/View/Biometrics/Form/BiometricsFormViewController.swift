@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CocoaLumberjack
 import FirebaseDatabase
 
 class BiometricsFormViewController: FormTableViewController {
@@ -101,16 +102,19 @@ class BiometricsFormViewController: FormTableViewController {
     }
     
     override func saveFields() {
-        
-        let formValues = fieldValues
-        
         if let bio = biometrics {
             // Update Existing
             
         } else {
+            var formValues = fieldValues
+            formValues[Biometrics.Keys.userId] = auth.currentUser!.uid
             // Create New 
-            Biometrics.create(fieldValues: formValues) { (error: Error?, biometric: FIRObject?) in
+            Biometrics.create(fieldValues: formValues) { (error: Error?, snapshot: FIRDataSnapshot?) in
+                guard let s = snapshot else {
+                    return
+                }
                 
+                self.biometrics = Biometrics(snapshot: s)
             }
         }
 //        dismiss(animated: true, completion: nil)

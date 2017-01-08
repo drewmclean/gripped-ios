@@ -85,7 +85,6 @@ class UserProfile : FIRObject {
         return "\(age!) \(gender!.characters.first!)"
     }
 
-    
     func importFacebookGraph(facebookGraph: UserGraph) {
         self.name = facebookGraph.name
         self.facebookId = facebookGraph.id
@@ -98,11 +97,12 @@ class UserProfile : FIRObject {
     // MARK: Initializers
 
     convenience init(userId: String) {
-        self.init(id: userId)
+        self.init()
+        self.identifier = userId
     }
     
     convenience init(userId: String, facebookGraph : UserGraph) {
-        self.init(id: userId)
+        self.init(userId: userId)
         importFacebookGraph(facebookGraph: facebookGraph)
     }
     
