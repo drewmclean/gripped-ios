@@ -17,7 +17,6 @@ enum SignValue : String {
         return SignValue.allValues.filter { (signValue : SignValue) -> Bool in
             return signValue.rawValue == raw
         }.first
-        return nil
     }
     
     static let allValues = [plus, minus]
@@ -45,7 +44,7 @@ class Biometrics: FIRObject, FIRTimestampable {
         return db.reference(withPath: objectName)
     }
     
-    var userId : String
+    var userId : String = ""
     var height : String?
     var weight : String?
     var bodyComposition : String?
@@ -87,10 +86,13 @@ class Biometrics: FIRObject, FIRTimestampable {
     }
     
     // MARK: Initializrers
-    init(identifier : String, userId : String) {
+    convenience init(identifier : String, userId : String) {
+        self.init(id: identifier)
         self.userId = userId
-        super.init()
-        self.identifier = identifier
     }
     
+    required convenience init(id: String) {
+        self.init(id: id)
+        self.userId = ""
+    }
 }

@@ -57,7 +57,7 @@ class FIRObject {
         }
     }
     
-    static func create(fieldValues:[AnyHashable:Any], completion:@escaping (Error?, FIRObject?) -> Void) {
+    static func create<T: FIRObject>(fieldValues:[AnyHashable:Any], completion:@escaping (Error?, T?) -> Void) {
         
         // Create a new unique identifier for the object's parent reference
         let key = objectRef.childByAutoId().key
@@ -68,8 +68,11 @@ class FIRObject {
         }
         
         db.reference().updateChildValues(childUpdates) { (error: Error?, ref: FIRDatabaseReference) in
-            ref.observeSingleEvent(of: .value, with: { (snapshot: FIRDataSnapshot) in
+            if let e = error {
+                DDLogError(e.localizedDescription)
                 
+            }
+            ref.observeSingleEvent(of: .value, with: { (snapshot: FIRDataSnapshot) in
                 
             })
         }
@@ -98,9 +101,8 @@ class FIRObject {
         }
     }
     
-    convenience init(snapshot: FIRDataSnapshot) {
-        self.init()
-        importSnapshot(snapshot: snapshot)
+    required init(id: String) {
+        
     }
     
 }

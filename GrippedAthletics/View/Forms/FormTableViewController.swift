@@ -19,7 +19,7 @@ class FormTableViewController: UITableViewController {
         var values = [AnyHashable : Any]()
         fields.forEach { (field : FormField) in
             print("form values: \(field.propertyKey): \(field.value)")
-            
+            values[field.propertyKey] = field.value
         }
         return values
     }

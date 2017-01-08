@@ -98,13 +98,11 @@ class UserProfile : FIRObject {
     // MARK: Initializers
 
     convenience init(userId: String) {
-        self.init()
-        self.identifier = userId
+        self.init(id: userId)
     }
     
     convenience init(userId: String, facebookGraph : UserGraph) {
-        self.init()
-        self.identifier = userId
+        self.init(id: userId)
         importFacebookGraph(facebookGraph: facebookGraph)
     }
     
