@@ -9,12 +9,12 @@
 import UIKit
 import  FirebaseDatabase
 
-class User: FIRObject, FIRObjectRef {
+class User: FIRObject {
     
-    static var objectName: String = "users"
-    static var objectRef = FIRDatabaseReference().child(User.objectName)
+    override class var objectName: String { return "users" }
+    override class var objectRef: FIRDatabaseReference { return FIRDatabaseReference().child(User.objectName) }
     
-    var fieldValues: [AnyHashable : Any] {
+    override var fieldValues: [AnyHashable : Any] {
         set {
             
         }

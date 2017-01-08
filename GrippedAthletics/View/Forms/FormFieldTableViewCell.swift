@@ -36,12 +36,17 @@ class FormFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
         unitLabel.text = formField.unit
         
         formField.textFieldConfiguration(textField)
+        textField.text = formField.value
+    }
+    
+    func updateFieldValue() {
+        formField.value = textField.text!
     }
     
     // MARK: UITextFieldDelegate 
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        formField.value = textField.text
+        updateFieldValue()
     }
 
 }

@@ -14,13 +14,6 @@ protocol FIRTimestampable {
     var createdDate : Date? { get set }
 }
 
-protocol FIRObjectRef {
-    static var objectName: String { get }
-    static var objectRef: FIRDatabaseReference { get }
-    
-    var fieldValues : [AnyHashable: Any] { get set }
-}
-
 class FIRObject {
     
     struct Keys {
@@ -32,19 +25,43 @@ class FIRObject {
     
     var identifier : String = ""
     
-    static func childUpdateRefKeys<T: FIRObject, U: FIRObjectRef>(someT: T, someU: U, objectKey: String, userId: String?) -> [String] {
-        var keys = ["\(U.objectName)/\(objectKey)"]
+    class var objectName: String {
+        return ""
+    }
+    
+    class var objectRef: FIRDatabaseReference { return db.reference().child(objectName) }
+    
+    var fieldValues : [AnyHashable: Any] {
+        get {
+            return [AnyHashable: Any]()
+        }
+        set {
+            
+        }
+    }
+    
+    static func childUpdateRefKeys(objectKey: String, userId: String?) -> [String] {
+        var keys = ["\(objectName)/\(objectKey)"]
         if let _ = userId {
-            keys.append("\(User.objectName)-\(U.objectName)/\(userId!)/\(objectKey)")
+            keys.append("\(User.objectName)-\(objectName)/\(userId!)/\(objectKey)")
         }
         return keys
     }
     
-    static func create<T: FIRObject, U: FIRObjectRef>(someT: T, someU: U, fieldValues:[AnyHashable:Any], userId:String?, completion:@escaping (Error?, T) -> Void) {
+    static func fetch<T: FIRObject>(someT: T, key: String, completion: @escaping (Error?, T?) -> Void) {
+        let ref = T.objectRef.child(key)
+        ref.observe(.value) { (snapshot: FIRDataSnapshot) in
+            if snapshot.exists() {
+                
+            }
+        }
+    }
+    
+    static func create(fieldValues:[AnyHashable:Any], completion:@escaping (Error?, FIRObject?) -> Void) {
         
         // Create a new unique identifier for the object's parent reference
-        let key = U.objectRef.childByAutoId().key
-        let childRefKeys = T.childUpdateRefKeys(someT: someT, someU: someU, objectKey: key, userId: userId)
+        let key = objectRef.childByAutoId().key
+        let childRefKeys = childUpdateRefKeys(objectKey: key, userId: Auth.instance.currentUser!.uid)
         var childUpdates = [String : Any]()
         childRefKeys.forEach { (key: String) in
             childUpdates[key] = fieldValues
@@ -52,25 +69,38 @@ class FIRObject {
         
         db.reference().updateChildValues(childUpdates) { (error: Error?, ref: FIRDatabaseReference) in
             ref.observeSingleEvent(of: .value, with: { (snapshot: FIRDataSnapshot) in
-//                new.importSnapshot(snapshot: snapshot)
-//                completion(error, new)
+                
+                
             })
         }
     }
-
-//    func save(completionror?) -> Void) {
-//        let biometric = hashableValue
+    
+//    func save<T: FIRObject, U: FIRObjectRef>(completion:@escaping (Error?, T) -> Void, someU: U, someT: T?)  {
 //        
-//        FIRDatabase.database().reference().updateChildValues(childUpdates) { (error: Error?, ref: FIRDatabaseReference) in
+//        let key = identifier
+//        let childRefKeys = T.childUpdateRefKeys(objectKey: key, userId: Auth.instance.currentUser!.uid, someU: someU)
+//        var childUpdates = [String : Any]()
+//        let values = someU.fieldValues
+//        childRefKeys.forEach { (key: String) in
+//            childUpdates[key] = values
+//        }
+//        FIRObject.db.reference().updateChildValues(childUpdates) { (error: Error?, ref: FIRDatabaseReference) in
 //            ref.observeSingleEvent(of: .value, with: { (snapshot: FIRDataSnapshot) in
-//                completion(error)
+//                
 //            })
 //        }
 //    }
     
     func importSnapshot(snapshot: FIRDataSnapshot) {
-        var r = self as! FIRObjectRef
-        r.fieldValues = snapshot.value as! [AnyHashable : Any]
+        identifier = snapshot.key
+        if snapshot.exists() {
+            fieldValues = snapshot.value as! [AnyHashable : Any]
+        }
+    }
+    
+    convenience init(snapshot: FIRDataSnapshot) {
+        self.init()
+        importSnapshot(snapshot: snapshot)
     }
     
 }

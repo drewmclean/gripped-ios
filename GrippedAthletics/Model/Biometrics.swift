@@ -23,9 +23,11 @@ enum SignValue : String {
     static let allValues = [plus, minus]
 }
 
-class Biometrics: FIRObject, FIRObjectRef, FIRTimestampable {
+class Biometrics: FIRObject, FIRTimestampable {
+    typealias T = Biometrics
     
     struct Keys {
+        static let createdAt = "created_at"
         static let userId = "user_id"
         static let height = "height"
         static let weight = "weight"
@@ -35,12 +37,12 @@ class Biometrics: FIRObject, FIRObjectRef, FIRTimestampable {
         static let forearmCircumference = "forearm_circumference"
     }
     
-    static var objectName: String {
+    override class var objectName: String {
         return "biometrics"
     }
     
-    static var objectRef: FIRDatabaseReference {
-        return db.reference(withPath: Biometrics.objectName)
+    override class var objectRef: FIRDatabaseReference {
+        return db.reference(withPath: objectName)
     }
     
     var userId : String
@@ -62,7 +64,7 @@ class Biometrics: FIRObject, FIRObjectRef, FIRTimestampable {
         return apeIndex?.trimmingCharacters(in: CharacterSet(charactersIn: "+-"))
     }
     
-    var fieldValues: [AnyHashable : Any] {
+    override var fieldValues: [AnyHashable : Any] {
         get {
             return [Keys.userId: userId,
                     Keys.height: height!,
@@ -83,11 +85,12 @@ class Biometrics: FIRObject, FIRObjectRef, FIRTimestampable {
             forearmCircumference = newValue[Keys.forearmCircumference] as? String
         }
     }
-
-    required init(userId : String) {
+    
+    // MARK: Initializrers
+    init(identifier : String, userId : String) {
         self.userId = userId
         super.init()
-        self.identifier = Biometrics.objectRef.childByAutoId().key
+        self.identifier = identifier
     }
     
 }

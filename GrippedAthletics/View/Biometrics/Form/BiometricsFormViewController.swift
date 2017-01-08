@@ -92,13 +92,7 @@ class BiometricsFormViewController: FormTableViewController {
     
     override func fetchFields() {
         if let existing = biometricId {
-//            let ref = Biometrics.objectRef.child(existing)
-//            ref.observe(.value) { (snapshot: FIRDataSnapshot) in
-//                if snapshot.exists() {
-//                    self.biometrics = Biometrics(
-//                    self.biometrics?.importSnapshot(snapshot: snapshot)
-//                }
-//            }
+            
         }
     }
     
@@ -107,12 +101,19 @@ class BiometricsFormViewController: FormTableViewController {
     }
     
     override func saveFields() {
+        
+        let formValues = fieldValues
+        
         if let bio = biometrics {
+            // Update Existing
             
         } else {
-            
+            // Create New 
+            Biometrics.create(fieldValues: formValues) { (error: Error?, biometric: FIRObject?) in
+                
+            }
         }
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
     }
 }
 

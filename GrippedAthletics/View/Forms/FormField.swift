@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-struct FormField {
-    var index : Int!
+class FormField {
+    var indexPath : Int!
     var title : String
     var unit : String
     var propertyKey : String
-    var value : String?
+    var value : String = ""
     var textFieldConfiguration : (UITextField) -> Void?
     
     init (title:String, unit:String, propertyKey:String, textFieldConfiguration: @escaping (UITextField) -> Void) {
@@ -22,6 +22,7 @@ struct FormField {
         self.unit = unit
         self.propertyKey = propertyKey
         self.textFieldConfiguration = textFieldConfiguration
+        
     }
     
 }

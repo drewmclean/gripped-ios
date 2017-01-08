@@ -10,9 +10,10 @@ import Foundation
 import FirebaseAuth
 import FirebaseDatabase
 
-class UserProfile : FIRObject, FIRObjectRef {
+class UserProfile : FIRObject {
+    typealias T = UserProfile
     
-    static var objectName: String = "profiles"
+    
     
     struct Keys {
         static let facebookId = "facebook_id"
@@ -24,11 +25,13 @@ class UserProfile : FIRObject, FIRObjectRef {
         static let photoPathSmall = "photo_path_small"
     }
     
-    static var objectRef: FIRDatabaseReference {
+    override class var objectName: String { return "profiles" }
+    
+    override class var objectRef: FIRDatabaseReference {
         return db.reference(withPath: "profiles")
     }
     
-    var fieldValues: [AnyHashable : Any] {
+    override var fieldValues: [AnyHashable : Any] {
         get {
             return [Keys.facebookId: facebookId!,
                     Keys.name: name!,
