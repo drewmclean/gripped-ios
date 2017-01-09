@@ -11,6 +11,7 @@ target 'GrippedAthletics' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Crash'
+  pod 'FirebaseUI'
   pod 'FacebookCore', '~> 0.2'
   pod 'FacebookLogin', '~> 0.2'
   pod 'BrightFutures', '~> 5.0'

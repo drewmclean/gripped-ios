@@ -60,7 +60,7 @@ extension FIRUser {
                 
                 var profile : UserProfile!
                 if snapshot.exists() {
-                    profile.importSnapshot(snapshot: snapshot)
+                    profile = UserProfile(snapshot: snapshot)
                     profile.importFacebookGraph(facebookGraph: userGraph)
                 } else {
                     profile = UserProfile(userId: self.uid, facebookGraph: userGraph)

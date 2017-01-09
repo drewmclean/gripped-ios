@@ -10,26 +10,27 @@ import CocoaLumberjack
 import FirebaseDatabase
 
 protocol FIRTimestampable {
-    var createdAt : String? { get set }
-    var createdDate : Date? { get set }
+    var createdAt : Date? { get set }
+    var modifiedAt : Date? { get set }
 }
 
 class FIRObject {
-    
-    struct Keys {
-        static let createdAt = "created_at"
-        static let modifiedAt = "modified_at"
-    }
     
     static let db : FIRDatabase = FIRDatabase.database()
     
     var identifier : String = ""
     
     class var objectName: String {
+        assert(false, "You must override objectName in FIRObject subclass.")
+        return ""
+    }
+    
+    class var userObjectsName: String {
         return ""
     }
     
     class var objectRef: FIRDatabaseReference { return db.reference().child(objectName) }
+    class var userObjectsRef: FIRDatabaseReference { return db.reference().child(userObjectsName) }
     
     var fieldValues : [AnyHashable: Any] {
         get {
@@ -43,7 +44,7 @@ class FIRObject {
     static func childUpdateRefKeys(objectKey: String, userId: String?) -> [String] {
         var keys = ["\(objectName)/\(objectKey)"]
         if let _ = userId {
-            keys.append("\(User.objectName)-\(objectName)/\(userId!)/\(objectKey)")
+            keys.append("\(userObjectsName)/\(userId!)/\(objectKey)")
         }
         return keys
     }

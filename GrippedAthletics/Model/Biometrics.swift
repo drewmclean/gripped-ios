@@ -27,6 +27,7 @@ class Biometrics: FIRObject, FIRTimestampable {
     
     struct Keys {
         static let createdAt = "created_at"
+        static let modifiedAt = "modified_at"
         static let userId = "user_id"
         static let height = "height"
         static let weight = "weight"
@@ -40,8 +41,8 @@ class Biometrics: FIRObject, FIRTimestampable {
         return "biometrics"
     }
     
-    override class var objectRef: FIRDatabaseReference {
-        return db.reference(withPath: objectName)
+    override class var userObjectsName: String {
+        return "user-biometrics"
     }
     
     var userId : String = ""
@@ -51,8 +52,8 @@ class Biometrics: FIRObject, FIRTimestampable {
     var apeIndex : String?
     var forearmLength : String?
     var forearmCircumference : String?
-    var createdAt : String?
-    var createdDate : Date?
+    var createdAt : Date?
+    var modifiedAt : Date?
     
     var apeSign : String? {
         guard let ape = apeIndex else { return nil }
@@ -72,7 +73,7 @@ class Biometrics: FIRObject, FIRTimestampable {
                     Keys.apeIndex: apeIndex!,
                     Keys.forearmLength: forearmLength!,
                     Keys.forearmCircumference: forearmCircumference!,
-                    FIRObject.Keys.createdAt : createdAt!]
+                    Keys.createdAt : createdAt!.isoString()]
         }
         set {
             userId = newValue[Keys.userId] as! String
@@ -82,6 +83,7 @@ class Biometrics: FIRObject, FIRTimestampable {
             apeIndex = newValue[Keys.apeIndex] as? String
             forearmLength = newValue[Keys.forearmLength] as? String
             forearmCircumference = newValue[Keys.forearmCircumference] as? String
+            createdAt = Date.isoDate(from: newValue[Keys.createdAt] as! String)
         }
     }
     
@@ -94,5 +96,38 @@ class Biometrics: FIRObject, FIRTimestampable {
     required convenience init(id: String) {
         self.init(id: id)
         self.userId = ""
+    }
+}
+
+extension Biometrics {
+    
+    var heightWithUnits : String? {
+        guard let h = height else { return nil }
+        return "\(h)cm"
+    }
+    
+    var weightWithUnits : String? {
+        guard let w = weight else { return nil }
+        return "\(w)kg"
+    }
+    
+    var bodyCompositionWithUnits : String? {
+        guard let bc = bodyComposition else { return nil }
+        return "\(bc)%"
+    }
+    
+    var apeIndexWithUnits : String? {
+        guard let ape = apeIndex else { return nil }
+        return "\(ape)cm"
+    }
+    
+    var forearmLengthWithUnits : String? {
+        guard let l = forearmLength else { return nil }
+        return "\(l)cm"
+    }
+    
+    var forearmCircumferenceWithUnits : String? {
+        guard let l = forearmCircumference else { return nil }
+        return "\(l)cm"
     }
 }

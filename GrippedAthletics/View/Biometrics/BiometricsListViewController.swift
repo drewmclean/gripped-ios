@@ -1,14 +1,34 @@
 //
 //  BiometricsListViewController.swift
 //  GrippedAthletics
-//
+//  
 //  Created by Andrew McLean on 1/3/17.
 //  Copyright © 2017 GrippedAthletics. All rights reserved.
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import FirebaseDatabaseUI
 
 class BiometricsListViewController: UITableViewController {
+    
+    lazy var userBiometricsQuery: FIRDatabaseQuery = {
+        return Biometrics.userObjectsRef.child(Auth.instance.currentUser!.uid)
+    }()
+    
+    lazy var dataSource: FUITableViewDataSource = {
+        let source = FUITableViewDataSource(query: self.userBiometricsQuery, view: self.tableView) { (tableView: UITableView, indexPath: IndexPath, snapshot: FIRDataSnapshot) -> UITableViewCell in
+            
+            print("\(indexPath.row): \(snapshot.value!)")
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: BiometricsListTableViewCell.cellId, for: indexPath) as! BiometricsListTableViewCell
+            cell.biometrics = Biometrics(snapshot: snapshot)
+            return cell
+        }
+        
+        return source
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,30 +37,17 @@ class BiometricsListViewController: UITableViewController {
         
         navigationItem.leftBarButtonItem = barItemForNavType(withType: .mainMenu)
         navigationItem.rightBarButtonItem = barItemForNavType(withType: .add, title: nil, target: self, action: #selector(BiometricsListViewController.didTapAdd(sender:)))
-    }
-    
-}
-
-// MARK: - UITableViewDataSource
-
-extension BiometricsListViewController  {
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BiometricsListTableViewCell.cellId, for: indexPath) as! BiometricsListTableViewCell
         
-        return cell
+        tableView.dataSource = dataSource
+        tableView.delegate = self
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
 }
 
 // MARK: - UITableViewDelegate

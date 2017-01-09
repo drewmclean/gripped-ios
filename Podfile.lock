@@ -14,6 +14,7 @@ PODS:
     - CocoaLumberjack/Default
   - CocoaLumberjack/Swift (3.0.0):
     - CocoaLumberjack/Extensions
+  - Fabric (1.6.11)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -38,6 +39,9 @@ PODS:
   - Firebase/Database (3.11.0):
     - Firebase/Core
     - FirebaseDatabase (= 3.1.1)
+  - Firebase/Storage (3.11.0):
+    - Firebase/Core
+    - FirebaseStorage (= 1.0.5)
   - FirebaseAnalytics (3.6.0):
     - FirebaseCore (~> 3.4)
     - FirebaseInstanceID (~> 1.0)
@@ -61,6 +65,34 @@ PODS:
   - FirebaseDatabase (3.1.1):
     - FirebaseAnalytics (~> 3.5)
   - FirebaseInstanceID (1.0.8)
+  - FirebaseStorage (1.0.5):
+    - FirebaseAnalytics (~> 3.5)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseUI (1.0.0):
+    - FirebaseUI/All (= 1.0.0)
+  - FirebaseUI/All (1.0.0):
+    - FirebaseUI/Auth
+    - FirebaseUI/Database
+    - FirebaseUI/Facebook
+    - FirebaseUI/Google
+    - FirebaseUI/Storage
+    - FirebaseUI/Twitter
+  - FirebaseUI/Auth (1.0.0):
+    - Firebase/Auth
+  - FirebaseUI/Database (1.0.0):
+    - Firebase/Database
+  - FirebaseUI/Facebook (1.0.0):
+    - FBSDKLoginKit (~> 4.0)
+    - FirebaseUI/Auth
+  - FirebaseUI/Google (1.0.0):
+    - FirebaseUI/Auth
+    - GoogleSignIn (~> 4.0)
+  - FirebaseUI/Storage (1.0.0):
+    - Firebase/Storage
+    - SDWebImage
+  - FirebaseUI/Twitter (1.0.0):
+    - FirebaseUI/Auth
+    - TwitterKit (~> 2.4)
   - FutureProofing (0.3.0):
     - BrightFutures (~> 5.0)
     - FutureProofing/Core (= 0.3.0)
@@ -70,8 +102,15 @@ PODS:
   - FutureProofing/Foundation (0.3.0):
     - BrightFutures (~> 5.0)
     - FutureProofing/Core
+  - GoogleAppUtilities (1.1.2):
+    - GoogleSymbolUtilities (~> 1.1)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
+  - GoogleSignIn (4.0.1):
+    - GoogleAppUtilities (~> 1.1)
+    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+    - GTMOAuth2 (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleSymbolUtilities (1.1.2)
   - GoogleToolboxForMac/DebugUtils (2.1.0):
     - GoogleToolboxForMac/Defines (= 2.1.0)
@@ -85,7 +124,13 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.0)
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.0)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.0)
+  - GTMOAuth2 (1.1.4):
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.1.7):
+    - GTMSessionFetcher/Full (= 1.1.7)
   - GTMSessionFetcher/Core (1.1.7)
+  - GTMSessionFetcher/Full (1.1.7):
+    - GTMSessionFetcher/Core (= 1.1.7)
   - Locksmith (3.0.0)
   - PKRevealController (2.0.6)
   - Result (3.1.0)
@@ -94,6 +139,10 @@ PODS:
   - SDWebImage/Core (4.0.0-beta)
   - SnapKit (3.0.2)
   - SwiftValidator (4.0.0)
+  - TwitterCore (2.7.0):
+    - Fabric
+  - TwitterKit (2.7.0):
+    - TwitterCore (= 2.7.0)
 
 DEPENDENCIES:
   - BrightFutures (~> 5.0)
@@ -104,6 +153,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Crash
   - Firebase/Database
+  - FirebaseUI
   - FutureProofing (from `git@github.com:Thomvis/FutureProofing.git`)
   - Locksmith
   - PKRevealController
@@ -136,6 +186,7 @@ SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BrightFutures: 62aafb1a63520eda91c9286bf4be33e58e043938
   CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FBSDKCoreKit: 15fef8804a4629f98c6f4e55e81a76c9d725d85e
@@ -147,10 +198,15 @@ SPEC CHECKSUMS:
   FirebaseCrash: 34f0349908ec87945a5ae96c402e7201a3f3aede
   FirebaseDatabase: 6de92187481ff0e8e124064f21742e95ee883b02
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  FirebaseStorage: 5738284835edb57f0e81d4ae5832bb17c1e4b5fa
+  FirebaseUI: 82bd64fc3fc5a9451c37a720aee813990e727cf1
   FutureProofing: 1a0a47fdf63a22a3fe11c6b6737dcc9cb14b1c0a
+  GoogleAppUtilities: a8a552aa74f6597f805e45b5a3962766c3134973
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleSignIn: a8694c0a8e6d1b0ec77c58014de5bfd4ba2fa766
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
+  GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   PKRevealController: ffb45a16f5a5032ad90a3d16e5cbb0d8e035bd58
@@ -158,7 +214,9 @@ SPEC CHECKSUMS:
   SDWebImage: 835b541a1946d371dea2ab41da591dd8d1f93865
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
+  TwitterCore: fbdbeaf6d2d20cf7c7aa4136fe5173c1c85df2e2
+  TwitterKit: 97e729ceea041d174126235bf6ff67dcf37772d4
 
-PODFILE CHECKSUM: a85feff3f8b13ca1d2097a22686127553c2ac924
+PODFILE CHECKSUM: 397da7df0efb2a660d1937c9e265bd7a58009c5d
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0.beta.1

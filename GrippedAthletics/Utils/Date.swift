@@ -19,6 +19,15 @@ struct DateFormaters {
 
 extension Date {
     
+    struct Formatters {
+        static var iso : DateFormatter {
+            let isoFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            let formatter = DateFormatter()
+            formatter.dateFormat = isoFormat
+            return formatter
+        }
+    }
+    
     func sinceNowInYears() -> Int {
         let now = Date()
         let calendar : NSCalendar = NSCalendar.current as NSCalendar
@@ -31,5 +40,15 @@ extension Date {
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = DateFormat.short.rawValue
         return formatter.string(from: self)
+    }
+    
+    func isoString() -> String {
+        return Formatters.iso.string(from: self)
+    }
+    
+    // Date Creation Statics
+    
+    static func isoDate(from dateString : String) -> Date? {
+        return Formatters.iso.date(from: dateString)
     }
 }

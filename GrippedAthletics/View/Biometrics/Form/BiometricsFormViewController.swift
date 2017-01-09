@@ -108,16 +108,18 @@ class BiometricsFormViewController: FormTableViewController {
         } else {
             var formValues = fieldValues
             formValues[Biometrics.Keys.userId] = auth.currentUser!.uid
-            // Create New 
+            formValues[Biometrics.Keys.createdAt] = Date().isoString()
+            
+            // Create New
             Biometrics.create(fieldValues: formValues) { (error: Error?, snapshot: FIRDataSnapshot?) in
                 guard let s = snapshot else {
                     return
                 }
                 
                 self.biometrics = Biometrics(snapshot: s)
+                self.dismiss(animated: true, completion: nil)
             }
         }
-//        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -238,7 +240,7 @@ extension BiometricsFormViewController : UIPickerViewDataSource, UIPickerViewDel
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        var apeField = field(forKey: Biometrics.Keys.apeIndex)!
+        let apeField = field(forKey: Biometrics.Keys.apeIndex)!
         let signValue = SignValue.allValues[pickerView.selectedRow(inComponent: ApeIndexPickerViewComponent.sign.rawValue)].rawValue
         let lengthValue = BiometricsFormViewController.apeIndexValues[pickerView.selectedRow(inComponent: ApeIndexPickerViewComponent.length.rawValue)]
         apeField.value = "\(signValue)\(lengthValue)"
