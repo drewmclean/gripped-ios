@@ -49,12 +49,10 @@ class FIRObject {
         return keys
     }
     
-    static func fetch<T: FIRObject>(someT: T, key: String, completion: @escaping (Error?, T?) -> Void) {
-        let ref = T.objectRef.child(key)
-        ref.observe(.value) { (snapshot: FIRDataSnapshot) in
-            if snapshot.exists() {
-                
-            }
+    static func fetch(key: String, completion: @escaping (Error?, FIRDataSnapshot?) -> Void) {
+        let ref = objectRef.child(key)
+        ref.observeSingleEvent(of: .value) { (snapshot: FIRDataSnapshot) in
+            completion(nil, snapshot)
         }
     }
     

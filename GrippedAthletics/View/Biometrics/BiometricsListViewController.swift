@@ -70,7 +70,9 @@ class BiometricsListViewController: UITableViewController {
 extension BiometricsListViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let snap = dataSource.items[indexPath.row] as! FIRDataSnapshot
+        let bio = Biometrics(snapshot: snap)
+        presentAddViewController(biometricId: bio.identifier)
     }
     
 }
@@ -80,11 +82,12 @@ extension BiometricsListViewController {
 extension BiometricsListViewController {
     
     func didTapAdd(sender:UIBarButtonItem) {
-        presentAddViewController()
+        presentAddViewController(biometricId: nil)
     }
     
-    func presentAddViewController() {
+    func presentAddViewController(biometricId: String?) {
         let biometricsFormVC = storyboard?.instantiateViewController(withClass: BiometricsFormViewController.self) as! BiometricsFormViewController
+        biometricsFormVC.biometricId = biometricId
         let nav = UINavigationController(rootViewController: biometricsFormVC)
         present(nav, animated: true, completion: nil)
     }

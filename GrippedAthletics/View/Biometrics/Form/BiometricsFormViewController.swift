@@ -50,12 +50,24 @@ class BiometricsFormViewController: FormTableViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let b = biometricId {
+            Biometrics.fetch(key: b, completion: { (error: Error?, snapshot: FIRDataSnapshot?) in
+                if let s = snapshot {
+                    self.biometrics = Biometrics(snapshot: s)
+                    self.updateUI()
+                }
+            })
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
     func updateUI() {
-        
+        tableView.reloadData()
     }
 
     override func createFields() -> [FormField] {
@@ -168,6 +180,10 @@ extension BiometricsFormViewController : UIPickerViewDataSource, UIPickerViewDel
         }
         
         guard let s = sign else {
+            selectPlusSign()
+            return
+        }
+        guard !s.isEmpty else {
             selectPlusSign()
             return
         }
