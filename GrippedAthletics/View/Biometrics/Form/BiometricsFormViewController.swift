@@ -17,9 +17,9 @@ class BiometricsFormViewController: FormTableViewController {
         didSet {
             if biometrics != nil {
                 let bioValues = biometrics?.fieldValues
-                fields.forEach({ (field: FormField) in
-                    field.value = bioValues[field.propertyKey]
-                })
+                fields.forEach { (field: FormField) in
+                    field.value = (bioValues?[field.propertyKey] as? String)!
+                }
                 updateUI()
             }
         }
@@ -125,8 +125,12 @@ class BiometricsFormViewController: FormTableViewController {
     
     override func saveFields() {
         if let bio = biometrics {
-            // Update Existing
-            
+            bio.update(fieldValues: fieldValues) { (error: Error?) in
+                guard error == nil else {
+                    return
+                }
+                self.dismiss(animated: true, completion: nil)
+            }
         } else {
             var formValues = fieldValues
             formValues[Biometrics.Keys.userId] = auth.currentUser!.uid
