@@ -33,6 +33,10 @@ class BiometricsListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard auth.currentUser != nil else {
+            return
+        }
+        
         title = "Biometrics"
         
         navigationItem.leftBarButtonItem = barItemForNavType(withType: .mainMenu)
@@ -45,6 +49,10 @@ class BiometricsListViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        guard auth.currentUser != nil else {
+            return
+        }
         
         tableView.reloadData()
     }
