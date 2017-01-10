@@ -33,29 +33,33 @@ class BiometricsListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard auth.currentUser != nil else {
-            return
-        }
-        
         title = "Biometrics"
         
         navigationItem.leftBarButtonItem = barItemForNavType(withType: .mainMenu)
         navigationItem.rightBarButtonItem = barItemForNavType(withType: .add, title: nil, target: self, action: #selector(BiometricsListViewController.didTapAdd(sender:)))
         
-        tableView.dataSource = dataSource
-        tableView.delegate = self
+        guard auth.currentUser != nil else {
+            auth.firAuth.addStateDidChangeListener { (auth:FIRAuth, user:FIRUser?) in
+                guard let _ = user else { return }
+                self.initializeData()
+            }
+            return
+        }
         
+        initializeData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard auth.currentUser != nil else {
-            return
-        }
-        
+    }
+    
+    func initializeData() {
+        tableView.dataSource = dataSource
+        tableView.delegate = self
         tableView.reloadData()
     }
+    
 }
 
 // MARK: - UITableViewDelegate
