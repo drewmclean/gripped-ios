@@ -125,14 +125,14 @@ class BiometricsFormViewController: FormTableViewController {
     
     override func saveFields() {
         if let bio = biometrics {
-            bio.update(fieldValues: fieldValues) { (error: Error?) in
+            bio.update(updatedValues: formFieldValues) { (error: Error?, b:Biometrics?) in
                 guard error == nil else {
                     return
                 }
                 self.dismiss(animated: true, completion: nil)
             }
         } else {
-            var formValues = fieldValues
+            var formValues = formFieldValues
             formValues[Biometrics.Keys.userId] = auth.currentUser!.uid
             formValues[Biometrics.Keys.createdAt] = Date().isoString()
             

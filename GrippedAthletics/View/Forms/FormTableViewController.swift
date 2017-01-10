@@ -15,7 +15,7 @@ class FormTableViewController: UITableViewController {
         return self.createFields()
     }()
     
-    var fieldValues : [AnyHashable : Any] {
+    var formFieldValues : [AnyHashable : Any] {
         var values = [AnyHashable : Any]()
         fields.forEach { (field : FormField) in
             print("form values: \(field.propertyKey): \(field.value)")
@@ -93,7 +93,7 @@ extension FormTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var field = fields[indexPath.row]
+        let field = fields[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as! FormFieldTableViewCell
         cell.formField = field

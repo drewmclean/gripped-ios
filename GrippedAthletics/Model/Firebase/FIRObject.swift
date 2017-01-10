@@ -79,24 +79,30 @@ class FIRObject {
         }
     }
     
-    func update(fieldValues: [AnyHashable: Any], completion:@escaping (Error?) -> Void)  {
+    func update<T:FIRObject>(updatedValues: [AnyHashable: Any], completion:@escaping (Error?, T?) -> Void)  {
+        
+        var valuesToSave = self.fieldValues
+        updatedValues.forEach { (key: AnyHashable, value: Any) in
+            valuesToSave[key] = value
+        }
         
         let key = identifier
-        let childRefKeys = FIRObject.childUpdateRefKeys(objectKey: key, userId: Auth.instance.currentUser!.uid)
+        let childRefKeys = T.childUpdateRefKeys(objectKey: key, userId: Auth.instance.currentUser!.uid)
         var childUpdates = [String : Any]()
         childRefKeys.forEach { (key: String) in
-            childUpdates[key] = fieldValues
+            childUpdates[key] = valuesToSave
         }
         
         FIRObject.db.reference().updateChildValues(childUpdates) { (error: Error?, ref: FIRDatabaseReference) in
             if let e = error {
                 DDLogError(e.localizedDescription)
-                completion(e)
+                completion(e, self as? T)
                 return
             }
-            ref.observeSingleEvent(of: .value, with: { (snapshot: FIRDataSnapshot) in
+            let updatedRef = T.objectRef.child(key)
+            updatedRef.observeSingleEvent(of: .value, with: { (snapshot: FIRDataSnapshot) in
                 self.importSnapshot(snapshot: snapshot)
-                completion(nil)
+                completion(nil, self as? T)
             })
         }
     }
