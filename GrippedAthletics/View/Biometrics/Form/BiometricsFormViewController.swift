@@ -13,7 +13,17 @@ import FirebaseDatabase
 class BiometricsFormViewController: FormTableViewController {
     
     var biometricId : String?
-    var biometrics : Biometrics?
+    var biometrics : Biometrics? {
+        didSet {
+            if biometrics != nil {
+                let bioValues = biometrics?.fieldValues
+                fields.forEach({ (field: FormField) in
+                    field.value = bioValues[field.propertyKey]
+                })
+                updateUI()
+            }
+        }
+    }
     
     static let apeIndexRange : Int = 10
     
@@ -52,14 +62,9 @@ class BiometricsFormViewController: FormTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let b = biometricId {
-            Biometrics.fetch(key: b, completion: { (error: Error?, snapshot: FIRDataSnapshot?) in
-                if let s = snapshot {
-                    self.biometrics = Biometrics(snapshot: s)
-                    self.updateUI()
-                }
-            })
-        }
+        
+        fetchFields()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -104,8 +109,13 @@ class BiometricsFormViewController: FormTableViewController {
     }
     
     override func fetchFields() {
-        if let existing = biometricId {
-            
+        if let b = biometricId {
+            Biometrics.fetch(key: b, completion: { (error: Error?, snapshot: FIRDataSnapshot?) in
+                if let s = snapshot {
+                    self.biometrics = Biometrics(snapshot: s)
+                    self.updateUI()
+                }
+            })
         }
     }
     
