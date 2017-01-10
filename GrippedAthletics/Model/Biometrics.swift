@@ -103,31 +103,37 @@ extension Biometrics {
     
     var heightWithUnits : String? {
         guard let h = height else { return nil }
+        guard !h.isEmpty else { return nil }
         return "\(h)cm"
     }
     
     var weightWithUnits : String? {
         guard let w = weight else { return nil }
+        guard !w.isEmpty else { return nil }
         return "\(w)kg"
     }
     
     var bodyCompositionWithUnits : String? {
         guard let bc = bodyComposition else { return nil }
+        guard !bc.isEmpty else { return nil }
         return "\(bc)%"
     }
     
     var apeIndexWithUnits : String? {
         guard let ape = apeIndex else { return nil }
+        guard !ape.isEmpty else { return nil }
         return "\(ape)cm"
     }
     
     var forearmLengthWithUnits : String? {
         guard let l = forearmLength else { return nil }
+        guard !l.isEmpty else { return nil }
         return "\(l)cm"
     }
     
     var forearmCircumferenceWithUnits : String? {
         guard let l = forearmCircumference else { return nil }
+        guard !l.isEmpty else { return nil }
         return "\(l)cm"
     }
 }

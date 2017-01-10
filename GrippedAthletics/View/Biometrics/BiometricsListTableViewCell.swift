@@ -48,7 +48,6 @@ class BiometricsListTableViewCell: UITableViewCell {
     }
 
     func updateUI() {
-        
         dateLabel.text = biometrics?.createdAt?.shortString()
         heightValueLabel.text = biometrics?.heightWithUnits
         weightValueLabel.text = biometrics?.weightWithUnits

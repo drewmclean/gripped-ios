@@ -35,6 +35,9 @@ class BiometricsListViewController: UITableViewController {
         
         title = "Biometrics"
         
+        tableView.estimatedRowHeight = 130
+        tableView.rowHeight = 130
+        
         navigationItem.leftBarButtonItem = barItemForNavType(withType: .mainMenu)
         navigationItem.rightBarButtonItem = barItemForNavType(withType: .add, title: nil, target: self, action: #selector(BiometricsListViewController.didTapAdd(sender:)))
         
