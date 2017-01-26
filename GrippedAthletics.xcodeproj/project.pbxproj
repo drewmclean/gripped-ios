@@ -14,6 +14,8 @@
 		571C7F7F1DBBD09A0071DB04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7F7E1DBBD09A0071DB04 /* AppDelegate.swift */; };
 		571C7F971DBBD09A0071DB04 /* GrippedAthleticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7F961DBBD09A0071DB04 /* GrippedAthleticsTests.swift */; };
 		571C7FA21DBBD09A0071DB04 /* GrippedAthleticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7FA11DBBD09A0071DB04 /* GrippedAthleticsUITests.swift */; };
+		572F84AE1E397739002873D1 /* FlowStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F84AD1E397739002873D1 /* FlowStackViewController.swift */; };
+		572F84B01E397752002873D1 /* FlowStackItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F84AF1E397752002873D1 /* FlowStackItemViewController.swift */; };
 		574BF0631E09E29E00AF3803 /* Grades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574BF0621E09E29E00AF3803 /* Grades.swift */; };
 		5752A7A61DFFAD5F0092F000 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5752A7A51DFFAD5F0092F000 /* UIImage.swift */; };
 		5752A7AA1E00E33E0092F000 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5752A7A91E00E33E0092F000 /* ActivityViewController.swift */; };
@@ -95,6 +97,8 @@
 		571C7FA11DBBD09A0071DB04 /* GrippedAthleticsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrippedAthleticsUITests.swift; sourceTree = "<group>"; };
 		571C7FA31DBBD09A0071DB04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		571C7FD71DBBD5800071DB04 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		572F84AD1E397739002873D1 /* FlowStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowStackViewController.swift; sourceTree = "<group>"; };
+		572F84AF1E397752002873D1 /* FlowStackItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowStackItemViewController.swift; sourceTree = "<group>"; };
 		574BF0621E09E29E00AF3803 /* Grades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grades.swift; sourceTree = "<group>"; };
 		5752A7A51DFFAD5F0092F000 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		5752A7A91E00E33E0092F000 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
@@ -281,6 +285,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		572F84AC1E397717002873D1 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				572F84AD1E397739002873D1 /* FlowStackViewController.swift */,
+				572F84AF1E397752002873D1 /* FlowStackItemViewController.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
 		576265AA1E0069CA008F8346 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +331,7 @@
 		579DE2B11DBC112C00D71875 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				572F84AC1E397717002873D1 /* Flow */,
 				5752A7A51DFFAD5F0092F000 /* UIImage.swift */,
 				579DE2BE1DBC11AF00D71875 /* UIStoryboard.swift */,
 				576265B31E007D62008F8346 /* UIViewController.swift */,
@@ -766,6 +780,7 @@
 				57D87E6D1DE28A58000435E5 /* SignUpViewController.swift in Sources */,
 				57C9CCE21E1B3D480073E19F /* Date.swift in Sources */,
 				5758E57E1DF9C95500121110 /* KeyStore.swift in Sources */,
+				572F84B01E397752002873D1 /* FlowStackItemViewController.swift in Sources */,
 				57BB62F91E1DEBD000D62CAB /* User.swift in Sources */,
 				57D87E6B1DE28A58000435E5 /* SignInViewController.swift in Sources */,
 				5758E5801DF9E9DC00121110 /* Futures.swift in Sources */,
@@ -780,6 +795,7 @@
 				579DE2D01DBC1D3300D71875 /* Config.swift in Sources */,
 				57CF08F71DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift in Sources */,
 				579DE2BF1DBC11AF00D71875 /* UIStoryboard.swift in Sources */,
+				572F84AE1E397739002873D1 /* FlowStackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

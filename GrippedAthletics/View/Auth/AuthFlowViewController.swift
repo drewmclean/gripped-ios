@@ -15,10 +15,6 @@ protocol AuthFlowViewControllerDelegate {
 }
 
 class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldViewControllerDelegate {
-    internal func keyboardShowHandler(keyboardFrame: CGRect) {
-        
-    }
-
     
     var delegate : AuthFlowViewControllerDelegate?
     
@@ -223,17 +219,26 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
         didFinishTextEntry(controller: currentViewController)
     }
     
-    // MARK: KeyboardAnimator
-    func keyboardShowAnimation(keyboardFrame: CGRect) {
+}
+
+// MARK: KeyboardAnimator
+
+extension AuthFlowViewController {
+
+    internal func keyboardShowHandler(keyboardFrame: CGRect) {
+        
+    }
+    
+    internal func keyboardShowAnimation(keyboardFrame: CGRect) {
         stackViewBottomConstraint.update(offset: -keyboardFrame.size.height)
         view.layoutIfNeeded()
     }
     
-    func keyboardHideAnimation(keyboardFrane: CGRect) {
+    internal func keyboardHideAnimation(keyboardFrane: CGRect) {
         stackViewBottomConstraint.update(offset: 0)
     }
     
-    func didFinishTextEntry(controller: AuthTextFieldViewController) {
+    internal func didFinishTextEntry(controller: AuthTextFieldViewController) {
         validator.validateField(controller.textField) { (error: ValidationError?) -> Void in
             if let e = error {
                 controller.updateValidLabel(isValid: false, message: e.errorMessage)
@@ -248,5 +253,5 @@ class AuthFlowViewController: UIViewController, KeyboardAnimator, AuthTextFieldV
             }
         }
     }
-
 }
+
