@@ -152,11 +152,17 @@ extension MenuViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath
         let menuItem = menuItems[indexPath.row]
-        
+        showViewController(forMenuItem:menuItem)
+    }
+    
+}
+
+extension MenuViewController {
+    
+    func showViewController(forMenuItem menuItem : MenuItem) {
         revealController.frontViewController = menuItem.viewController
         revealController.show(revealController.frontViewController)
     }
-    
 }
 
 class MenuTableViewCell: UITableViewCell {
