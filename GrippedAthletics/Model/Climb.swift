@@ -8,8 +8,17 @@
 
 import UIKit
 
-class Activity: FIRObject, FIRTimestampable {
-    typealias T = Activity
+enum ClimbType : String {
+    case sport = "sport"
+    case bouldering = "bouldering"
+    case trad = "trad"
+    case iceMixed = "ice_mixed"
+    
+    static var allValues : [ClimbType] = [sport, bouldering, trad, iceMixed]
+}
+
+class Climb: FIRObject, FIRTimestampable {
+    typealias T = Climb
     
     struct Keys {
         static let createdAt = "created_at"

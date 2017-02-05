@@ -20,12 +20,13 @@
 		5727D5111E46AED300264430 /* FormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D50D1E46AED300264430 /* FormTableViewController.swift */; };
 		5727D5141E46B01900264430 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5131E46B01900264430 /* Form.swift */; };
 		5727D5181E46B54400264430 /* NewClimbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5171E46B54400264430 /* NewClimbViewController.swift */; };
-		5727D51A1E478CEC00264430 /* ClimbActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5191E478CEC00264430 /* ClimbActivity.swift */; };
+		5727D51A1E478CEC00264430 /* Climb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5191E478CEC00264430 /* Climb.swift */; };
 		5727D51D1E47AB7900264430 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D51C1E47AB7900264430 /* RatingViewController.swift */; };
 		5727D51F1E47ABBE00264430 /* SportRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D51E1E47ABBE00264430 /* SportRatingViewController.swift */; };
 		5727D5211E47ABDA00264430 /* TradRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5201E47ABDA00264430 /* TradRatingViewController.swift */; };
 		5727D5231E47ABF300264430 /* IceMixedRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5221E47ABF300264430 /* IceMixedRatingViewController.swift */; };
 		5727D5251E47AC1500264430 /* BoulderRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5241E47AC1500264430 /* BoulderRatingViewController.swift */; };
+		5727D5271E47DFA600264430 /* ClimbTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5261E47DFA600264430 /* ClimbTypes.swift */; };
 		572F84AE1E397739002873D1 /* FormStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F84AD1E397739002873D1 /* FormStackViewController.swift */; };
 		572F84B01E397752002873D1 /* FormStackItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F84AF1E397752002873D1 /* FormStackItemViewController.swift */; };
 		574BF0631E09E29E00AF3803 /* Grades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574BF0621E09E29E00AF3803 /* Grades.swift */; };
@@ -112,12 +113,13 @@
 		5727D50D1E46AED300264430 /* FormTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTableViewController.swift; sourceTree = "<group>"; };
 		5727D5131E46B01900264430 /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		5727D5171E46B54400264430 /* NewClimbViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewClimbViewController.swift; sourceTree = "<group>"; };
-		5727D5191E478CEC00264430 /* ClimbActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbActivity.swift; sourceTree = "<group>"; };
+		5727D5191E478CEC00264430 /* Climb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Climb.swift; sourceTree = "<group>"; };
 		5727D51C1E47AB7900264430 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		5727D51E1E47ABBE00264430 /* SportRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportRatingViewController.swift; sourceTree = "<group>"; };
 		5727D5201E47ABDA00264430 /* TradRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradRatingViewController.swift; sourceTree = "<group>"; };
 		5727D5221E47ABF300264430 /* IceMixedRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IceMixedRatingViewController.swift; sourceTree = "<group>"; };
 		5727D5241E47AC1500264430 /* BoulderRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoulderRatingViewController.swift; sourceTree = "<group>"; };
+		5727D5261E47DFA600264430 /* ClimbTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbTypes.swift; sourceTree = "<group>"; };
 		572F84AD1E397739002873D1 /* FormStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormStackViewController.swift; path = ../../Flow/FormStackViewController.swift; sourceTree = "<group>"; };
 		572F84AF1E397752002873D1 /* FormStackItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormStackItemViewController.swift; path = ../../Flow/FormStackItemViewController.swift; sourceTree = "<group>"; };
 		574BF0621E09E29E00AF3803 /* Grades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grades.swift; sourceTree = "<group>"; };
@@ -270,7 +272,8 @@
 				5786B1441E1AB30B00C7EA36 /* UserProfile.swift */,
 				57BB62ED1E1C275400D62CAB /* Biometrics.swift */,
 				57BB62F81E1DEBD000D62CAB /* User.swift */,
-				5727D5191E478CEC00264430 /* ClimbActivity.swift */,
+				5727D5191E478CEC00264430 /* Climb.swift */,
+				5727D5261E47DFA600264430 /* ClimbTypes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -846,13 +849,14 @@
 				57D87E6D1DE28A58000435E5 /* SignUpViewController.swift in Sources */,
 				57C9CCE21E1B3D480073E19F /* Date.swift in Sources */,
 				5758E57E1DF9C95500121110 /* KeyStore.swift in Sources */,
-				5727D51A1E478CEC00264430 /* ClimbActivity.swift in Sources */,
+				5727D51A1E478CEC00264430 /* Climb.swift in Sources */,
 				572F84B01E397752002873D1 /* FormStackItemViewController.swift in Sources */,
 				57BB62F91E1DEBD000D62CAB /* User.swift in Sources */,
 				57D87E6B1DE28A58000435E5 /* SignInViewController.swift in Sources */,
 				5758E5801DF9E9DC00121110 /* Futures.swift in Sources */,
 				57BB62E31E1BFD5400D62CAB /* BiometricsListTableViewCell.swift in Sources */,
 				576265B41E007D62008F8346 /* UIViewController.swift in Sources */,
+				5727D5271E47DFA600264430 /* ClimbTypes.swift in Sources */,
 				57D87E6C1DE28A58000435E5 /* SignUpConfirmViewController.swift in Sources */,
 				57BB62D81E1BFA5D00D62CAB /* BiometricsListViewController.swift in Sources */,
 				579DE2D81DBC25C000D71875 /* ProfileViewController.swift in Sources */,

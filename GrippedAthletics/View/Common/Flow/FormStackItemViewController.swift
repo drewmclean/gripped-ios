@@ -21,14 +21,14 @@ class FormStackItemViewController: UIViewController {
         sv.axis = .vertical
         sv.alignment = .center
         sv.distribution = .fillProportionally
-        sv.spacing = 30
+        sv.spacing = 60
         self.view.addSubview(sv)
         return sv
     }()
     
     lazy var titleLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 32, weight: UIFontWeightLight)
+        label.font = UIFont.systemFont(ofSize: 28, weight: UIFontWeightLight)
         label.textColor = UIColor.gray
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -40,15 +40,16 @@ class FormStackItemViewController: UIViewController {
         var tf = UITextField()
         tf.borderStyle = .none
         tf.delegate = self
-        tf.font = UIFont.boldSystemFont(ofSize: 32)
-        tf.textColor = UIColor.darkGray
         tf.textAlignment = .center
+        tf.font = UIFont.boldSystemFont(ofSize: 36)
+        tf.textColor = UIColor.darkGray
         self.stackView.addArrangedSubview(tf)
         return tf
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.white
         updateUI()
     }
     
@@ -75,7 +76,7 @@ class FormStackItemViewController: UIViewController {
     
     func updateUI() {
         titleLabel.text = formField.title
-        textField.text = "Tred" //formField.value
+        textField.text = formField.value
         updateViewConstraints()
     }
 }

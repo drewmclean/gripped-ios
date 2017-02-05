@@ -51,19 +51,6 @@ class FormStackViewController: UIViewController {
         })
     }
     
-    lazy var pageControl : UIPageControl = {
-        let pc = UIPageControl()
-        pc.currentPageIndicatorTintColor = UIColor.black
-        pc.pageIndicatorTintColor = UIColor.lightGray
-        return pc
-    }()
-    
-    lazy var pageControlContainer : UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 20))
-        view.addSubview(self.pageControl)
-        return view
-    }()
-    
     var currentViewControllerIndex : Int = 0
     var currentViewController : FormStackItemViewController {
         return fieldViewControllers[currentViewControllerIndex]
@@ -85,6 +72,19 @@ class FormStackViewController: UIViewController {
         sv.spacing = 0
         self.view.addSubview(sv)
         return sv
+    }()
+    
+    lazy var pageControl : UIPageControl = {
+        let pc = UIPageControl()
+        pc.currentPageIndicatorTintColor = UIColor.black
+        pc.pageIndicatorTintColor = UIColor.lightGray
+        return pc
+    }()
+    
+    lazy var pageControlContainer : UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 20))
+        view.addSubview(self.pageControl)
+        return view
     }()
     
     override func viewDidLoad() {
