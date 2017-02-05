@@ -17,7 +17,6 @@ class ActivityViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = barItemForNavType(withType: .mainMenu)
         navigationItem.rightBarButtonItem = barItemForNavType(withType: .add, title: nil, target: self, action: #selector(ActivityViewController.didTapAdd(sender:)))
-        
     }
 
     func didTapAdd(sender:Any) {

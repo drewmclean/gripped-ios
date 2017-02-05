@@ -91,16 +91,8 @@ class FormStackViewController: UIViewController {
         
         navigationItem.titleView = pageControlContainer
         
-        pageControl.isHidden = fieldViewControllers.count <= 1
-        
-        provider?.items.forEach { (vc: FormStackItem) in
-            
-        }
-        
         addKeyboardHandlers()
-        
-        pageControl.numberOfPages = fieldViewControllers.count
-        
+        refreshPageControl()
         updateViewConstraints()
     }
     
@@ -113,6 +105,16 @@ class FormStackViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func refreshPageControl() {
+        guard let viewControllers = fieldViewControllers else {
+            pageControl.isHidden = true
+            return
+        }
+        
+        pageControl.isHidden = viewControllers.count <= 1
+        pageControl.numberOfPages = viewControllers.count
     }
     
     override func updateViewConstraints() {
@@ -218,6 +220,7 @@ extension FormStackViewController {
     func appendFormItem(item: FormStackItem) {
         provider?.items.append(item)
         addViewController(forItem: item)
+        refreshPageControl()
     }
     
     func appendFormItems(items: [FormStackItem]) {
@@ -225,6 +228,7 @@ extension FormStackViewController {
         provider?.items.forEach { (item:FormStackItem) in
             self.addViewController(forItem: item)
         }
+        refreshPageControl()
     }
     
     func addViewController(forItem item : FormStackItem) {
@@ -242,6 +246,7 @@ extension FormStackViewController {
         items?.forEach { (item: FormStackItem) in
             addViewController(forItem: item)
         }
+        refreshPageControl()
     }
 }
 
