@@ -74,6 +74,7 @@ class FormStackViewController: UIViewController {
     }
     
     var stackViewBottomConstraint : Constraint!
+    var stackViewBottomOffset : CGFloat = 0
     
     lazy var stackView : UIStackView = {
         let sv = UIStackView()
@@ -124,7 +125,7 @@ class FormStackViewController: UIViewController {
         
         stackView.snp.updateConstraints { (make) in
             make.top.equalTo(self.view.snp.top)
-            self.stackViewBottomConstraint = make.bottom.equalTo(self.view.snp.bottom).constraint
+            self.stackViewBottomConstraint = make.bottom.equalTo(self.view.snp.bottom).offset(stackViewBottomOffset).constraint
             make.left.equalTo(self.view.snp.left)
             
             if let count = items?.count {
@@ -276,7 +277,8 @@ extension FormStackViewController : KeyboardAnimator {
     }
     
     internal func keyboardShowAnimation(keyboardFrame: CGRect) {
-        stackViewBottomConstraint.update(offset: -keyboardFrame.size.height)
+        stackViewBottomOffset = -keyboardFrame.size.height
+        stackViewBottomConstraint.update(offset: stackViewBottomOffset)
         view.setNeedsUpdateConstraints()
         view.updateConstraintsIfNeeded()
     }

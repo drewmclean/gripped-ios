@@ -15,6 +15,11 @@ class NewClimbViewController: FormStackViewController {
         
         let newClimb = NewClimbFormFieldProvider()
         provider = newClimb
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         currentViewController.textField.becomeFirstResponder()
     }
 
