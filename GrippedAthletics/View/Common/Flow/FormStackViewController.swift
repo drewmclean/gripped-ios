@@ -92,7 +92,6 @@ class FormStackViewController: UIViewController {
         navigationItem.titleView = pageControlContainer
         
         addKeyboardHandlers()
-        refreshPageControl()
         updateViewConstraints()
     }
     
@@ -124,16 +123,25 @@ class FormStackViewController: UIViewController {
         }
         
         stackView.snp.updateConstraints { (make) in
-            make.width.equalTo(self.view.snp.width).multipliedBy(self.fieldViewControllers.count)
             make.top.equalTo(self.view.snp.top)
             self.stackViewBottomConstraint = make.bottom.equalTo(self.view.snp.bottom).constraint
             make.left.equalTo(self.view.snp.left)
+            
+            if let count = items?.count {
+                make.width.equalTo(self.view.snp.width).multipliedBy(max(1, count))
+            } else {
+                make.width.equalTo(self.view.snp.width)
+            }
         }
         
         super.updateViewConstraints()
     }
     
-    // MARK: Show
+}
+
+// MARK: Navigation
+
+extension FormStackViewController {
     
     func showFieldViewController(atIndex index: Int, animated: Bool) {
         currentViewControllerIndex = index
@@ -183,15 +191,14 @@ class FormStackViewController: UIViewController {
         showFieldViewController(atIndex: previousIndex, animated: true)
     }
     
-    func submitForm() {
-        
-    }
-    
     func enterMainApplication() {
         presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
-    
-    // MARK: Actions
+}
+
+// MARK: Actions
+
+extension FormStackViewController {
     
     func backItemTapped(sender:UIBarButtonItem) {
         if currentViewControllerIndex == 0 {
@@ -213,7 +220,17 @@ class FormStackViewController: UIViewController {
     }
 }
 
-// MARK: 
+// MARK: Form Control
+
+extension FormStackViewController {
+    
+    func submitForm() {
+        
+    }
+    
+}
+
+// MARK: Item Control
 
 extension FormStackViewController {
     
