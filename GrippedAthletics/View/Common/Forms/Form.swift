@@ -9,5 +9,9 @@
 import Foundation
 
 protocol FormFieldProvider {
-    var formFields : [FormField] { get }
+    var formFields : [String : FormField] { get }
+}
+
+protocol FormFieldItem {
+    var formField : FormField { get set }
 }

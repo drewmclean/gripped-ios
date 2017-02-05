@@ -10,20 +10,26 @@ import UIKit
 import SwiftValidator
 import SnapKit
 
-protocol FlowStackViewControllerDelegate {
-    func didCompleteFlow(controller : FlowStackViewController)
+struct FormStackItem {
+    var formField : FormField
+    var itemViewController : FormStackViewController
 }
 
-class FlowStackViewController: UIViewController {
+protocol FormStackViewControllerDelegate {
+    func didCompleteForm(controller : FormStackViewController)
+}
+
+class FormStackViewController: UIViewController {
     
-    var delegate : FlowStackViewControllerDelegate?
+    var provider : FormFieldProvider?
+    var delegate : FormStackViewControllerDelegate?
     
     lazy var validator : Validator = {
         let v = Validator()
         return v
     }()
     
-    var fieldViewControllers : [FlowStackItemViewController]! {
+    var fieldViewControllers : [FormStackItemViewController]! {
         return []
     }
     
@@ -181,7 +187,7 @@ class FlowStackViewController: UIViewController {
     
     func rightItemTapped(sender:UIBarButtonItem) {
         if currentViewControllerIndex >= fieldViewControllers.count - 1 {
-            delegate?.didCompleteFlow(controller: self)
+            delegate?.didCompleteForm(controller: self)
         } else {
             
         }
@@ -191,7 +197,7 @@ class FlowStackViewController: UIViewController {
 
 // MARK: KeyboardAnimator
 
-extension FlowStackViewController {
+extension FormStackViewController {
     
     internal func keyboardShowHandler(keyboardFrame: CGRect) {
         

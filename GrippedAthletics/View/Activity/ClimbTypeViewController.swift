@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ClimbTypeViewController: FlowStackItemViewController {
+class ClimbTypeViewController: FormStackItemViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
