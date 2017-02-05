@@ -12,7 +12,7 @@ struct NewClimbFormFieldProvider : FormFieldProvider {
     
     struct Items {
         lazy var climbType : FormStackItem = {
-            let field = FormField(title: "Type of Climb", unit: "", propertyKey: <#T##String#>) { (textField : UITextField) in
+            let field = FormField(title: "Type of Climb", unit: "", propertyKey: Activity.Keys.type) { (textField : UITextField) in
                 
             }
             
@@ -41,7 +41,6 @@ class NewClimbViewController: FormStackViewController {
         super.viewDidLoad()
         
         provider = NewClimbFormFieldProvider()
-        provider?.formFields = NewClimbFormFieldProvider()
     }
 
     override func didReceiveMemoryWarning() {

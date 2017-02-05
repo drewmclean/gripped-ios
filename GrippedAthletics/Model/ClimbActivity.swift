@@ -36,7 +36,7 @@ class Activity: FIRObject, FIRTimestampable {
     
     var userId : String = ""
     var type : String?
-    var timestamp : NSDate?
+    var timestamp : Date?
     var name : String?
     var rating : String?
     var composureLevel : String?
@@ -64,13 +64,17 @@ class Activity: FIRObject, FIRTimestampable {
         }
         set {
             userId = newValue[Keys.userId] as! String
-            height = newValue[Keys.height] as? String
-            weight = newValue[Keys.weight] as? String
-            bodyComposition = newValue[Keys.bodyComposition] as? String
-            apeIndex = newValue[Keys.apeIndex] as? String
-            forearmLength = newValue[Keys.forearmLength] as? String
-            forearmCircumference = newValue[Keys.forearmCircumference] as? String
+            type = newValue[Keys.type] as? String
+            timestamp = Date.isoDate(from: newValue[Keys.timestamp] as! String)
+            name = newValue[Keys.name] as? String
+            rating = newValue[Keys.rating] as? String
+            composureLevel = newValue[Keys.composureLevel] as? String
+            color = newValue[Keys.color] as? String
+            notes = newValue[Keys.notes] as? String
+            style = newValue[Keys.style] as? String
+            numberOfHangs = newValue[Keys.numberOfHangs] as? String
             createdAt = Date.isoDate(from: newValue[Keys.createdAt] as! String)
+            modifiedAt = Date.isoDate(from: newValue[Keys.modifiedAt] as! String)
         }
     }
     

@@ -47,11 +47,11 @@ class FormStackViewController: UIViewController {
     }()
     
     var currentViewControllerIndex : Int!
-    var currentViewController : FlowStackItemViewController {
+    var currentViewController : FormStackItemViewController {
         return fieldViewControllers[currentViewControllerIndex]
     }
     
-    var lastViewController : FlowStackItemViewController {
+    var lastViewController : FormStackItemViewController {
         return fieldViewControllers[fieldViewControllers.count - 1]
     }
     
