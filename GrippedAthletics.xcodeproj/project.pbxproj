@@ -21,6 +21,11 @@
 		5727D5141E46B01900264430 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5131E46B01900264430 /* Form.swift */; };
 		5727D5181E46B54400264430 /* NewClimbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5171E46B54400264430 /* NewClimbViewController.swift */; };
 		5727D51A1E478CEC00264430 /* ClimbActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5191E478CEC00264430 /* ClimbActivity.swift */; };
+		5727D51D1E47AB7900264430 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D51C1E47AB7900264430 /* RatingViewController.swift */; };
+		5727D51F1E47ABBE00264430 /* SportRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D51E1E47ABBE00264430 /* SportRatingViewController.swift */; };
+		5727D5211E47ABDA00264430 /* TradRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5201E47ABDA00264430 /* TradRatingViewController.swift */; };
+		5727D5231E47ABF300264430 /* IceMixedRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5221E47ABF300264430 /* IceMixedRatingViewController.swift */; };
+		5727D5251E47AC1500264430 /* BoulderRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5241E47AC1500264430 /* BoulderRatingViewController.swift */; };
 		572F84AE1E397739002873D1 /* FormStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F84AD1E397739002873D1 /* FormStackViewController.swift */; };
 		572F84B01E397752002873D1 /* FormStackItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F84AF1E397752002873D1 /* FormStackItemViewController.swift */; };
 		574BF0631E09E29E00AF3803 /* Grades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574BF0621E09E29E00AF3803 /* Grades.swift */; };
@@ -108,6 +113,11 @@
 		5727D5131E46B01900264430 /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		5727D5171E46B54400264430 /* NewClimbViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewClimbViewController.swift; sourceTree = "<group>"; };
 		5727D5191E478CEC00264430 /* ClimbActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbActivity.swift; sourceTree = "<group>"; };
+		5727D51C1E47AB7900264430 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
+		5727D51E1E47ABBE00264430 /* SportRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportRatingViewController.swift; sourceTree = "<group>"; };
+		5727D5201E47ABDA00264430 /* TradRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradRatingViewController.swift; sourceTree = "<group>"; };
+		5727D5221E47ABF300264430 /* IceMixedRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IceMixedRatingViewController.swift; sourceTree = "<group>"; };
+		5727D5241E47AC1500264430 /* BoulderRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoulderRatingViewController.swift; sourceTree = "<group>"; };
 		572F84AD1E397739002873D1 /* FormStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormStackViewController.swift; path = ../../Flow/FormStackViewController.swift; sourceTree = "<group>"; };
 		572F84AF1E397752002873D1 /* FormStackItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormStackItemViewController.swift; path = ../../Flow/FormStackItemViewController.swift; sourceTree = "<group>"; };
 		574BF0621E09E29E00AF3803 /* Grades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grades.swift; sourceTree = "<group>"; };
@@ -341,6 +351,18 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		5727D51B1E47AB1800264430 /* Rating */ = {
+			isa = PBXGroup;
+			children = (
+				5727D5241E47AC1500264430 /* BoulderRatingViewController.swift */,
+				5727D5221E47ABF300264430 /* IceMixedRatingViewController.swift */,
+				5727D51C1E47AB7900264430 /* RatingViewController.swift */,
+				5727D51E1E47ABBE00264430 /* SportRatingViewController.swift */,
+				5727D5201E47ABDA00264430 /* TradRatingViewController.swift */,
+			);
+			path = Rating;
+			sourceTree = "<group>";
+		};
 		576265AA1E0069CA008F8346 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +392,7 @@
 		579DE2B01DBC112C00D71875 /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				5727D51B1E47AB1800264430 /* Rating */,
 				5752A7A91E00E33E0092F000 /* ActivityViewController.swift */,
 				5727D5041E46AA5700264430 /* ClimbTypeViewController.swift */,
 				5727D5171E46B54400264430 /* NewClimbViewController.swift */,
@@ -795,13 +818,16 @@
 			files = (
 				57BEF3DF1E205F2F008CBAFE /* String.swift in Sources */,
 				57BB62EE1E1C275400D62CAB /* Biometrics.swift in Sources */,
+				5727D5251E47AC1500264430 /* BoulderRatingViewController.swift in Sources */,
 				579DE2DC1DBC279800D71875 /* MainViewController.swift in Sources */,
 				570974B51DFB58B300D355B9 /* NSError.swift in Sources */,
 				579DE2B71DBC112C00D71875 /* HomeViewController.swift in Sources */,
 				5727D5111E46AED300264430 /* FormTableViewController.swift in Sources */,
+				5727D51D1E47AB7900264430 /* RatingViewController.swift in Sources */,
 				57D87E681DE28A58000435E5 /* AuthTextFieldViewController.swift in Sources */,
 				579DE2D61DBC259E00D71875 /* MenuViewController.swift in Sources */,
 				57BB62E11E1BFC4B00D62CAB /* BiometricsFormViewController.swift in Sources */,
+				5727D51F1E47ABBE00264430 /* SportRatingViewController.swift in Sources */,
 				5786B1451E1AB30B00C7EA36 /* AppSession.swift in Sources */,
 				579DE2D31DBC1DDD00D71875 /* Auth.swift in Sources */,
 				5786B1491E1AB30B00C7EA36 /* UserProfile.swift in Sources */,
@@ -809,6 +835,7 @@
 				5752A7AA1E00E33E0092F000 /* ActivityViewController.swift in Sources */,
 				5788E4901E1AAD90003C60E9 /* FIRUser.swift in Sources */,
 				5786B1501E1AEB4A00C7EA36 /* UserGraph.swift in Sources */,
+				5727D5211E47ABDA00264430 /* TradRatingViewController.swift in Sources */,
 				5752A7A61DFFAD5F0092F000 /* UIImage.swift in Sources */,
 				5727D5051E46AA5700264430 /* ClimbTypeViewController.swift in Sources */,
 				5713E3311DF5F17700D06A8A /* AuthFlowViewController.swift in Sources */,
@@ -835,6 +862,7 @@
 				5727D5141E46B01900264430 /* Form.swift in Sources */,
 				579DE2D01DBC1D3300D71875 /* Config.swift in Sources */,
 				57CF08F71DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift in Sources */,
+				5727D5231E47ABF300264430 /* IceMixedRatingViewController.swift in Sources */,
 				579DE2BF1DBC11AF00D71875 /* UIStoryboard.swift in Sources */,
 				572F84AE1E397739002873D1 /* FormStackViewController.swift in Sources */,
 			);

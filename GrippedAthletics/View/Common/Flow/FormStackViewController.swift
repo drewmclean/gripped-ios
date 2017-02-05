@@ -12,16 +12,24 @@ import SnapKit
 
 struct FormStackItem {
     var formField : FormField
-    var itemViewController : FormStackViewController
+    var itemViewController : FormStackItemViewController
 }
 
 protocol FormStackViewControllerDelegate {
+    func didCancelForm(controller : FormStackViewController)
     func didCompleteForm(controller : FormStackViewController)
+    func didStepForward(controller : FormStackViewController)
+    func didStepBackward(controller : FormStackViewController)
 }
 
 class FormStackViewController: UIViewController {
     
-    var provider : FormFieldProvider?
+    var provider : FormStackItemProvider? {
+        didSet {
+            reloadViews()
+        }
+    }
+    
     var delegate : FormStackViewControllerDelegate?
     
     lazy var validator : Validator = {
@@ -29,8 +37,18 @@ class FormStackViewController: UIViewController {
         return v
     }()
     
+    var currentItemIndex : Int = 0
+    var currentItem : FormStackItem? {
+        return items?[currentItemIndex]
+    }
+    var items : [FormStackItem]? {
+        return provider?.items
+    }
+    
     var fieldViewControllers : [FormStackItemViewController]! {
-        return []
+        return items!.map({ (item : FormStackItem) -> FormStackItemViewController in
+            return item.itemViewController
+        })
     }
     
     lazy var pageControl : UIPageControl = {
@@ -75,11 +93,8 @@ class FormStackViewController: UIViewController {
         
         pageControl.isHidden = fieldViewControllers.count <= 1
         
-        fieldViewControllers.forEach { (vc: FlowStackItemViewController) in
-            vc.willMove(toParentViewController: self)
-            addChildViewController(vc)
-            stackView.addArrangedSubview(vc.view)
-            vc.didMove(toParentViewController: self)
+        provider?.items.forEach { (vc: FormStackItem) in
+            
         }
         
         addKeyboardHandlers()
@@ -180,8 +195,10 @@ class FormStackViewController: UIViewController {
         if currentViewControllerIndex == 0 {
             currentViewController.view.endEditing(true)
             dismiss(animated: true, completion: nil)
+            delegate?.didCancelForm(controller: self)
         } else {
             showPreviousView()
+            delegate?.didStepBackward(controller: self)
         }
     }
     
@@ -189,10 +206,43 @@ class FormStackViewController: UIViewController {
         if currentViewControllerIndex >= fieldViewControllers.count - 1 {
             delegate?.didCompleteForm(controller: self)
         } else {
-            
+            delegate?.didStepForward(controller: self)
+        }
+    }
+}
+
+// MARK: 
+
+extension FormStackViewController {
+    
+    func appendFormItem(item: FormStackItem) {
+        provider?.items.append(item)
+        addViewController(forItem: item)
+    }
+    
+    func appendFormItems(items: [FormStackItem]) {
+        provider?.items.append(contentsOf: items)
+        provider?.items.forEach { (item:FormStackItem) in
+            self.addViewController(forItem: item)
         }
     }
     
+    func addViewController(forItem item : FormStackItem) {
+        let vc = item.itemViewController
+        vc.willMove(toParentViewController: self)
+        addChildViewController(vc)
+        stackView.addArrangedSubview(vc.view)
+        vc.didMove(toParentViewController: self)
+    }
+    
+    func reloadViews() {
+        stackView.arrangedSubviews.forEach { (view:UIView) in
+            stackView.removeArrangedSubview(view)
+        }
+        items?.forEach { (item: FormStackItem) in
+            addViewController(forItem: item)
+        }
+    }
 }
 
 // MARK: KeyboardAnimator

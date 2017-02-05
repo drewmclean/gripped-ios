@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol FormStackItemProvider {
+    var items : [FormStackItem] { get set }
+}
+
 protocol FormFieldProvider {
     var formFields : [String : FormField] { get }
 }

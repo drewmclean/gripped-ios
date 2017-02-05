@@ -13,7 +13,7 @@ class ActivityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Climbs"
+        title = "Climbing Activity"
         
         navigationItem.leftBarButtonItem = barItemForNavType(withType: .mainMenu)
         navigationItem.rightBarButtonItem = barItemForNavType(withType: .add, title: nil, target: self, action: #selector(ActivityViewController.didTapAdd(sender:)))
@@ -21,7 +21,15 @@ class ActivityViewController: UIViewController {
     }
 
     func didTapAdd(sender:Any) {
+        presentAddViewController()
+    }
+    
+    func presentAddViewController() {
+        guard presentedViewController == nil else { return }
         
+        let vc = NewClimbViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        present(nav, animated: true, completion: nil)
     }
 
 }
