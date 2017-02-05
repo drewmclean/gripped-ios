@@ -74,7 +74,7 @@ extension AppDelegate : PKRevealing {
     func setupRootViewController() {
         window = UIWindow()
         
-        let revealController = PKRevealController(frontViewController: viewControllers.biometricsNavController, leftViewController: viewControllers.menuViewController)!
+        let revealController = PKRevealController(frontViewController: viewControllers.activityNavController, leftViewController: viewControllers.menuViewController)!
         revealController.delegate = self
         
         window?.rootViewController = revealController

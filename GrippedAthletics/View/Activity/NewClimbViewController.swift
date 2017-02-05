@@ -12,8 +12,10 @@ class NewClimbViewController: FormStackViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let newClimb = NewClimbFormFieldProvider()
         provider = newClimb
+        currentViewController.textField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {

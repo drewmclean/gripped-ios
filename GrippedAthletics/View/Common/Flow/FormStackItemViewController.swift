@@ -16,12 +16,13 @@ class FormStackItemViewController: UIViewController {
         }
     }
     
-    let stackView : UIStackView = {
+    lazy var stackView : UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.alignment = .center
         sv.distribution = .fillProportionally
-        sv.spacing = 0
+        sv.spacing = 30
+        self.view.addSubview(sv)
         return sv
     }()
     
@@ -41,15 +42,14 @@ class FormStackItemViewController: UIViewController {
         tf.delegate = self
         tf.font = UIFont.boldSystemFont(ofSize: 32)
         tf.textColor = UIColor.darkGray
-        tf.placeholder = "Enter a Value"
+        tf.textAlignment = .center
         self.stackView.addArrangedSubview(tf)
         return tf
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.addSubview(stackView)
+        updateUI()
     }
     
     override func updateViewConstraints() {
@@ -57,9 +57,9 @@ class FormStackItemViewController: UIViewController {
             make.edges.equalTo(self.view)
         }
 
-        let titleWidth = view.frame.size.width - 40
+        let titleWidth = view.frame.size.width - 30
         let titleSize = NSString(string: formField.title).boundingRect(with: CGSize(width: titleWidth, height: 300), options: [.usesDeviceMetrics, .usesLineFragmentOrigin], attributes: [NSFontAttributeName : titleLabel.font], context: nil).size
-        let titleHeight = max(30, titleSize.height)
+        let titleHeight = max(36, titleSize.height)
         titleLabel.snp.updateConstraints { (make) in
             make.width.equalTo(titleSize.width)
             make.height.equalTo(titleHeight)
@@ -75,7 +75,8 @@ class FormStackItemViewController: UIViewController {
     
     func updateUI() {
         titleLabel.text = formField.title
-        textField.text = formField.value
+        textField.text = "Tred" //formField.value
+        updateViewConstraints()
     }
 }
 

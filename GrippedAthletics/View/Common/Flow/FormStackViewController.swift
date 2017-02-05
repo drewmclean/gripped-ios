@@ -64,7 +64,7 @@ class FormStackViewController: UIViewController {
         return view
     }()
     
-    var currentViewControllerIndex : Int!
+    var currentViewControllerIndex : Int = 0
     var currentViewController : FormStackItemViewController {
         return fieldViewControllers[currentViewControllerIndex]
     }
@@ -269,7 +269,7 @@ extension FormStackViewController {
 
 // MARK: KeyboardAnimator
 
-extension FormStackViewController {
+extension FormStackViewController : KeyboardAnimator {
     
     internal func keyboardShowHandler(keyboardFrame: CGRect) {
         
