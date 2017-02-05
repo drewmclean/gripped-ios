@@ -180,7 +180,11 @@ class FlowStackViewController: UIViewController {
     }
     
     func rightItemTapped(sender:UIBarButtonItem) {
-        delegate?.didCompleteFlow(controller: self)
+        if currentViewControllerIndex >= fieldViewControllers.count - 1 {
+            delegate?.didCompleteFlow(controller: self)
+        } else {
+            
+        }
     }
     
 }
@@ -201,23 +205,6 @@ extension FlowStackViewController {
     
     internal func keyboardHideAnimation(keyboardFrane: CGRect) {
         stackViewBottomConstraint.update(offset: 0)
-    }
-    
-    internal func didFinishTextEntry(controller: FlowStackItemViewController) {
-        validator.validateField(controller.value as ) { (error: ValidationError?) -> Void in
-            if let e = error {
-                controller.updateValidLabel(isValid: false, message: e.errorMessage)
-                return
-            }
-            controller.updateValidLabel(isValid: true, message: nil)
-            
-            if currentViewController == lastViewController {
-                submitForm()
-                delegate?.didCompleteFlow(controller: self)
-            } else {
-                showNextView()
-            }
-        }
     }
   
 }
