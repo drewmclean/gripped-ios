@@ -70,6 +70,7 @@ class FormStackViewController: UIViewController {
         sv.alignment = .fill
         sv.layoutMargins = .zero
         sv.spacing = 0
+        sv.alpha = 0
         self.view.addSubview(sv)
         return sv
     }()
@@ -93,15 +94,15 @@ class FormStackViewController: UIViewController {
         navigationItem.titleView = pageControlContainer
         
         addKeyboardHandlers()
-        
-        stackView.alpha = 0
-        stackViewBottomOffset = 0
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         showFieldViewController(atIndex: 0, animated: false)
     }
@@ -178,11 +179,11 @@ extension FormStackViewController {
             UIView.animate(withDuration: 0.25, delay: 0, options: [UIViewAnimationOptions.curveEaseOut], animations: {
                 self.view.layoutIfNeeded()
             }, completion: { (finished: Bool) in
-                vc.becomeFirstResponder()
+                vc.textField.becomeFirstResponder()
             })
         } else {
             view.layoutIfNeeded()
-            vc.becomeFirstResponder()
+            vc.textField.becomeFirstResponder()
         }
     }
     
@@ -269,6 +270,7 @@ extension FormStackViewController {
             addViewController(forItem: item)
         }
         refreshPageControl()
+        updateViewConstraints()
     }
 }
 

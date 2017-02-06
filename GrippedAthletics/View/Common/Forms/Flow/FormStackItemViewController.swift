@@ -54,15 +54,17 @@ class FormStackItemViewController: UIViewController {
     }
     
     override func updateViewConstraints() {
+        super.updateViewConstraints()
+        
         stackView.snp.updateConstraints { (make) in
-            make.edges.equalTo(self.view)
+            make.center.equalTo(self.view)
         }
 
         let titleWidth = view.frame.size.width - 30
         let titleSize = NSString(string: formField.title).boundingRect(with: CGSize(width: titleWidth, height: 300), options: [.usesDeviceMetrics, .usesLineFragmentOrigin], attributes: [NSFontAttributeName : titleLabel.font], context: nil).size
         let titleHeight = max(36, titleSize.height)
         titleLabel.snp.updateConstraints { (make) in
-            make.width.equalTo(titleSize.width)
+            make.width.lessThanOrEqualTo(titleWidth)
             make.height.equalTo(titleHeight)
         }
         
@@ -71,7 +73,6 @@ class FormStackItemViewController: UIViewController {
             make.height.equalTo(54)
         }
         
-        super.updateViewConstraints()
     }
     
     func updateUI() {
