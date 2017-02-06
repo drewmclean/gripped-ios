@@ -1,5 +1,5 @@
 //
-//  ActivityViewController.swift
+//  ClimbListViewController.swift
 //  GrippedAthletics
 //
 //  Created by Andrew McLean on 12/13/16.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-class ActivityViewController: UIViewController {
+class ClimbListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Climbing Activity"
+        title = "Climbs"
         
         navigationItem.leftBarButtonItem = barItemForNavType(withType: .mainMenu)
-        navigationItem.rightBarButtonItem = barItemForNavType(withType: .add, title: nil, target: self, action: #selector(ActivityViewController.didTapAdd(sender:)))
+        navigationItem.rightBarButtonItem = barItemForNavType(withType: .add, title: nil, target: self, action: #selector(ClimbListViewController.didTapAdd(sender:)))
     }
 
     func didTapAdd(sender:Any) {

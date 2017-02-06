@@ -93,13 +93,17 @@ class FormStackViewController: UIViewController {
         navigationItem.titleView = pageControlContainer
         
         addKeyboardHandlers()
-        updateViewConstraints()
+        
+        stackView.alpha = 0
+        stackViewBottomOffset = 0
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        showFieldViewController(atIndex: 0, animated: true)
+        showFieldViewController(atIndex: 0, animated: false)
     }
     
     override func didReceiveMemoryWarning() {
@@ -273,14 +277,22 @@ extension FormStackViewController {
 extension FormStackViewController : KeyboardAnimator {
     
     internal func keyboardShowHandler(keyboardFrame: CGRect) {
-        
-    }
-    
-    internal func keyboardShowAnimation(keyboardFrame: CGRect) {
         stackViewBottomOffset = -keyboardFrame.size.height
         stackViewBottomConstraint.update(offset: stackViewBottomOffset)
         view.setNeedsUpdateConstraints()
         view.updateConstraintsIfNeeded()
+        
+        guard stackView.alpha == 0 else {
+            return
+        }
+        
+        UIView.animate(withDuration: 0.3) {
+            self.stackView.alpha = 1.0
+        }
+    }
+    
+    internal func keyboardShowAnimation(keyboardFrame: CGRect) {
+        
     }
     
     internal func keyboardHideAnimation(keyboardFrane: CGRect) {

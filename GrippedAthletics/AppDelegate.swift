@@ -116,7 +116,7 @@ struct ViewControllers {
     }()
     
     lazy var activityNavController : UINavigationController = {
-        let vc = self.storyboard.instantiateViewController(withClass: ActivityViewController.self)
+        let vc = self.storyboard.instantiateViewController(withClass: ClimbListViewController.self)
         return UINavigationController(rootViewController: vc)
     }()
     
