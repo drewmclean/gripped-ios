@@ -13,6 +13,8 @@ class NewClimbViewController: FormStackViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Create Climb"
+        
         let newClimb = NewClimbFormFieldProvider()
         provider = newClimb
     }

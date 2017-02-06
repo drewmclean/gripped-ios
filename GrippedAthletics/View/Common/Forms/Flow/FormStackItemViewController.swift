@@ -12,7 +12,7 @@ class FormStackItemViewController: UIViewController {
     
     var formField : FormField! {
         didSet {
-            updateUI()
+//            updateUI()
         }
     }
     
@@ -49,13 +49,12 @@ class FormStackItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = UIColor.white
         updateUI()
     }
     
     override func updateViewConstraints() {
-        super.updateViewConstraints()
-        
         stackView.snp.updateConstraints { (make) in
             make.center.equalTo(self.view)
         }
@@ -69,10 +68,11 @@ class FormStackItemViewController: UIViewController {
         }
         
         textField.snp.updateConstraints { (make) in
-            make.width.equalTo(titleSize.width)
+            make.width.equalTo(titleWidth)
             make.height.equalTo(54)
         }
         
+        super.updateViewConstraints()
     }
     
     func updateUI() {
