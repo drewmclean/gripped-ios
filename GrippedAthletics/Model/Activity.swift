@@ -32,13 +32,10 @@ class Activity: FIRObject, FIRTimestampable {
         return "user-activity"
     }
     
-    var userId : String = ""
-    var type : String?
+    var userId : String!
+    var climbId : String!
     var timestamp : Date?
-    var name : String?
-    var rating : String?
     var composureLevel : String?
-    var color : String?
     var notes : String?
     var style : String?
     var numberOfHangs : String?
@@ -48,12 +45,9 @@ class Activity: FIRObject, FIRTimestampable {
     override var fieldValues: [AnyHashable : Any] {
         get {
             return [Keys.userId: userId,
-                    Keys.type: type ?? "",
+                    Keys.climbId : climbId ?? "",
                     Keys.timestamp: timestamp ?? "",
-                    Keys.name: name ?? "",
-                    Keys.rating: rating ?? "",
                     Keys.composureLevel: composureLevel ?? "",
-                    Keys.color: color ?? "",
                     Keys.notes: notes ?? "",
                     Keys.style: style ?? "",
                     Keys.numberOfHangs: numberOfHangs ?? "",
@@ -62,12 +56,9 @@ class Activity: FIRObject, FIRTimestampable {
         }
         set {
             userId = newValue[Keys.userId] as! String
-            type = newValue[Keys.type] as? String
+            climbId = newValue[Keys.climbId] as! String
             timestamp = Date.isoDate(from: newValue[Keys.timestamp] as! String)
-            name = newValue[Keys.name] as? String
-            rating = newValue[Keys.rating] as? String
             composureLevel = newValue[Keys.composureLevel] as? String
-            color = newValue[Keys.color] as? String
             notes = newValue[Keys.notes] as? String
             style = newValue[Keys.style] as? String
             numberOfHangs = newValue[Keys.numberOfHangs] as? String
@@ -77,13 +68,15 @@ class Activity: FIRObject, FIRTimestampable {
     }
     
     // MARK: Initializrers
-    convenience init(identifier : String, userId : String) {
+    convenience init(identifier : String, userId : String, climbId : String) {
         self.init(id: identifier)
         self.userId = userId
+        self.climbId = climbId
     }
     
     required convenience init(id: String) {
         self.init(id: id)
         self.userId = ""
+        self.climbId = ""
     }
 }

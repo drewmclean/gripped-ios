@@ -28,19 +28,16 @@ class Climb: FIRObject, FIRTimestampable {
         static let timestamp = "timestamp"
         static let name = "name"
         static let rating = "rating"
-        static let composureLevel = "composure_level"
         static let color = "color"
         static let notes = "notes"
-        static let style = "style" // Onsight, Redpoint, Flash
-        static let numberOfHangs = "numberOfHangs"
     }
     
     override class var objectName: String {
-        return "activity"
+        return "climbs"
     }
     
     override class var userObjectsName: String {
-        return "user-activity"
+        return "user-climbs"
     }
     
     var userId : String = ""
@@ -48,11 +45,8 @@ class Climb: FIRObject, FIRTimestampable {
     var timestamp : Date?
     var name : String?
     var rating : String?
-    var composureLevel : String?
     var color : String?
     var notes : String?
-    var style : String?
-    var numberOfHangs : String?
     var createdAt: Date?
     var modifiedAt: Date?
     
@@ -63,11 +57,8 @@ class Climb: FIRObject, FIRTimestampable {
                     Keys.timestamp: timestamp ?? "",
                     Keys.name: name ?? "",
                     Keys.rating: rating ?? "",
-                    Keys.composureLevel: composureLevel ?? "",
                     Keys.color: color ?? "",
                     Keys.notes: notes ?? "",
-                    Keys.style: style ?? "",
-                    Keys.numberOfHangs: numberOfHangs ?? "",
                     Keys.createdAt : createdAt!.isoString(),
                     Keys.modifiedAt : modifiedAt!.isoString()]
         }
@@ -77,11 +68,8 @@ class Climb: FIRObject, FIRTimestampable {
             timestamp = Date.isoDate(from: newValue[Keys.timestamp] as! String)
             name = newValue[Keys.name] as? String
             rating = newValue[Keys.rating] as? String
-            composureLevel = newValue[Keys.composureLevel] as? String
             color = newValue[Keys.color] as? String
             notes = newValue[Keys.notes] as? String
-            style = newValue[Keys.style] as? String
-            numberOfHangs = newValue[Keys.numberOfHangs] as? String
             createdAt = Date.isoDate(from: newValue[Keys.createdAt] as! String)
             modifiedAt = Date.isoDate(from: newValue[Keys.modifiedAt] as! String)
         }
