@@ -12,17 +12,16 @@ class ClimbTypeViewController : FormStackItemPickerViewController {
     
     override var nextFormItem: FormStackItem? {
         if let value = selectedValue {
-            switch value {
-            case :
-                
-                break
+            switch value as! ClimbType {
+            case .sport:
+                return NewClimbFormFieldProvider.Items.sportRating
             case .boulder:
-                
-                break
+                return NewClimbFormFieldProvider.Items.boulderRating
             default:
-                
+                return nil
             }
         }
+        return nil
     }
     
     override func viewDidLoad() {

@@ -12,15 +12,15 @@ class FormStackItemPickerViewController: FormStackItemViewController {
     
     var allValues : [StringRepresentable]?
     
-    var selectedValue : String? {
+    var selectedValue : StringRepresentable? {
         let selectedRow = pickerView.selectedRow(inComponent: 0)
         guard selectedRow >= 0 else {
             return nil
         }
-        guard let rawValue = allValues?[selectedRow].rawValue else {
+        guard let value = allValues?[selectedRow] else {
             return nil
         }
-        return rawValue
+        return value
     }
     
     lazy var pickerView : UIPickerView = {
