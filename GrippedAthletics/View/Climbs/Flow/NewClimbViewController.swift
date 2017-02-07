@@ -13,10 +13,9 @@ class NewClimbViewController: FormStackViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Create Climb"
+        title = "New Climb"
         
-        let newClimb = NewClimbFormFieldProvider()
-        provider = newClimb
+        provider = NewClimbFormFieldProvider()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,25 +39,24 @@ struct NewClimbFormFieldProvider : FormStackItemProvider {
     
     struct Items {
         static var climbType : FormStackItem = {
-            let field = FormField(title: "What type of Climb?", unit: "", propertyKey: Climb.Keys.type) { (textField : UITextField) in }
+            let field = FormField(title: "What type of climb?", unit: "", propertyKey: Climb.Keys.type) { (textField : UITextField) in }
             let vc = ClimbTypeViewController()
             vc.formField = field
             return FormStackItem(formField: field, itemViewController: vc)
         }()
         
         static var sportRating : FormStackItem = {
-            let field = FormField(title: "What is the Rating?", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
+            let field = FormField(title: "What would you rate the climb?", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
             let vc = SportRatingViewController()
             vc.formField = field
             return FormStackItem(formField: field, itemViewController: vc)
         }()
         
         static var boulderRating : FormStackItem = {
-            let field = FormField(title: "What is the Grade?", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
+            let field = FormField(title: "How hard would you rate this problem?", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
             let vc = BoulderRatingViewController()
             vc.formField = field
             return FormStackItem(formField: field, itemViewController: vc)
         }()
     }
-    
 }

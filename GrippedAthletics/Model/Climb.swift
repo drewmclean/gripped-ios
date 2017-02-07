@@ -13,8 +13,13 @@ enum ClimbType : String {
     case bouldering = "bouldering"
     case trad = "trad"
     case iceMixed = "ice_mixed"
-    
-    static var allValues = [sport, bouldering, trad, iceMixed]
+    static var allValues = [sport, bouldering]
+}
+
+enum ClimbVenue : String {
+    case gym = "gym"
+    case crag = "crag"
+    static var allValues = [gym, crag]
 }
 
 class Climb: FIRObject, FIRTimestampable {
@@ -25,11 +30,11 @@ class Climb: FIRObject, FIRTimestampable {
         static let modifiedAt = "modified_at"
         static let userId = "user_id"
         static let type = "type"
-        static let timestamp = "timestamp"
+        static let venue = "venue"
         static let name = "name"
         static let rating = "rating"
         static let color = "color"
-        static let notes = "notes"
+        static let description = "description"
     }
     
     override class var objectName: String {
@@ -42,11 +47,11 @@ class Climb: FIRObject, FIRTimestampable {
     
     var userId : String = ""
     var type : String?
-    var timestamp : Date?
     var name : String?
+    var venue : String?
     var rating : String?
     var color : String?
-    var notes : String?
+    var description : String?
     var createdAt: Date?
     var modifiedAt: Date?
     
@@ -54,22 +59,21 @@ class Climb: FIRObject, FIRTimestampable {
         get {
             return [Keys.userId: userId,
                     Keys.type: type ?? "",
-                    Keys.timestamp: timestamp ?? "",
+                    Keys.venue: venue ?? "",
                     Keys.name: name ?? "",
                     Keys.rating: rating ?? "",
                     Keys.color: color ?? "",
-                    Keys.notes: notes ?? "",
+                    Keys.notes: description ?? "",
                     Keys.createdAt : createdAt!.isoString(),
                     Keys.modifiedAt : modifiedAt!.isoString()]
         }
         set {
             userId = newValue[Keys.userId] as! String
-            type = newValue[Keys.type] as? String
-            timestamp = Date.isoDate(from: newValue[Keys.timestamp] as! String)
+            venue = newValue[Keys.venue] as? String
             name = newValue[Keys.name] as? String
             rating = newValue[Keys.rating] as? String
             color = newValue[Keys.color] as? String
-            notes = newValue[Keys.notes] as? String
+            description = newValue[Keys.description] as? String
             createdAt = Date.isoDate(from: newValue[Keys.createdAt] as! String)
             modifiedAt = Date.isoDate(from: newValue[Keys.modifiedAt] as! String)
         }
