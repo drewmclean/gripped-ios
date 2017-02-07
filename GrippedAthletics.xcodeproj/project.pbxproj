@@ -16,6 +16,7 @@
 		571C7FA21DBBD09A0071DB04 /* GrippedAthleticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7FA11DBBD09A0071DB04 /* GrippedAthleticsUITests.swift */; };
 		5727D51A1E478CEC00264430 /* Climb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5191E478CEC00264430 /* Climb.swift */; };
 		5727D5271E47DFA600264430 /* ClimbTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5261E47DFA600264430 /* ClimbTypes.swift */; };
+		5727D5291E494C9500264430 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5281E494C9500264430 /* Activity.swift */; };
 		5732DD751E48E97B00CE7F34 /* FormStackItemPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732DD6D1E48E97B00CE7F34 /* FormStackItemPickerViewController.swift */; };
 		5732DD761E48E97B00CE7F34 /* FormStackItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732DD6E1E48E97B00CE7F34 /* FormStackItemViewController.swift */; };
 		5732DD771E48E97B00CE7F34 /* FormStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732DD6F1E48E97B00CE7F34 /* FormStackViewController.swift */; };
@@ -107,6 +108,7 @@
 		571C7FD71DBBD5800071DB04 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5727D5191E478CEC00264430 /* Climb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Climb.swift; sourceTree = "<group>"; };
 		5727D5261E47DFA600264430 /* ClimbTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbTypes.swift; sourceTree = "<group>"; };
+		5727D5281E494C9500264430 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		5732DD6D1E48E97B00CE7F34 /* FormStackItemPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackItemPickerViewController.swift; sourceTree = "<group>"; };
 		5732DD6E1E48E97B00CE7F34 /* FormStackItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackItemViewController.swift; sourceTree = "<group>"; };
 		5732DD6F1E48E97B00CE7F34 /* FormStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				57BB62F81E1DEBD000D62CAB /* User.swift */,
 				5727D5191E478CEC00264430 /* Climb.swift */,
 				5727D5261E47DFA600264430 /* ClimbTypes.swift */,
+				5727D5281E494C9500264430 /* Activity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -824,6 +827,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5727D5291E494C9500264430 /* Activity.swift in Sources */,
 				5732DD901E48E9EE00CE7F34 /* BoulderRatingViewController.swift in Sources */,
 				57BEF3DF1E205F2F008CBAFE /* String.swift in Sources */,
 				5732DD931E48E9EE00CE7F34 /* TradRatingViewController.swift in Sources */,

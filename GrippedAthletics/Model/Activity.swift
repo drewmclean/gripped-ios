@@ -1,35 +1,24 @@
 //
-//  ClimbActivity.swift
+//  Activity.swift
 //  GrippedAthletics
 //
-//  Created by Andrew McLean on 2/5/17.
+//  Created by Andrew McLean on 2/6/17.
 //  Copyright © 2017 GrippedAthletics. All rights reserved.
 //
 
 import UIKit
 
-enum ClimbType : String {
-    case sport = "sport"
-    case bouldering = "bouldering"
-    case trad = "trad"
-    case iceMixed = "ice_mixed"
-    
-    static var allValues = [sport, bouldering, trad, iceMixed]
-}
-
-class Climb: FIRObject, FIRTimestampable {
-    typealias T = Climb
+class Activity: FIRObject, FIRTimestampable {
+    typealias T = Activity
     
     struct Keys {
         static let createdAt = "created_at"
         static let modifiedAt = "modified_at"
         static let userId = "user_id"
-        static let type = "type"
+        static let climbId = "climb_id"
         static let timestamp = "timestamp"
-        static let name = "name"
         static let rating = "rating"
         static let composureLevel = "composure_level"
-        static let color = "color"
         static let notes = "notes"
         static let style = "style" // Onsight, Redpoint, Flash
         static let numberOfHangs = "numberOfHangs"
