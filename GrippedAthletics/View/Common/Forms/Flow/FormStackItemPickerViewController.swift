@@ -60,7 +60,7 @@ extension FormStackItemPickerViewController : UIPickerViewDataSource {
 extension FormStackItemPickerViewController {
     
     override func submitValue() {
-        formField.value = selectedValue ?? ""
+        formField.value = selectedValue?.rawValue ?? ""
         super.submitValue()
     }
     
