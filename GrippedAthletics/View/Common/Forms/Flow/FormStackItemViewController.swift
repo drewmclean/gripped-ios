@@ -8,11 +8,20 @@
 
 import UIKit
 
+protocol FormStackItemViewControllerDelegate {
+    var sourceViewController : FormStackViewController { get }
+    
+    func didCompleteField(controller: FormStackItemViewController, nextFormItem: FormStackItem?)
+}
+
 class FormStackItemViewController: UIViewController {
+    
+    var delegate : FormStackItemViewControllerDelegate?
+    var nextFormItem : FormStackItem? { return nil }
     
     var formField : FormField! {
         didSet {
-//            updateUI()
+            
         }
     }
     
@@ -28,7 +37,7 @@ class FormStackItemViewController: UIViewController {
     
     lazy var titleLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 28, weight: UIFontWeightLight)
+        label.font = UIFont.systemFont(ofSize: 32, weight: UIFontWeightLight)
         label.textColor = UIColor.gray
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -41,7 +50,8 @@ class FormStackItemViewController: UIViewController {
         tf.borderStyle = .none
         tf.delegate = self
         tf.textAlignment = .center
-        tf.font = UIFont.boldSystemFont(ofSize: 36)
+        tf.tintColor = UIColor.clear
+        tf.font = UIFont.boldSystemFont(ofSize: 48)
         tf.textColor = UIColor.darkGray
         self.stackView.addArrangedSubview(tf)
         return tf
@@ -59,7 +69,7 @@ class FormStackItemViewController: UIViewController {
             make.center.equalTo(self.view)
         }
 
-        let titleWidth = view.frame.size.width - 30
+        let titleWidth = view.frame.size.width - 40
         let titleSize = NSString(string: formField.title).boundingRect(with: CGSize(width: titleWidth, height: 300), options: [.usesDeviceMetrics, .usesLineFragmentOrigin], attributes: [NSFontAttributeName : titleLabel.font], context: nil).size
         let titleHeight = max(36, titleSize.height)
         titleLabel.snp.updateConstraints { (make) in
@@ -79,6 +89,15 @@ class FormStackItemViewController: UIViewController {
         titleLabel.text = formField.title
         textField.text = formField.value
         updateViewConstraints()
+    }
+}
+
+extension FormStackItemViewController {
+    func submitValue() {
+        guard formField.isValid else {
+            return
+        }
+        delegate?.didCompleteField(controller: self, nextFormItem: nextFormItem)
     }
 }
 

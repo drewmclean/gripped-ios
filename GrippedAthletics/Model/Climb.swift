@@ -8,18 +8,31 @@
 
 import UIKit
 
-enum ClimbType : String {
-    case sport = "sport"
-    case bouldering = "bouldering"
-    case trad = "trad"
-    case iceMixed = "ice_mixed"
-    static var allValues = [sport, bouldering]
+//struct ClimbType {
+//    var value : String
+//    var label : String
+//    init(value:String, label:String) {
+//        self.value = value
+//        self.label = label
+//    }
+//}
+
+protocol StringRepresentable {
+    var rawValue: String { get }
 }
 
-enum ClimbVenue : String {
-    case gym = "gym"
-    case crag = "crag"
-    static var allValues = [gym, crag]
+enum ClimbType : String, StringRepresentable {
+    case sport = "sport"
+    case boulder = "boulder"
+    case trad = "trad"
+    case iceMixed = "ice_mixed"
+    static var allValues = [sport, boulder]
+}
+
+enum ClimbVenue : String, StringRepresentable {
+    case indoor = "indoor"
+    case outdoor = "outdoor"
+    static var allValues = [indoor, outdoor]
 }
 
 class Climb: FIRObject, FIRTimestampable {
@@ -63,7 +76,7 @@ class Climb: FIRObject, FIRTimestampable {
                     Keys.name: name ?? "",
                     Keys.rating: rating ?? "",
                     Keys.color: color ?? "",
-                    Keys.notes: description ?? "",
+                    Keys.description: description ?? "",
                     Keys.createdAt : createdAt!.isoString(),
                     Keys.modifiedAt : modifiedAt!.isoString()]
         }

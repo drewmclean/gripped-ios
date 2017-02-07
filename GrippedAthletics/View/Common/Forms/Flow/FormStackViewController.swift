@@ -145,6 +145,22 @@ class FormStackViewController: UIViewController {
     
 }
 
+extension FormStackViewController : FormStackItemViewControllerDelegate {
+    
+    internal var sourceViewController: FormStackViewController { return self }
+    
+    internal func didCompleteField(controller: FormStackItemViewController, nextFormItem: FormStackItem?) {
+        if let next = nextFormItem {
+            appendFormItem(item: next)
+            showNextView()
+        }
+        else {
+            submitForm()
+        }
+    }
+
+}
+
 // MARK: Navigation
 
 extension FormStackViewController {
@@ -218,10 +234,13 @@ extension FormStackViewController {
     }
     
     func rightItemTapped(sender:UIBarButtonItem) {
-        if currentViewControllerIndex >= fieldViewControllers.count - 1 {
-            delegate?.didCompleteForm(controller: self)
+        
+        currentViewController.submitValue()
+        
+        if currentViewController == fieldViewControllers.last {
+            
         } else {
-            delegate?.didStepForward(controller: self)
+            
         }
     }
 }
@@ -233,7 +252,6 @@ extension FormStackViewController {
     func submitForm() {
         
     }
-    
 }
 
 // MARK: Item Control
@@ -244,6 +262,8 @@ extension FormStackViewController {
         provider?.items.append(item)
         addViewController(forItem: item)
         refreshPageControl()
+        view.setNeedsUpdateConstraints()
+        view.updateConstraintsIfNeeded()
     }
     
     func appendFormItems(items: [FormStackItem]) {
@@ -252,10 +272,13 @@ extension FormStackViewController {
             self.addViewController(forItem: item)
         }
         refreshPageControl()
+        view.setNeedsUpdateConstraints()
+        view.updateConstraintsIfNeeded()
     }
     
     func addViewController(forItem item : FormStackItem) {
         let vc = item.itemViewController
+        vc.delegate = self
         vc.willMove(toParentViewController: self)
         addChildViewController(vc)
         stackView.addArrangedSubview(vc.view)

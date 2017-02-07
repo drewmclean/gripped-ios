@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BoulderRatingViewController: RatingViewController {
+class BoulderRatingViewController: FormStackItemPickerViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

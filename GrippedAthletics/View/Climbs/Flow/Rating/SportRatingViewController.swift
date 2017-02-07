@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SportRatingViewController: RatingViewController {
+class SportRatingViewController: FormStackItemPickerViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

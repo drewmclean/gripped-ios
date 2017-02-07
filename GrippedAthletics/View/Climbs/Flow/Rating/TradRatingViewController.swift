@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TradRatingViewController: RatingViewController {
+class TradRatingViewController: FormStackItemPickerViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
