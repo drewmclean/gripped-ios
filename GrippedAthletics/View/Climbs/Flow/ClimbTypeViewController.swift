@@ -12,11 +12,15 @@ class ClimbTypeViewController : FormStackItemPickerViewController {
     
     override var nextFormItem: FormStackItem? {
         if let value = selectedValue {
-            switch <#value#> {
-            case <#pattern#>:
-                <#code#>
+            switch value {
+            case :
+                
+                break
+            case .boulder:
+                
+                break
             default:
-                <#code#>
+                
             }
         }
     }
