@@ -16,6 +16,10 @@ protocol FormStackItemViewControllerDelegate {
 
 class FormStackItemViewController: UIViewController {
     
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
     var delegate : FormStackItemViewControllerDelegate?
     var nextFormItem : FormStackItem? { return nil }
     
@@ -45,17 +49,18 @@ class FormStackItemViewController: UIViewController {
         return label
     }()
     
-    lazy var textField : UITextField = {
-        var tf = UITextField()
-        tf.borderStyle = .none
-        tf.delegate = self
-        tf.textAlignment = .center
-        tf.tintColor = UIColor.clear
-        tf.font = UIFont.boldSystemFont(ofSize: 48)
-        tf.textColor = UIColor.darkGray
-        self.stackView.addArrangedSubview(tf)
-        return tf
-    }()
+    var titleWidth : CGFloat {
+        return view.frame.size.width - 40
+    }
+    
+    var titleHeight : CGFloat {
+        return max(36, titleSize.height)
+    }
+    
+    var titleSize : CGSize {
+        let size = NSString(string: formField.title).boundingRect(with: CGSize(width: titleWidth, height: 300), options: [.usesDeviceMetrics, .usesLineFragmentOrigin], attributes: [NSFontAttributeName : titleLabel.font], context: nil).size
+        return size
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,29 +70,21 @@ class FormStackItemViewController: UIViewController {
     }
     
     override func updateViewConstraints() {
+        super.updateViewConstraints()
+        
         stackView.snp.updateConstraints { (make) in
             make.center.equalTo(self.view)
         }
 
-        let titleWidth = view.frame.size.width - 40
-        let titleSize = NSString(string: formField.title).boundingRect(with: CGSize(width: titleWidth, height: 300), options: [.usesDeviceMetrics, .usesLineFragmentOrigin], attributes: [NSFontAttributeName : titleLabel.font], context: nil).size
-        let titleHeight = max(36, titleSize.height)
         titleLabel.snp.updateConstraints { (make) in
             make.width.lessThanOrEqualTo(titleWidth)
             make.height.equalTo(titleHeight)
         }
         
-        textField.snp.updateConstraints { (make) in
-            make.width.equalTo(titleWidth)
-            make.height.equalTo(54)
-        }
-        
-        super.updateViewConstraints()
     }
     
     func updateUI() {
         titleLabel.text = formField.title
-        textField.text = formField.value
         updateViewConstraints()
     }
 }
@@ -99,9 +96,5 @@ extension FormStackItemViewController {
         }
         delegate?.didCompleteField(controller: self, nextFormItem: nextFormItem)
     }
-}
-
-extension FormStackItemViewController : UITextFieldDelegate {
-    
 }
 

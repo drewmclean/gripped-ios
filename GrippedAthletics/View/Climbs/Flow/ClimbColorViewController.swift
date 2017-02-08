@@ -7,10 +7,19 @@
 //
 
 import UIKit
-
+import SnapKit
 import IGColorPicker
 
 class ClimbColorViewController: FormStackItemViewController {
+    
+    lazy var colorView : UIView = {
+        let view = UIView()
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.borderWidth = 0.75
+        view.layer.cornerRadius = 4
+        self.stackView.addArrangedSubview(view)
+        return view
+    }()
     
     lazy var colorPickerView : ColorPickerView = {
         let cpv = ColorPickerView()
@@ -22,7 +31,15 @@ class ClimbColorViewController: FormStackItemViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textField.inputView = colorPickerView
+    }
+    
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        
+        colorView.snp.updateConstraints { (make: ConstraintMaker) in
+            make.width.equalTo(80)
+            make.height.equalTo(80)
+        }
         
     }
     

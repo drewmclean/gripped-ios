@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FormStackItemPickerViewController: FormStackItemViewController {
+class FormStackItemPickerViewController: FormStackItemTextFieldViewController {
     
     var allValues : [StringRepresentable]?
     
