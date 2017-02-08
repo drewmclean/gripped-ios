@@ -11,7 +11,7 @@ import UIKit
 import IGColorPicker
 
 class ClimbColorViewController: FormStackItemViewController {
-
+    
     lazy var colorPickerView : ColorPickerView = {
         let cpv = ColorPickerView()
         cpv.style = .square
@@ -22,8 +22,10 @@ class ClimbColorViewController: FormStackItemViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        textField.inputView = colorPickerView
+        
     }
-
+    
 }
 
 // MARK: ColorPickerViewDelegate

@@ -38,6 +38,7 @@ struct NewClimbFormFieldProvider : FormStackItemProvider {
     }
     
     struct Items {
+        
         static var climbType : FormStackItem = {
             let field = FormField(title: "What type of climb?", unit: "", propertyKey: Climb.Keys.type) { (textField : UITextField) in }
             let vc = ClimbTypeViewController()
