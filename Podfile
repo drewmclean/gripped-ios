@@ -21,6 +21,7 @@ target 'GrippedAthletics' do
   pod 'SnapKit'
   pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :branch => 'master'
   pod 'SDWebImage', :git => 'git@github.com:rs/SDWebImage.git', :branch => '4.x'
+  pod 'IGColorPicker'
   
   # Pods for GrippedAthletics
   
