@@ -190,11 +190,11 @@ extension FormStackViewController {
             UIView.animate(withDuration: 0.25, delay: 0, options: [UIViewAnimationOptions.curveEaseOut], animations: {
                 self.view.layoutIfNeeded()
             }, completion: { (finished: Bool) in
-                vc.textField.becomeFirstResponder()
+                vc.becomeFirstResponder()
             })
         } else {
             view.layoutIfNeeded()
-            vc.textField.becomeFirstResponder()
+            vc.becomeFirstResponder()
         }
     }
     

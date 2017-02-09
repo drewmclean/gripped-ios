@@ -25,7 +25,7 @@ class NewClimbViewController: FormStackViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
 }
@@ -35,10 +35,11 @@ struct NewClimbFormFieldProvider : FormStackItemProvider {
     var items: [FormStackItem] = [FormStackItem]()
     
     init() {
-        items = [Items.climbType]
+        items = [Items.climbColor]
     }
     
     struct Items {
+        
         static var climbType : FormStackItem = {
             let field = FormField(title: "What type of climb?", unit: "", propertyKey: Climb.Keys.type) { (textField : UITextField) in }
             let vc = ClimbTypeViewController()
@@ -59,5 +60,20 @@ struct NewClimbFormFieldProvider : FormStackItemProvider {
             vc.formField = field
             return FormStackItem(formField: field, itemViewController: vc)
         }()
+        
+        static var climbVenue : FormStackItem = {
+            let field = FormField(title: "Is this climb indoor or outdoor?", unit: "", propertyKey: Climb.Keys.venue) { (textField : UITextField) in }
+            let vc = ClimbVenueViewController()
+            vc.formField = field
+            return FormStackItem(formField: field, itemViewController: vc)
+        }()
+        
+        static var climbColor : FormStackItem = {
+            let field = FormField(title: "Does the climb have a color?", unit: "", propertyKey: Climb.Keys.color) { (textField : UITextField) in }
+            let vc = ClimbColorViewController()
+            vc.formField = field
+            return FormStackItem(formField: field, itemViewController: vc)
+        }()
+        
     }
 }

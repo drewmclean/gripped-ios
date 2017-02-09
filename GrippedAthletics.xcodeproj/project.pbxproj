@@ -17,7 +17,6 @@
 		5727D51A1E478CEC00264430 /* Climb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5191E478CEC00264430 /* Climb.swift */; };
 		5727D5271E47DFA600264430 /* ClimbTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5261E47DFA600264430 /* ClimbTypes.swift */; };
 		5727D5291E494C9500264430 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5281E494C9500264430 /* Activity.swift */; };
-		5732DD751E48E97B00CE7F34 /* FormStackItemPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732DD6D1E48E97B00CE7F34 /* FormStackItemPickerViewController.swift */; };
 		5732DD761E48E97B00CE7F34 /* FormStackItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732DD6E1E48E97B00CE7F34 /* FormStackItemViewController.swift */; };
 		5732DD771E48E97B00CE7F34 /* FormStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732DD6F1E48E97B00CE7F34 /* FormStackViewController.swift */; };
 		5732DD781E48E97B00CE7F34 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732DD701E48E97B00CE7F34 /* Form.swift */; };
@@ -63,6 +62,13 @@
 		57BEF3DF1E205F2F008CBAFE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BEF3DE1E205F2F008CBAFE /* String.swift */; };
 		57C9CCE21E1B3D480073E19F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C9CCE11E1B3D480073E19F /* Date.swift */; };
 		57CF08F71DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CF08F61DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift */; };
+		57CFDF201E4BB5400040FE4A /* ClimbColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CFDF1F1E4BB5400040FE4A /* ClimbColorViewController.swift */; };
+		57CFDF221E4BB56D0040FE4A /* ClimbVenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CFDF211E4BB56D0040FE4A /* ClimbVenueViewController.swift */; };
+		57CFDF241E4BB7790040FE4A /* ClimbNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CFDF231E4BB7790040FE4A /* ClimbNameViewController.swift */; };
+		57CFDF261E4BB7950040FE4A /* ClimbDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CFDF251E4BB7950040FE4A /* ClimbDescriptionViewController.swift */; };
+		57CFDF291E4BC42D0040FE4A /* FormStackItemPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CFDF281E4BC42D0040FE4A /* FormStackItemPickerViewController.swift */; };
+		57CFDF2B1E4BC4C90040FE4A /* FormStackItemTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CFDF2A1E4BC4C90040FE4A /* FormStackItemTextFieldViewController.swift */; };
+		57CFDF2D1E4BC4DC0040FE4A /* FormStackItemTextViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CFDF2C1E4BC4DC0040FE4A /* FormStackItemTextViewViewController.swift */; };
 		57D87E521DE0C2F1000435E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57D87E511DE0C2F1000435E5 /* GoogleService-Info.plist */; };
 		57D87E671DE28A58000435E5 /* AuthPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D87E601DE28A58000435E5 /* AuthPromptViewController.swift */; };
 		57D87E681DE28A58000435E5 /* AuthTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D87E611DE28A58000435E5 /* AuthTextFieldViewController.swift */; };
@@ -109,7 +115,6 @@
 		5727D5191E478CEC00264430 /* Climb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Climb.swift; sourceTree = "<group>"; };
 		5727D5261E47DFA600264430 /* ClimbTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbTypes.swift; sourceTree = "<group>"; };
 		5727D5281E494C9500264430 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
-		5732DD6D1E48E97B00CE7F34 /* FormStackItemPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackItemPickerViewController.swift; sourceTree = "<group>"; };
 		5732DD6E1E48E97B00CE7F34 /* FormStackItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackItemViewController.swift; sourceTree = "<group>"; };
 		5732DD6F1E48E97B00CE7F34 /* FormStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackViewController.swift; sourceTree = "<group>"; };
 		5732DD701E48E97B00CE7F34 /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
@@ -153,6 +158,13 @@
 		57BEF3DE1E205F2F008CBAFE /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		57C9CCE11E1B3D480073E19F /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		57CF08F61DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLinkPasswordEntryViewController.swift; sourceTree = "<group>"; };
+		57CFDF1F1E4BB5400040FE4A /* ClimbColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbColorViewController.swift; sourceTree = "<group>"; };
+		57CFDF211E4BB56D0040FE4A /* ClimbVenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbVenueViewController.swift; sourceTree = "<group>"; };
+		57CFDF231E4BB7790040FE4A /* ClimbNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbNameViewController.swift; sourceTree = "<group>"; };
+		57CFDF251E4BB7950040FE4A /* ClimbDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbDescriptionViewController.swift; sourceTree = "<group>"; };
+		57CFDF281E4BC42D0040FE4A /* FormStackItemPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackItemPickerViewController.swift; sourceTree = "<group>"; };
+		57CFDF2A1E4BC4C90040FE4A /* FormStackItemTextFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackItemTextFieldViewController.swift; sourceTree = "<group>"; };
+		57CFDF2C1E4BC4DC0040FE4A /* FormStackItemTextViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackItemTextViewViewController.swift; sourceTree = "<group>"; };
 		57D87E511DE0C2F1000435E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		57D87E601DE28A58000435E5 /* AuthPromptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthPromptViewController.swift; sourceTree = "<group>"; };
 		57D87E611DE28A58000435E5 /* AuthTextFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthTextFieldViewController.swift; sourceTree = "<group>"; };
@@ -329,7 +341,7 @@
 		5732DD6C1E48E97B00CE7F34 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
-				5732DD6D1E48E97B00CE7F34 /* FormStackItemPickerViewController.swift */,
+				57CFDF271E4BC42D0040FE4A /* Fields */,
 				5732DD6E1E48E97B00CE7F34 /* FormStackItemViewController.swift */,
 				5732DD6F1E48E97B00CE7F34 /* FormStackViewController.swift */,
 			);
@@ -368,7 +380,11 @@
 		5732DD851E48E9EE00CE7F34 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				57CFDF1F1E4BB5400040FE4A /* ClimbColorViewController.swift */,
+				57CFDF251E4BB7950040FE4A /* ClimbDescriptionViewController.swift */,
+				57CFDF231E4BB7790040FE4A /* ClimbNameViewController.swift */,
 				5732DD861E48E9EE00CE7F34 /* ClimbTypeViewController.swift */,
+				57CFDF211E4BB56D0040FE4A /* ClimbVenueViewController.swift */,
 				5732DD871E48E9EE00CE7F34 /* NewClimbViewController.swift */,
 				5732DD881E48E9EE00CE7F34 /* Rating */,
 			);
@@ -488,6 +504,16 @@
 				57BB62DF1E1BFC4B00D62CAB /* BiometricsFormViewController.swift */,
 			);
 			path = Form;
+			sourceTree = "<group>";
+		};
+		57CFDF271E4BC42D0040FE4A /* Fields */ = {
+			isa = PBXGroup;
+			children = (
+				57CFDF281E4BC42D0040FE4A /* FormStackItemPickerViewController.swift */,
+				57CFDF2A1E4BC4C90040FE4A /* FormStackItemTextFieldViewController.swift */,
+				57CFDF2C1E4BC4DC0040FE4A /* FormStackItemTextViewViewController.swift */,
+			);
+			path = Fields;
 			sourceTree = "<group>";
 		};
 		57D87E501DE0C2DF000435E5 /* Supporting Files */ = {
@@ -837,6 +863,7 @@
 				570974B51DFB58B300D355B9 /* NSError.swift in Sources */,
 				579DE2B71DBC112C00D71875 /* HomeViewController.swift in Sources */,
 				5732DD761E48E97B00CE7F34 /* FormStackItemViewController.swift in Sources */,
+				57CFDF201E4BB5400040FE4A /* ClimbColorViewController.swift in Sources */,
 				57D87E681DE28A58000435E5 /* AuthTextFieldViewController.swift in Sources */,
 				5732DD801E48E99400CE7F34 /* UIImage.swift in Sources */,
 				579DE2D61DBC259E00D71875 /* MenuViewController.swift in Sources */,
@@ -844,6 +871,7 @@
 				57BB62E11E1BFC4B00D62CAB /* BiometricsFormViewController.swift in Sources */,
 				5786B1451E1AB30B00C7EA36 /* AppSession.swift in Sources */,
 				579DE2D31DBC1DDD00D71875 /* Auth.swift in Sources */,
+				57CFDF261E4BB7950040FE4A /* ClimbDescriptionViewController.swift in Sources */,
 				5732DD8F1E48E9EE00CE7F34 /* NewClimbViewController.swift in Sources */,
 				5786B1491E1AB30B00C7EA36 /* UserProfile.swift in Sources */,
 				5732DD791E48E97B00CE7F34 /* FormField.swift in Sources */,
@@ -855,17 +883,21 @@
 				574BF0631E09E29E00AF3803 /* Grades.swift in Sources */,
 				5732DD781E48E97B00CE7F34 /* Form.swift in Sources */,
 				5732DD7B1E48E97B00CE7F34 /* FormTableViewController.swift in Sources */,
+				57CFDF241E4BB7790040FE4A /* ClimbNameViewController.swift in Sources */,
 				57D87E6D1DE28A58000435E5 /* SignUpViewController.swift in Sources */,
 				57C9CCE21E1B3D480073E19F /* Date.swift in Sources */,
 				5732DD7A1E48E97B00CE7F34 /* FormFieldTableViewCell.swift in Sources */,
 				5732DD8D1E48E9EE00CE7F34 /* ClimbListViewController.swift in Sources */,
 				5758E57E1DF9C95500121110 /* KeyStore.swift in Sources */,
 				5727D51A1E478CEC00264430 /* Climb.swift in Sources */,
+				57CFDF291E4BC42D0040FE4A /* FormStackItemPickerViewController.swift in Sources */,
 				57BB62F91E1DEBD000D62CAB /* User.swift in Sources */,
 				57D87E6B1DE28A58000435E5 /* SignInViewController.swift in Sources */,
 				5758E5801DF9E9DC00121110 /* Futures.swift in Sources */,
 				57BB62E31E1BFD5400D62CAB /* BiometricsListTableViewCell.swift in Sources */,
+				57CFDF2D1E4BC4DC0040FE4A /* FormStackItemTextViewViewController.swift in Sources */,
 				5732DD8E1E48E9EE00CE7F34 /* ClimbTypeViewController.swift in Sources */,
+				57CFDF221E4BB56D0040FE4A /* ClimbVenueViewController.swift in Sources */,
 				5727D5271E47DFA600264430 /* ClimbTypes.swift in Sources */,
 				5732DD771E48E97B00CE7F34 /* FormStackViewController.swift in Sources */,
 				57D87E6C1DE28A58000435E5 /* SignUpConfirmViewController.swift in Sources */,
@@ -876,8 +908,8 @@
 				57D87E671DE28A58000435E5 /* AuthPromptViewController.swift in Sources */,
 				579DE2D01DBC1D3300D71875 /* Config.swift in Sources */,
 				5732DD911E48E9EE00CE7F34 /* IceMixedRatingViewController.swift in Sources */,
+				57CFDF2B1E4BC4C90040FE4A /* FormStackItemTextFieldViewController.swift in Sources */,
 				57CF08F71DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift in Sources */,
-				5732DD751E48E97B00CE7F34 /* FormStackItemPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
