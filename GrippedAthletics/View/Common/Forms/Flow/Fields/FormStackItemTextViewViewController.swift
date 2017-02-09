@@ -26,9 +26,17 @@ class FormStackItemTextAreaViewController: FormStackItemViewController {
         return textView.becomeFirstResponder()
     }
     
+    override func resignFirstResponder() -> Bool {
+        return textView.resignFirstResponder()
+    }
+    
     override func updateViewConstraints() {
         super.updateViewConstraints()
-        
+        textView.snp.updateConstraints { (make) in
+            make.left.equalTo(stackView.snp.left).offset(20)
+            make.right.equalTo(stackView.snp.right).offset(20)
+            make.height.equalTo(180)
+        }
     }
 
 }

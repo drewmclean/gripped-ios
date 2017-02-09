@@ -35,7 +35,7 @@ struct NewClimbFormFieldProvider : FormStackItemProvider {
     var items: [FormStackItem] = [FormStackItem]()
     
     init() {
-        items = [Items.climbColor]
+        items = [Items.climbType]
     }
     
     struct Items {

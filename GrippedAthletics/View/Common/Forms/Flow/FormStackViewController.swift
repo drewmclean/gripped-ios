@@ -86,25 +86,23 @@ class FormStackViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.white
         
         navigationItem.titleView = pageControlContainer
         
         addKeyboardHandlers()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        showFieldViewController(atIndex: currentItemIndex, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        showFieldViewController(atIndex: 0, animated: false)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func refreshPageControl() {
@@ -219,7 +217,7 @@ extension FormStackViewController {
     
     func backItemTapped(sender:UIBarButtonItem) {
         if currentViewControllerIndex == 0 {
-            currentViewController.view.endEditing(true)
+            currentViewController.resignFirstResponder()
             dismiss(animated: true, completion: nil)
             delegate?.didCancelForm(controller: self)
         } else {
@@ -229,13 +227,12 @@ extension FormStackViewController {
     }
     
     func rightItemTapped(sender:UIBarButtonItem) {
-        
-        currentViewController.submitValue()
-        
-        if currentViewController == fieldViewControllers.last {
-            
-        } else {
-            
+        currentViewController.submitValue { (isValid: Bool) in
+            if currentViewController == fieldViewControllers.last {
+                submitForm()
+            } else {
+                showNextView()
+            }
         }
     }
 }

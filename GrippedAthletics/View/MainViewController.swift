@@ -14,7 +14,7 @@ class MainViewController: PKRevealController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.white
         disablesFrontViewInteraction = false
     }
 

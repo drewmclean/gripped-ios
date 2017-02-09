@@ -32,6 +32,10 @@ class FormStackItemTextFieldViewController: FormStackItemViewController {
         return textField.becomeFirstResponder()
     }
     
+    override func resignFirstResponder() -> Bool {
+        return textField.resignFirstResponder()
+    }
+    
     override func updateUI() {
         textField.text = formField.value
         

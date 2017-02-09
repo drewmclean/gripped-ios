@@ -69,84 +69,45 @@ struct Grades {
         case XIIm = "XII-"
     }
     
-    enum NorthAmerica : String {
+    struct NorthAmerica {
         
-        case Five0     = "5.0"
-        case Five1     = "5.1"
-        case Five2     = "5.2"
-        case Five3     = "5.3"
-        case Five4     = "5.4"
-        case Five5     = "5.5"
-        case Five6     = "5.6"
+        struct FullGrade {
+            var difficultyClass : Class
+            var subgrade : Subgrade?
+        }
         
-        case Five7m    = "5.7-"
-        case Five7     = "5.7"
-        case Five7p    = "5.7+"
+        enum Class : String {
+            case Five0     = "5.0"
+            case Five1     = "5.1"
+            case Five2     = "5.2"
+            case Five3     = "5.3"
+            case Five4     = "5.4"
+            case Five5     = "5.5"
+            case Five6     = "5.6"
+            case Five7     = "5.7"
+            case Five8     = "5.8"
+            case Five9     = "5.9"
+            case Five10    = "5.10"
+            case Five11    = "5.11"
+            case Five12    = "5.12"
+            case Five13   = "5.13"
+            case Five14  = "5.14"
+            case Five15   = "5.15"
+        }
         
-        case Five8m    = "5.8-"
-        case Five8     = "5.8"
-        case Five8p    = "5.8+"
-        
-        case Five9m    = "5.9-"
-        case Five9     = "5.9"
-        case Five9p    = "5.9+"
-        
-        case Five10m   = "5.10-"
-        case Five10    = "5.10"
-        case Five10p   = "5.10+"
-        case Five10a   = "5.10a"
-        case Five10ab  = "5.10a/b"
-        case Five10b   = "5.10b"
-        case Five10bc  = "5.10b/c"
-        case Five10c   = "5.10c"
-        case Five10cd  = "5.10c/d"
-        case Five10d   = "5.10d"
-        
-        case Five11m   = "5.11-"
-        case Five11    = "5.11"
-        case Five11p   = "5.11+"
-        case Five11a   = "5.11a"
-        case Five11ab  = "5.11a/b"
-        case Five11b   = "5.11b"
-        case Five11bc  = "5.11b/c"
-        case Five11c   = "5.11c"
-        case Five11cd  = "5.11c/d"
-        case Five11d   = "5.11d"
-        
-        case Five12m   = "5.12-"
-        case Five12    = "5.12"
-        case Five12p   = "5.12+"
-        case Five12a   = "5.12a"
-        case Five12ab  = "5.12a/b"
-        case Five12b   = "5.12b"
-        case Five12bc  = "5.12b/c"
-        case Five12c   = "5.12c"
-        case Five12cd  = "5.12c/d"
-        case Five12d   = "5.12d"
-        
-        case Five13a   = "5.13a"
-        case Five13ab  = "5.13a/b"
-        case Five13b   = "5.13b"
-        case Five13bc  = "5.13b/c"
-        case Five13c   = "5.13c"
-        case Five13cd  = "5.13c/d"
-        case Five13d   = "5.13d"
-        
-        case Five14a   = "5.14a"
-        case Five14ab  = "5.14a/b"
-        case Five14b   = "5.14b"
-        case Five14bc  = "5.14b/c"
-        case Five14c   = "5.14c"
-        case Five14cd  = "5.14c/d"
-        case Five14d   = "5.14d"
-        
-        case Five15a   = "5.15a"
-        case Five15ab  = "5.15a/b"
-        case Five15b   = "5.15b"
-        case Five15bc  = "5.15b/c"
-        case Five15c   = "5.15c"
-        case Five15cd  = "5.15c/d"
-        case Five15d   = "5.15d"
+        enum Subgrade : String {
+            
+            case plus = "+"
+            case minus = "-"
+            case a = "a"
+            case ab = "a/b"
+            case b = "b"
+            case bc = "b/c"
+            case c = "c"
+            case cd = "c/d"
+            case d = "d"
+            
+        }
     }
     
     enum French : String {
@@ -200,7 +161,7 @@ struct Grades {
     static var matrix : [Grade] {
         var m = [Grade]()
         
-        m.append(Grade(a: .Three, na: .Five0, f: .FourA, h: .VB))
+//        m.append(Grade(a: .Three, na: .Five0, f: .FourA, h: .VB))
         
         return m
     }

@@ -49,7 +49,7 @@ class FormStackItemViewController: UIViewController {
         label.textColor = UIColor.gray
         label.numberOfLines = 0
         label.textAlignment = .center
-        self.stackView.addArrangedSubview(label)
+        self.stackView.insertArrangedSubview(label, at: 0)
         return label
     }()
     
@@ -93,17 +93,14 @@ class FormStackItemViewController: UIViewController {
 }
 
 extension FormStackItemViewController {
-    func submitValue() {
+    func submitValue(completion: (Bool) -> Void) {
         guard let inputProvider = self as? FormInputProvider else {
+            completion(false)
             return
         }
         
         formField.value = inputProvider.inputValue!
-        
-        guard formField.isValid else {
-            return
-        }
-        delegate?.didCompleteField(controller: self, nextFormItem: nextFormItem)
+        completion(formField.isValid)
     }
 }
 

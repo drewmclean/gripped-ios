@@ -8,11 +8,7 @@
 
 import UIKit
 
-<<<<<<< HEAD:GrippedAthletics/View/Common/Forms/Flow/FormStackItemPickerViewController.swift
-class FormStackItemPickerViewController: FormStackItemViewController, FormInputProvider {
-=======
 class FormStackItemPickerViewController: FormStackItemTextFieldViewController {
->>>>>>> 5c0a8387f52cb7a9d915f99fab5f9211a6c7d9ee:GrippedAthletics/View/Common/Forms/Flow/Fields/FormStackItemPickerViewController.swift
     
     var allValues : [StringRepresentable]?
     
@@ -50,6 +46,7 @@ class FormStackItemPickerViewController: FormStackItemTextFieldViewController {
         super.viewWillAppear(animated)
         textField.text = allValues?[0].rawValue.capitalized
     }
+    
 }
 
 extension FormStackItemPickerViewController : UIPickerViewDataSource {
@@ -74,11 +71,6 @@ extension FormStackItemPickerViewController : UIPickerViewDataSource {
 }
 
 extension FormStackItemPickerViewController {
-    
-    override func submitValue() {
-        
-        super.submitValue()
-    }
     
 }
 
