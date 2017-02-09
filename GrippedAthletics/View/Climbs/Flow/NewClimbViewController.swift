@@ -16,6 +16,7 @@ class NewClimbViewController: FormStackViewController {
         title = "New Climb"
         
         provider = NewClimbFormFieldProvider()
+        reloadViews()
     }
     
     override func viewDidAppear(_ animated: Bool) {

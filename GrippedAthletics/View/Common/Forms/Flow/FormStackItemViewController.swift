@@ -8,13 +8,17 @@
 
 import UIKit
 
+protocol FormInputProvider {
+    var inputValue : String? { get }
+}
+
 protocol FormStackItemViewControllerDelegate {
     var sourceViewController : FormStackViewController { get }
-    
     func didCompleteField(controller: FormStackItemViewController, nextFormItem: FormStackItem?)
 }
 
 class FormStackItemViewController: UIViewController {
+    typealias T = FormInputProvider
     
     var delegate : FormStackItemViewControllerDelegate?
     var nextFormItem : FormStackItem? { return nil }
@@ -59,7 +63,6 @@ class FormStackItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = UIColor.white
         updateUI()
     }
@@ -94,6 +97,12 @@ class FormStackItemViewController: UIViewController {
 
 extension FormStackItemViewController {
     func submitValue() {
+        guard let inputProvider = self as? FormInputProvider else {
+            return
+        }
+        
+        formField.value = inputProvider.inputValue!
+        
         guard formField.isValid else {
             return
         }

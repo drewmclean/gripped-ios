@@ -141,7 +141,6 @@ class BiometricsFormViewController: FormTableViewController {
                 guard let s = snapshot else {
                     return
                 }
-                
                 self.biometrics = Biometrics(snapshot: s)
                 self.dismiss(animated: true, completion: nil)
             }
@@ -153,12 +152,9 @@ class BiometricsFormViewController: FormTableViewController {
 
 extension BiometricsFormViewController : KeyboardAnimator {
     internal func keyboardShowHandler(keyboardFrame: CGRect) {
-        
-        
         selectApeSign(sign: biometrics?.apeSign)
         selectApeLength(length: biometrics?.apeLength)
         apeIndexPicker.reloadAllComponents()
-        
     }
     
     internal func keyboardShowAnimation(keyboardFrame: CGRect) {

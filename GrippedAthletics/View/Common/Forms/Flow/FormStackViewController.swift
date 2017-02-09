@@ -24,11 +24,7 @@ protocol FormStackViewControllerDelegate {
 
 class FormStackViewController: UIViewController {
     
-    var provider : FormStackItemProvider? {
-        didSet {
-            reloadViews()
-        }
-    }
+    var provider : FormStackItemProvider?
     
     var delegate : FormStackViewControllerDelegate?
     
@@ -98,7 +94,6 @@ class FormStackViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -123,12 +118,14 @@ class FormStackViewController: UIViewController {
     }
     
     override func updateViewConstraints() {
+        super.updateViewConstraints()
         
         pageControl.snp.updateConstraints { (make) in
             make.center.equalTo(pageControlContainer.center)
         }
         
         stackView.snp.updateConstraints { (make) in
+            
             make.top.equalTo(self.view.snp.top)
             self.stackViewBottomConstraint = make.bottom.equalTo(self.view.snp.bottom).offset(stackViewBottomOffset).constraint
             make.left.equalTo(self.view.snp.left)
@@ -138,9 +135,8 @@ class FormStackViewController: UIViewController {
             } else {
                 make.width.equalTo(self.view.snp.width)
             }
+            
         }
-        
-        super.updateViewConstraints()
     }
     
 }
@@ -150,13 +146,12 @@ extension FormStackViewController : FormStackItemViewControllerDelegate {
     internal var sourceViewController: FormStackViewController { return self }
     
     internal func didCompleteField(controller: FormStackItemViewController, nextFormItem: FormStackItem?) {
-        if let next = nextFormItem {
-            appendFormItem(item: next)
-            showNextView()
+        guard let next = nextFormItem else {
+            submitForm() // Last Form View
+            return
         }
-        else {
-            submitForm()
-        }
+        appendFormItem(item: next)
+        showNextView()
     }
 
 }
@@ -245,7 +240,7 @@ extension FormStackViewController {
     }
 }
 
-// MARK: Form Control
+// MARK: Form Submit
 
 extension FormStackViewController {
     
@@ -289,6 +284,7 @@ extension FormStackViewController {
         stackView.arrangedSubviews.forEach { (view:UIView) in
             stackView.removeArrangedSubview(view)
         }
+
         items?.forEach { (item: FormStackItem) in
             addViewController(forItem: item)
         }

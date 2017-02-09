@@ -32,14 +32,7 @@ class FIRObject {
     class var objectRef: FIRDatabaseReference { return db.reference().child(objectName) }
     class var userObjectsRef: FIRDatabaseReference { return db.reference().child(userObjectsName) }
     
-    var fieldValues : [AnyHashable: Any] {
-        get {
-            return [AnyHashable: Any]()
-        }
-        set {
-            
-        }
-    }
+    var fieldValues : [AnyHashable: Any] = [AnyHashable: Any]()
     
     static func childUpdateRefKeys(objectKey: String, userId: String?) -> [String] {
         var keys = ["\(objectName)/\(objectKey)"]

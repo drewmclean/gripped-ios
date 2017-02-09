@@ -8,9 +8,15 @@
 
 import UIKit
 
-class FormStackItemPickerViewController: FormStackItemViewController {
+class FormStackItemPickerViewController: FormStackItemViewController, FormInputProvider {
     
     var allValues : [StringRepresentable]?
+    
+    // MARK: FormInputProvider
+    
+    var inputValue : String? {
+        return selectedValue?.rawValue
+    }
     
     var selectedValue : StringRepresentable? {
         let selectedRow = pickerView.selectedRow(inComponent: 0)
@@ -26,14 +32,20 @@ class FormStackItemPickerViewController: FormStackItemViewController {
     lazy var pickerView : UIPickerView = {
         let pv = UIPickerView()
         pv.delegate = self
-        self.textField.inputView = pv
+        
         return pv
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pickerView.selectRow(0, inComponent: 0, animated: true)
+        textField.inputView = pickerView
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textField.text = allValues?[0].rawValue.capitalized
+    }
 }
 
 extension FormStackItemPickerViewController : UIPickerViewDataSource {
@@ -60,7 +72,7 @@ extension FormStackItemPickerViewController : UIPickerViewDataSource {
 extension FormStackItemPickerViewController {
     
     override func submitValue() {
-        formField.value = selectedValue?.rawValue ?? ""
+        
         super.submitValue()
     }
     
