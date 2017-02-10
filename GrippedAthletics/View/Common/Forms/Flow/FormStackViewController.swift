@@ -57,6 +57,7 @@ class FormStackViewController: UIViewController {
     
     var stackViewBottomConstraint : Constraint!
     var stackViewBottomOffset : CGFloat = 0
+    var stackViewLeftConstraint : Constraint!
     
     lazy var stackView : UIStackView = {
         let sv = UIStackView()
@@ -120,15 +121,11 @@ class FormStackViewController: UIViewController {
         pageControl.snp.updateConstraints { (make) in
             make.center.equalTo(pageControlContainer)
         }
-        
+    
         stackView.snp.updateConstraints { (make) in
-            
             make.top.equalTo(self.view.snp.top)
             self.stackViewBottomConstraint = make.bottom.equalTo(self.view.snp.bottom).offset(stackViewBottomOffset).constraint
-            
-            let width = self.view.frame.size.width
-            let offset = width * CGFloat(currentItemIndex)
-            make.left.equalTo(-offset)
+            stackViewLeftConstraint = make.left.equalTo(self.view).constraint
         }
     }
     
@@ -162,14 +159,11 @@ extension FormStackViewController {
         
         pageControl.currentPage = index
         
-        stackView.snp.updateConstraints { (make) in
-            let width = self.view.frame.size.width
-            let offset = width * CGFloat(currentItemIndex)
-            make.left.equalTo(-offset)
-        }
-        
+        let offset : CGFloat = view.frame.size.width * CGFloat(currentItemIndex)
+        stackViewLeftConstraint.update(offset: -offset)
         if animated {
             UIView.animate(withDuration: 0.25, delay: 0, options: [UIViewAnimationOptions.curveEaseOut], animations: {
+                
                 self.view.layoutIfNeeded()
             }, completion: { (finished: Bool) in
                 vc.becomeFirstResponder()

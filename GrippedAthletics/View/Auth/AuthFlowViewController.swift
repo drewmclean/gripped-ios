@@ -236,6 +236,7 @@ extension AuthFlowViewController {
     
     internal func keyboardHideAnimation(keyboardFrane: CGRect) {
         stackViewBottomConstraint.update(offset: 0)
+        view.layoutIfNeeded()
     }
     
     internal func didFinishTextEntry(controller: AuthTextFieldViewController) {
