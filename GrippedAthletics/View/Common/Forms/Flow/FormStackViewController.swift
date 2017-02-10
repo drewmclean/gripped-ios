@@ -47,9 +47,8 @@ class FormStackViewController: UIViewController {
         })
     }
     
-    var currentViewControllerIndex : Int = 0
     var currentViewController : FormStackItemViewController {
-        return fieldViewControllers[currentViewControllerIndex]
+        return fieldViewControllers[currentItemIndex]
     }
     
     var lastViewController : FormStackItemViewController {
@@ -79,7 +78,7 @@ class FormStackViewController: UIViewController {
     }()
     
     lazy var pageControlContainer : UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 20))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 30))
         view.addSubview(self.pageControl)
         return view
     }()
@@ -119,21 +118,17 @@ class FormStackViewController: UIViewController {
         super.updateViewConstraints()
         
         pageControl.snp.updateConstraints { (make) in
-            make.center.equalTo(pageControlContainer.center)
+            make.center.equalTo(pageControlContainer)
         }
         
         stackView.snp.updateConstraints { (make) in
             
             make.top.equalTo(self.view.snp.top)
             self.stackViewBottomConstraint = make.bottom.equalTo(self.view.snp.bottom).offset(stackViewBottomOffset).constraint
-            make.left.equalTo(self.view.snp.left)
             
-            if let count = items?.count {
-                make.width.equalTo(self.view.snp.width).multipliedBy(max(1, count))
-            } else {
-                make.width.equalTo(self.view.snp.width)
-            }
-            
+            let width = self.view.frame.size.width
+            let offset = width * CGFloat(currentItemIndex)
+            make.left.equalTo(-offset)
         }
     }
     
@@ -159,28 +154,17 @@ extension FormStackViewController : FormStackItemViewControllerDelegate {
 extension FormStackViewController {
     
     func showFieldViewController(atIndex index: Int, animated: Bool) {
-        currentViewControllerIndex = index
+        currentItemIndex = index
         
         let vc = currentViewController
         
-        if index == 0 {
-            navigationItem.setLeftBarButton(barItemForNavType(withType: .close, title: "Cancel", target: self, action: #selector(AuthFlowViewController.backItemTapped(sender:))), animated: true)
-            navigationItem.setRightBarButton(barItemForNavType(withType: .next, title: "Next", target: self, action: #selector(AuthFlowViewController.rightItemTapped(sender:))), animated: true)
-        }
-        else if index == fieldViewControllers.count - 1 {
-            navigationItem.setLeftBarButton(barItemForNavType(withType: .back, title: "Back", target: self, action: #selector(AuthFlowViewController.backItemTapped(sender:))), animated: true)
-            navigationItem.setRightBarButton(barItemForNavType(withType: .done, title: "Done", target: self, action: #selector(AuthFlowViewController.rightItemTapped(sender:))), animated: true)
-        }
-        else {
-            navigationItem.setLeftBarButton(barItemForNavType(withType: .back, title: "Back", target: self, action: #selector(AuthFlowViewController.backItemTapped(sender:))), animated: true)
-            navigationItem.setRightBarButton(barItemForNavType(withType: .next, title: "Next", target: self, action: #selector(AuthFlowViewController.rightItemTapped(sender:))), animated: true)
-        }
+        updateNavBar(index: index)
         
         pageControl.currentPage = index
         
-        stackView.snp.updateConstraints { (make: ConstraintMaker) in
+        stackView.snp.updateConstraints { (make) in
             let width = self.view.frame.size.width
-            let offset = width * CGFloat(index)
+            let offset = width * CGFloat(currentItemIndex)
             make.left.equalTo(-offset)
         }
         
@@ -196,13 +180,28 @@ extension FormStackViewController {
         }
     }
     
+    func updateNavBar(index:Int) {
+        if index == 0 {
+            navigationItem.setLeftBarButton(barItemForNavType(withType: .close, title: "Cancel", target: self, action: #selector(AuthFlowViewController.backItemTapped(sender:))), animated: true)
+            navigationItem.setRightBarButton(barItemForNavType(withType: .next, title: "Next", target: self, action: #selector(AuthFlowViewController.rightItemTapped(sender:))), animated: true)
+        }
+        else if index == fieldViewControllers.count - 1 {
+            navigationItem.setLeftBarButton(barItemForNavType(withType: .back, title: "Back", target: self, action: #selector(AuthFlowViewController.backItemTapped(sender:))), animated: true)
+            navigationItem.setRightBarButton(barItemForNavType(withType: .done, title: "Done", target: self, action: #selector(AuthFlowViewController.rightItemTapped(sender:))), animated: true)
+        }
+        else {
+            navigationItem.setLeftBarButton(barItemForNavType(withType: .back, title: "Back", target: self, action: #selector(AuthFlowViewController.backItemTapped(sender:))), animated: true)
+            navigationItem.setRightBarButton(barItemForNavType(withType: .next, title: "Next", target: self, action: #selector(AuthFlowViewController.rightItemTapped(sender:))), animated: true)
+        }
+    }
+    
     func showNextView() {
-        let nextIndex = currentViewControllerIndex + 1
+        let nextIndex = currentItemIndex + 1
         showFieldViewController(atIndex: nextIndex, animated: true)
     }
     
     func showPreviousView() {
-        let previousIndex = currentViewControllerIndex - 1
+        let previousIndex = currentItemIndex - 1
         showFieldViewController(atIndex: previousIndex, animated: true)
     }
     
@@ -216,7 +215,7 @@ extension FormStackViewController {
 extension FormStackViewController {
     
     func backItemTapped(sender:UIBarButtonItem) {
-        if currentViewControllerIndex == 0 {
+        if currentItemIndex == 0 {
             currentViewController.resignFirstResponder()
             dismiss(animated: true, completion: nil)
             delegate?.didCancelForm(controller: self)
@@ -228,11 +227,18 @@ extension FormStackViewController {
     
     func rightItemTapped(sender:UIBarButtonItem) {
         currentViewController.submitValue { (isValid: Bool) in
-            if currentViewController == fieldViewControllers.last {
-                submitForm()
-            } else {
-                showNextView()
+            
+            guard isValid else {
+                return
             }
+            
+            guard let nextItem = currentViewController.nextFormItem else {
+                submitForm()
+                return
+            }
+            
+            appendFormItem(item: nextItem)
+            showNextView()
         }
     }
 }
@@ -254,8 +260,6 @@ extension FormStackViewController {
         provider?.items.append(item)
         addViewController(forItem: item)
         refreshPageControl()
-        view.setNeedsUpdateConstraints()
-        view.updateConstraintsIfNeeded()
     }
     
     func appendFormItems(items: [FormStackItem]) {
@@ -264,8 +268,6 @@ extension FormStackViewController {
             self.addViewController(forItem: item)
         }
         refreshPageControl()
-        view.setNeedsUpdateConstraints()
-        view.updateConstraintsIfNeeded()
     }
     
     func addViewController(forItem item : FormStackItem) {
@@ -274,6 +276,9 @@ extension FormStackViewController {
         vc.willMove(toParentViewController: self)
         addChildViewController(vc)
         stackView.addArrangedSubview(vc.view)
+        vc.view.snp.makeConstraints { (make: ConstraintMaker) in
+            make.width.equalTo(self.view)
+        }
         vc.didMove(toParentViewController: self)
     }
     
@@ -297,8 +302,7 @@ extension FormStackViewController : KeyboardAnimator {
     internal func keyboardShowHandler(keyboardFrame: CGRect) {
         stackViewBottomOffset = -keyboardFrame.size.height
         stackViewBottomConstraint.update(offset: stackViewBottomOffset)
-        view.setNeedsUpdateConstraints()
-        view.updateConstraintsIfNeeded()
+        view.layoutIfNeeded()
         
         guard stackView.alpha == 0 else {
             return

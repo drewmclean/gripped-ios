@@ -41,6 +41,16 @@ class FormStackItemTextAreaViewController: FormStackItemViewController {
 
 }
 
+// MARK: FormInputProvider
+
+extension FormStackItemTextAreaViewController : FormInputProvider {
+    
+    var inputValue : String? {
+        return textView.text
+    }
+    
+}
+
 // MARK: UITextViewDelegate
 
 extension FormStackItemTextAreaViewController : UITextViewDelegate {

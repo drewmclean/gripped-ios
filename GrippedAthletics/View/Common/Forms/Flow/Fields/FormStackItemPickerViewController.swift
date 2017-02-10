@@ -12,12 +12,6 @@ class FormStackItemPickerViewController: FormStackItemTextFieldViewController {
     
     var allValues : [StringRepresentable]?
     
-    // MARK: FormInputProvider
-    
-    var inputValue : String? {
-        return selectedValue?.rawValue
-    }
-    
     var selectedValue : StringRepresentable? {
         let selectedRow = pickerView.selectedRow(inComponent: 0)
         guard selectedRow >= 0 else {
@@ -71,6 +65,10 @@ extension FormStackItemPickerViewController : UIPickerViewDataSource {
 }
 
 extension FormStackItemPickerViewController {
+    
+    override var inputValue : String? {
+        return selectedValue?.rawValue
+    }
     
 }
 

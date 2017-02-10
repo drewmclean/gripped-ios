@@ -18,6 +18,7 @@
 		5727D5271E47DFA600264430 /* ClimbTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5261E47DFA600264430 /* ClimbTypes.swift */; };
 		5727D5291E494C9500264430 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5281E494C9500264430 /* Activity.swift */; };
 		5727D52B1E4BFCE200264430 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D52A1E4BFCE200264430 /* Utils.swift */; };
+		5727F5141E4D40C400E0AA4C /* NewClimbFormFieldProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727F5131E4D40C400E0AA4C /* NewClimbFormFieldProvider.swift */; };
 		5732DD761E48E97B00CE7F34 /* FormStackItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732DD6E1E48E97B00CE7F34 /* FormStackItemViewController.swift */; };
 		5732DD771E48E97B00CE7F34 /* FormStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732DD6F1E48E97B00CE7F34 /* FormStackViewController.swift */; };
 		5732DD781E48E97B00CE7F34 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732DD701E48E97B00CE7F34 /* Form.swift */; };
@@ -117,6 +118,7 @@
 		5727D5261E47DFA600264430 /* ClimbTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbTypes.swift; sourceTree = "<group>"; };
 		5727D5281E494C9500264430 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		5727D52A1E4BFCE200264430 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		5727F5131E4D40C400E0AA4C /* NewClimbFormFieldProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewClimbFormFieldProvider.swift; sourceTree = "<group>"; };
 		5732DD6E1E48E97B00CE7F34 /* FormStackItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackItemViewController.swift; sourceTree = "<group>"; };
 		5732DD6F1E48E97B00CE7F34 /* FormStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackViewController.swift; sourceTree = "<group>"; };
 		5732DD701E48E97B00CE7F34 /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				5732DD861E48E9EE00CE7F34 /* ClimbTypeViewController.swift */,
 				57CFDF211E4BB56D0040FE4A /* ClimbVenueViewController.swift */,
 				5732DD871E48E9EE00CE7F34 /* NewClimbViewController.swift */,
+				5727F5131E4D40C400E0AA4C /* NewClimbFormFieldProvider.swift */,
 				5732DD881E48E9EE00CE7F34 /* Rating */,
 			);
 			path = Flow;
@@ -912,6 +915,7 @@
 				57D87E671DE28A58000435E5 /* AuthPromptViewController.swift in Sources */,
 				579DE2D01DBC1D3300D71875 /* Config.swift in Sources */,
 				5732DD911E48E9EE00CE7F34 /* IceMixedRatingViewController.swift in Sources */,
+				5727F5141E4D40C400E0AA4C /* NewClimbFormFieldProvider.swift in Sources */,
 				57CFDF2B1E4BC4C90040FE4A /* FormStackItemTextFieldViewController.swift in Sources */,
 				57CF08F71DFA317700BFCDB8 /* FacebookLinkPasswordEntryViewController.swift in Sources */,
 			);

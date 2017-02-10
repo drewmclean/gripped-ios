@@ -54,7 +54,15 @@ class FormStackItemTextFieldViewController: FormStackItemViewController {
 
 }
 
-
-extension FormStackItemViewController : UITextFieldDelegate {
+extension FormStackItemTextFieldViewController : FormInputProvider {
+    
+    var inputValue : String? {
+        return textField.text
+    }
     
 }
+
+extension FormStackItemTextFieldViewController : UITextFieldDelegate {
+    
+}
+
