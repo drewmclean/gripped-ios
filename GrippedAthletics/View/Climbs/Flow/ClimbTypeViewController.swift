@@ -10,6 +10,10 @@ import UIKit
 
 class ClimbTypeViewController : FormStackItemPickerViewController {
     
+    override var allValues: [StringRepresentable] {
+        return ClimbType.allValues
+    }
+    
     override var nextFormItem: FormStackItem? {
         if let value = selectedValue {
             switch value as! ClimbType {
@@ -27,7 +31,7 @@ class ClimbTypeViewController : FormStackItemPickerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        allValues = ClimbType.allValues
+        
     }
     
 }

@@ -10,6 +10,10 @@ import UIKit
 
 class SportRatingViewController: FormStackItemPickerViewController {
 
+//    override var allValues: [StringRepresentable]? {
+//        
+//    }
+    
     override var nextFormItem: FormStackItem? {
         if let value = selectedValue {
             switch value as! ClimbType {
@@ -26,8 +30,6 @@ class SportRatingViewController: FormStackItemPickerViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        allValues = ClimbType.allValues
     }
 
 }
