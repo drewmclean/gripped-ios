@@ -9,29 +9,32 @@
 import UIKit
 
 protocol PickerComponentProvider {
-    var providers : [[StringRepresentable]] { get set }
+    var providers : [[StringRepresentable]] { get }
+}
+
+class ComponentsValue : ComponentStringRepresentable {
+    var components : [StringRepresentable] = [StringRepresentable]()
+    var rawValue : String {
+        return "\(components)"
+    }
+    convenience init(components : [StringRepresentable]) {
+        self.init()
+        self.components = components
+    }
 }
 
 class FormStackItemPickerViewController: FormStackItemTextFieldViewController {
-
-    var provider : PickerComponentProvider!
     
-    var selectedValue : ComponentStringRepresentable? {
-//        var values : [String] = [String]()
-//        for (index, element) in componentProviders.enumerated() {
-//            print("Item \(index): \(element)")
-//            var value = ""
-//            var allComponentValues = element
-//            let selectedRow = pickerView.selectedRow(inComponent: index)
-//            guard selectedRow > -1 else {
-//                return ""
-//            }
-//            value = allComponentValues[selectedRow].rawValue
-//            values.append(value)
-//        }
-//        let combinedValue = NSArray(array: values).componentsJoined(by: "")
-//        return combinedValue
-        return nil
+    var provider : PickerComponentProvider! {
+        didSet {
+            pickerView.reloadAllComponents()
+        }
+    }
+    
+    var selectedValue : ComponentsValue? {
+        didSet {
+            updateSelectedComponents(animated: true)
+        }
     }
     
     lazy var pickerView : UIPickerView = {
@@ -52,10 +55,24 @@ class FormStackItemPickerViewController: FormStackItemTextFieldViewController {
         
     }
     
+    func updateSelectedComponents(animated : Bool) {
+        
+        for (index, value) in selectedValue!.components.enumerated() {
+            let componentValues = provider.providers[index]
+            
+            if let rowToSelect = componentValues.index(where: { (component: StringRepresentable) -> Bool in
+                return value.rawValue == component.rawValue
+            }) {
+                pickerView.selectRow(rowToSelect, inComponent: index, animated: animated)
+            }
+            
+        }
+        
+    }
+    
     override func updateUI() {
-        titleLabel.text = formField.title
-        textField.text = inputValue?.capitalized
-        updateViewConstraints()
+        super.updateUI()
+        
         pickerView.reloadAllComponents()
         
 //        if formField.value.isEmpty == false {
@@ -108,10 +125,6 @@ extension FormStackItemPickerViewController {
 
 extension FormStackItemPickerViewController : UIPickerViewDelegate {
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-//       formField.value = value
-//        textField.text = value.capitalized
-    }
+    
     
 }

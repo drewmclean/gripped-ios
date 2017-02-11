@@ -8,11 +8,18 @@
 
 import UIKit
 
-struct SportRatingComponentProvider : PickerComponentProvider {
-    var providers: [[StringRepresentable]]
+class SportRatingValue : ComponentsValue, StringRepresentableSource {
     
-    init() {
-        providers = [Ratings.NorthAmerica.ClassGrade.allValues, Ratings.NorthAmerica.SubGrade.allValues]
+    required init(rawValue : String) {
+        // Parse the string into components
+        print("Sport Value: \(rawValue)")
+    }
+    
+}
+
+struct SportRatingComponentProvider : PickerComponentProvider {
+    var providers: [[StringRepresentable]] {
+        return [Ratings.NorthAmerica.ClassGrade.allValues, Ratings.NorthAmerica.SubGrade.allValues]
     }
 }
 
@@ -25,6 +32,7 @@ class SportRatingViewController: FormStackItemPickerViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        provider = SportRatingComponentProvider()
     }
 
 }

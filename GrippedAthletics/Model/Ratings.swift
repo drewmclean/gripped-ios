@@ -165,15 +165,15 @@ struct Ratings {
         case V16 = "V16"
     }
     
-    static var matrix : [Grade] {
-        var m = [Grade]()
+    static var matrix : [GradingScale] {
+        let m = [GradingScale]()
         
 //        m.append(Grade(a: .Three, na: .Five0, f: .FourA, h: .VB))
         
         return m
     }
     
-    struct Grade {
+    struct GradingScale {
         var australian: Australian
         var northAmerican: NorthAmerica
         var french: French

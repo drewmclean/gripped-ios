@@ -89,6 +89,7 @@ class FormStackItemViewController: UIViewController {
 }
 
 extension FormStackItemViewController {
+    
     func submitValue(completion: (Bool) -> Void) {
         guard let inputProvider = self as? FormInputProvider else {
             completion(false)
@@ -98,5 +99,6 @@ extension FormStackItemViewController {
         formField.value = inputProvider.inputValue!
         completion(formField.isValid)
     }
+    
 }
 

@@ -41,9 +41,9 @@ class ClimbTypeViewController : FormStackItemPickerViewController {
 
 extension ClimbTypeViewController {
     
-    override func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let value = provider.providers[component][row]
         formField.value = value.rawValue
-        textField.text = value.rawValue.capitalized
+        updateUI()
     }
 }

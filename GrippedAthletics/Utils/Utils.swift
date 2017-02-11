@@ -8,9 +8,12 @@
 
 import UIKit
 
+protocol StringRepresentableSource {
+    init(rawValue : String)
+}
+
 protocol ComponentStringRepresentable : StringRepresentable {
     var components : [StringRepresentable] { get set }
-    init(rawValue : String)
 }
 
 protocol StringRepresentable {
