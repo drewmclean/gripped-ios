@@ -17,6 +17,26 @@ import UIKit
 //    }
 //}
 
+struct NorthAmericaSportRating {
+    var rawValue : String {
+        for (index, value) in components.enumerate() {
+            
+        }
+    }
+    
+    var components : [StringRepresentable] = [StringRepresentable]()
+    
+    init(rawValue : String) {
+        
+    }
+}
+
+protocol ComponentStringRepresentable : StringRepresentable {
+    var components : [StringRepresentable] { get set }
+    
+    init(rawValue : String)
+}
+
 protocol StringRepresentable {
     var rawValue: String { get }
 }
