@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ClimbTypeViewController : FormStackItemPickerViewController {
+struct ClimbTypeComponentProvider : PickerComponentProvider {
+    var providers: [[StringRepresentable]]
     
-    override var allValues: [StringRepresentable] {
-        return ClimbType.allValues
+    init() {
+        providers = [ClimbType.allValues]
     }
+}
+
+class ClimbTypeViewController : FormStackItemPickerViewController {
     
     override var nextFormItem: FormStackItem? {
         if let value = selectedValue {
@@ -31,7 +35,15 @@ class ClimbTypeViewController : FormStackItemPickerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        provider = ClimbTypeComponentProvider()
     }
+}
+
+extension ClimbTypeViewController {
     
+    override func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let value = provider.providers[component][row]
+        formField.value = value.rawValue
+        textField.text = value.rawValue.capitalized
+    }
 }

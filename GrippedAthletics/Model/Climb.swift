@@ -17,43 +17,7 @@ import UIKit
 //    }
 //}
 
-struct NorthAmericaSportRating {
-    var rawValue : String {
-        for (index, value) in components.enumerate() {
-            
-        }
-    }
-    
-    var components : [StringRepresentable] = [StringRepresentable]()
-    
-    init(rawValue : String) {
-        
-    }
-}
 
-protocol ComponentStringRepresentable : StringRepresentable {
-    var components : [StringRepresentable] { get set }
-    
-    init(rawValue : String)
-}
-
-protocol StringRepresentable {
-    var rawValue: String { get }
-}
-
-enum ClimbType : String, StringRepresentable {
-    case sport = "sport"
-    case boulder = "boulder"
-    case trad = "trad"
-    case iceMixed = "ice_mixed"
-    static var allValues = [sport, boulder]
-}
-
-enum ClimbVenue : String, StringRepresentable {
-    case indoor = "indoor"
-    case outdoor = "outdoor"
-    static var allValues = [indoor, outdoor]
-}
 
 class Climb: FIRObject, FIRTimestampable {
     typealias T = Climb
@@ -66,6 +30,7 @@ class Climb: FIRObject, FIRTimestampable {
         static let venue = "venue"
         static let name = "name"
         static let rating = "rating"
+        static let ratingComponents = "rating_components"
         static let color = "color"
         static let description = "description"
     }

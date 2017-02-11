@@ -8,6 +8,15 @@
 
 import UIKit
 
+protocol ComponentStringRepresentable : StringRepresentable {
+    var components : [StringRepresentable] { get set }
+    init(rawValue : String)
+}
+
+protocol StringRepresentable {
+    var rawValue: String { get }
+}
+
 class Utils {
     
     static func iterateEnum<T: Hashable>(_: T.Type) -> AnyIterator<T> {

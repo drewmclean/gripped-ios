@@ -27,11 +27,7 @@ class FormStackItemViewController: UIViewController {
     var delegate : FormStackItemViewControllerDelegate?
     var nextFormItem : FormStackItem? { return nil }
     
-    var formField : FormField! {
-        didSet {
-            
-        }
-    }
+    var formField : FormField!
     
     lazy var stackView : UIStackView = {
         let sv = UIStackView()

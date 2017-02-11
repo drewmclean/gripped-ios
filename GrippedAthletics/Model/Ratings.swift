@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct Grades {
+protocol StringRepresentableCollection {
+    static var allValues : [StringRepresentable] { get set }
+}
+
+struct Ratings {
     
     enum Australian : String {
         case Three = "3"
@@ -71,31 +75,33 @@ struct Grades {
     
     struct NorthAmerica {
         
-        struct FullGrade {
-            var difficultyClass : Class
-            var subgrade : Subgrade?
+        enum ClassGrade : String, StringRepresentable {
+            
+            case Five0 = "5.0"
+            case Five1 = "5.1"
+            case Five2 = "5.2"
+            case Five3 = "5.3"
+            case Five4 = "5.4"
+            case Five5 = "5.5"
+            case Five6 = "5.6"
+            case Five7 = "5.7"
+            case Five8 = "5.8"
+            case Five9 = "5.9"
+            case Five10 = "5.10"
+            case Five11 = "5.11"
+            case Five12 = "5.12"
+            case Five13 = "5.13"
+            case Five14 = "5.14"
+            case Five15 = "5.15"
+            
+            static var allValues = [Five0, Five1, Five2, Five3, Five4, Five5, Five6, Five7, Five8, Five9, Five10, Five11, Five12, Five13, Five14, Five15]
+            
+            static var allModerateGrades = [Five0, Five1, Five2, Five3, Five4, Five5, Five6, Five7, Five8, Five9]
+            
+            static var allAdvancedGrades = [Five10, Five11, Five12, Five13, Five14, Five15]
         }
         
-        enum Class : String {
-            case Five0     = "5.0"
-            case Five1     = "5.1"
-            case Five2     = "5.2"
-            case Five3     = "5.3"
-            case Five4     = "5.4"
-            case Five5     = "5.5"
-            case Five6     = "5.6"
-            case Five7     = "5.7"
-            case Five8     = "5.8"
-            case Five9     = "5.9"
-            case Five10    = "5.10"
-            case Five11    = "5.11"
-            case Five12    = "5.12"
-            case Five13   = "5.13"
-            case Five14  = "5.14"
-            case Five15   = "5.15"
-        }
-        
-        enum Subgrade : String {
+        enum SubGrade : String, StringRepresentable {
             
             case plus = "+"
             case minus = "-"
@@ -107,10 +113,11 @@ struct Grades {
             case cd = "c/d"
             case d = "d"
             
+            static var allValues = [plus, minus, a, ab, b, bc, c, cd, d]
         }
     }
     
-    enum French : String {
+    enum French : String, StringRepresentable {
         case FourA = "4a"
         case FourB = "4b"
         case FourC = "4c"
@@ -137,7 +144,7 @@ struct Grades {
         case NineD = "9d"
     }
     
-    enum Hueco : String {
+    enum Hueco : String, StringRepresentable {
         case VB = "VB"
         case V0 = "V0"
         case V1 = "V1"

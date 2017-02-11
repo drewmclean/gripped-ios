@@ -8,23 +8,18 @@
 
 import UIKit
 
-class SportRatingViewController: FormStackItemPickerViewController {
+struct SportRatingComponentProvider : PickerComponentProvider {
+    var providers: [[StringRepresentable]]
+    
+    init() {
+        providers = [Ratings.NorthAmerica.ClassGrade.allValues, Ratings.NorthAmerica.SubGrade.allValues]
+    }
+}
 
-//    override var allValues: [StringRepresentable]? {
-//        
-//    }
+
+class SportRatingViewController: FormStackItemPickerViewController {
     
     override var nextFormItem: FormStackItem? {
-        if let value = selectedValue {
-            switch value as! ClimbType {
-            case .sport:
-                return NewClimbFormFieldProvider.Items.sportRating
-            case .boulder:
-                return NewClimbFormFieldProvider.Items.boulderRating
-            default:
-                return nil
-            }
-        }
         return nil
     }
     

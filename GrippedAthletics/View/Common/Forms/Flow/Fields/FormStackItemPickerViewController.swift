@@ -8,32 +8,36 @@
 
 import UIKit
 
+protocol PickerComponentProvider {
+    var providers : [[StringRepresentable]] { get set }
+}
+
 class FormStackItemPickerViewController: FormStackItemTextFieldViewController {
+
+    var provider : PickerComponentProvider!
     
-    var componentProviders : [[StringRepresentable]] {
-        return [[StringRepresentable]]()
-    }
-    
-    var selectedValue : String {
-        var values : [String] = [String]()
-        for (index, element) in componentProviders.enumerated() {
-            print("Item \(index): \(element)")
-            var value = ""
-            var allComponentValues = element
-            let selectedRow = pickerView.selectedRow(inComponent: index)
-            guard selectedRow > -1 else {
-                return ""
-            }
-            value = allComponentValues[selectedRow].rawValue
-            values.append(value)
-        }
-        let combinedValue = NSArray(array: values).componentsJoined(by: "")
-        return combinedValue
+    var selectedValue : ComponentStringRepresentable? {
+//        var values : [String] = [String]()
+//        for (index, element) in componentProviders.enumerated() {
+//            print("Item \(index): \(element)")
+//            var value = ""
+//            var allComponentValues = element
+//            let selectedRow = pickerView.selectedRow(inComponent: index)
+//            guard selectedRow > -1 else {
+//                return ""
+//            }
+//            value = allComponentValues[selectedRow].rawValue
+//            values.append(value)
+//        }
+//        let combinedValue = NSArray(array: values).componentsJoined(by: "")
+//        return combinedValue
+        return nil
     }
     
     lazy var pickerView : UIPickerView = {
         let pv = UIPickerView()
         pv.delegate = self
+        pv.dataSource = self
         return pv
     }()
     
@@ -41,7 +45,6 @@ class FormStackItemPickerViewController: FormStackItemTextFieldViewController {
         super.viewDidLoad()
         
         textField.inputView = pickerView
-    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,33 +53,38 @@ class FormStackItemPickerViewController: FormStackItemTextFieldViewController {
     }
     
     override func updateUI() {
-        
-        if formField.value.isEmpty == false {
-            for (index, allValues) in componentProviders.enumerated() {
-                
-            }
-            if let idx = allValues.index(where: { $0.rawValue == formField.value }) {
-                defaultSelection = idx
-            }
-        } else {
-            formField.value = allValues[defaultSelection].rawValue
-        }
-        pickerView.selectRow(defaultSelection, inComponent: 0, animated: true)
-        
         titleLabel.text = formField.title
         textField.text = inputValue?.capitalized
         updateViewConstraints()
+        pickerView.reloadAllComponents()
+        
+//        if formField.value.isEmpty == false {
+//            for (index, allValues) in componentProviders.enumerated() {
+//                
+//            }
+//            if let idx = allValues.index(where: { $0.rawValue == formField.value }) {
+//                defaultSelection = idx
+//            }
+//        } else {
+//            formField.value = allValues[defaultSelection].rawValue
+//        }
+//        pickerView.selectRow(defaultSelection, inComponent: 0, animated: true)
+    }
+    
+    func reloadPickerView() {
+        
     }
 }
 
 extension FormStackItemPickerViewController : UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return provider.providers.count
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return allValues.count
+        let component = provider.providers[component]
+        return component.count
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
@@ -84,8 +92,8 @@ extension FormStackItemPickerViewController : UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let allValues = componentProviders[component]
-        return allValues[row].rawValue.capitalized
+        let component = provider.providers[component]
+        return component[row].rawValue.capitalized
     }
     
 }
@@ -93,17 +101,17 @@ extension FormStackItemPickerViewController : UIPickerViewDataSource {
 extension FormStackItemPickerViewController {
     
     override var inputValue : String? {
-        return selectedValue
+        return selectedValue?.rawValue
     }
     
 }
 
 extension FormStackItemPickerViewController : UIPickerViewDelegate {
-
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let value = allValues[row].rawValue
-        formField.value = value
-        textField.text = value.capitalized
+        
+//       formField.value = value
+//        textField.text = value.capitalized
     }
     
 }
