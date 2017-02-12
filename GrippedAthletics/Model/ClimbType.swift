@@ -9,6 +9,7 @@
 import Foundation
 
 enum ClimbType : String, StringRepresentable {
+    
     case sport = "sport"
     case boulder = "boulder"
     case trad = "trad"

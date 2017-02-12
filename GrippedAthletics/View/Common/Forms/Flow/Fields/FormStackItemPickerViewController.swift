@@ -27,13 +27,15 @@ class FormStackItemPickerViewController: FormStackItemTextFieldViewController {
     
     var provider : PickerComponentProvider! {
         didSet {
-            pickerView.reloadAllComponents()
+            
         }
     }
     
     var selectedValue : ComponentsValue? {
         didSet {
+            formField.value = selectedValue?.rawValue ?? ""
             updateSelectedComponents(animated: true)
+            updateUI()
         }
     }
     
@@ -48,6 +50,7 @@ class FormStackItemPickerViewController: FormStackItemTextFieldViewController {
         super.viewDidLoad()
         
         textField.inputView = pickerView
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,39 +59,22 @@ class FormStackItemPickerViewController: FormStackItemTextFieldViewController {
     }
     
     func updateSelectedComponents(animated : Bool) {
-        
-        for (index, value) in selectedValue!.components.enumerated() {
-            let componentValues = provider.providers[index]
-            
-            if let rowToSelect = componentValues.index(where: { (component: StringRepresentable) -> Bool in
-                return value.rawValue == component.rawValue
-            }) {
+        if let selection = selectedValue {
+            for (index, value) in  selection.components.enumerated() {
+                let componentValues = provider.providers[index]
+                
+                guard let rowToSelect = componentValues.index(where: { (component: StringRepresentable) -> Bool in
+                    return value.rawValue == component.rawValue
+                }) else {
+                    return
+                }
                 pickerView.selectRow(rowToSelect, inComponent: index, animated: animated)
             }
-            
         }
-        
     }
     
     override func updateUI() {
         super.updateUI()
-        
-        pickerView.reloadAllComponents()
-        
-//        if formField.value.isEmpty == false {
-//            for (index, allValues) in componentProviders.enumerated() {
-//                
-//            }
-//            if let idx = allValues.index(where: { $0.rawValue == formField.value }) {
-//                defaultSelection = idx
-//            }
-//        } else {
-//            formField.value = allValues[defaultSelection].rawValue
-//        }
-//        pickerView.selectRow(defaultSelection, inComponent: 0, animated: true)
-    }
-    
-    func reloadPickerView() {
         
     }
 }

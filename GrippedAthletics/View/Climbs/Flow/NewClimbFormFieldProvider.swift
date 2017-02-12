@@ -8,50 +8,44 @@
 
 import UIKit
 
-struct NewClimbFormFieldProvider : FormStackItemProvider {
+class NewClimbFormFieldProvider : FormStackItemProvider {
     
     var items: [FormStackItem] = [FormStackItem]()
     
     init() {
-        items = [Items.climbType]
+        items = [climbType]
     }
     
-    struct Items {
+    lazy var climbType : FormStackItem = {
+        let field = FormField(title: "What type of climb?", unit: "", propertyKey: Climb.Keys.type) { (textField : UITextField) in
         
-        static var climbType : FormStackItem = {
-            let field = FormField(title: "What type of climb?", unit: "", propertyKey: Climb.Keys.type) { (textField : UITextField) in }
-            let vc = ClimbTypeViewController()
-            vc.formField = field
-            return FormStackItem(formField: field, itemViewController: vc)
-        }()
+        }
+        let vc = ClimbTypeViewController()
+        return FormStackItem(formField: field, itemViewController: vc)
+    }()
         
-        static var sportRating : FormStackItem = {
-            let field = FormField(title: "What would you rate the climb?", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
-            let vc = SportRatingViewController()
-            vc.formField = field
-            return FormStackItem(formField: field, itemViewController: vc)
-        }()
+    lazy var sportRating : FormStackItem = {
+        let field = FormField(title: "What would you rate the climb?", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
+        let vc = SportRatingViewController()
+        return FormStackItem(formField: field, itemViewController: vc)
+    }()
         
-        static var boulderRating : FormStackItem = {
+    lazy var boulderRating : FormStackItem = {
             let field = FormField(title: "How hard would you rate this problem?", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
             let vc = BoulderRatingViewController()
-            vc.formField = field
             return FormStackItem(formField: field, itemViewController: vc)
         }()
         
-        static var climbVenue : FormStackItem = {
+    lazy var climbVenue : FormStackItem = {
             let field = FormField(title: "Is this climb indoor or outdoor?", unit: "", propertyKey: Climb.Keys.venue) { (textField : UITextField) in }
             let vc = ClimbVenueViewController()
-            vc.formField = field
             return FormStackItem(formField: field, itemViewController: vc)
         }()
         
-        static var climbColor : FormStackItem = {
-            let field = FormField(title: "Does the climb have a color?", unit: "", propertyKey: Climb.Keys.color) { (textField : UITextField) in }
-            let vc = ClimbColorViewController()
-            vc.formField = field
-            return FormStackItem(formField: field, itemViewController: vc)
-        }()
-        
-    }
+    lazy var climbColor : FormStackItem = {
+        let field = FormField(title: "Does the climb have a color?", unit: "", propertyKey: Climb.Keys.color) { (textField : UITextField) in }
+        let vc = ClimbColorViewController()
+        return FormStackItem(formField: field, itemViewController: vc)
+    }()
+
 }

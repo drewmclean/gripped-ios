@@ -8,42 +8,68 @@
 
 import UIKit
 
-struct ClimbTypeComponentProvider : PickerComponentProvider {
-    var providers: [[StringRepresentable]]
+final class ClimbTypeValue : ComponentsValue, StringRepresentableSource {
     
-    init() {
-        providers = [ClimbType.allValues]
+    convenience init(rawValue : String) {
+        self.init()
+        
+        ClimbType.allValues.forEach({ (type) in
+            guard type.rawValue == rawValue else {
+                return
+            }
+            components = [type]
+        })
+    }
+    
+}
+
+struct ClimbTypeComponentProvider : PickerComponentProvider {
+    var providers: [[StringRepresentable]] {
+        return [ClimbType.allValues]
     }
 }
 
 class ClimbTypeViewController : FormStackItemPickerViewController {
     
+    var newClimbProvider : NewClimbFormFieldProvider {
+        return provider as! NewClimbFormFieldProvider
+    }
+    
     override var nextFormItem: FormStackItem? {
-        if let value = selectedValue {
-            switch value as! ClimbType {
-            case .sport:
-                return NewClimbFormFieldProvider.Items.sportRating
-            case .boulder:
-                return NewClimbFormFieldProvider.Items.boulderRating
-            default:
-                return nil
-            }
+        guard let value = selectedValue else { return nil }
+        
+        switch value.components[0] as! ClimbType {
+        case .sport:
+            return self.newClimbProvider.sportRating
+        case .boulder:
+            return self.newClimbProvider.boulderRating
+        default:
+            return nil
         }
-        return nil
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         provider = ClimbTypeComponentProvider()
+        formField.value = provider.providers[0][0].rawValue
+        
+        if !formField.value.isEmpty {
+            guard let selectedType = ClimbType.allValues.first(where: { (type: ClimbType) -> Bool in
+                type.rawValue == formField.value
+            }) else { return }
+            
+            selectedValue = ClimbTypeValue(components: [selectedType])
+        }
     }
+    
 }
 
 extension ClimbTypeViewController {
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let value = provider.providers[component][row]
-        formField.value = value.rawValue
-        updateUI()
+        
+        
+        selectedValue = ClimbTypeValue(components: [ClimbType.allValues[row]])
+        
     }
 }

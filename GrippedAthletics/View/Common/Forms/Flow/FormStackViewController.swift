@@ -13,6 +13,11 @@ import SnapKit
 struct FormStackItem {
     var formField : FormField
     var itemViewController : FormStackItemViewController
+    init(formField : FormField, itemViewController : FormStackItemViewController) {
+        itemViewController.formField = formField
+        self.formField = formField
+        self.itemViewController = itemViewController
+    }
 }
 
 protocol FormStackViewControllerDelegate {

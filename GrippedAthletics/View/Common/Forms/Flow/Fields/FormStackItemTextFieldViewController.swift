@@ -37,8 +37,7 @@ class FormStackItemTextFieldViewController: FormStackItemViewController {
     }
     
     override func updateUI() {
-        textField.text = formField.value
-        
+        textField.text = formField.value.capitalized
         super.updateUI()
     }
     
@@ -47,7 +46,7 @@ class FormStackItemTextFieldViewController: FormStackItemViewController {
         
         textField.snp.updateConstraints { (make) in
             make.width.equalTo(titleWidth)
-            make.height.equalTo(54)
+            make.height.equalTo(44)
         }
         
     }
