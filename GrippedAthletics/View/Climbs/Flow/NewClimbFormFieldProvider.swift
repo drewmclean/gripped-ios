@@ -59,19 +59,19 @@ class NewClimbFormFieldProvider : FormStackItemProvider {
     }()
         
     lazy var sportRating : FormStackItem = {
-        let field = FormField(title: "How hard would you rate this climb?", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
+        let field = FormField(title: "How hard is the climb?", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
         let vc = SportRatingViewController()
         return FormStackItem(formField: field, itemViewController: vc)
     }()
         
     lazy var boulderRating : FormStackItem = {
-        let field = FormField(title: "How hard would you rate this problem?", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
+        let field = FormField(title: "How hard is the problem?", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
         let vc = BoulderRatingViewController()
         return FormStackItem(formField: field, itemViewController: vc)
     }()
     
     lazy var climbColor : FormStackItem = {
-        let field = FormField(title: "Does the climb have a color?", unit: "", propertyKey: Climb.Keys.color) { (textField : UITextField) in }
+        let field = FormField(title: "What color is it?", unit: "", propertyKey: Climb.Keys.color) { (textField : UITextField) in }
         let vc = ClimbColorViewController()
         return FormStackItem(formField: field, itemViewController: vc)
     }()

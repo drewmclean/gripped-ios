@@ -71,6 +71,7 @@ extension SportRatingViewController {
 }
 
 extension SportRatingViewController {
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if component == 0 {

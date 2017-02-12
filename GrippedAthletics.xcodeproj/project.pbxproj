@@ -21,6 +21,7 @@
 		5727F5161E4EB45500E0AA4C /* ClimbType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727F5151E4EB45500E0AA4C /* ClimbType.swift */; };
 		5727F5181E4EB48600E0AA4C /* ClimbVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727F5171E4EB48600E0AA4C /* ClimbVenue.swift */; };
 		5727F51A1E4FBC3C00E0AA4C /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727F5191E4FBC3C00E0AA4C /* CollectionType.swift */; };
+		5727F51C1E51218B00E0AA4C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727F51B1E51218B00E0AA4C /* UIColor.swift */; };
 		5732DD761E48E97B00CE7F34 /* FormStackItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732DD6E1E48E97B00CE7F34 /* FormStackItemViewController.swift */; };
 		5732DD771E48E97B00CE7F34 /* FormStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732DD6F1E48E97B00CE7F34 /* FormStackViewController.swift */; };
 		5732DD781E48E97B00CE7F34 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732DD701E48E97B00CE7F34 /* Form.swift */; };
@@ -124,6 +125,7 @@
 		5727F5151E4EB45500E0AA4C /* ClimbType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbType.swift; sourceTree = "<group>"; };
 		5727F5171E4EB48600E0AA4C /* ClimbVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbVenue.swift; sourceTree = "<group>"; };
 		5727F5191E4FBC3C00E0AA4C /* CollectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionType.swift; sourceTree = "<group>"; };
+		5727F51B1E51218B00E0AA4C /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5732DD6E1E48E97B00CE7F34 /* FormStackItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackItemViewController.swift; sourceTree = "<group>"; };
 		5732DD6F1E48E97B00CE7F34 /* FormStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackViewController.swift; sourceTree = "<group>"; };
 		5732DD701E48E97B00CE7F34 /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				57BEF3DE1E205F2F008CBAFE /* String.swift */,
 				5727D52A1E4BFCE200264430 /* Utils.swift */,
 				5727F5191E4FBC3C00E0AA4C /* CollectionType.swift */,
+				5727F51B1E51218B00E0AA4C /* UIColor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -890,6 +893,7 @@
 				57CFDF261E4BB7950040FE4A /* ClimbDescriptionViewController.swift in Sources */,
 				5732DD8F1E48E9EE00CE7F34 /* NewClimbViewController.swift in Sources */,
 				5786B1491E1AB30B00C7EA36 /* UserProfile.swift in Sources */,
+				5727F51C1E51218B00E0AA4C /* UIColor.swift in Sources */,
 				5732DD791E48E97B00CE7F34 /* FormField.swift in Sources */,
 				570974B31DFB54CC00D355B9 /* UserDefaults.swift in Sources */,
 				5788E4901E1AAD90003C60E9 /* FIRUser.swift in Sources */,

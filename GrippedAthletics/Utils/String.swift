@@ -9,6 +9,12 @@
 import Foundation
 
 extension String {
+    var hex: Int? {
+        return Int(self, radix: 16)
+    }
+}
+
+extension String {
     
     func index(from: Int) -> Index {
         return self.index(startIndex, offsetBy: from)

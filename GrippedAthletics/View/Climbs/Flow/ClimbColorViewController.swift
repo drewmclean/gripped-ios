@@ -45,8 +45,8 @@ class ClimbColorViewController: FormStackItemViewController {
         super.updateViewConstraints()
         
         colorView.snp.updateConstraints { (make: ConstraintMaker) in
-            make.width.equalTo(80)
-            make.height.equalTo(80)
+            make.width.equalTo(160)
+            make.height.equalTo(160)
         }
         
     }
@@ -58,7 +58,9 @@ class ClimbColorViewController: FormStackItemViewController {
 extension ClimbColorViewController : ColorPickerViewDelegate {
 
     func colorPickerView(_ colorPickerView: ColorPickerView, didSelectItemAt indexPath: IndexPath) {
-        
+        let pickedColor = colorPickerView.colors[indexPath.row]
+        formField.value = pickedColor.toHexString
+        colorView.backgroundColor = pickedColor
     }
     
     func colorPickerView(_ colorPickerView: ColorPickerView, didDeselectItemAt indexPath: IndexPath) {
