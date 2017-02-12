@@ -33,10 +33,6 @@ struct ClimbTypeComponentProvider : PickerComponentProvider {
 
 class ClimbTypeViewController : FormStackItemPickerViewController {
     
-    var newClimbProvider : NewClimbFormFieldProvider? {
-        return delegate?.stackProvider as? NewClimbFormFieldProvider
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

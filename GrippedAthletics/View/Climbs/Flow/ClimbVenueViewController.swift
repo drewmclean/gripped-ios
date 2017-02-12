@@ -8,29 +8,57 @@
 
 import UIKit
 
+final class ClimbVenueValue : ComponentsValue, StringRepresentableSource {
+    
+    override var rawValue: String {
+        return components[0].rawValue
+    }
+    
+    convenience init(rawValue : String) {
+        self.init()
+        
+        ClimbVenue.allValues.forEach({ (type) in
+            guard type.rawValue == rawValue else {
+                return
+            }
+            components = [type]
+        })
+    }
+    
+}
+
+struct ClimbVenueComponentProvider : PickerComponentProvider {
+    var providers: [[StringRepresentable]] = [ClimbVenue.allValues]
+}
+
 class ClimbVenueViewController: FormStackItemPickerViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        provider = ClimbVenueComponentProvider()
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        if formField.value.isEmpty {
+            formField.value = provider.providers[0][0].rawValue
+        }
         
+        guard let selectedType = ClimbVenue.allValues.first(where: { (type: ClimbVenue) -> Bool in
+            type.rawValue == formField.value
+        }) else { return }
         
+        selectedValue = ClimbVenueValue(components: [selectedType])
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func formattedTextInputValue(sourceValue: String) -> String {
+        return sourceValue.capitalized
     }
-    */
 
+}
+
+extension ClimbVenueViewController {
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        selectedValue = ClimbVenueValue(components: [ClimbVenue.allValues[row]])
+        
+    }
 }

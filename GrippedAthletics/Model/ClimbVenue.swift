@@ -13,3 +13,4 @@ enum ClimbVenue : String, StringRepresentable {
     case outdoor = "outdoor"
     static var allValues = [indoor, outdoor]
 }
+
