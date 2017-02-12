@@ -28,10 +28,6 @@ class ClimbColorViewController: FormStackItemViewController {
         return cpv
     }()
     
-    override var canBecomeFirstResponder: Bool {
-        return true
-    }
-    
     override var inputView: UIView? {
         return colorPickerView
     }
@@ -53,10 +49,21 @@ class ClimbColorViewController: FormStackItemViewController {
     
 }
 
+extension ClimbColorViewController : FormInputProvider {
+    
+    var inputValue : String? {
+        guard let selectedIndex = colorPickerView.indexOfSelectedColor else {
+            return nil
+        }
+        return colorPickerView.colors[selectedIndex].toHexString
+    }
+    
+}
+
 // MARK: ColorPickerViewDelegate
 
 extension ClimbColorViewController : ColorPickerViewDelegate {
-
+    
     func colorPickerView(_ colorPickerView: ColorPickerView, didSelectItemAt indexPath: IndexPath) {
         let pickedColor = colorPickerView.colors[indexPath.row]
         formField.value = pickedColor.toHexString

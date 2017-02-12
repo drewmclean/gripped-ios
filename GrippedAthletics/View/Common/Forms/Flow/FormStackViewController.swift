@@ -122,15 +122,11 @@ class FormStackViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        showFieldViewController(atIndex: currentItemIndex, animated: false, shouldBecomeFirstResponder: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-
-        currentViewController.becomeFirstResponder()
-        
+        showFieldViewController(atIndex: currentItemIndex, animated: true)
     }
     
     func refreshPageControl() {
@@ -210,14 +206,21 @@ extension FormStackViewController {
                 self.view.layoutIfNeeded()
             }, completion: { (finished: Bool) in
                 guard shouldBecomeFirstResponder else { return }
-                vc.becomeFirstResponder()
+                self.delayedFirstResponder(viewController: vc)
             })
         } else {
             refreshTitle()
             view.layoutIfNeeded()
             guard shouldBecomeFirstResponder else { return }
-            vc.becomeFirstResponder()
+            self.delayedFirstResponder(viewController: vc)
         }
+    }
+    
+    func delayedFirstResponder(viewController vc: UIViewController) {
+        let deadlineTime = DispatchTime.now() + 0.01
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
+            vc.becomeFirstResponder()
+        })
     }
     
     func updateNavBar(index:Int) {
@@ -242,7 +245,7 @@ extension FormStackViewController {
     
     func showNextView() {
         let nextIndex = currentItemIndex + 1
-        showFieldViewController(atIndex: nextIndex, animated: true)
+        showFieldViewController(atIndex: nextIndex, animated: true, shouldBecomeFirstResponder: false)
     }
     
     func showPreviousView() {
