@@ -41,12 +41,24 @@ class FormStackViewController: UIViewController {
     
     var provider : FormStackItemProvider?
     
-    var delegate : FormStackViewControllerDelegate?
+    var isFirstFormItem : Bool {
+        return currentItemIndex == 0
+    }
     
-    lazy var validator : Validator = {
-        let v = Validator()
-        return v
-    }()
+    var isLastFormItem : Bool {
+        
+        guard currentItemIndex == items!.count - 1 else {
+            return false
+        }
+        
+        guard let _ = currentItem?.followingItemsClosure else {
+            return false
+        }
+        
+        return true
+    }
+    
+    var delegate : FormStackViewControllerDelegate?
     
     var currentItemIndex : Int = 0
     var currentItem : FormStackItem? {
@@ -102,6 +114,8 @@ class FormStackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        navigationItem.setHidesBackButton(true, animated: false)
+        
         addKeyboardHandlers()
     }
     
@@ -114,7 +128,9 @@ class FormStackViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+
         currentViewController.becomeFirstResponder()
+        
     }
     
     func refreshPageControl() {
@@ -200,20 +216,22 @@ extension FormStackViewController {
             refreshTitle()
             view.layoutIfNeeded()
             guard shouldBecomeFirstResponder else { return }
+            vc.becomeFirstResponder()
         }
     }
     
     func updateNavBar(index:Int) {
         if index == 0 {
-            navigationItem.setLeftBarButton(barItemForNavType(withType: .close, title: "Cancel", target: self, action: #selector(FormStackViewController.backItemTapped(sender:))), animated: true)
+            navigationItem.setLeftBarButton(barItemForNavType(withType: .close, title: "Cancel", target: self, action: #selector(FormStackViewController.leftItemTapped(sender:))), animated: true)
             navigationItem.setRightBarButton(barItemForNavType(withType: .next, title: "Next", target: self, action: #selector(FormStackViewController.rightItemTapped(sender:))), animated: true)
         }
         else if index == fieldViewControllers.count - 1 {
-            navigationItem.setLeftBarButton(barItemForNavType(withType: .back, title: "Back", target: self, action: #selector(FormStackViewController.backItemTapped(sender:))), animated: true)
+            navigationItem.setLeftBarButton(barItemForNavType(withType: .back, title: "Back", target: self, action: #selector(FormStackViewController.leftItemTapped(sender:))), animated: true)
+            
             navigationItem.setRightBarButton(barItemForNavType(withType: .done, title: "Done", target: self, action: #selector(FormStackViewController.rightItemTapped(sender:))), animated: true)
         }
         else {
-            navigationItem.setLeftBarButton(barItemForNavType(withType: .back, title: "Back", target: self, action: #selector(FormStackViewController.backItemTapped(sender:))), animated: true)
+            navigationItem.setLeftBarButton(barItemForNavType(withType: .back, title: "Back", target: self, action: #selector(FormStackViewController.leftItemTapped(sender:))), animated: true)
             navigationItem.setRightBarButton(barItemForNavType(withType: .next, title: "Next", target: self, action: #selector(FormStackViewController.rightItemTapped(sender:))), animated: true)
         }
     }
@@ -227,17 +245,13 @@ extension FormStackViewController {
         let previousIndex = currentItemIndex - 1
         showFieldViewController(atIndex: previousIndex, animated: true)
     }
-    
-    func enterMainApplication() {
-        presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-    }
 }
 
 // MARK: Actions
 
 extension FormStackViewController {
     
-    func backItemTapped(sender:UIBarButtonItem) {
+    func leftItemTapped(sender:UIBarButtonItem) {
         if currentItemIndex == 0 {
             currentViewController.resignFirstResponder()
             dismiss(animated: true, completion: nil)

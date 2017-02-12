@@ -6,15 +6,19 @@
 //  Copyright © 2017 GrippedAthletics. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import SwiftValidator
 
 protocol FormFieldValidator {
     var value : String? { get set }
     func validate(value:String?) -> Bool
+    var validator : Validator { get set }
 }
 
-class FormField {
+class FormField : Validatable {
+    
+    var validationText: String { return value }
+    
     var indexPath : Int!
     var title : String
     var unit : String

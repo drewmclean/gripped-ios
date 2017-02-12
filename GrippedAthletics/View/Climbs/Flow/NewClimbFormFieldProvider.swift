@@ -28,7 +28,7 @@ class NewClimbFormFieldProvider : FormStackItemProvider {
     }()
     
     init() {
-        items = [climbVenue, climbVenue]
+        items = [climbVenue, climbType]
     }
     
     lazy var climbVenue : FormStackItem = {
