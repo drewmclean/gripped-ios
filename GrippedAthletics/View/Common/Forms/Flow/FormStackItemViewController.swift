@@ -35,7 +35,7 @@ class FormStackItemViewController: UIViewController {
         sv.axis = .vertical
         sv.alignment = .center
         sv.distribution = .fillProportionally
-        sv.spacing = 60
+        sv.spacing = 30
         self.view.addSubview(sv)
         return sv
     }()
@@ -46,6 +46,7 @@ class FormStackItemViewController: UIViewController {
         label.textColor = UIColor.gray
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: UILayoutConstraintAxis.vertical)
         self.stackView.insertArrangedSubview(label, at: 0)
         return label
     }()
@@ -59,7 +60,7 @@ class FormStackItemViewController: UIViewController {
     }
     
     var titleSize : CGSize {
-        let size = NSString(string: formField.title).boundingRect(with: CGSize(width: titleWidth, height: 300), options: [.usesDeviceMetrics, .usesLineFragmentOrigin], attributes: [NSFontAttributeName : titleLabel.font], context: nil).size
+        let size = NSString(string: formField.title).boundingRect(with: CGSize(width: titleWidth, height: 400), options: [.usesLineFragmentOrigin], attributes: [NSFontAttributeName : titleLabel.font], context: nil).size
         return size
     }
     
@@ -82,8 +83,8 @@ class FormStackItemViewController: UIViewController {
         }
 
         titleLabel.snp.updateConstraints { (make) in
-            make.width.lessThanOrEqualTo(titleWidth)
-            make.height.equalTo(titleHeight)
+            make.width.equalTo(titleWidth)
+            make.height.equalTo(titleHeight + 20)
         }
 
     }

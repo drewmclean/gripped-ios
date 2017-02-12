@@ -68,6 +68,9 @@ class ClimbTypeViewController : FormStackItemPickerViewController {
         selectedValue = ClimbTypeValue(components: [selectedType])
     }
     
+    override func formattedTextInputValue(sourceValue: String) -> String {
+        return sourceValue.capitalized
+    }
 }
 
 extension ClimbTypeViewController {

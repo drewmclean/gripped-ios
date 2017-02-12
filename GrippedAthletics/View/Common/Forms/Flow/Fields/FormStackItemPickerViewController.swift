@@ -17,8 +17,9 @@ class ComponentsValue : ComponentStringRepresentable {
     var components : [StringRepresentable] = [StringRepresentable]()
     
     var rawValue : String {
-        let a = NSArray(array: components).componentsJoined(by: "")
-        return "\(a)"
+        return components.reduce("", { (previousValue : String, value: StringRepresentable) -> String in
+            return "\(previousValue)\(value.rawValue)"
+        })
     }
     
     convenience init(components : [StringRepresentable]) {

@@ -19,6 +19,7 @@ class FormStackItemTextFieldViewController: FormStackItemViewController {
         tf.tintColor = UIColor.clear
         tf.font = UIFont.boldSystemFont(ofSize: 48)
         tf.textColor = UIColor.darkGray
+        tf.setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, for: .vertical)
         self.stackView.addArrangedSubview(tf)
         return tf
     }()
@@ -37,10 +38,14 @@ class FormStackItemTextFieldViewController: FormStackItemViewController {
     }
     
     override func updateUI() {
-        let value = formField.value.capitalized
-        print("Setting text: \(value)")
-        textField.text = value
+        let value = formField.value
+        textField.text = formattedTextInputValue(sourceValue: value)
+        
         super.updateUI()
+    }
+    
+    func formattedTextInputValue (sourceValue : String) -> String {
+        return sourceValue
     }
     
     override func updateViewConstraints() {

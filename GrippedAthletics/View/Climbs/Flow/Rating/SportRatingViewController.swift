@@ -56,14 +56,31 @@ extension SportRatingViewController {
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        return 40
+        if component == 0 {
+            return 60
+        } else {
+            return 30
+        }
     }
     
 }
 
 extension SportRatingViewController {
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if component == 1 {
+            let gradeValue = provider.providers[0][pickerView.selectedRow(inComponent: 0)]
+            if let _ = Ratings.NorthAmerica.ClassGrade.allModerateGrades.first(where: { (grade: Ratings.NorthAmerica.ClassGrade) -> Bool in
+                grade.rawValue == gradeValue.rawValue
+            }) {
+                let subGradeValue = provider.providers[1][pickerView.selectedRow(inComponent: 1)]
+                if let _ = Ratings.NorthAmerica.SubGrade.letterValues.first(where: { (subgrade: Ratings.NorthAmerica.SubGrade) -> Bool in
+                    subgrade.rawValue == subGradeValue.rawValue
+                }) {
+                    pickerView.selectRow(0, inComponent: 1, animated: true)
+                }
+            }
+        }
+        
         var selectedComponents = [StringRepresentable]()
         for (componentIndex, componentProvider) in provider.providers.enumerated() {
             let selectedRow = pickerView.selectedRow(inComponent: componentIndex)

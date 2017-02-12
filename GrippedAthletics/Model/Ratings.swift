@@ -114,6 +114,8 @@ struct Ratings {
             case d = "d"
             
             static var allValues = [none, plus, minus, a, ab, b, bc, c, cd, d]
+            static var signValues = [none, plus, minus]
+            static var letterValues = [a, ab, b, bc, c, cd ,d]
         }
     }
     
