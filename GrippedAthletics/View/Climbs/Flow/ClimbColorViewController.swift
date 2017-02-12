@@ -22,11 +22,19 @@ class ClimbColorViewController: FormStackItemViewController {
     }()
     
     lazy var colorPickerView : ColorPickerView = {
-        let cpv = ColorPickerView()
+        let cpv = ColorPickerView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
         cpv.style = .square
         cpv.delegate = self
         return cpv
     }()
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+    override var inputView: UIView? {
+        return colorPickerView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

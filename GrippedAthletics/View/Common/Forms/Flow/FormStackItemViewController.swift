@@ -49,7 +49,6 @@ class FormStackItemViewController: UIViewController {
         label.textColor = UIColor.gray
         label.numberOfLines = 0
         label.textAlignment = .center
-//        label.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: UILayoutConstraintAxis.vertical)
         self.stackView.insertArrangedSubview(label, at: 0)
         return label
     }()

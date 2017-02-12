@@ -19,7 +19,6 @@ class FormStackItemTextFieldViewController: FormStackItemViewController {
         tf.tintColor = UIColor.clear
         tf.font = UIFont.boldSystemFont(ofSize: 48)
         tf.textColor = UIColor.darkGray
-        tf.setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, for: .vertical)
         self.stackView.addArrangedSubview(tf)
         return tf
     }()

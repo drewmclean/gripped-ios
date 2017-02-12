@@ -35,7 +35,6 @@ class FormStackItemPickerViewController: FormStackItemTextFieldViewController {
     var selectedValue : ComponentsValue? {
         didSet {
             formField.value = selectedValue?.rawValue ?? ""
-            updateSelectedComponents(animated: true)
             updateUI()
         }
     }
