@@ -59,7 +59,7 @@ extension SportRatingViewController {
         if component == 0 {
             return 60
         } else {
-            return 30
+            return 40
         }
     }
     
