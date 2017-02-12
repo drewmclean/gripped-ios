@@ -52,10 +52,10 @@ class FormStackViewController: UIViewController {
         }
         
         guard let _ = currentItem?.followingItemsClosure else {
-            return false
+            return true
         }
         
-        return true
+        return false
     }
     
     var delegate : FormStackViewControllerDelegate?
