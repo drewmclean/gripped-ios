@@ -102,7 +102,7 @@ struct Ratings {
         }
         
         enum SubGrade : String, StringRepresentable {
-            
+            case none = ""
             case plus = "+"
             case minus = "-"
             case a = "a"
@@ -113,7 +113,7 @@ struct Ratings {
             case cd = "c/d"
             case d = "d"
             
-            static var allValues = [plus, minus, a, ab, b, bc, c, cd, d]
+            static var allValues = [none, plus, minus, a, ab, b, bc, c, cd, d]
         }
     }
     

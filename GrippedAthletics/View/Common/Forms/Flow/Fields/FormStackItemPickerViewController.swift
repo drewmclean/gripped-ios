@@ -13,10 +13,14 @@ protocol PickerComponentProvider {
 }
 
 class ComponentsValue : ComponentStringRepresentable {
+    
     var components : [StringRepresentable] = [StringRepresentable]()
+    
     var rawValue : String {
-        return "\(components)"
+        let a = NSArray(array: components).componentsJoined(by: "")
+        return "\(a)"
     }
+    
     convenience init(components : [StringRepresentable]) {
         self.init()
         self.components = components
@@ -72,11 +76,6 @@ class FormStackItemPickerViewController: FormStackItemTextFieldViewController {
             }
         }
     }
-    
-    override func updateUI() {
-        super.updateUI()
-        
-    }
 }
 
 extension FormStackItemPickerViewController : UIPickerViewDataSource {
@@ -95,10 +94,16 @@ extension FormStackItemPickerViewController : UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let component = provider.providers[component]
-        return component[row].rawValue.capitalized
+        let componentValue = provider.providers[component][row].rawValue
+        return formattedTitle(forComponent: component, title: componentValue)
     }
     
+}
+
+extension FormStackItemPickerViewController {
+    func formattedTitle(forComponent component: Int, title: String) -> String {
+        return title.capitalized
+    }
 }
 
 extension FormStackItemPickerViewController {

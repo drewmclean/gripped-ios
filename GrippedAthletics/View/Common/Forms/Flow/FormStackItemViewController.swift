@@ -13,6 +13,7 @@ protocol FormInputProvider {
 }
 
 protocol FormStackItemViewControllerDelegate {
+    var stackProvider : FormStackItemProvider { get }
     var sourceViewController : FormStackViewController { get }
     func didCompleteField(controller: FormStackItemViewController, nextFormItem: FormStackItem?)
 }
@@ -65,6 +66,11 @@ class FormStackItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         updateUI()
     }
     
@@ -79,7 +85,7 @@ class FormStackItemViewController: UIViewController {
             make.width.lessThanOrEqualTo(titleWidth)
             make.height.equalTo(titleHeight)
         }
-        
+
     }
     
     func updateUI() {

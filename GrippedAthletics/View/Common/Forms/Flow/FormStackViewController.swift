@@ -102,12 +102,13 @@ class FormStackViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        showFieldViewController(atIndex: currentItemIndex, animated: true)
+        showFieldViewController(atIndex: currentItemIndex, animated: false, shouldBecomeFirstResponder: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        currentViewController.becomeFirstResponder()
     }
     
     func refreshPageControl() {
@@ -138,7 +139,13 @@ class FormStackViewController: UIViewController {
 
 extension FormStackViewController : FormStackItemViewControllerDelegate {
     
-    internal var sourceViewController: FormStackViewController { return self }
+    internal var stackProvider : FormStackItemProvider {
+        return self.provider!
+    }
+    
+    internal var sourceViewController: FormStackViewController {
+        return self
+    }
     
     internal func didCompleteField(controller: FormStackItemViewController, nextFormItem: FormStackItem?) {
         guard let next = nextFormItem else {
@@ -155,7 +162,7 @@ extension FormStackViewController : FormStackItemViewControllerDelegate {
 
 extension FormStackViewController {
     
-    func showFieldViewController(atIndex index: Int, animated: Bool) {
+    func showFieldViewController(atIndex index: Int, animated: Bool, shouldBecomeFirstResponder : Bool = true) {
         currentItemIndex = index
         
         let vc = currentViewController
@@ -166,16 +173,17 @@ extension FormStackViewController {
         
         let offset : CGFloat = view.frame.size.width * CGFloat(currentItemIndex)
         stackViewLeftConstraint.update(offset: -offset)
+        
         if animated {
             UIView.animate(withDuration: 0.25, delay: 0, options: [UIViewAnimationOptions.curveEaseOut], animations: {
-                
                 self.view.layoutIfNeeded()
             }, completion: { (finished: Bool) in
+                guard shouldBecomeFirstResponder else { return }
                 vc.becomeFirstResponder()
             })
         } else {
             view.layoutIfNeeded()
-            vc.becomeFirstResponder()
+            guard shouldBecomeFirstResponder else { return }
         }
     }
     

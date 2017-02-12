@@ -25,7 +25,7 @@ class FormStackItemTextFieldViewController: FormStackItemViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        textField.text = ""
     }
     
     override func becomeFirstResponder() -> Bool {
@@ -37,7 +37,9 @@ class FormStackItemTextFieldViewController: FormStackItemViewController {
     }
     
     override func updateUI() {
-        textField.text = formField.value.capitalized
+        let value = formField.value.capitalized
+        print("Setting text: \(value)")
+        textField.text = value
         super.updateUI()
     }
     
