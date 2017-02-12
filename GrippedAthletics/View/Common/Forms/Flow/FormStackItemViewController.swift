@@ -107,6 +107,7 @@ extension FormStackItemViewController {
         }
         
         formField.value = inputProvider.inputValue!
+        
         completion(formField.isValid, formItem)
     }
     

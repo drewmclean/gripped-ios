@@ -25,7 +25,7 @@ class FormField : Validatable {
     var propertyKey : String
     var value : String = ""
     var isValid : Bool {
-        return validator?.validate(value: value) ?? false
+        return validator?.validate(value: value) ?? true
     }
     
     var textFieldConfiguration : (UITextField) -> Void?

@@ -221,19 +221,23 @@ extension FormStackViewController {
     }
     
     func updateNavBar(index:Int) {
-        if index == 0 {
+        
+        guard index != 0 else {
             navigationItem.setLeftBarButton(barItemForNavType(withType: .close, title: "Cancel", target: self, action: #selector(FormStackViewController.leftItemTapped(sender:))), animated: true)
             navigationItem.setRightBarButton(barItemForNavType(withType: .next, title: "Next", target: self, action: #selector(FormStackViewController.rightItemTapped(sender:))), animated: true)
+            return
         }
-        else if index == fieldViewControllers.count - 1 {
+        
+        guard isLastFormItem == false else {
             navigationItem.setLeftBarButton(barItemForNavType(withType: .back, title: "Back", target: self, action: #selector(FormStackViewController.leftItemTapped(sender:))), animated: true)
             
             navigationItem.setRightBarButton(barItemForNavType(withType: .done, title: "Done", target: self, action: #selector(FormStackViewController.rightItemTapped(sender:))), animated: true)
+            return
         }
-        else {
-            navigationItem.setLeftBarButton(barItemForNavType(withType: .back, title: "Back", target: self, action: #selector(FormStackViewController.leftItemTapped(sender:))), animated: true)
-            navigationItem.setRightBarButton(barItemForNavType(withType: .next, title: "Next", target: self, action: #selector(FormStackViewController.rightItemTapped(sender:))), animated: true)
-        }
+        
+        navigationItem.setLeftBarButton(barItemForNavType(withType: .back, title: "Back", target: self, action: #selector(FormStackViewController.leftItemTapped(sender:))), animated: true)
+        navigationItem.setRightBarButton(barItemForNavType(withType: .next, title: "Next", target: self, action: #selector(FormStackViewController.rightItemTapped(sender:))), animated: true)
+        
     }
     
     func showNextView() {

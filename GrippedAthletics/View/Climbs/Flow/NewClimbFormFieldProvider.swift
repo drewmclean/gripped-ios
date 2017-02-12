@@ -40,18 +40,22 @@ class NewClimbFormFieldProvider : FormStackItemProvider {
         self.validator.registerField(field, rules: [RequiredRule()])
         
         let vc = ClimbVenueViewController()
+
+        return FormStackItem(formField: field, itemViewController: vc)
+    }()
+    
+    lazy var climbType : FormStackItem = {
+        let field = FormField(title: "What type of climb?", unit: "", propertyKey: Climb.Keys.type) { (textField : UITextField) in
+            
+        }
+        
         let next = { () -> [FormStackItem] in
             let venue = self.climbVenue.formField.value
             let climbType = self.climbType.formField.value
             return self.venueAndTypeFormStackItems["\(venue)\(climbType)"]!
         }
-        return FormStackItem(formField: field, itemViewController: vc)
-    }()
-    
-    lazy var climbType : FormStackItem = {
-        return FormStackItem(formField: FormField(title: "What type of climb?", unit: "", propertyKey: Climb.Keys.type) { (textField : UITextField) in
-            
-        }, itemViewController: ClimbTypeViewController(), followingItems: nil)
+        
+        return FormStackItem(formField: field, itemViewController: ClimbTypeViewController(), followingItems: next)
     }()
         
     lazy var sportRating : FormStackItem = {
