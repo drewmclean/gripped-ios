@@ -33,6 +33,7 @@ class Climb: FIRObject, FIRTimestampable {
         static let ratingComponents = "rating_components"
         static let color = "color"
         static let description = "description"
+        static let photoUrl = "photo_url"
     }
     
     override class var objectName: String {
@@ -52,6 +53,7 @@ class Climb: FIRObject, FIRTimestampable {
     var description : String?
     var createdAt: Date?
     var modifiedAt: Date?
+    var photoUrl : NSURL?
     
     override var fieldValues: [AnyHashable : Any] {
         get {

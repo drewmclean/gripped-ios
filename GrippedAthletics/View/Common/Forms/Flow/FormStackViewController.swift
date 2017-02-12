@@ -11,12 +11,22 @@ import SwiftValidator
 import SnapKit
 
 struct FormStackItem {
+    
     var formField : FormField
     var itemViewController : FormStackItemViewController
+    var followingItemsClosure : ((Void) -> [FormStackItem])?
+    
     init(formField : FormField, itemViewController : FormStackItemViewController) {
-        itemViewController.formField = formField
+        self.init(formField: formField, itemViewController: itemViewController, followingItems: nil)
+    }
+    
+    init(formField : FormField, itemViewController : FormStackItemViewController, followingItems : ((Void) -> [FormStackItem])?) {
+        
         self.formField = formField
         self.itemViewController = itemViewController
+        self.followingItemsClosure = followingItems
+        
+        itemViewController.formItem = self
     }
 }
 
@@ -92,11 +102,7 @@ class FormStackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        
-        navigationItem.titleView = pageControlContainer
-        
         addKeyboardHandlers()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -174,14 +180,24 @@ extension FormStackViewController {
         let offset : CGFloat = view.frame.size.width * CGFloat(currentItemIndex)
         stackViewLeftConstraint.update(offset: -offset)
         
+        func refreshTitle() {
+            if currentItemIndex == 0 {
+                navigationItem.titleView = nil
+            } else {
+                navigationItem.titleView = pageControlContainer
+            }
+        }
+        
         if animated {
             UIView.animate(withDuration: 0.25, delay: 0, options: [UIViewAnimationOptions.curveEaseOut], animations: {
+                refreshTitle()
                 self.view.layoutIfNeeded()
             }, completion: { (finished: Bool) in
                 guard shouldBecomeFirstResponder else { return }
                 vc.becomeFirstResponder()
             })
         } else {
+            refreshTitle()
             view.layoutIfNeeded()
             guard shouldBecomeFirstResponder else { return }
         }
@@ -233,18 +249,21 @@ extension FormStackViewController {
     }
     
     func rightItemTapped(sender:UIBarButtonItem) {
-        currentViewController.submitValue { (isValid: Bool) in
+        currentViewController.submitValue { (isValid: Bool, item: FormStackItem?) in
             
             guard isValid else {
                 return
             }
             
-            guard let nextItem = currentViewController.nextFormItem else {
+            if let followUpItems = item?.followingItemsClosure?() {
+                appendFormItems(items: followUpItems)
+            }
+            
+            guard currentItemIndex < provider!.items.count - 1 else {
                 submitForm()
                 return
             }
             
-            appendFormItem(item: nextItem)
             showNextView()
         }
     }

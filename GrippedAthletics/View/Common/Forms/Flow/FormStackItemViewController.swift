@@ -26,9 +26,12 @@ class FormStackItemViewController: UIViewController {
     }
     
     var delegate : FormStackItemViewControllerDelegate?
-    var nextFormItem : FormStackItem? { return nil }
     
-    var formField : FormField!
+    var formItem : FormStackItem!
+    
+    var formField : FormField {
+        return formItem.formField
+    }
     
     lazy var stackView : UIStackView = {
         let sv = UIStackView()
@@ -46,7 +49,7 @@ class FormStackItemViewController: UIViewController {
         label.textColor = UIColor.gray
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: UILayoutConstraintAxis.vertical)
+//        label.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: UILayoutConstraintAxis.vertical)
         self.stackView.insertArrangedSubview(label, at: 0)
         return label
     }()
@@ -97,14 +100,14 @@ class FormStackItemViewController: UIViewController {
 
 extension FormStackItemViewController {
     
-    func submitValue(completion: (Bool) -> Void) {
+    func submitValue(completion: (Bool, FormStackItem?) -> Void) {
         guard let inputProvider = self as? FormInputProvider else {
-            completion(false)
+            completion(false, formItem)
             return
         }
         
         formField.value = inputProvider.inputValue!
-        completion(formField.isValid)
+        completion(formField.isValid, formItem)
     }
     
 }

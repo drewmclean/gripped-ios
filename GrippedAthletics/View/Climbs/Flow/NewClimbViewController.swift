@@ -9,11 +9,12 @@
 import UIKit
 
 class NewClimbViewController: FormStackViewController {
+    typealias T = FormStackItemProvider
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "New Climb"
+        title = "Add Climb"
         
         provider = NewClimbFormFieldProvider()
         reloadViews()

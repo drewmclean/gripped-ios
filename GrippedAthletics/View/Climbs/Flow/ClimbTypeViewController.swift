@@ -28,28 +28,13 @@ final class ClimbTypeValue : ComponentsValue, StringRepresentableSource {
 }
 
 struct ClimbTypeComponentProvider : PickerComponentProvider {
-    var providers: [[StringRepresentable]] {
-        return [ClimbType.allValues]
-    }
+    var providers: [[StringRepresentable]] = [ClimbType.allValues]
 }
 
 class ClimbTypeViewController : FormStackItemPickerViewController {
     
     var newClimbProvider : NewClimbFormFieldProvider? {
         return delegate?.stackProvider as? NewClimbFormFieldProvider
-    }
-    
-    override var nextFormItem: FormStackItem? {
-        guard let value = selectedValue else { return nil }
-        
-        switch value.components[0] as! ClimbType {
-        case .sport:
-            return self.newClimbProvider?.sportRating
-        case .boulder:
-            return self.newClimbProvider?.boulderRating
-        default:
-            return nil
-        }
     }
     
     override func viewDidLoad() {

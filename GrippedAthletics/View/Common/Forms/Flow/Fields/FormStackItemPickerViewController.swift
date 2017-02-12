@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PickerComponentProvider {
-    var providers : [[StringRepresentable]] { get }
+    var providers : [[StringRepresentable]] { get set }
 }
 
 class ComponentsValue : ComponentStringRepresentable {
@@ -30,11 +30,7 @@ class ComponentsValue : ComponentStringRepresentable {
 
 class FormStackItemPickerViewController: FormStackItemTextFieldViewController {
     
-    var provider : PickerComponentProvider! {
-        didSet {
-            
-        }
-    }
+    var provider : PickerComponentProvider!
     
     var selectedValue : ComponentsValue? {
         didSet {

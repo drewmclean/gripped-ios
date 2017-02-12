@@ -47,6 +47,7 @@
 		5786B14B1E1AB36700C7EA36 /* FIRObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5786B14A1E1AB36700C7EA36 /* FIRObject.swift */; };
 		5786B1501E1AEB4A00C7EA36 /* UserGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5786B14F1E1AEB4A00C7EA36 /* UserGraph.swift */; };
 		5788E4901E1AAD90003C60E9 /* FIRUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E48F1E1AAD90003C60E9 /* FIRUser.swift */; };
+		579171621E50D07900189781 /* ClimbPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579171611E50D07900189781 /* ClimbPhotoViewController.swift */; };
 		579DE2B71DBC112C00D71875 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2B31DBC112C00D71875 /* HomeViewController.swift */; };
 		579DE2B81DBC112C00D71875 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2B31DBC112C00D71875 /* HomeViewController.swift */; };
 		579DE2B91DBC112C00D71875 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DE2B31DBC112C00D71875 /* HomeViewController.swift */; };
@@ -149,6 +150,7 @@
 		5786B14A1E1AB36700C7EA36 /* FIRObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRObject.swift; sourceTree = "<group>"; };
 		5786B14F1E1AEB4A00C7EA36 /* UserGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserGraph.swift; sourceTree = "<group>"; };
 		5788E48F1E1AAD90003C60E9 /* FIRUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRUser.swift; sourceTree = "<group>"; };
+		579171611E50D07900189781 /* ClimbPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbPhotoViewController.swift; sourceTree = "<group>"; };
 		579DE2B31DBC112C00D71875 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		579DE2C41DBC1BC100D71875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		579DE2C61DBC1BC100D71875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 				57CFDF1F1E4BB5400040FE4A /* ClimbColorViewController.swift */,
 				57CFDF251E4BB7950040FE4A /* ClimbDescriptionViewController.swift */,
 				57CFDF231E4BB7790040FE4A /* ClimbNameViewController.swift */,
+				579171611E50D07900189781 /* ClimbPhotoViewController.swift */,
 				5732DD861E48E9EE00CE7F34 /* ClimbTypeViewController.swift */,
 				57CFDF211E4BB56D0040FE4A /* ClimbVenueViewController.swift */,
 				5732DD871E48E9EE00CE7F34 /* NewClimbViewController.swift */,
@@ -914,6 +917,7 @@
 				57CFDF2D1E4BC4DC0040FE4A /* FormStackItemTextViewViewController.swift in Sources */,
 				5732DD8E1E48E9EE00CE7F34 /* ClimbTypeViewController.swift in Sources */,
 				57CFDF221E4BB56D0040FE4A /* ClimbVenueViewController.swift in Sources */,
+				579171621E50D07900189781 /* ClimbPhotoViewController.swift in Sources */,
 				5732DD771E48E97B00CE7F34 /* FormStackViewController.swift in Sources */,
 				57D87E6C1DE28A58000435E5 /* SignUpConfirmViewController.swift in Sources */,
 				57BB62D81E1BFA5D00D62CAB /* BiometricsListViewController.swift in Sources */,

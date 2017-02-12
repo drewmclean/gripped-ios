@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FormStackItemTextAreaViewController: FormStackItemViewController {
+class FormStackItemTextViewViewController: FormStackItemViewController {
     
     lazy var textView : UITextView = {
         let tv = UITextView()
@@ -43,7 +43,7 @@ class FormStackItemTextAreaViewController: FormStackItemViewController {
 
 // MARK: FormInputProvider
 
-extension FormStackItemTextAreaViewController : FormInputProvider {
+extension FormStackItemTextViewViewController : FormInputProvider {
     
     var inputValue : String? {
         return textView.text
@@ -53,6 +53,6 @@ extension FormStackItemTextAreaViewController : FormInputProvider {
 
 // MARK: UITextViewDelegate
 
-extension FormStackItemTextAreaViewController : UITextViewDelegate {
+extension FormStackItemTextViewViewController : UITextViewDelegate {
     
 }

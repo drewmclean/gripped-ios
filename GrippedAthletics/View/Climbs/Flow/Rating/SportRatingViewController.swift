@@ -20,9 +20,7 @@ final class SportRatingValue : ComponentsValue, StringRepresentableSource {
 }
 
 struct SportRatingComponentProvider : PickerComponentProvider {
-    var providers: [[StringRepresentable]] {
-        return [Ratings.NorthAmerica.ClassGrade.allValues, Ratings.NorthAmerica.SubGrade.allValues]
-    }
+    var providers: [[StringRepresentable]] = [Ratings.NorthAmerica.ClassGrade.allValues, Ratings.NorthAmerica.SubGrade.signValues]
 }
 
 
@@ -32,8 +30,14 @@ class SportRatingViewController: FormStackItemPickerViewController {
         return delegate?.stackProvider as? NewClimbFormFieldProvider
     }
     
-    override var nextFormItem: FormStackItem? {
-        return newClimbProvider?.climbVenue
+    var selectedGradeIsModerate : Bool {
+        let selectedGrade = provider.providers[0][pickerView.selectedRow(inComponent: 0)]
+        guard let _ = Ratings.NorthAmerica.ClassGrade.allModerateGrades.first(where: { (grade: Ratings.NorthAmerica.ClassGrade) -> Bool in
+            grade.rawValue == selectedGrade.rawValue
+        }) else {
+            return false
+        }
+        return true
     }
     
     override func viewDidLoad() {
@@ -46,6 +50,7 @@ class SportRatingViewController: FormStackItemPickerViewController {
         
         selectedValue = SportRatingValue(components:[defaultGrade, defaultSubGrade])
     }
+    
 
 }
 
@@ -59,7 +64,7 @@ extension SportRatingViewController {
         if component == 0 {
             return 60
         } else {
-            return 40
+            return 50
         }
     }
     
@@ -67,18 +72,18 @@ extension SportRatingViewController {
 
 extension SportRatingViewController {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if component == 1 {
-            let gradeValue = provider.providers[0][pickerView.selectedRow(inComponent: 0)]
-            if let _ = Ratings.NorthAmerica.ClassGrade.allModerateGrades.first(where: { (grade: Ratings.NorthAmerica.ClassGrade) -> Bool in
-                grade.rawValue == gradeValue.rawValue
-            }) {
-                let subGradeValue = provider.providers[1][pickerView.selectedRow(inComponent: 1)]
-                if let _ = Ratings.NorthAmerica.SubGrade.letterValues.first(where: { (subgrade: Ratings.NorthAmerica.SubGrade) -> Bool in
-                    subgrade.rawValue == subGradeValue.rawValue
-                }) {
-                    pickerView.selectRow(0, inComponent: 1, animated: true)
-                }
+        
+        if component == 0 {
+            if selectedGradeIsModerate {
+                provider.providers[1] = Ratings.NorthAmerica.SubGrade.signValues
+                pickerView.reloadComponent(1)
+                let newRow = min(pickerView.selectedRow(inComponent: 1), Ratings.NorthAmerica.SubGrade.signValues.count-1)
+                pickerView.selectRow(newRow, inComponent: 1, animated: true)
+            } else {
+                provider.providers[1] = Ratings.NorthAmerica.SubGrade.allValues
+                pickerView.reloadComponent(1)
             }
+            
         }
         
         var selectedComponents = [StringRepresentable]()
