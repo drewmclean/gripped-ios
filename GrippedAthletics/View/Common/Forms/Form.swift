@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import SwiftValidator
 
 protocol FormStackItemProvider {
     var items : [FormStackItem] { get set }
+    var validator : Validator { get set }
 }
 
 protocol FormFieldProvider {

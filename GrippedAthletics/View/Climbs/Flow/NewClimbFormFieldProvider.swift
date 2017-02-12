@@ -8,10 +8,12 @@
 
 import UIKit
 import FirebaseDatabase
+import SwiftValidator
 
 class NewClimbFormFieldProvider : FormStackItemProvider {
     
     var items : [FormStackItem] = [FormStackItem]()
+    var validator: Validator = Validator()
     
     lazy var venueAndTypeFormStackItems : [String : [FormStackItem]] = {
         
@@ -29,10 +31,14 @@ class NewClimbFormFieldProvider : FormStackItemProvider {
     
     init() {
         items = [climbVenue, climbType]
+        
     }
     
     lazy var climbVenue : FormStackItem = {
         let field = FormField(title: "Is this climb indoor or outdoor?", unit: "", propertyKey: Climb.Keys.venue) { (textField : UITextField) in }
+        
+        self.validator.registerField(field, rules: [RequiredRule()])
+        
         let vc = ClimbVenueViewController()
         let next = { () -> [FormStackItem] in
             let venue = self.climbVenue.formField.value
