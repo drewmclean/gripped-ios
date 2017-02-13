@@ -117,6 +117,18 @@ struct Ratings {
             static var signValues = [none, plus, minus]
             static var letterValues = [a, ab, b, bc, c, cd ,d]
         }
+        
+        enum DangerGrade : String, StringRepresentable {
+        
+            case none = ""
+            case g = "G"
+            case pg = "PG"
+            case r = "R"
+            case rx = "R/X"
+            case x = "X"
+        
+            static var allValues = [none, g, pg, r, rx, x]
+        }
     }
     
     enum French : String, StringRepresentable {
