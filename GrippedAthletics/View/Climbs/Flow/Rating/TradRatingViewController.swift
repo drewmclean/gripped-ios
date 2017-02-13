@@ -8,28 +8,86 @@
 
 import UIKit
 
-class TradRatingViewController: FormStackItemPickerViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+final class TradRatingValue : ComponentsValue, StringRepresentableSource {
+    
+    convenience init(rawValue : String) {
+        self.init()
+        
     }
     
+}
 
-    /*
-    // MARK: - Navigation
+struct TradRatingComponentProvider : PickerComponentProvider {
+    var providers: [[StringRepresentable]] = [Ratings.NorthAmerica.ClassGrade.allValues, Ratings.NorthAmerica.SubGrade.signValues, Ratings.NorthAmerica.DangerGrade.allValues]
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+class TradRatingViewController: FormStackItemPickerViewController {
+
+    var selectedGradeIsModerate : Bool {
+        let selectedGrade = provider.providers[0][pickerView.selectedRow(inComponent: 0)]
+        guard let _ = Ratings.NorthAmerica.ClassGrade.allModerateGrades.first(where: { (grade: Ratings.NorthAmerica.ClassGrade) -> Bool in
+            grade.rawValue == selectedGrade.rawValue
+        }) else {
+            return false
+        }
+        return true
     }
-    */
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        provider = TradRatingComponentProvider()
+        
+        let defaultGrade = Ratings.NorthAmerica.ClassGrade.Five9
+        let defaultSubGrade = Ratings.NorthAmerica.SubGrade.none
+        let defaultDanger = Ratings.NorthAmerica.DangerGrade.none
+        
+        selectedValue = TradRatingValue(components:[defaultGrade, defaultSubGrade, defaultDanger])
+        updateSelectedComponents(animated: false)
+    }
 
+}
+
+extension TradRatingViewController {
+    
+    override func formattedTitle(forComponent component: Int, title: String) -> String {
+        return title
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        if component == 0 {
+            return 60
+        } else if component == 1 {
+            return 50
+        } else {
+            return 50
+        }
+    }
+    
+}
+
+extension TradRatingViewController {
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if component == 0 {
+            if selectedGradeIsModerate {
+                provider.providers[1] = Ratings.NorthAmerica.SubGrade.signValues
+                pickerView.reloadComponent(1)
+                let newRow = min(pickerView.selectedRow(inComponent: 1), Ratings.NorthAmerica.SubGrade.signValues.count-1)
+                pickerView.selectRow(newRow, inComponent: 1, animated: true)
+            } else {
+                provider.providers[1] = Ratings.NorthAmerica.SubGrade.allValues
+                pickerView.reloadComponent(1)
+            }
+            
+        }
+        
+        var selectedComponents = [StringRepresentable]()
+        for (componentIndex, componentProvider) in provider.providers.enumerated() {
+            let selectedRow = pickerView.selectedRow(inComponent: componentIndex)
+            let selectedComponent = componentProvider[selectedRow]
+            selectedComponents.append(selectedComponent)
+        }
+        selectedValue = TradRatingValue(components: selectedComponents)
+    }
 }

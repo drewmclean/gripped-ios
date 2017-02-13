@@ -49,6 +49,7 @@ class SportRatingViewController: FormStackItemPickerViewController {
         let defaultSubGrade = Ratings.NorthAmerica.SubGrade.none
         
         selectedValue = SportRatingValue(components:[defaultGrade, defaultSubGrade])
+        updateSelectedComponents(animated: false)
     }
     
 
