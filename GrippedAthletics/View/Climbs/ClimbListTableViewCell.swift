@@ -33,12 +33,10 @@ class ClimbListTableViewCell: UITableViewCell {
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         labelsStackView.isLayoutMarginsRelativeArrangement = true
-        labelsStackView.layoutMargins = UIEdgeInsets(top: 8, left: 0, bottom: 4, right: 4)
+        labelsStackView.layoutMargins = UIEdgeInsets(top: 2, left: 0, bottom: 4, right: 4)
         climbImageView.layer.cornerRadius = 4.0
         climbImageView.layer.borderColor = UIColor.gray.cgColor
         climbImageView.layer.borderWidth = 0.75
-        
-        
     }
     
     func updateUI() {

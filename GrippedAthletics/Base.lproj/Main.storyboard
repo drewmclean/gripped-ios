@@ -78,20 +78,20 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="OaO-pl-qTs">
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OaO-pl-qTs">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100.5"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="LOA-XP-ljd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="198" height="100.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="205" height="100.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="dxh-XP-ERk"/>
                                                         <constraint firstAttribute="height" constant="100" id="vGk-OY-83r"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" axis="vertical" distribution="fillProportionally" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="nur-eS-9Sv">
-                                                    <rect key="frame" x="210" y="0.0" width="165" height="65"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="nur-eS-9Sv">
+                                                    <rect key="frame" x="215" y="0.0" width="160" height="57"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eYP-Aw-cyi">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eYP-Aw-cyi">
                                                             <rect key="frame" x="0.0" y="0.0" width="160" height="21.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Route Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXW-ri-MbS">
@@ -108,8 +108,8 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LGQ-N9-66M">
-                                                            <rect key="frame" x="0.0" y="25.5" width="118" height="19.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LGQ-N9-66M">
+                                                            <rect key="frame" x="0.0" y="21.5" width="118" height="19.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indoor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKj-dE-ATf">
                                                                     <rect key="frame" x="0.0" y="0.0" width="47" height="19.5"/>
@@ -126,7 +126,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description text..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rl2-1r-oT0" userLabel="Description Label">
-                                                            <rect key="frame" x="0.0" y="49" width="106" height="16"/>
+                                                            <rect key="frame" x="0.0" y="41" width="106" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -150,6 +150,7 @@
                                     <outlet property="labelsStackView" destination="nur-eS-9Sv" id="Qf3-Zn-xxd"/>
                                     <outlet property="nameLabel" destination="YXW-ri-MbS" id="TTf-Yi-mvR"/>
                                     <outlet property="stackView" destination="OaO-pl-qTs" id="VIs-Sj-6WB"/>
+                                    <outlet property="typeLabel" destination="ht7-6p-Diy" id="edv-Dg-In0"/>
                                     <outlet property="venueLabel" destination="ht7-6p-Diy" id="Hp7-Su-FLi"/>
                                 </connections>
                             </tableViewCell>

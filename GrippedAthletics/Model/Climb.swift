@@ -70,6 +70,7 @@ class Climb: FIRObject, FIRTimestampable {
         set {
             userId = newValue[Keys.userId] as! String
             venue = newValue[Keys.venue] as? String
+            type = newValue[Keys.type] as? String
             name = newValue[Keys.name] as? String
             rating = newValue[Keys.rating] as? String
             color = newValue[Keys.color] as? String
