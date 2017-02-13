@@ -11,7 +11,7 @@ import UIKit
 final class TradRatingValue : ComponentsValue, StringRepresentableSource {
     
     override var rawValue : String {
-        return "\(components[0])\(components[1]) \(components[2])"
+        return "\(components[0].rawValue)\(components[1].rawValue) \(components[2].rawValue)"
     }
     
     convenience init(rawValue : String) {
