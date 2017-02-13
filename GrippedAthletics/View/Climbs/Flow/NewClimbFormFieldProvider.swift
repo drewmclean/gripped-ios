@@ -22,7 +22,7 @@ class NewClimbFormFieldProvider : FormStackItemProvider {
         
         var outdoorSport = [self.sportRating, self.climbName, self.climbDescription]
         var outdoorBoulder = [self.boulderRating, self.climbName, self.climbDescription]
-        var outdoorTrad = [FormStackItem]()
+        var outdoorTrad = [self.tradRating, self.climbType, self.climbName, self.climbDescription]
         var outdoorIceMixed = [FormStackItem]()
         
         return ["\(ClimbVenue.indoor)\(ClimbType.sport)" : indoorSport,
