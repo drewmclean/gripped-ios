@@ -29,7 +29,10 @@ class ClimbListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+        labelsStackView.isLayoutMarginsRelativeArrangement = true
         labelsStackView.layoutMargins = UIEdgeInsets(top: 8, left: 0, bottom: 4, right: 4)
         climbImageView.layer.cornerRadius = 4.0
         climbImageView.layer.borderColor = UIColor.gray.cgColor
@@ -44,8 +47,9 @@ class ClimbListTableViewCell: UITableViewCell {
             climbImageView.backgroundColor = color
         }
         nameLabel.text = climb.name
-        venueLabel.text = climb.venue?.capitalized
         gradeLabel.text = climb.rating
+        venueLabel.text = climb.venue?.capitalized
+        typeLabel.text = climb.type
         descriptionLabel.text = climb.description
     }
 
