@@ -29,6 +29,10 @@ class FormStackItemTextFieldViewController: FormStackItemViewController {
         textField.text = ""
     }
     
+    override var canBecomeFirstResponder: Bool {
+        return textField.canBecomeFirstResponder
+    }
+    
     override func becomeFirstResponder() -> Bool {
         return textField.becomeFirstResponder()
     }

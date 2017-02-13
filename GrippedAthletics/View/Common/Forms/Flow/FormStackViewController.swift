@@ -115,7 +115,7 @@ class FormStackViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         navigationItem.setHidesBackButton(true, animated: false)
-        
+        navigationController?.navigationBar.topItem
         addKeyboardHandlers()
     }
     
@@ -181,6 +181,8 @@ extension FormStackViewController : FormStackItemViewControllerDelegate {
 extension FormStackViewController {
     
     func showFieldViewController(atIndex index: Int, animated: Bool, shouldBecomeFirstResponder : Bool = true) {
+        currentViewController.resignFirstResponder()
+        
         currentItemIndex = index
         
         let vc = currentViewController
@@ -217,7 +219,7 @@ extension FormStackViewController {
     }
     
     func delayedFirstResponder(viewController vc: UIViewController) {
-        let deadlineTime = DispatchTime.now() + 0.01
+        let deadlineTime = DispatchTime.now() + 0.10
         DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
             vc.becomeFirstResponder()
         })
@@ -245,7 +247,7 @@ extension FormStackViewController {
     
     func showNextView() {
         let nextIndex = currentItemIndex + 1
-        showFieldViewController(atIndex: nextIndex, animated: true, shouldBecomeFirstResponder: false)
+        showFieldViewController(atIndex: nextIndex, animated: true)
     }
     
     func showPreviousView() {

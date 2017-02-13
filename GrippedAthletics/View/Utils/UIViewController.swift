@@ -133,7 +133,8 @@ extension UIViewController {
         var item : UIBarButtonItem!
         switch type {
         case .back:
-            item = UIBarButtonItem(image: UIImage.back, style: .plain, target: self, action: #selector(UIViewController.backButtonTapped(sender:)))
+            let backAction = action ?? #selector(UIViewController.backButtonTapped(sender:))
+            item = UIBarButtonItem(image: UIImage.back, style: .plain, target: self, action: backAction)
             break
         case .next:
             item = UIBarButtonItem(image: UIImage.forward, style: .plain, target: target, action:action)
