@@ -16,16 +16,17 @@ class FormStackItemTextFieldViewController: FormStackItemViewController {
         tf.borderStyle = .none
         tf.delegate = self
         tf.textAlignment = .center
-        tf.tintColor = UIColor.clear
-        tf.font = UIFont.boldSystemFont(ofSize: 48)
+        tf.font = UIFont.systemFont(ofSize: 28, weight: UIFontWeightMedium)
+        tf.autocapitalizationType = .words
+        tf.spellCheckingType = .no
         tf.textColor = UIColor.darkGray
-        
         self.stackView.addArrangedSubview(tf)
         return tf
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         textField.text = ""
     }
     

@@ -12,6 +12,10 @@ class FormStackItemTextViewViewController: FormStackItemViewController {
     
     lazy var textView : UITextView = {
         let tv = UITextView()
+        tv.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightRegular)
+        tv.textColor = UIColor.darkGray
+        tv.autocapitalizationType = .sentences
+        tv.spellCheckingType = .yes
         tv.delegate = self
         self.stackView.addArrangedSubview(tv)
         return tv
@@ -20,6 +24,12 @@ class FormStackItemTextViewViewController: FormStackItemViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        textView.text = ""
+        
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return textView.canBecomeFirstResponder
     }
     
     override func becomeFirstResponder() -> Bool {
@@ -32,13 +42,13 @@ class FormStackItemTextViewViewController: FormStackItemViewController {
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
+        
         textView.snp.updateConstraints { (make) in
-            make.left.equalTo(stackView.snp.left).offset(20)
-            make.right.equalTo(stackView.snp.right).offset(20)
-            make.height.equalTo(180)
+            make.width.equalTo(stackView).offset(20)
+            make.height.equalTo(240)
         }
     }
-
+    
 }
 
 // MARK: FormInputProvider
