@@ -12,7 +12,7 @@ class FormStackItemTextViewViewController: FormStackItemViewController {
     
     lazy var textView : UITextView = {
         let tv = UITextView()
-        tv.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightRegular)
+        tv.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight)
         tv.textColor = UIColor.darkGray
         tv.autocapitalizationType = .sentences
         tv.spellCheckingType = .yes
@@ -25,7 +25,7 @@ class FormStackItemTextViewViewController: FormStackItemViewController {
         super.viewDidLoad()
         
         textView.text = ""
-        
+//        reloadInputViews()
     }
     
     override var canBecomeFirstResponder: Bool {
@@ -44,8 +44,8 @@ class FormStackItemTextViewViewController: FormStackItemViewController {
         super.updateViewConstraints()
         
         textView.snp.updateConstraints { (make) in
-            make.width.equalTo(stackView).offset(20)
-            make.height.equalTo(240)
+            make.width.equalTo(stackView.snp.width).inset(15)
+            make.height.equalTo(200)
         }
     }
     

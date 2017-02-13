@@ -22,11 +22,15 @@ class NewClimbFormFieldProvider : FormStackItemProvider {
         
         var outdoorSport = [self.sportRating, self.climbName, self.climbDescription]
         var outdoorBoulder = [self.boulderRating, self.climbName, self.climbDescription]
+        var outdoorTrad = [FormStackItem]()
+        var outdoorIceMixed = [FormStackItem]()
         
         return ["\(ClimbVenue.indoor)\(ClimbType.sport)" : indoorSport,
                 "\(ClimbVenue.indoor)\(ClimbType.boulder)" : indoorBoulder,
                 "\(ClimbVenue.outdoor)\(ClimbType.sport)" : outdoorSport,
-                "\(ClimbVenue.outdoor)\(ClimbType.boulder)" : outdoorBoulder]
+                "\(ClimbVenue.outdoor)\(ClimbType.boulder)" : outdoorBoulder,
+                "\(ClimbVenue.outdoor)\(ClimbType.trad)" : outdoorTrad,
+                "\(ClimbVenue.outdoor)\(ClimbType.iceMixed)" : outdoorIceMixed]
     }()
     
     init() {
@@ -67,6 +71,12 @@ class NewClimbFormFieldProvider : FormStackItemProvider {
     lazy var boulderRating : FormStackItem = {
         let field = FormField(title: "How hard is the problem?", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
         let vc = BoulderRatingViewController()
+        return FormStackItem(formField: field, itemViewController: vc)
+    }()
+    
+    lazy var tradRating : FormStackItem = {
+        let field = FormField(title: "How hard is the climb?", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
+        let vc = TradRatingViewController()
         return FormStackItem(formField: field, itemViewController: vc)
     }()
     

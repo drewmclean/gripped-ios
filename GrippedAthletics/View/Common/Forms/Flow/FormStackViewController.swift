@@ -68,6 +68,14 @@ class FormStackViewController: UIViewController {
         return provider?.items
     }
     
+    var formFieldValues : [String:Any]? {
+        var poop = [String:Any]()
+        provider?.items.forEach { (item:FormStackItem) in
+            poop[item.formField.propertyKey] = item.formField.value
+        }
+        return poop
+    }
+    
     var fieldViewControllers : [FormStackItemViewController]! {
         return items!.map({ (item : FormStackItem) -> FormStackItemViewController in
             return item.itemViewController
@@ -311,10 +319,16 @@ extension FormStackViewController {
         refreshPageControl()
     }
     
-    func appendFormItems(items: [FormStackItem]) {
-        provider?.items.append(contentsOf: items)
-        provider?.items.forEach { (item:FormStackItem) in
-            self.addViewController(forItem: item)
+    func appendFormItems(items toAppend: [FormStackItem]) {
+        
+        toAppend.forEach { (item:FormStackItem) in
+            guard let _ = provider?.items.first(where: { (providerItem: FormStackItem) -> Bool in
+                return item.formField.propertyKey == providerItem.formField.propertyKey
+            }) else {
+                self.provider?.items.append(item)
+                self.addViewController(forItem: item)
+                return
+            }
         }
         refreshPageControl()
     }
@@ -351,14 +365,10 @@ extension FormStackViewController : KeyboardAnimator {
     internal func keyboardShowHandler(keyboardFrame: CGRect) {
         stackViewBottomOffset = -keyboardFrame.size.height
         stackViewBottomConstraint.update(offset: stackViewBottomOffset)
-        view.layoutIfNeeded()
-        
-        guard stackView.alpha == 0 else {
-            return
-        }
         
         UIView.animate(withDuration: 0.3) {
             self.stackView.alpha = 1.0
+            self.view.layoutIfNeeded()
         }
     }
     
@@ -367,7 +377,7 @@ extension FormStackViewController : KeyboardAnimator {
     }
     
     internal func keyboardHideAnimation(keyboardFrane: CGRect) {
-        stackViewBottomConstraint.update(offset: 0)
+//        stackViewBottomConstraint.update(offset: 0)
     }
   
 }
