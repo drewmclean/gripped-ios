@@ -7,18 +7,52 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import FirebaseDatabaseUI
 
-class ClimbListViewController: UIViewController {
+class ClimbListViewController: UITableViewController {
 
+    lazy var allClimbsQuery: FIRDatabaseQuery = {
+        return Climb.objectRef
+    }()
+    
+    lazy var dataSource: FUITableViewDataSource = {
+        let source = FUITableViewDataSource(query: self.allClimbsQuery, view: self.tableView) { (tableView: UITableView, indexPath: IndexPath, snapshot: FIRDataSnapshot) -> UITableViewCell in
+            let cell = tableView.dequeueReusableCell(withIdentifier: ClimbListTableViewCell.cellId, for: indexPath) as! ClimbListTableViewCell
+            cell.climb = Climb(snapshot: snapshot)
+            return cell
+        }
+        
+        return source
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Climbs"
+        title = "All Climbs"
         
         navigationItem.leftBarButtonItem = barItemForNavType(withType: .mainMenu)
         navigationItem.rightBarButtonItem = barItemForNavType(withType: .add, title: nil, target: self, action: #selector(ClimbListViewController.didTapAdd(sender:)))
+        
+        guard auth.currentUser != nil else {
+            auth.firAuth.addStateDidChangeListener { (auth:FIRAuth, user:FIRUser?) in
+                guard let _ = user else { return }
+                self.initializeData()
+            }
+            return
+        }
+        
+        initializeData()
+        
     }
 
+    func initializeData() {
+        tableView.dataSource = dataSource
+        tableView.delegate = self
+        tableView.reloadData()
+    }
+    
     func didTapAdd(sender:Any) {
         presentAddViewController()
     }
