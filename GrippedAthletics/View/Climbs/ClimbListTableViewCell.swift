@@ -13,7 +13,8 @@ class ClimbListTableViewCell: UITableViewCell {
     static var cellId = "ClimbListTableViewCellID"
     
     @IBOutlet weak var climbColorView: UIView!
-    @IBOutlet weak var climbImageView: UIImageView!
+//    @IBOutlet weak var climbImageView: UIImageView!
+//    @IBOutlet weak var climbImageViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var venueLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
@@ -31,25 +32,28 @@ class ClimbListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         labelsStackView.isLayoutMarginsRelativeArrangement = true
         labelsStackView.layoutMargins = UIEdgeInsets(top: 2, left: 0, bottom: 4, right: 4)
-        climbImageView.layer.cornerRadius = 4.0
-        climbImageView.layer.borderColor = UIColor.gray.cgColor
-        climbImageView.layer.borderWidth = 0.5
-        climbImageView.backgroundColor = UIColor.lightGray
+//        climbImageView.layer.borderColor = UIColor.gray.cgColor
+//        climbImageView.layer.borderWidth = 0.5
+//        climbImageView.backgroundColor = UIColor.lightGray
+        
     }
     
     func updateUI() {
         if let hexColor = climb.color {
             let color = UIColor(hexString: hexColor)
             climbColorView.backgroundColor = color
+        } else {
+            climbColorView.backgroundColor = UIColor.gray
         }
-        
+//        climbImageView.isHidden = true
         nameLabel.text = climb.name
         gradeLabel.text = climb.rating
-        venueLabel.text = climb.venue?.capitalized
+        venueLabel.text = climb.venue
         typeLabel.text = climb.type
         descriptionLabel.text = climb.description
     }

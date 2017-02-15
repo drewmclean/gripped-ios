@@ -35,6 +35,9 @@ class ClimbListViewController: UITableViewController {
         navigationItem.leftBarButtonItem = barItemForNavType(withType: .mainMenu)
         navigationItem.rightBarButtonItem = barItemForNavType(withType: .add, title: nil, target: self, action: #selector(ClimbListViewController.didTapAdd(sender:)))
         
+        tableView.estimatedRowHeight = 100
+//        tableView.rowHeight = UITableViewAutomaticDimension
+        
         guard auth.currentUser != nil else {
             auth.firAuth.addStateDidChangeListener { (auth:FIRAuth, user:FIRUser?) in
                 guard let _ = user else { return }
