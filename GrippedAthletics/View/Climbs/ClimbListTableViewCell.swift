@@ -40,7 +40,6 @@ class ClimbListTableViewCell: UITableViewCell {
 //        climbImageView.layer.borderColor = UIColor.gray.cgColor
 //        climbImageView.layer.borderWidth = 0.5
 //        climbImageView.backgroundColor = UIColor.lightGray
-        
     }
     
     func updateUI() {
