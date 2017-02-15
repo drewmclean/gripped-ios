@@ -41,6 +41,7 @@
 		574BF0631E09E29E00AF3803 /* Ratings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574BF0621E09E29E00AF3803 /* Ratings.swift */; };
 		5758E57E1DF9C95500121110 /* KeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5758E57D1DF9C95500121110 /* KeyStore.swift */; };
 		5758E5801DF9E9DC00121110 /* Futures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5758E57F1DF9E9DC00121110 /* Futures.swift */; };
+		575E59E61E53EE140035C820 /* NewAttemptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575E59E51E53EE140035C820 /* NewAttemptViewController.swift */; };
 		576265AC1E0069CA008F8346 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 576265AB1E0069CA008F8346 /* Assets.xcassets */; };
 		576265B01E006B3B008F8346 /* AllIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 576265AF1E006B3B008F8346 /* AllIcons.xcassets */; };
 		5786B1451E1AB30B00C7EA36 /* AppSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5786B1401E1AB30B00C7EA36 /* AppSession.swift */; };
@@ -146,6 +147,7 @@
 		574BF0621E09E29E00AF3803 /* Ratings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ratings.swift; sourceTree = "<group>"; };
 		5758E57D1DF9C95500121110 /* KeyStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyStore.swift; sourceTree = "<group>"; };
 		5758E57F1DF9E9DC00121110 /* Futures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Futures.swift; path = GrippedAthletics/Auth/Futures.swift; sourceTree = SOURCE_ROOT; };
+		575E59E51E53EE140035C820 /* NewAttemptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAttemptViewController.swift; sourceTree = "<group>"; };
 		576265AB1E0069CA008F8346 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		576265AF1E006B3B008F8346 /* AllIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AllIcons.xcassets; sourceTree = "<group>"; };
 		5786B1401E1AB30B00C7EA36 /* AppSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSession.swift; sourceTree = "<group>"; };
@@ -324,8 +326,8 @@
 		571C7FDD1DBBDC400071DB04 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				575E59E31E53ED6F0035C820 /* Attempts */,
 				579DE2DB1DBC279800D71875 /* MainViewController.swift */,
-				5732DD511E48E66600CE7F34 /* Activity */,
 				57D87E5F1DE28A58000435E5 /* Auth */,
 				57BB62D61E1BF94700D62CAB /* Biometrics */,
 				5732DD831E48E9EE00CE7F34 /* Climbs */,
@@ -337,13 +339,6 @@
 				5732DD7C1E48E99400CE7F34 /* Utils */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		5732DD511E48E66600CE7F34 /* Activity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Activity;
 			sourceTree = "<group>";
 		};
 		5732DD6B1E48E97B00CE7F34 /* Forms */ = {
@@ -421,6 +416,22 @@
 				5732DD8C1E48E9EE00CE7F34 /* TradRatingViewController.swift */,
 			);
 			path = Rating;
+			sourceTree = "<group>";
+		};
+		575E59E31E53ED6F0035C820 /* Attempts */ = {
+			isa = PBXGroup;
+			children = (
+				575E59E41E53ED6F0035C820 /* Types */,
+				575E59E51E53EE140035C820 /* NewAttemptViewController.swift */,
+			);
+			path = Attempts;
+			sourceTree = "<group>";
+		};
+		575E59E41E53ED6F0035C820 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Types;
 			sourceTree = "<group>";
 		};
 		576265AA1E0069CA008F8346 /* Assets */ = {
@@ -917,6 +928,7 @@
 				5727D52B1E4BFCE200264430 /* Utils.swift in Sources */,
 				57CFDF291E4BC42D0040FE4A /* FormStackItemPickerViewController.swift in Sources */,
 				57BB62F91E1DEBD000D62CAB /* User.swift in Sources */,
+				575E59E61E53EE140035C820 /* NewAttemptViewController.swift in Sources */,
 				57D87E6B1DE28A58000435E5 /* SignInViewController.swift in Sources */,
 				5758E5801DF9E9DC00121110 /* Futures.swift in Sources */,
 				57BB62E31E1BFD5400D62CAB /* BiometricsListTableViewCell.swift in Sources */,

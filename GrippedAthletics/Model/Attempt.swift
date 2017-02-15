@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class Attempt: FIRObject, FIRTimestampable {
     typealias T = Attempt
     
@@ -23,15 +22,15 @@ class Attempt: FIRObject, FIRTimestampable {
         static let composureLevel = "composure_level"
         static let notes = "notes"
         static let style = "style" // Onsight, Redpoint, Flash
-        static let hangs = "hangs"
+        static let hangCount = "hang_count"
     }
     
     override class var objectName: String {
-        return "activity"
+        return "attempt"
     }
     
     override class var userObjectsName: String {
-        return "user-activity"
+        return "user-attempt"
     }
     
     var userId : String!
@@ -41,7 +40,7 @@ class Attempt: FIRObject, FIRTimestampable {
     var composureLevel : String?
     var notes : String?
     var style : String?
-    var hangs : Int?
+    var hangCount : Int?
     var createdAt: Date?
     var modifiedAt: Date?
     
@@ -54,7 +53,7 @@ class Attempt: FIRObject, FIRTimestampable {
                     Keys.composureLevel: composureLevel ?? "",
                     Keys.notes: notes ?? "",
                     Keys.style: style ?? "",
-                    Keys.hangs: hangs ?? 0,
+                    Keys.hangCount: hangCount ?? 0,
                     Keys.createdAt : createdAt!.isoString(),
                     Keys.modifiedAt : modifiedAt!.isoString()]
         }
@@ -66,7 +65,7 @@ class Attempt: FIRObject, FIRTimestampable {
             composureLevel = newValue[Keys.composureLevel] as? String
             notes = newValue[Keys.notes] as? String
             style = newValue[Keys.style] as? String
-            hangs = Int(newValue[Keys.numberOfHangs])
+             = Int(newValue[Keys.hangCount])
             createdAt = Date.isoDate(from: newValue[Keys.createdAt] as! String)
             modifiedAt = Date.isoDate(from: newValue[Keys.modifiedAt] as! String)
         }
