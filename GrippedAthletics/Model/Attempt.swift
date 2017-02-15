@@ -8,20 +8,22 @@
 
 import UIKit
 
-class Activity: FIRObject, FIRTimestampable {
-    typealias T = Activity
+
+class Attempt: FIRObject, FIRTimestampable {
+    typealias T = Attempt
     
     struct Keys {
         static let createdAt = "created_at"
         static let modifiedAt = "modified_at"
         static let userId = "user_id"
         static let climbId = "climb_id"
+        static let climbType = "climb_type"
         static let timestamp = "timestamp"
-        static let rating = "rating"
+        static let fearLevel = "fear_level"
         static let composureLevel = "composure_level"
         static let notes = "notes"
         static let style = "style" // Onsight, Redpoint, Flash
-        static let numberOfHangs = "numberOfHangs"
+        static let hangs = "hangs"
     }
     
     override class var objectName: String {
@@ -34,11 +36,12 @@ class Activity: FIRObject, FIRTimestampable {
     
     var userId : String!
     var climbId : String!
+    var climbType : String!
     var timestamp : Date?
     var composureLevel : String?
     var notes : String?
     var style : String?
-    var numberOfHangs : String?
+    var hangs : Int?
     var createdAt: Date?
     var modifiedAt: Date?
     
@@ -46,22 +49,24 @@ class Activity: FIRObject, FIRTimestampable {
         get {
             return [Keys.userId: userId,
                     Keys.climbId : climbId ?? "",
+                    Keys.climbType : climbType ?? "",
                     Keys.timestamp: timestamp ?? "",
                     Keys.composureLevel: composureLevel ?? "",
                     Keys.notes: notes ?? "",
                     Keys.style: style ?? "",
-                    Keys.numberOfHangs: numberOfHangs ?? "",
+                    Keys.hangs: hangs ?? 0,
                     Keys.createdAt : createdAt!.isoString(),
                     Keys.modifiedAt : modifiedAt!.isoString()]
         }
         set {
             userId = newValue[Keys.userId] as! String
             climbId = newValue[Keys.climbId] as! String
+            climbType = newValue[Keys.climbType] as! String
             timestamp = Date.isoDate(from: newValue[Keys.timestamp] as! String)
             composureLevel = newValue[Keys.composureLevel] as? String
             notes = newValue[Keys.notes] as? String
             style = newValue[Keys.style] as? String
-            numberOfHangs = newValue[Keys.numberOfHangs] as? String
+            hangs = Int(newValue[Keys.numberOfHangs])
             createdAt = Date.isoDate(from: newValue[Keys.createdAt] as! String)
             modifiedAt = Date.isoDate(from: newValue[Keys.modifiedAt] as! String)
         }

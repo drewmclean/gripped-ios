@@ -15,7 +15,7 @@
 		571C7F971DBBD09A0071DB04 /* GrippedAthleticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7F961DBBD09A0071DB04 /* GrippedAthleticsTests.swift */; };
 		571C7FA21DBBD09A0071DB04 /* GrippedAthleticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7FA11DBBD09A0071DB04 /* GrippedAthleticsUITests.swift */; };
 		5727D51A1E478CEC00264430 /* Climb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5191E478CEC00264430 /* Climb.swift */; };
-		5727D5291E494C9500264430 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5281E494C9500264430 /* Activity.swift */; };
+		5727D5291E494C9500264430 /* Attempt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D5281E494C9500264430 /* Attempt.swift */; };
 		5727D52B1E4BFCE200264430 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727D52A1E4BFCE200264430 /* Utils.swift */; };
 		5727F5141E4D40C400E0AA4C /* NewClimbFormFieldProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727F5131E4D40C400E0AA4C /* NewClimbFormFieldProvider.swift */; };
 		5727F5161E4EB45500E0AA4C /* ClimbType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727F5151E4EB45500E0AA4C /* ClimbType.swift */; };
@@ -120,7 +120,7 @@
 		571C7FA31DBBD09A0071DB04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		571C7FD71DBBD5800071DB04 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5727D5191E478CEC00264430 /* Climb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Climb.swift; sourceTree = "<group>"; };
-		5727D5281E494C9500264430 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		5727D5281E494C9500264430 /* Attempt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attempt.swift; sourceTree = "<group>"; };
 		5727D52A1E4BFCE200264430 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		5727F5131E4D40C400E0AA4C /* NewClimbFormFieldProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewClimbFormFieldProvider.swift; sourceTree = "<group>"; };
 		5727F5151E4EB45500E0AA4C /* ClimbType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbType.swift; sourceTree = "<group>"; };
@@ -299,7 +299,7 @@
 				57BB62ED1E1C275400D62CAB /* Biometrics.swift */,
 				57BB62F81E1DEBD000D62CAB /* User.swift */,
 				5727D5191E478CEC00264430 /* Climb.swift */,
-				5727D5281E494C9500264430 /* Activity.swift */,
+				5727D5281E494C9500264430 /* Attempt.swift */,
 				5727F5151E4EB45500E0AA4C /* ClimbType.swift */,
 				5727F5171E4EB48600E0AA4C /* ClimbVenue.swift */,
 			);
@@ -874,7 +874,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5727D5291E494C9500264430 /* Activity.swift in Sources */,
+				5727D5291E494C9500264430 /* Attempt.swift in Sources */,
 				5732DD901E48E9EE00CE7F34 /* BoulderRatingViewController.swift in Sources */,
 				57BEF3DF1E205F2F008CBAFE /* String.swift in Sources */,
 				5732DD931E48E9EE00CE7F34 /* TradRatingViewController.swift in Sources */,
