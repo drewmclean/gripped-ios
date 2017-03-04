@@ -123,6 +123,7 @@ struct Ratings {
             case none = ""
             case g = "G"
             case pg = "PG"
+            case pg13 = "PG-13"
             case r = "R"
             case rx = "R/X"
             case x = "X"

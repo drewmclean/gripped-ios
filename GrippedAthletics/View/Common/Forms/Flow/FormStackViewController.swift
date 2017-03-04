@@ -46,7 +46,6 @@ class FormStackViewController: UIViewController {
     }
     
     var isLastFormItem : Bool {
-        
         guard currentItemIndex == items!.count - 1 else {
             return false
         }

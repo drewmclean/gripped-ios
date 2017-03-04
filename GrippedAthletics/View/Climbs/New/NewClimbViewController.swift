@@ -41,6 +41,7 @@ class NewClimbViewController: FormStackViewController {
             let now = Date().isoString()
             formValues[Climb.Keys.createdAt] = now
             formValues[Climb.Keys.modifiedAt] = now
+            
             // Create New
             Climb.create(fieldValues: formValues) { (error: Error?, snapshot: FIRDataSnapshot?) in
                 guard let s = snapshot else {

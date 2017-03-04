@@ -19,7 +19,6 @@ class NewClimbFormFieldProvider : FormStackItemProvider {
         
         var indoorSport = [self.sportRating, self.climbColor, self.climbName, self.climbDescription]
         var indoorBoulder = [self.boulderRating, self.climbColor, self.climbName]
-        
         var outdoorSport = [self.sportRating, self.climbName, self.climbDescription]
         var outdoorBoulder = [self.boulderRating, self.climbName, self.climbDescription]
         var outdoorTrad = [self.tradRating, self.climbType, self.climbName, self.climbDescription]
@@ -32,6 +31,7 @@ class NewClimbFormFieldProvider : FormStackItemProvider {
                 "\(ClimbVenue.outdoor)\(ClimbType.trad)" : outdoorTrad,
                 "\(ClimbVenue.outdoor)\(ClimbType.iceMixed)" : outdoorIceMixed]
     }()
+    
     
     init() {
         items = [climbVenue, climbType]
@@ -49,7 +49,7 @@ class NewClimbFormFieldProvider : FormStackItemProvider {
     }()
     
     lazy var climbType : FormStackItem = {
-        let field = FormField(title: "What type of climb?", unit: "", propertyKey: Climb.Keys.type) { (textField : UITextField) in
+        let field = FormField(title: "What type of climb is it?", unit: "", propertyKey: Climb.Keys.type) { (textField : UITextField) in
             
         }
         
@@ -61,45 +61,45 @@ class NewClimbFormFieldProvider : FormStackItemProvider {
         
         return FormStackItem(formField: field, itemViewController: ClimbTypeViewController(), followingItems: next)
     }()
-        
+
     lazy var sportRating : FormStackItem = {
-        let field = FormField(title: "How hard is the climb?", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
+        let field = FormField(title: "Rating", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
         let vc = SportRatingViewController()
         return FormStackItem(formField: field, itemViewController: vc)
     }()
         
     lazy var boulderRating : FormStackItem = {
-        let field = FormField(title: "How hard is the problem?", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
+        let field = FormField(title: "Rating", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
         let vc = BoulderRatingViewController()
         return FormStackItem(formField: field, itemViewController: vc)
     }()
     
     lazy var tradRating : FormStackItem = {
-        let field = FormField(title: "How hard is the climb?", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
+        let field = FormField(title: "Rating", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
         let vc = TradRatingViewController()
         return FormStackItem(formField: field, itemViewController: vc)
     }()
     
     lazy var climbColor : FormStackItem = {
-        let field = FormField(title: "What color is it?", unit: "", propertyKey: Climb.Keys.color) { (textField : UITextField) in }
+        let field = FormField(title: "Route Color", unit: "", propertyKey: Climb.Keys.color) { (textField : UITextField) in }
         let vc = ClimbColorViewController()
         return FormStackItem(formField: field, itemViewController: vc)
     }()
     
     lazy var climbName : FormStackItem = {
-        let field = FormField(title: "Does the climb have a name?", unit: "", propertyKey: Climb.Keys.name) { (textField : UITextField) in }
+        let field = FormField(title: "Route Name", unit: "", propertyKey: Climb.Keys.name) { (textField : UITextField) in }
         let vc = ClimbNameViewController()
         return FormStackItem(formField: field, itemViewController: vc)
     }()
     
     lazy var climbDescription : FormStackItem = {
-        let field = FormField(title: "Describe the climb (optional)", unit: "", propertyKey: Climb.Keys.description) { (textField : UITextField) in }
+        let field = FormField(title: "Description (optional)", unit: "", propertyKey: Climb.Keys.description) { (textField : UITextField) in }
         let vc = ClimbDescriptionViewController()
         return FormStackItem(formField: field, itemViewController: vc)
     }()
     
     lazy var climbPhoto : FormStackItem = {
-        let field = FormField(title: "Add a photo?", unit: "", propertyKey: Climb.Keys.photoUrl) { (textField : UITextField) in }
+        let field = FormField(title: "Route Photo", unit: "", propertyKey: Climb.Keys.photoUrl) { (textField : UITextField) in }
         let vc = ClimbPhotoViewController()
         return FormStackItem(formField: field, itemViewController: vc)
     }()

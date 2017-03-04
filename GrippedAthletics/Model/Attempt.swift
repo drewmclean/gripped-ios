@@ -17,12 +17,13 @@ class Attempt: FIRObject, FIRTimestampable {
         static let userId = "user_id"
         static let climbId = "climb_id"
         static let climbType = "climb_type"
-        static let timestamp = "timestamp"
-        static let fearLevel = "fear_level"
+        static let attemptedAt = "attempted_at"
         static let composureLevel = "composure_level"
+        static let fearLevel = "fear_level"
         static let notes = "notes"
-        static let style = "style" // Onsight, Redpoint, Flash
-        static let hangCount = "hang_count"
+        static let style = "style" // Onsight, Redpoint, Flash, Project
+        static let didSend = "did_send"
+        static let numberOfHangs = "number_of_hangs"
     }
     
     override class var objectName: String {
@@ -36,11 +37,13 @@ class Attempt: FIRObject, FIRTimestampable {
     var userId : String!
     var climbId : String!
     var climbType : String!
-    var timestamp : Date?
-    var composureLevel : String?
+    var attemptedAt : Date?
+    var composureLevel : Int?
+    var fearLevel : Int?
     var notes : String?
-    var style : String?
-    var hangCount : Int?
+    var style : String? // AttemptStyle.rawValue
+    var didSend : Bool = false
+    var numberOfHangs : Int?
     var createdAt: Date?
     var modifiedAt: Date?
     
@@ -49,11 +52,13 @@ class Attempt: FIRObject, FIRTimestampable {
             return [Keys.userId: userId,
                     Keys.climbId : climbId ?? "",
                     Keys.climbType : climbType ?? "",
-                    Keys.timestamp: timestamp ?? "",
-                    Keys.composureLevel: composureLevel ?? "",
+                    Keys.attemptedAt: climbType ?? "",
+                    Keys.composureLevel: composureLevel ?? 0,
+                    Keys.fearLevel: fearLevel ?? 0,
                     Keys.notes: notes ?? "",
                     Keys.style: style ?? "",
-                    Keys.hangCount: hangCount ?? 0,
+                    Keys.numberOfHangs: numberOfHangs ?? 0,
+                    Keys.didSend : didSend ?? false,
                     Keys.createdAt : createdAt!.isoString(),
                     Keys.modifiedAt : modifiedAt!.isoString()]
         }
@@ -61,17 +66,18 @@ class Attempt: FIRObject, FIRTimestampable {
             userId = newValue[Keys.userId] as! String
             climbId = newValue[Keys.climbId] as! String
             climbType = newValue[Keys.climbType] as! String
-            timestamp = Date.isoDate(from: newValue[Keys.timestamp] as! String)
-            composureLevel = newValue[Keys.composureLevel] as? String
-            notes = newValue[Keys.notes] as? String
+            attemptedAt = Date.isoDate(from: newValue[Keys.attemptedAt] as! String)
+            composureLevel = Int(newValue[Keys.composureLevel] as! String)
+            fearLevel = Int(newValue[Keys.fearLevel] as! String)
+            notes = newValue[Kefys.notes] as? String
             style = newValue[Keys.style] as? String
-             = Int(newValue[Keys.hangCount])
+            numberOfHangs = Int(newValue[Keys.numberOfHangs] as! String)
             createdAt = Date.isoDate(from: newValue[Keys.createdAt] as! String)
             modifiedAt = Date.isoDate(from: newValue[Keys.modifiedAt] as! String)
         }
     }
     
-    // MARK: Initializrers
+    // MARK: Initializers
     convenience init(identifier : String, userId : String, climbId : String) {
         self.init(id: identifier)
         self.userId = userId
