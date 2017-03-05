@@ -8,6 +8,25 @@
 
 import UIKit
 
+final class AttemptStyleValue : ComponentsValue, StringRepresentableSource {
+    
+    override var rawValue: String {
+        return components[0].rawValue
+    }
+    
+    convenience init(rawValue : String) {
+        self.init()
+        
+        AttemptStyle.allValues.forEach({ (type) in
+            guard type.rawValue == rawValue else {
+                return
+            }
+            components = [type]
+        })
+    }
+    
+}
+
 class AttemptStyleViewController: FormStackItemPickerViewController {
     
     var climbType : String!
@@ -29,6 +48,10 @@ class AttemptStyleViewController: FormStackItemPickerViewController {
         }
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+
+        selectedValue = AttemptStyleValue(components: [provider.providers[component][0]])
+    }
 }
 
 struct SportStylesComponentProvider : PickerComponentProvider {

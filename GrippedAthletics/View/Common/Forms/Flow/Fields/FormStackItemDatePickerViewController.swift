@@ -25,7 +25,7 @@ class FormStackItemDatePickerViewController: FormStackItemTextFieldViewControlle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textField.font = UIFont.systemFont(ofSize: 36, weight: UIFontWeightMedium)
+        textField.font = UIFont.systemFont(ofSize: 32, weight: UIFontWeightMedium)
         textField.tintColor = UIColor.clear
         textField.inputView = datePicker
     }
