@@ -16,6 +16,10 @@ enum AttemptStyle : String, StringRepresentable {
     case project = "project"
     case headpoint = "headpoint"
     
-    var allValues : [ClimbStyle] =  [onsight, redpoint, flash, project, headpoint]
+    static var sportValues : [AttemptStyle] =  [onsight, redpoint, flash, project]
+    static var boulderValues : [AttemptStyle] =  [onsight, flash, project]
+    static var tradValues : [AttemptStyle] =  [onsight, redpoint, flash, project, headpoint]
+    
+    static var allValues : [AttemptStyle] =  [onsight, redpoint, flash, project, headpoint]
     
 }

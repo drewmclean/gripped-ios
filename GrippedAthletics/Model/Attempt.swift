@@ -18,7 +18,7 @@ class Attempt: FIRObject, FIRTimestampable {
         static let climbId = "climb_id"
         static let climbType = "climb_type"
         static let attemptedAt = "attempted_at"
-        static let composureLevel = "composure_level"
+        static let strengthLevel = "strength_level"
         static let fearLevel = "fear_level"
         static let notes = "notes"
         static let style = "style" // Onsight, Redpoint, Flash, Project
@@ -38,7 +38,7 @@ class Attempt: FIRObject, FIRTimestampable {
     var climbId : String!
     var climbType : String!
     var attemptedAt : Date?
-    var composureLevel : Int?
+    var strengthLevel : Int?
     var fearLevel : Int?
     var notes : String?
     var style : String? // AttemptStyle.rawValue
@@ -53,12 +53,12 @@ class Attempt: FIRObject, FIRTimestampable {
                     Keys.climbId : climbId ?? "",
                     Keys.climbType : climbType ?? "",
                     Keys.attemptedAt: climbType ?? "",
-                    Keys.composureLevel: composureLevel ?? 0,
+                    Keys.strengthLevel: strengthLevel ?? 0,
                     Keys.fearLevel: fearLevel ?? 0,
                     Keys.notes: notes ?? "",
                     Keys.style: style ?? "",
                     Keys.numberOfHangs: numberOfHangs ?? 0,
-                    Keys.didSend : didSend ?? false,
+                    Keys.didSend : didSend,
                     Keys.createdAt : createdAt!.isoString(),
                     Keys.modifiedAt : modifiedAt!.isoString()]
         }
@@ -67,11 +67,12 @@ class Attempt: FIRObject, FIRTimestampable {
             climbId = newValue[Keys.climbId] as! String
             climbType = newValue[Keys.climbType] as! String
             attemptedAt = Date.isoDate(from: newValue[Keys.attemptedAt] as! String)
-            composureLevel = Int(newValue[Keys.composureLevel] as! String)
+            strengthLevel = Int(newValue[Keys.strengthLevel] as! String)
             fearLevel = Int(newValue[Keys.fearLevel] as! String)
-            notes = newValue[Kefys.notes] as? String
+            notes = newValue[Keys.notes] as? String
             style = newValue[Keys.style] as? String
             numberOfHangs = Int(newValue[Keys.numberOfHangs] as! String)
+            didSend = newValue[Keys.didSend] as! Bool
             createdAt = Date.isoDate(from: newValue[Keys.createdAt] as! String)
             modifiedAt = Date.isoDate(from: newValue[Keys.modifiedAt] as! String)
         }

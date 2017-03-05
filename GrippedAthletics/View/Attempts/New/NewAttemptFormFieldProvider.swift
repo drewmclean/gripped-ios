@@ -15,9 +15,8 @@ class NewAttemptFormFieldProvider : FormStackItemProvider {
     var items : [FormStackItem] = [FormStackItem]()
     var validator: Validator = Validator()
     
-    init() {
-        items = [climbVenue, climbType]
-        
+    init(climb : Climb) {
+        items = []
     }
     
     /*
@@ -26,41 +25,56 @@ class NewAttemptFormFieldProvider : FormStackItemProvider {
      static let fearLevel = "fear_level"
      static let notes = "notes"
      static let style = "style" // Onsight, Redpoint, Flash, Project
-     static let didSend = "did_send"
      */
     
     lazy var attemptedDate : FormStackItem = {
-        let field = FormField(title: "Date of attempt?", unit: "", propertyKey: Attempt.Keys.attemptedAt) { (textField : UITextField) in }
+        let field = FormField(title: "Attempt Date/Time?", unit: "", propertyKey: Attempt.Keys.attemptedAt) { (textField : UITextField) in }
         
         self.validator.registerField(field, rules: [RequiredRule()])
         
-        let vc = f
+        let vc = FormStackItemDatePickerViewController()
         
         return FormStackItem(formField: field, itemViewController: vc)
     }()
     
-    lazy var climbType : FormStackItem = {
-        let field = FormField(title: "What type of climb is it?", unit: "", propertyKey: Climb.Keys.type) { (textField : UITextField) in
+    lazy var strengthLevel : FormStackItem = {
+        let field = FormField(title: "How strong did you feel?", unit: "", propertyKey: Attempt.Keys.strengthLevel) { (textField : UITextField) in
             
         }
+        self.validator.registerField(field, rules: [RequiredRule()])
         
-        let next = { () -> [FormStackItem] in
-            let venue = self.climbVenue.formField.value
-            let climbType = self.climbType.formField.value
-            return self.venueAndTypeFormStackItems["\(venue)\(climbType)"]!
-        }
-        
-        return FormStackItem(formField: field, itemViewController: ClimbTypeViewController(), followingItems: next)
-    }()
-    
-    lazy var sportRating : FormStackItem = {
-        let field = FormField(title: "Rating", unit: "", propertyKey: Climb.Keys.rating) { (textField : UITextField) in }
-        let vc = SportRatingViewController()
+        let vc = FormStackItemSliderViewController()
+        vc.minimumValueDescriptor = "Very Weak"
+        vc.maximumValueDescriptor = "Very Strong"
         return FormStackItem(formField: field, itemViewController: vc)
     }()
     
-    lazy var climbPhoto : FormStackItem = {
-        let field = FormField(title: "Route Photo", unit: "", propertyKey: Climb.Keys.photoUrl) { (textField : UITextField) in }
+    lazy var fearLevel : FormStackItem = {
+        let field = FormField(title: "How was your mental composure?", unit: "", propertyKey: Attempt.Keys.fearLevel) { (textField : UITextField) in
+            
+        }
+        self.validator.registerField(field, rules: [RequiredRule()])
+        
+        let vc = FormStackItemSliderViewController()
+        vc.minimumValueDescriptor = "Terrified"
+        vc.maximumValueDescriptor = "No Fear"
+        return FormStackItem(formField: field, itemViewController: vc)
+    }()
+    
+    lazy var notes : FormStackItem = {
+        let field = FormField(title: "Notes", unit: "", propertyKey: Attempt.Keys.notes) { (textField : UITextField) in }
+        let vc = FormStackItemTextViewViewController()
+        return FormStackItem(formField: field, itemViewController: vc)
+    }()
+    
+    lazy var style : FormStackItem = {
+        let field = FormField(title: "Style of Attempt", unit: "", propertyKey:Attempt.Keys.style) { (textField : UITextField) in }
+        let vc = ClimbPhotoViewController()
+        return FormStackItem(formField: field, itemViewController: vc)
+    }()
+    
+    lazy var didSend : FormStackItem = {
+        let field = FormField(title: "Did you send?", unit: "", propertyKey: Attempt.Keys.didSend) { (textField : UITextField) in }
         let vc = ClimbPhotoViewController()
         return FormStackItem(formField: field, itemViewController: vc)
     }()

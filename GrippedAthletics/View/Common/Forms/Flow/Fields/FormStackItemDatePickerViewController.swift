@@ -9,11 +9,19 @@
 import UIKit
 
 class FormStackItemDatePickerViewController: FormStackItemTextFieldViewController {
-
+    
+    lazy var datePicker : UIDatePicker = {
+        let dp = UIDatePicker()
+        dp.datePickerMode = .dateAndTime
+        dp.minuteInterval = 5
+        dp.addTarget(self, action: #selector(FormStackItemDatePickerViewController.dateValueChanged(_:)), for: .valueChanged)
+        return dp
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        textField.inputView = datePicker
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +29,9 @@ class FormStackItemDatePickerViewController: FormStackItemTextFieldViewControlle
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func dateValueChanged(_:Any) {
+        
     }
-    */
+    
 
 }
