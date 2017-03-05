@@ -1,5 +1,5 @@
 //
-//  D.swift
+//  Date.swift
 //  GrippedAthletics
 //
 //  Created by Andrew McLean on 1/2/17.
@@ -10,8 +10,8 @@ import Foundation
 
 enum DateFormat : String {
     case iso = "yyyy-MM-dd'T'HH:mm:ssZ"
-    case short = "MM/DD/YYYY"
-    case long = "MM/DD/YYYY HH:MM"
+    case short = "MM/dd/YYYY"
+    case long = "MM/dd/YYYY h:mma"
 }
 
 extension Date {
