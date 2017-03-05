@@ -15,8 +15,10 @@ class NewAttemptFormFieldProvider : FormStackItemProvider {
     var items : [FormStackItem] = [FormStackItem]()
     var validator: Validator = Validator()
     
+    var climb : Climb
+    
     init(climb : Climb) {
-        items = []
+        self.climb = climb
     }
     
     /*
@@ -69,13 +71,13 @@ class NewAttemptFormFieldProvider : FormStackItemProvider {
     
     lazy var style : FormStackItem = {
         let field = FormField(title: "Style of Attempt", unit: "", propertyKey:Attempt.Keys.style) { (textField : UITextField) in }
-        let vc = ClimbPhotoViewController()
+        
         return FormStackItem(formField: field, itemViewController: vc)
     }()
     
     lazy var didSend : FormStackItem = {
         let field = FormField(title: "Did you send?", unit: "", propertyKey: Attempt.Keys.didSend) { (textField : UITextField) in }
-        let vc = ClimbPhotoViewController()
+        
         return FormStackItem(formField: field, itemViewController: vc)
     }()
     
