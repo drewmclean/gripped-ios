@@ -15,7 +15,6 @@ class NewAttemptFormFieldProvider : FormStackItemProvider {
     var items : [FormStackItem] = [FormStackItem]()
     var validator: Validator = Validator()
     
-    
     init() {
         items = [climbVenue, climbType]
         
@@ -30,12 +29,12 @@ class NewAttemptFormFieldProvider : FormStackItemProvider {
      static let didSend = "did_send"
      */
     
-    lazy var climbVenue : FormStackItem = {
-        let field = FormField(title: "Is this climb indoor or outdoor?", unit: "", propertyKey: Climb.Keys.venue) { (textField : UITextField) in }
+    lazy var attemptedDate : FormStackItem = {
+        let field = FormField(title: "Date of attempt?", unit: "", propertyKey: Attempt.Keys.attemptedAt) { (textField : UITextField) in }
         
         self.validator.registerField(field, rules: [RequiredRule()])
         
-        let vc = ClimbVenueViewController()
+        let vc = f
         
         return FormStackItem(formField: field, itemViewController: vc)
     }()
