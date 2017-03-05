@@ -23,6 +23,26 @@ struct YesNoProvider : PickerComponentProvider {
     var providers: [[StringRepresentable]] = [BooleanOptions.allValues]
 }
 
+final class YesNoValue : ComponentsValue, StringRepresentableSource {
+    
+    override var rawValue: String {
+        return components[0].rawValue
+    }
+    
+    convenience init(rawValue : String) {
+        self.init()
+        
+        BooleanOptions.allValues.forEach({ (type) in
+            guard type.rawValue == rawValue else {
+                return
+            }
+            components = [type]
+        })
+        
+    }
+    
+}
+
 class YesNoPickerViewController: FormStackItemPickerViewController {
     
     override func viewDidLoad() {
@@ -31,5 +51,8 @@ class YesNoPickerViewController: FormStackItemPickerViewController {
         provider = YesNoProvider()
         
     }
-
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedValue = YesNoValue(components: [provider.providers[component][row]])
+    }
 }
