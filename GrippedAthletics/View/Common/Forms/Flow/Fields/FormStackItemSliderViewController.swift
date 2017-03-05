@@ -26,6 +26,8 @@ class FormStackItemSliderViewController: FormStackItemTextFieldViewController {
         textField.font = UIFont.systemFont(ofSize: 36, weight: UIFontWeightMedium)
         textField.tintColor = UIColor.clear
         textField.inputView = sliderInputView
+        sliderInputView.setNeedsUpdateConstraints()
+        sliderInputView.updateConstraintsIfNeeded()
         
     }
     

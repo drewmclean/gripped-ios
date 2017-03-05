@@ -49,10 +49,13 @@ class YesNoPickerViewController: FormStackItemPickerViewController {
         super.viewDidLoad()
         
         provider = YesNoProvider()
-        
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedValue = YesNoValue(components: [provider.providers[component][row]])
+    }
+    
+    override func formattedTextInputValue(sourceValue: String) -> String {
+        return sourceValue.capitalized
     }
 }

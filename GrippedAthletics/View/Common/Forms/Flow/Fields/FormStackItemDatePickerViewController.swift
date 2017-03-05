@@ -13,7 +13,7 @@ class FormStackItemDatePickerViewController: FormStackItemTextFieldViewControlle
     lazy var datePicker : UIDatePicker = {
         let dp = UIDatePicker()
         dp.datePickerMode = .dateAndTime
-        dp.minuteInterval = 5
+        dp.minuteInterval = 1
         dp.addTarget(self, action: #selector(FormStackItemDatePickerViewController.dateValueChanged(datePicker:)), for: .valueChanged)
         return dp
     }()
@@ -30,9 +30,14 @@ class FormStackItemDatePickerViewController: FormStackItemTextFieldViewControlle
         textField.inputView = datePicker
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        dateValueChanged(datePicker: datePicker)
+    }
+    
     func dateValueChanged(datePicker : UIDatePicker) {
         textField.text = datePicker.date.longString()
     }
-    
 
 }
