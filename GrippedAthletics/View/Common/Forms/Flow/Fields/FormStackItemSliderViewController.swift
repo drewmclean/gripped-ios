@@ -14,25 +14,35 @@ class FormStackItemSliderViewController: FormStackItemTextFieldViewController {
     var minimumValueDescriptor : String?
     var maximumValueDescriptor : String?
     
-    lazy var sliderInputView : SliderInputView = SliderInputView()
+    lazy var sliderInputView : SliderInputView = {
+        let frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 220)
+        let view = SliderInputView(frame: frame, inputViewStyle: .default)
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sliderInputView.leftLabel.text = minimumValueDescriptor
-        sliderInputView.rightLabel.text = maximumValueDescriptor
+        sliderInputView.leftLabel.text = "0 - \(minimumValueDescriptor)"
+        sliderInputView.rightLabel.text = "10 - \(maximumValueDescriptor)"
         sliderInputView.slider.addTarget(self, action: #selector(FormStackItemSliderViewController.sliderValueChanged(slider:)), for: .valueChanged)
         
         textField.font = UIFont.systemFont(ofSize: 36, weight: UIFontWeightMedium)
         textField.tintColor = UIColor.clear
         textField.inputView = sliderInputView
-        sliderInputView.setNeedsUpdateConstraints()
-        sliderInputView.updateConstraintsIfNeeded()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        sliderInputView.slider.value = 5
+        sliderValueChanged(slider: sliderInputView.slider)
     }
     
     func sliderValueChanged(slider : UISlider) {
-        textField.text = "\(slider.value)"
+        let roundedValue = round(slider.value)
+        textField.text = "\(roundedValue)"
     }
     
 }
@@ -44,6 +54,7 @@ class SliderInputView : UIInputView {
         sv.axis = .vertical
         sv.alignment = .fill
         sv.distribution = .fillProportionally
+        sv.spacing = 6
         self.addSubview(sv)
         return sv
     }()
@@ -78,6 +89,10 @@ class SliderInputView : UIInputView {
         self.labelStackView.addArrangedSubview(l)
         return l
     }()
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: 100, height: 100)
+    }
     
     override func updateConstraints() {
         super.updateConstraints()
