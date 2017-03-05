@@ -23,6 +23,7 @@ final class AttemptStyleValue : ComponentsValue, StringRepresentableSource {
             }
             components = [type]
         })
+        
     }
     
 }
@@ -48,9 +49,14 @@ class AttemptStyleViewController: FormStackItemPickerViewController {
         }
     }
     
+    override func formattedTextInputValue(sourceValue: String) -> String {
+        return sourceValue.capitalized
+    }
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 
-        selectedValue = AttemptStyleValue(components: [provider.providers[component][0]])
+        selectedValue = AttemptStyleValue(components: [provider.providers[component][row]])
+        
     }
 }
 

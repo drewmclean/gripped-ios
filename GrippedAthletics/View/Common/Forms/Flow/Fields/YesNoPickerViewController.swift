@@ -28,10 +28,7 @@ class YesNoPickerViewController: FormStackItemPickerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        provider = YesNoProvider()
         
     }
 

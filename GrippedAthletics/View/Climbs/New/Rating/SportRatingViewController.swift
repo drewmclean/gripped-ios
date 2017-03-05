@@ -97,5 +97,8 @@ extension SportRatingViewController {
         selectedValue = SportRatingValue(components: selectedComponents)
     }
     
+    override func formattedTextInputValue(sourceValue: String) -> String {
+        return sourceValue.capitalized
+    }
 }
 
