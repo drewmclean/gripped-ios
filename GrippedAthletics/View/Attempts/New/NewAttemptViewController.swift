@@ -7,31 +7,51 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class NewAttemptViewController: FormStackViewController {
+    typealias T = FormStackItemProvider
     
-    var climb : Climb?
+    var attempt : Attempt?
+    var climb : Climb!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        title = "Record Attempt"
+        
+        provider = NewAttemptFormFieldProvider(climb: climb)
+        reloadViews()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
-    */
+    
+    override func submitForm() {
+        if let existingClimb = climb {
+            existingClimb.update(updatedValues: formFieldValues!) { (error: Error?, c:Climb?) in
+                guard error == nil else {
+                    return
+                }
+                self.dismiss(animated: true, completion: nil)
+            }
+        } else {
+            var formValues = formFieldValues!
+            formValues[Climb.Keys.userId] = auth.currentUser!.uid
+            let now = Date().isoString()
+            formValues[Climb.Keys.createdAt] = now
+            formValues[Climb.Keys.modifiedAt] = now
+            
+            // Create New
+            Attempt.create(fieldValues: formValues) { (error: Error?, snapshot: FIRDataSnapshot?) in
+                guard let s = snapshot else {
+                    return
+                }
+                self.attempt = Attempt(snapshot: s)
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
 
 }

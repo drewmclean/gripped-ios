@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ClimbListTableViewCellDelegate {
+    func didTapAttempt(climb: Climb)
+}
+
 class ClimbListTableViewCell: UITableViewCell {
     
     static var cellId = "ClimbListTableViewCellID"
@@ -22,6 +26,9 @@ class ClimbListTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var labelsStackView: UIStackView!
+    @IBOutlet weak var attemptButton: UIButton!
+ 
+    var delegate : ClimbListTableViewCellDelegate?
     
     var climb : Climb! {
         didSet {
@@ -32,7 +39,6 @@ class ClimbListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         labelsStackView.isLayoutMarginsRelativeArrangement = true
@@ -40,6 +46,8 @@ class ClimbListTableViewCell: UITableViewCell {
 //        climbImageView.layer.borderColor = UIColor.gray.cgColor
 //        climbImageView.layer.borderWidth = 0.5
 //        climbImageView.backgroundColor = UIColor.lightGray
+        
+        attemptButton.addTarget(self, action: #selector(ClimbListTableViewCell.attemptButtonTapped(_:)), for: .touchUpInside)
     }
     
     func updateUI() {
@@ -57,4 +65,7 @@ class ClimbListTableViewCell: UITableViewCell {
         descriptionLabel.text = climb.description
     }
 
+    func attemptButtonTapped(_:Any) {
+        delegate?.didTapAttempt(climb: climb)
+    }
 }

@@ -19,15 +19,9 @@ class NewAttemptFormFieldProvider : FormStackItemProvider {
     
     init(climb : Climb) {
         self.climb = climb
+        
+        items = [attemptedDate, style, didSend, strengthLevel, fearLevel, notes]
     }
-    
-    /*
-     static let attemptedAt = "attempted_at"
-     static let composureLevel = "composure_level"
-     static let fearLevel = "fear_level"
-     static let notes = "notes"
-     static let style = "style" // Onsight, Redpoint, Flash, Project
-     */
     
     lazy var attemptedDate : FormStackItem = {
         let field = FormField(title: "Attempt Date/Time?", unit: "", propertyKey: Attempt.Keys.attemptedAt) { (textField : UITextField) in }
@@ -63,24 +57,25 @@ class NewAttemptFormFieldProvider : FormStackItemProvider {
         return FormStackItem(formField: field, itemViewController: vc)
     }()
     
-    lazy var notes : FormStackItem = {
-        let field = FormField(title: "Notes", unit: "", propertyKey: Attempt.Keys.notes) { (textField : UITextField) in }
-        let vc = FormStackItemTextViewViewController()
-        return FormStackItem(formField: field, itemViewController: vc)
-    }()
-    
     lazy var style : FormStackItem = {
-        let field = FormField(title: "Style of Attempt", unit: "", propertyKey:Attempt.Keys.style) { (textField : UITextField) in }
-        
+        let field = FormField(title: "Style of attempt?", unit: "", propertyKey:Attempt.Keys.style) { (textField : UITextField) in }
+        let vc = AttemptStyleViewController()
+        vc.climbType = self.climb.type
         return FormStackItem(formField: field, itemViewController: vc)
     }()
     
     lazy var didSend : FormStackItem = {
         let field = FormField(title: "Did you send?", unit: "", propertyKey: Attempt.Keys.didSend) { (textField : UITextField) in }
-        
+        let vc = YesNoPickerViewController()
         return FormStackItem(formField: field, itemViewController: vc)
     }()
     
+    lazy var notes : FormStackItem = {
+        let field = FormField(title: "Notes", unit: "", propertyKey: Attempt.Keys.notes) { (textField : UITextField) in }
+        let vc = FormStackItemTextViewViewController()
+        return FormStackItem(formField: field, itemViewController: vc)
+    }()
+
     var fieldValues : [String:Any] {
         var values = [String : Any]()
         items.forEach({ (item : FormStackItem) in

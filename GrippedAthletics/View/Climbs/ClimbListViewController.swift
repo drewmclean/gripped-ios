@@ -20,6 +20,7 @@ class ClimbListViewController: UITableViewController {
     lazy var dataSource: FUITableViewDataSource = {
         let source = FUITableViewDataSource(query: self.allClimbsQuery, view: self.tableView) { (tableView: UITableView, indexPath: IndexPath, snapshot: FIRDataSnapshot) -> UITableViewCell in
             let cell = tableView.dequeueReusableCell(withIdentifier: ClimbListTableViewCell.cellId, for: indexPath) as! ClimbListTableViewCell
+            cell.delegate = self
             cell.climb = Climb(snapshot: snapshot)
             return cell
         }
@@ -68,4 +69,21 @@ class ClimbListViewController: UITableViewController {
         present(nav, animated: true, completion: nil)
     }
 
+}
+
+extension ClimbListViewController : ClimbListTableViewCellDelegate {
+    
+    func didTapAttempt(climb: Climb) {
+        presentAttemptViewController(ofClimb: climb)
+    }
+    
+    func presentAttemptViewController(ofClimb climb : Climb) {
+        guard presentedViewController == nil else { return }
+        
+        let vc = NewAttemptViewController()
+        vc.climb = climb
+        let nav = UINavigationController(rootViewController: vc)
+        present(nav, animated: true, completion: nil)
+    }
+    
 }
