@@ -60,8 +60,8 @@ class ClimbListTableViewCell: UITableViewCell {
 //        climbImageView.isHidden = true
         nameLabel.text = climb.name
         gradeLabel.text = climb.rating
-        venueLabel.text = climb.venue
-        typeLabel.text = climb.type
+        venueLabel.text = climb.venue?.capitalized
+        typeLabel.text = climb.type?.capitalized
         descriptionLabel.text = climb.description
     }
 

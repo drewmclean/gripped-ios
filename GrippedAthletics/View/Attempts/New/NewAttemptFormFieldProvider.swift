@@ -24,12 +24,9 @@ class NewAttemptFormFieldProvider : FormStackItemProvider {
     }
     
     lazy var attemptedDate : FormStackItem = {
-        let field = FormField(title: "Attempt Date/Time?", unit: "", propertyKey: Attempt.Keys.attemptedAt) { (textField : UITextField) in }
-        
+        let field = FormField(title: "Attempt Date", unit: "", propertyKey: Attempt.Keys.attemptedAt) { (textField : UITextField) in }
         self.validator.registerField(field, rules: [RequiredRule()])
-        
         let vc = FormStackItemDatePickerViewController()
-        
         return FormStackItem(formField: field, itemViewController: vc)
     }()
     
@@ -52,8 +49,8 @@ class NewAttemptFormFieldProvider : FormStackItemProvider {
         self.validator.registerField(field, rules: [RequiredRule()])
         
         let vc = FormStackItemSliderViewController()
-        vc.minimumValueDescriptor = "Terrified"
-        vc.maximumValueDescriptor = "No Fear"
+        vc.minimumValueDescriptor = "Very Scared"
+        vc.maximumValueDescriptor = "Very Calm"
         return FormStackItem(formField: field, itemViewController: vc)
     }()
     

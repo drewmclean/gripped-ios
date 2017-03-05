@@ -23,8 +23,8 @@ class FormStackItemSliderViewController: FormStackItemTextFieldViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sliderInputView.leftLabel.text = "0 - \(minimumValueDescriptor)"
-        sliderInputView.rightLabel.text = "10 - \(maximumValueDescriptor)"
+        sliderInputView.leftLabel.text = "0 - \(minimumValueDescriptor!)"
+        sliderInputView.rightLabel.text = "\(maximumValueDescriptor!) - 10"
         sliderInputView.slider.addTarget(self, action: #selector(FormStackItemSliderViewController.sliderValueChanged(slider:)), for: .valueChanged)
         
         textField.font = UIFont.systemFont(ofSize: 36, weight: UIFontWeightMedium)
@@ -41,7 +41,7 @@ class FormStackItemSliderViewController: FormStackItemTextFieldViewController {
     }
     
     func sliderValueChanged(slider : UISlider) {
-        let roundedValue = round(slider.value)
+        let roundedValue = Int(round(slider.value))
         textField.text = "\(roundedValue)"
     }
     
