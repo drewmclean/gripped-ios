@@ -14,23 +14,22 @@ class FormStackItemDatePickerViewController: FormStackItemTextFieldViewControlle
         let dp = UIDatePicker()
         dp.datePickerMode = .dateAndTime
         dp.minuteInterval = 5
-        dp.addTarget(self, action: #selector(FormStackItemDatePickerViewController.dateValueChanged(_:)), for: .valueChanged)
+        dp.addTarget(self, action: #selector(FormStackItemDatePickerViewController.dateValueChanged(datePicker:)), for: .valueChanged)
         return dp
     }()
+    
+    override var inputValue: String? {
+        return datePicker.date.isoString()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         textField.inputView = datePicker
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    func dateValueChanged(_:Any) {
-        
+    func dateValueChanged(datePicker : UIDatePicker) {
+        textField.text = datePicker.date.longString()
     }
     
 

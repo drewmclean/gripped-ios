@@ -9,23 +9,33 @@
 import Foundation
 
 enum DateFormat : String {
+    case iso = "yyyy-MM-dd'T'HH:mm:ssZ"
     case short = "MM/DD/YYYY"
-    case long = ""
-}
-
-struct DateFormaters {
-    
+    case long = "MM/DD/YYYY HH:MM"
 }
 
 extension Date {
     
     struct Formatters {
+        
         static var iso : DateFormatter {
-            let isoFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
             let formatter = DateFormatter()
-            formatter.dateFormat = isoFormat
+            formatter.dateFormat = DateFormat.iso.rawValue
             return formatter
         }
+        
+        static var short : DateFormatter {
+            let formatter: DateFormatter = DateFormatter()
+            formatter.dateFormat = DateFormat.short.rawValue
+            return formatter
+        }
+        
+        static var long : DateFormatter {
+            let formatter: DateFormatter = DateFormatter()
+            formatter.dateFormat = DateFormat.long.rawValue
+            return formatter
+        }
+        
     }
     
     func sinceNowInYears() -> Int {
@@ -37,9 +47,11 @@ extension Date {
     }
     
     func shortString() -> String {
-        let formatter: DateFormatter = DateFormatter()
-        formatter.dateFormat = DateFormat.short.rawValue
-        return formatter.string(from: self)
+        return Formatters.short.string(from: self)
+    }
+    
+    func longString() -> String {
+        return Formatters.long.string(from: self)
     }
     
     func isoString() -> String {

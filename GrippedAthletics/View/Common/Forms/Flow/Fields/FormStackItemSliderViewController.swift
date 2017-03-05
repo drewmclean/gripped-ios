@@ -21,7 +21,7 @@ class FormStackItemSliderViewController: FormStackItemTextFieldViewController {
         
         sliderInputView.leftLabel.text = minimumValueDescriptor
         sliderInputView.rightLabel.text = maximumValueDescriptor
-        sliderInputView.slider.addTarget(self, action: #selector(FormStackItemSliderViewController.sliderValueChanged(_:)), for: .valueChanged)
+        sliderInputView.slider.addTarget(self, action: #selector(FormStackItemSliderViewController.sliderValueChanged(slider:)), for: .valueChanged)
         
         textField.font = UIFont.systemFont(ofSize: 36, weight: UIFontWeightMedium)
         textField.tintColor = UIColor.clear
@@ -29,7 +29,9 @@ class FormStackItemSliderViewController: FormStackItemTextFieldViewController {
         
     }
     
-    
+    func sliderValueChanged(slider : UISlider) {
+        textField.text = "\(slider.value)"
+    }
     
 }
 
