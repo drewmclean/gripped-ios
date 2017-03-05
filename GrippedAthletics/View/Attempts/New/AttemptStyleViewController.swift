@@ -31,10 +31,6 @@ class AttemptStyleViewController: FormStackItemPickerViewController {
     
 }
 
-extension AttemptStyleViewController : PickerComponentProvider {
-    
-}
-
 struct SportStylesComponentProvider : PickerComponentProvider {
     var providers: [[StringRepresentable]] = [AttemptStyle.sportValues]
 }
@@ -46,3 +42,4 @@ struct BoulderStylesComponentProvider : PickerComponentProvider {
 struct TradStylesComponentProvider : PickerComponentProvider {
     var providers: [[StringRepresentable]] = [AttemptStyle.tradValues]
 }
+
