@@ -20,24 +20,24 @@ class FIRObject {
     
     var identifier : String = ""
     
-    class var objectName: String {
+    class var objectKey: String {
         assert(false, "You must override objectName in FIRObject subclass.")
         return ""
     }
     
-    class var userObjectsName: String {
-        return ""
+    class var userObjectKey:String {
+        return "user-\(objectName)"
     }
     
-    class var objectRef: FIRDatabaseReference { return db.reference().child(objectName) }
-    class var userObjectsRef: FIRDatabaseReference { return db.reference().child(userObjectsName) }
+    class var objectRef: FIRDatabaseReference { return db.reference().child(objectKey) }
+    class var userObjectsRef: FIRDatabaseReference { return db.reference().child(userObjectKey) }
     
     var fieldValues : [AnyHashable: Any] = [AnyHashable: Any]()
     
-    static func childUpdateRefKeys(objectKey: String, userId: String?) -> [String] {
+    class func childUpdateRefKeys(objectKey: String, objectId: String) -> [String] {
         var keys = ["\(objectName)/\(objectKey)"]
-        if let _ = userId {
-            keys.append("\(userObjectsName)/\(userId!)/\(objectKey)")
+        if let userId = FIRAuth.auth()?.currentUser.uid {
+            keys.append("\(userObjectName)/\(userId)/\(objectKey)")
         }
         return keys
     }

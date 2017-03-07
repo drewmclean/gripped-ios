@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class Attempt: FIRObject, FIRTimestampable {
     typealias T = Attempt
@@ -30,9 +31,18 @@ class Attempt: FIRObject, FIRTimestampable {
         return "attempt"
     }
     
-    override class var userObjectsName: String {
-        return "user-attempt"
+    class var climbAttemptName: String {
+        return "climb-attempt"
     }
+    
+    class var climbAttemptRef: FIRDatabaseReference { return db.reference().child(userObjectsName) }
+    
+    class func childUpdateRefKeys(objectKey: String, objectId: String?) -> [String] {
+        var keys = super.childUpdateRefKeys(objectKey: objectKey)
+        keys.append("\(climbAttemptName)/\(clim!)/\(objectKey)")
+        return keys
+    }
+    
     
     var userId : String!
     var climbId : String!

@@ -7,16 +7,20 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseDatabase
+import FirebaseDatabaseUI
 
-class AttemptsViewController: FormStackItemPickerViewController {
-
-    lazy var allAttempsQuery: FIRDatabaseQuery = {
+class AttemptsViewController: UITableViewController {
+    
+    var climbId : String?
+    
+    lazy var attemptsQuery: FIRDatabaseQuery = {
         return Attempt.objectRef
     }()
     
     lazy var dataSource: FUITableViewDataSource = {
-        let source = FUITableViewDataSource(query: self.allClimbsQuery, view: self.tableView) { (tableView: UITableView, indexPath: IndexPath, snapshot: FIRDataSnapshot) -> UITableViewCell in
+        let source = FUITableViewDataSource(query: self.attemptsQuery, view: self.tableView) { (tableView: UITableView, indexPath: IndexPath, snapshot: FIRDataSnapshot) -> UITableViewCell in
             let cell = tableView.dequeueReusableCell(withIdentifier: ClimbListTableViewCell.cellId, for: indexPath) as! ClimbListTableViewCell
             cell.delegate = self
             cell.climb = Climb(snapshot: snapshot)
