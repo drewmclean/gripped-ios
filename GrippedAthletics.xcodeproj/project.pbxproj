@@ -12,6 +12,7 @@
 		570974B51DFB58B300D355B9 /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570974B41DFB58B300D355B9 /* NSError.swift */; };
 		57097FB91E6C78B2000C5EC6 /* AttemptStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57097FB81E6C78B2000C5EC6 /* AttemptStyleViewController.swift */; };
 		57097FBB1E6C7D3D000C5EC6 /* YesNoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57097FBA1E6C7D3D000C5EC6 /* YesNoPickerViewController.swift */; };
+		57097FBD1E6CB543000C5EC6 /* AttemptListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57097FBC1E6CB543000C5EC6 /* AttemptListViewController.swift */; };
 		5713E3311DF5F17700D06A8A /* AuthFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5713E3301DF5F17700D06A8A /* AuthFlowViewController.swift */; };
 		571C7F7F1DBBD09A0071DB04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7F7E1DBBD09A0071DB04 /* AppDelegate.swift */; };
 		571C7F971DBBD09A0071DB04 /* GrippedAthleticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571C7F961DBBD09A0071DB04 /* GrippedAthleticsTests.swift */; };
@@ -117,6 +118,7 @@
 		570974B41DFB58B300D355B9 /* NSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
 		57097FB81E6C78B2000C5EC6 /* AttemptStyleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttemptStyleViewController.swift; sourceTree = "<group>"; };
 		57097FBA1E6C7D3D000C5EC6 /* YesNoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YesNoPickerViewController.swift; sourceTree = "<group>"; };
+		57097FBC1E6CB543000C5EC6 /* AttemptListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttemptListViewController.swift; sourceTree = "<group>"; };
 		5713E3301DF5F17700D06A8A /* AuthFlowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthFlowViewController.swift; sourceTree = "<group>"; };
 		571C7F7B1DBBD09A0071DB04 /* GrippedAthletics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrippedAthletics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		571C7F7E1DBBD09A0071DB04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 		575E59E31E53ED6F0035C820 /* Attempts */ = {
 			isa = PBXGroup;
 			children = (
+				57097FBC1E6CB543000C5EC6 /* AttemptListViewController.swift */,
 				575E5A031E53EF6E0035C820 /* New */,
 			);
 			path = Attempts;
@@ -903,6 +906,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57097FBD1E6CB543000C5EC6 /* AttemptListViewController.swift in Sources */,
 				5727D5291E494C9500264430 /* Attempt.swift in Sources */,
 				57BEF3DF1E205F2F008CBAFE /* String.swift in Sources */,
 				57BB62EE1E1C275400D62CAB /* Biometrics.swift in Sources */,
